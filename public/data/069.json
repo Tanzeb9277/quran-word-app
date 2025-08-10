@@ -1,0 +1,4879 @@
+{
+  "metadata": {
+    "surah_number": 69,
+    "total_words": 258,
+    "scraped_at": "2025-07-06 17:14:56",
+    "scraper_version": "fast",
+    "duplicates_removed": 948
+  },
+  "words": [
+    {
+      "location": "69:1:1",
+      "transliteration": "al-ḥāqatu",
+      "translation": "The Inevitable Reality!",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73094",
+      "verse": "69:1",
+      "root": {
+        "root_latin": "ḥā qāf qāf",
+        "root_arabic": "ح ق ق"
+      }
+    },
+    {
+      "location": "69:2:1",
+      "transliteration": "",
+      "translation": "What",
+      "tags": [
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=73095",
+      "verse": "69:2"
+    },
+    {
+      "location": "69:2:2",
+      "transliteration": "l-ḥāqatu",
+      "translation": "(is) the Inevitable Reality?",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73096",
+      "verse": "69:2",
+      "root": {
+        "root_latin": "ḥā qāf qāf",
+        "root_arabic": "ح ق ق"
+      }
+    },
+    {
+      "location": "69:3:1",
+      "transliteration": "",
+      "translation": "And what",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=73097",
+      "verse": "69:3"
+    },
+    {
+      "location": "69:3:2",
+      "transliteration": "adrāka",
+      "translation": "will make you know",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض والكاف ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73098",
+      "verse": "69:3",
+      "root": {
+        "root_latin": "dāl rā yā",
+        "root_arabic": "د ر ي"
+      }
+    },
+    {
+      "location": "69:3:3",
+      "transliteration": "",
+      "translation": "what",
+      "tags": [
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=73099",
+      "verse": "69:3"
+    },
+    {
+      "location": "69:3:4",
+      "transliteration": "l-ḥāqatu",
+      "translation": "(is) the Inevitable Reality?",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73100",
+      "verse": "69:3",
+      "root": {
+        "root_latin": "ḥā qāf qāf",
+        "root_arabic": "ح ق ق"
+      }
+    },
+    {
+      "location": "69:4:1",
+      "transliteration": "kadhabat",
+      "translation": "Denied",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73101",
+      "verse": "69:4",
+      "root": {
+        "root_latin": "kāf dhāl bā",
+        "root_arabic": "ك ذ ب"
+      }
+    },
+    {
+      "location": "69:4:2",
+      "transliteration": "",
+      "translation": "Thamud",
+      "tags": [
+        {
+          "tag": "PN",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم علم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73102",
+      "verse": "69:4"
+    },
+    {
+      "location": "69:4:3",
+      "transliteration": "waʿādun",
+      "translation": "and Aad",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "PN",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم علم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73103",
+      "verse": "69:4",
+      "root": {
+        "root_latin": "ʿayn wāw dāl",
+        "root_arabic": "ع و د"
+      }
+    },
+    {
+      "location": "69:4:4",
+      "transliteration": "bil-qāriʿati",
+      "translation": "the Striking Calamity.",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73104",
+      "verse": "69:4",
+      "root": {
+        "root_latin": "qāf rā ʿayn",
+        "root_arabic": "ق ر ع"
+      }
+    },
+    {
+      "location": "69:5:1",
+      "transliteration": "fa-ammā",
+      "translation": "So as for",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "EXL",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nحرف تفصيل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73105",
+      "verse": "69:5"
+    },
+    {
+      "location": "69:5:2",
+      "transliteration": "",
+      "translation": "Thamud,",
+      "tags": [
+        {
+          "tag": "PN",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم علم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73106",
+      "verse": "69:5"
+    },
+    {
+      "location": "69:5:3",
+      "transliteration": "fa-uh'likū",
+      "translation": "they were destroyed",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nفعل ماض مبني للمجهول والواو ضمير متصل في محل رفع نائب فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73107",
+      "verse": "69:5",
+      "root": {
+        "root_latin": "hā lām kāf",
+        "root_arabic": "ه ل ك"
+      }
+    },
+    {
+      "location": "69:5:4",
+      "transliteration": "bil-ṭāghiyati",
+      "translation": "by the overpowering (blast).",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73108",
+      "verse": "69:5",
+      "root": {
+        "root_latin": "ṭā ghayn yā",
+        "root_arabic": "ط غ ي"
+      }
+    },
+    {
+      "location": "69:6:1",
+      "transliteration": "wa-ammā",
+      "translation": "And as for",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "EXL",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف تفصيل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73109",
+      "verse": "69:6"
+    },
+    {
+      "location": "69:6:2",
+      "transliteration": "ʿādun",
+      "translation": "Aad,",
+      "tags": [
+        {
+          "tag": "PN",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم علم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73110",
+      "verse": "69:6",
+      "root": {
+        "root_latin": "ʿayn wāw dāl",
+        "root_arabic": "ع و د"
+      }
+    },
+    {
+      "location": "69:6:3",
+      "transliteration": "fa-uh'likū",
+      "translation": "they were destroyed",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nفعل ماض مبني للمجهول والواو ضمير متصل في محل رفع نائب فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73111",
+      "verse": "69:6",
+      "root": {
+        "root_latin": "hā lām kāf",
+        "root_arabic": "ه ل ك"
+      }
+    },
+    {
+      "location": "69:6:4",
+      "transliteration": "birīḥin",
+      "translation": "by a wind",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73112",
+      "verse": "69:6",
+      "root": {
+        "root_latin": "rā wāw ḥā",
+        "root_arabic": "ر و ح"
+      }
+    },
+    {
+      "location": "69:6:5",
+      "transliteration": "ṣarṣarin",
+      "translation": "screaming",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73113",
+      "verse": "69:6"
+    },
+    {
+      "location": "69:6:6",
+      "transliteration": "ʿātiyatin",
+      "translation": "violent,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73114",
+      "verse": "69:6",
+      "root": {
+        "root_latin": "ʿayn tā wāw",
+        "root_arabic": "ع ت و"
+      }
+    },
+    {
+      "location": "69:7:1",
+      "transliteration": "sakharahā",
+      "translation": "Which He imposed",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض و«ها» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73115",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "sīn khā rā",
+        "root_arabic": "س خ ر"
+      }
+    },
+    {
+      "location": "69:7:2",
+      "transliteration": "",
+      "translation": "upon them",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73116",
+      "verse": "69:7"
+    },
+    {
+      "location": "69:7:3",
+      "transliteration": "sabʿa",
+      "translation": "(for) seven",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73117",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "sīn bā ʿayn",
+        "root_arabic": "س ب ع"
+      }
+    },
+    {
+      "location": "69:7:4",
+      "transliteration": "layālin",
+      "translation": "nights",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73118",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "lām yā lām",
+        "root_arabic": "ل ي ل"
+      }
+    },
+    {
+      "location": "69:7:5",
+      "transliteration": "wathamāniyata",
+      "translation": "and eight",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nظرف زمان منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73119",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "thā mīm nūn",
+        "root_arabic": "ث م ن"
+      }
+    },
+    {
+      "location": "69:7:6",
+      "transliteration": "ayyāmin",
+      "translation": "days",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73120",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "yā wāw mīm",
+        "root_arabic": "ي و م"
+      }
+    },
+    {
+      "location": "69:7:7",
+      "transliteration": "ḥusūman",
+      "translation": "(in) succession,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة منصوبة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73121",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "ḥā sīn mīm",
+        "root_arabic": "ح س م"
+      }
+    },
+    {
+      "location": "69:7:8",
+      "transliteration": "fatarā",
+      "translation": "so you would see",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nفعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73122",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "rā hamza yā",
+        "root_arabic": "ر أ ي"
+      }
+    },
+    {
+      "location": "69:7:9",
+      "transliteration": "l-qawma",
+      "translation": "the people",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73123",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "qāf wāw mīm",
+        "root_arabic": "ق و م"
+      }
+    },
+    {
+      "location": "69:7:10",
+      "transliteration": "",
+      "translation": "therein",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73124",
+      "verse": "69:7"
+    },
+    {
+      "location": "69:7:11",
+      "transliteration": "ṣarʿā",
+      "translation": "fallen",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73125",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "ṣād rā ʿayn",
+        "root_arabic": "ص ر ع"
+      }
+    },
+    {
+      "location": "69:7:12",
+      "transliteration": "",
+      "translation": "as if they were",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب من اخوات «ان» و«هم» ضمير متصل في محل نصب اسم «كأن»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73126",
+      "verse": "69:7"
+    },
+    {
+      "location": "69:7:13",
+      "transliteration": "aʿjāzu",
+      "translation": "trunks",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73127",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "ʿayn jīm zāy",
+        "root_arabic": "ع ج ز"
+      }
+    },
+    {
+      "location": "69:7:14",
+      "transliteration": "nakhlin",
+      "translation": "(of) date-palms",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73128",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "nūn khā lām",
+        "root_arabic": "ن خ ل"
+      }
+    },
+    {
+      "location": "69:7:15",
+      "transliteration": "khāwiyatin",
+      "translation": "hollow.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73129",
+      "verse": "69:7",
+      "root": {
+        "root_latin": "khā wāw yā",
+        "root_arabic": "خ و ي"
+      }
+    },
+    {
+      "location": "69:8:1",
+      "transliteration": "",
+      "translation": "Then do",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nحرف استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=73130",
+      "verse": "69:8"
+    },
+    {
+      "location": "69:8:2",
+      "transliteration": "tarā",
+      "translation": "you see",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73131",
+      "verse": "69:8",
+      "root": {
+        "root_latin": "rā hamza yā",
+        "root_arabic": "ر أ ي"
+      }
+    },
+    {
+      "location": "69:8:3",
+      "transliteration": "",
+      "translation": "of them",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73132",
+      "verse": "69:8"
+    },
+    {
+      "location": "69:8:4",
+      "transliteration": "",
+      "translation": "any",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73133",
+      "verse": "69:8"
+    },
+    {
+      "location": "69:8:5",
+      "transliteration": "bāqiyatin",
+      "translation": "remains?",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73134",
+      "verse": "69:8",
+      "root": {
+        "root_latin": "bā qāf yā",
+        "root_arabic": "ب ق ي"
+      }
+    },
+    {
+      "location": "69:9:1",
+      "transliteration": "wajāa",
+      "translation": "And came",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو استئنافية\nفعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73135",
+      "verse": "69:9",
+      "root": {
+        "root_latin": "jīm yā hamza",
+        "root_arabic": "ج ي أ"
+      }
+    },
+    {
+      "location": "69:9:2",
+      "transliteration": "",
+      "translation": "Firaun,",
+      "tags": [
+        {
+          "tag": "PN",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم علم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73136",
+      "verse": "69:9"
+    },
+    {
+      "location": "69:9:3",
+      "transliteration": "",
+      "translation": "and (those)",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=73137",
+      "verse": "69:9"
+    },
+    {
+      "location": "69:9:4",
+      "transliteration": "qablahu",
+      "translation": "before him,",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان منصوب والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73138",
+      "verse": "69:9",
+      "root": {
+        "root_latin": "qāf bā lām",
+        "root_arabic": "ق ب ل"
+      }
+    },
+    {
+      "location": "69:9:5",
+      "transliteration": "wal-mu'tafikātu",
+      "translation": "and the overturned cities",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73139",
+      "verse": "69:9",
+      "root": {
+        "root_latin": "hamza fā kāf",
+        "root_arabic": "أ ف ك"
+      }
+    },
+    {
+      "location": "69:9:6",
+      "transliteration": "bil-khāṭi-ati",
+      "translation": "with sin.",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73140",
+      "verse": "69:9",
+      "root": {
+        "root_latin": "khā ṭā hamza",
+        "root_arabic": "خ ط أ"
+      }
+    },
+    {
+      "location": "69:10:1",
+      "transliteration": "faʿaṣaw",
+      "translation": "And they disobeyed",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء عاطفة\nفعل ماض والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73141",
+      "verse": "69:10",
+      "root": {
+        "root_latin": "ʿayn ṣād yā",
+        "root_arabic": "ع ص ي"
+      }
+    },
+    {
+      "location": "69:10:2",
+      "transliteration": "rasūla",
+      "translation": "(the) Messenger",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73142",
+      "verse": "69:10",
+      "root": {
+        "root_latin": "rā sīn lām",
+        "root_arabic": "ر س ل"
+      }
+    },
+    {
+      "location": "69:10:3",
+      "transliteration": "rabbihim",
+      "translation": "(of) their Lord,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور و«هم» ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73143",
+      "verse": "69:10",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "69:10:4",
+      "transliteration": "fa-akhadhahum",
+      "translation": "so He seized them",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء عاطفة\nفعل ماض و«هم» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73144",
+      "verse": "69:10",
+      "root": {
+        "root_latin": "hamza khā dhāl",
+        "root_arabic": "أ خ ذ"
+      }
+    },
+    {
+      "location": "69:10:5",
+      "transliteration": "akhdhatan",
+      "translation": "(with) a seizure",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73145",
+      "verse": "69:10",
+      "root": {
+        "root_latin": "hamza khā dhāl",
+        "root_arabic": "أ خ ذ"
+      }
+    },
+    {
+      "location": "69:10:6",
+      "transliteration": "rābiyatan",
+      "translation": "exceeding.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة منصوبة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73146",
+      "verse": "69:10",
+      "root": {
+        "root_latin": "rā bā wāw",
+        "root_arabic": "ر ب و"
+      }
+    },
+    {
+      "location": "69:11:1",
+      "transliteration": "",
+      "translation": "Indeed, We",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب و«نا» ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73147",
+      "verse": "69:11"
+    },
+    {
+      "location": "69:11:2",
+      "transliteration": "",
+      "translation": "when",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=73148",
+      "verse": "69:11"
+    },
+    {
+      "location": "69:11:3",
+      "transliteration": "ṭaghā",
+      "translation": "overflowed",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73149",
+      "verse": "69:11",
+      "root": {
+        "root_latin": "ṭā ghayn yā",
+        "root_arabic": "ط غ ي"
+      }
+    },
+    {
+      "location": "69:11:4",
+      "transliteration": "l-māu",
+      "translation": "the water,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73150",
+      "verse": "69:11",
+      "root": {
+        "root_latin": "mīm wāw hā",
+        "root_arabic": "م و ه"
+      }
+    },
+    {
+      "location": "69:11:5",
+      "transliteration": "ḥamalnākum",
+      "translation": "We carried you",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض و«نا» ضمير متصل في محل رفع فاعل والكاف ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73151",
+      "verse": "69:11",
+      "root": {
+        "root_latin": "ḥā mīm lām",
+        "root_arabic": "ح م ل"
+      }
+    },
+    {
+      "location": "69:11:6",
+      "transliteration": "",
+      "translation": "in",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73152",
+      "verse": "69:11"
+    },
+    {
+      "location": "69:11:7",
+      "transliteration": "l-jāriyati",
+      "translation": "the sailing (ship).",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73153",
+      "verse": "69:11",
+      "root": {
+        "root_latin": "jīm rā yā",
+        "root_arabic": "ج ر ي"
+      }
+    },
+    {
+      "location": "69:12:1",
+      "transliteration": "linajʿalahā",
+      "translation": "That We might make it",
+      "tags": [
+        {
+          "tag": "PRP",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التعليل\nفعل مضارع منصوب و«ها» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73154",
+      "verse": "69:12",
+      "root": {
+        "root_latin": "jīm ʿayn lām",
+        "root_arabic": "ج ع ل"
+      }
+    },
+    {
+      "location": "69:12:2",
+      "transliteration": "",
+      "translation": "for you",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73155",
+      "verse": "69:12"
+    },
+    {
+      "location": "69:12:3",
+      "transliteration": "tadhkiratan",
+      "translation": "a reminder",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73156",
+      "verse": "69:12",
+      "root": {
+        "root_latin": "dhāl kāf rā",
+        "root_arabic": "ذ ك ر"
+      }
+    },
+    {
+      "location": "69:12:4",
+      "transliteration": "wataʿiyahā",
+      "translation": "and would be conscious of it",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل مضارع منصوب و«ها» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73157",
+      "verse": "69:12",
+      "root": {
+        "root_latin": "wāw ʿayn yā",
+        "root_arabic": "و ع ي"
+      }
+    },
+    {
+      "location": "69:12:5",
+      "transliteration": "udhunun",
+      "translation": "an ear",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73158",
+      "verse": "69:12",
+      "root": {
+        "root_latin": "hamza dhāl nūn",
+        "root_arabic": "أ ذ ن"
+      }
+    },
+    {
+      "location": "69:12:6",
+      "transliteration": "wāʿiyatun",
+      "translation": "conscious.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مرفوعة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73159",
+      "verse": "69:12",
+      "root": {
+        "root_latin": "wāw ʿayn yā",
+        "root_arabic": "و ع ي"
+      }
+    },
+    {
+      "location": "69:13:1",
+      "transliteration": "fa-idhā",
+      "translation": "Then when",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=73160",
+      "verse": "69:13"
+    },
+    {
+      "location": "69:13:2",
+      "transliteration": "nufikha",
+      "translation": "is blown",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض مبني للمجهول",
+      "image_url": "https://corpus.quran.com/wordimage?id=73161",
+      "verse": "69:13",
+      "root": {
+        "root_latin": "nūn fā khā",
+        "root_arabic": "ن ف خ"
+      }
+    },
+    {
+      "location": "69:13:3",
+      "transliteration": "",
+      "translation": "in",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73162",
+      "verse": "69:13"
+    },
+    {
+      "location": "69:13:4",
+      "transliteration": "l-ṣūri",
+      "translation": "the trumpet -",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73163",
+      "verse": "69:13",
+      "root": {
+        "root_latin": "ṣād wāw rā",
+        "root_arabic": "ص و ر"
+      }
+    },
+    {
+      "location": "69:13:5",
+      "transliteration": "nafkhatun",
+      "translation": "a blast",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73164",
+      "verse": "69:13",
+      "root": {
+        "root_latin": "nūn fā khā",
+        "root_arabic": "ن ف خ"
+      }
+    },
+    {
+      "location": "69:13:6",
+      "transliteration": "wāḥidatun",
+      "translation": "single,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مرفوعة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73165",
+      "verse": "69:13",
+      "root": {
+        "root_latin": "wāw ḥā dāl",
+        "root_arabic": "و ح د"
+      }
+    },
+    {
+      "location": "69:14:1",
+      "transliteration": "waḥumilati",
+      "translation": "And are lifted",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض مبني للمجهول",
+      "image_url": "https://corpus.quran.com/wordimage?id=73166",
+      "verse": "69:14",
+      "root": {
+        "root_latin": "ḥā mīm lām",
+        "root_arabic": "ح م ل"
+      }
+    },
+    {
+      "location": "69:14:2",
+      "transliteration": "l-arḍu",
+      "translation": "the earth",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73167",
+      "verse": "69:14",
+      "root": {
+        "root_latin": "hamza rā ḍād",
+        "root_arabic": "أ ر ض"
+      }
+    },
+    {
+      "location": "69:14:3",
+      "transliteration": "wal-jibālu",
+      "translation": "and the mountains",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73168",
+      "verse": "69:14",
+      "root": {
+        "root_latin": "jīm bā lām",
+        "root_arabic": "ج ب ل"
+      }
+    },
+    {
+      "location": "69:14:4",
+      "transliteration": "fadukkatā",
+      "translation": "and crushed",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء عاطفة\nفعل ماض مبني للمجهول والألف ضمير متصل في محل رفع نائب فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73169",
+      "verse": "69:14",
+      "root": {
+        "root_latin": "dāl kāf kāf",
+        "root_arabic": "د ك ك"
+      }
+    },
+    {
+      "location": "69:14:5",
+      "transliteration": "dakkatan",
+      "translation": "(with) a crushing",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73170",
+      "verse": "69:14",
+      "root": {
+        "root_latin": "dāl kāf kāf",
+        "root_arabic": "د ك ك"
+      }
+    },
+    {
+      "location": "69:14:6",
+      "transliteration": "wāḥidatan",
+      "translation": "single.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة منصوبة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73171",
+      "verse": "69:14",
+      "root": {
+        "root_latin": "wāw ḥā dāl",
+        "root_arabic": "و ح د"
+      }
+    },
+    {
+      "location": "69:15:1",
+      "transliteration": "",
+      "translation": "Then (on) that Day",
+      "tags": [
+        {
+          "tag": "RSLT",
+          "description": ""
+        },
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء واقعة في جواب الشرط\nظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=73172",
+      "verse": "69:15"
+    },
+    {
+      "location": "69:15:2",
+      "transliteration": "waqaʿati",
+      "translation": "will occur",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73173",
+      "verse": "69:15",
+      "root": {
+        "root_latin": "wāw qāf ʿayn",
+        "root_arabic": "و ق ع"
+      }
+    },
+    {
+      "location": "69:15:3",
+      "transliteration": "l-wāqiʿatu",
+      "translation": "the Occurrence,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73174",
+      "verse": "69:15",
+      "root": {
+        "root_latin": "wāw qāf ʿayn",
+        "root_arabic": "و ق ع"
+      }
+    },
+    {
+      "location": "69:16:1",
+      "transliteration": "wa-inshaqqati",
+      "translation": "And will split",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73175",
+      "verse": "69:16",
+      "root": {
+        "root_latin": "shīn qāf qāf",
+        "root_arabic": "ش ق ق"
+      }
+    },
+    {
+      "location": "69:16:2",
+      "transliteration": "l-samāu",
+      "translation": "the heaven,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73176",
+      "verse": "69:16",
+      "root": {
+        "root_latin": "sīn mīm wāw",
+        "root_arabic": "س م و"
+      }
+    },
+    {
+      "location": "69:16:3",
+      "transliteration": "",
+      "translation": "so it",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nضمير منفصل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73177",
+      "verse": "69:16"
+    },
+    {
+      "location": "69:16:4",
+      "transliteration": "",
+      "translation": "(is on) that Day",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=73178",
+      "verse": "69:16"
+    },
+    {
+      "location": "69:16:5",
+      "transliteration": "wāhiyatun",
+      "translation": "frail.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73179",
+      "verse": "69:16",
+      "root": {
+        "root_latin": "wāw hā yā",
+        "root_arabic": "و ه ي"
+      }
+    },
+    {
+      "location": "69:17:1",
+      "transliteration": "wal-malaku",
+      "translation": "And the Angels",
+      "tags": [
+        {
+          "tag": "CIRC",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو حالية\nاسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73180",
+      "verse": "69:17",
+      "root": {
+        "root_latin": "mīm lām kāf",
+        "root_arabic": "م ل ك"
+      }
+    },
+    {
+      "location": "69:17:2",
+      "transliteration": "",
+      "translation": "(will be) on",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73181",
+      "verse": "69:17"
+    },
+    {
+      "location": "69:17:3",
+      "transliteration": "arjāihā",
+      "translation": "its edges,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور و«ها» ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73182",
+      "verse": "69:17",
+      "root": {
+        "root_latin": "rā jīm wāw",
+        "root_arabic": "ر ج و"
+      }
+    },
+    {
+      "location": "69:17:4",
+      "transliteration": "wayaḥmilu",
+      "translation": "and will bear",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73183",
+      "verse": "69:17",
+      "root": {
+        "root_latin": "ḥā mīm lām",
+        "root_arabic": "ح م ل"
+      }
+    },
+    {
+      "location": "69:17:5",
+      "transliteration": "ʿarsha",
+      "translation": "(the) Throne",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73184",
+      "verse": "69:17",
+      "root": {
+        "root_latin": "ʿayn rā shīn",
+        "root_arabic": "ع ر ش"
+      }
+    },
+    {
+      "location": "69:17:6",
+      "transliteration": "rabbika",
+      "translation": "(of) your Lord",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور والكاف ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73185",
+      "verse": "69:17",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "69:17:7",
+      "transliteration": "fawqahum",
+      "translation": "above them,",
+      "tags": [
+        {
+          "tag": "LOC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف مكان منصوب و«هم» ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73186",
+      "verse": "69:17",
+      "root": {
+        "root_latin": "fā wāw qāf",
+        "root_arabic": "ف و ق"
+      }
+    },
+    {
+      "location": "69:17:8",
+      "transliteration": "",
+      "translation": "that Day,",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=73187",
+      "verse": "69:17"
+    },
+    {
+      "location": "69:17:9",
+      "transliteration": "thamāniyatun",
+      "translation": "eight.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73188",
+      "verse": "69:17",
+      "root": {
+        "root_latin": "thā mīm nūn",
+        "root_arabic": "ث م ن"
+      }
+    },
+    {
+      "location": "69:18:1",
+      "transliteration": "",
+      "translation": "That Day,",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=73189",
+      "verse": "69:18"
+    },
+    {
+      "location": "69:18:2",
+      "transliteration": "tuʿ'raḍūna",
+      "translation": "you will be exhibited,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع مبني للمجهول والواو ضمير متصل في محل رفع نائب فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73190",
+      "verse": "69:18",
+      "root": {
+        "root_latin": "ʿayn rā ḍād",
+        "root_arabic": "ع ر ض"
+      }
+    },
+    {
+      "location": "69:18:3",
+      "transliteration": "",
+      "translation": "not",
+      "tags": [
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73191",
+      "verse": "69:18"
+    },
+    {
+      "location": "69:18:4",
+      "transliteration": "takhfā",
+      "translation": "will be hidden",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73192",
+      "verse": "69:18",
+      "root": {
+        "root_latin": "khā fā yā",
+        "root_arabic": "خ ف ي"
+      }
+    },
+    {
+      "location": "69:18:5",
+      "transliteration": "",
+      "translation": "among you",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73193",
+      "verse": "69:18"
+    },
+    {
+      "location": "69:18:6",
+      "transliteration": "khāfiyatun",
+      "translation": "any secret.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73194",
+      "verse": "69:18",
+      "root": {
+        "root_latin": "khā fā yā",
+        "root_arabic": "خ ف ي"
+      }
+    },
+    {
+      "location": "69:19:1",
+      "transliteration": "fa-ammā",
+      "translation": "Then as for",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "EXL",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nحرف تفصيل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73195",
+      "verse": "69:19"
+    },
+    {
+      "location": "69:19:2",
+      "transliteration": "",
+      "translation": "(him) who",
+      "tags": [
+        {
+          "tag": "COND",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم شرط",
+      "image_url": "https://corpus.quran.com/wordimage?id=73196",
+      "verse": "69:19"
+    },
+    {
+      "location": "69:19:3",
+      "transliteration": "ūtiya",
+      "translation": "is given",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض مبني للمجهول",
+      "image_url": "https://corpus.quran.com/wordimage?id=73197",
+      "verse": "69:19",
+      "root": {
+        "root_latin": "hamza tā yā",
+        "root_arabic": "أ ت ي"
+      }
+    },
+    {
+      "location": "69:19:4",
+      "transliteration": "kitābahu",
+      "translation": "his record",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73198",
+      "verse": "69:19",
+      "root": {
+        "root_latin": "kāf tā bā",
+        "root_arabic": "ك ت ب"
+      }
+    },
+    {
+      "location": "69:19:5",
+      "transliteration": "biyamīnihi",
+      "translation": "in his right hand",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73199",
+      "verse": "69:19",
+      "root": {
+        "root_latin": "yā mīm nūn",
+        "root_arabic": "ي م ن"
+      }
+    },
+    {
+      "location": "69:19:6",
+      "transliteration": "fayaqūlu",
+      "translation": "will say,",
+      "tags": [
+        {
+          "tag": "RSLT",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء واقعة في جواب الشرط\nفعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73200",
+      "verse": "69:19",
+      "root": {
+        "root_latin": "qāf wāw lām",
+        "root_arabic": "ق و ل"
+      }
+    },
+    {
+      "location": "69:19:7",
+      "transliteration": "",
+      "translation": "\"Here,",
+      "tags": [
+        {
+          "tag": "IMPN",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم فعل أمر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73201",
+      "verse": "69:19"
+    },
+    {
+      "location": "69:19:8",
+      "transliteration": "iq'raū",
+      "translation": "read",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل أمر والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73202",
+      "verse": "69:19",
+      "root": {
+        "root_latin": "qāf rā hamza",
+        "root_arabic": "ق ر أ"
+      }
+    },
+    {
+      "location": "69:19:9",
+      "transliteration": "kitābiyah",
+      "translation": "my record!",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب والياء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73203",
+      "verse": "69:19",
+      "root": {
+        "root_latin": "kāf tā bā",
+        "root_arabic": "ك ت ب"
+      }
+    },
+    {
+      "location": "69:20:1",
+      "transliteration": "",
+      "translation": "Indeed, I",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب والياء ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73204",
+      "verse": "69:20"
+    },
+    {
+      "location": "69:20:2",
+      "transliteration": "ẓanantu",
+      "translation": "was certain",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض والتاء ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73205",
+      "verse": "69:20",
+      "root": {
+        "root_latin": "ẓā nūn nūn",
+        "root_arabic": "ظ ن ن"
+      }
+    },
+    {
+      "location": "69:20:3",
+      "transliteration": "",
+      "translation": "that I",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب من اخوات «ان» والياء ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73206",
+      "verse": "69:20"
+    },
+    {
+      "location": "69:20:4",
+      "transliteration": "mulāqin",
+      "translation": "(will) meet",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73207",
+      "verse": "69:20",
+      "root": {
+        "root_latin": "lām qāf yā",
+        "root_arabic": "ل ق ي"
+      }
+    },
+    {
+      "location": "69:20:5",
+      "transliteration": "ḥisābiyah",
+      "translation": "my account.\"",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب والياء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73208",
+      "verse": "69:20",
+      "root": {
+        "root_latin": "ḥā sīn bā",
+        "root_arabic": "ح س ب"
+      }
+    },
+    {
+      "location": "69:21:1",
+      "transliteration": "",
+      "translation": "So he",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nضمير منفصل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73209",
+      "verse": "69:21"
+    },
+    {
+      "location": "69:21:2",
+      "transliteration": "",
+      "translation": "(will be) in",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73210",
+      "verse": "69:21"
+    },
+    {
+      "location": "69:21:3",
+      "transliteration": "ʿīshatin",
+      "translation": "a life",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73211",
+      "verse": "69:21",
+      "root": {
+        "root_latin": "ʿayn yā shīn",
+        "root_arabic": "ع ي ش"
+      }
+    },
+    {
+      "location": "69:21:4",
+      "transliteration": "rāḍiyatin",
+      "translation": "pleasant,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73212",
+      "verse": "69:21",
+      "root": {
+        "root_latin": "rā ḍād wāw",
+        "root_arabic": "ر ض و"
+      }
+    },
+    {
+      "location": "69:22:1",
+      "transliteration": "",
+      "translation": "In",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73213",
+      "verse": "69:22"
+    },
+    {
+      "location": "69:22:2",
+      "transliteration": "jannatin",
+      "translation": "a Garden",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73214",
+      "verse": "69:22",
+      "root": {
+        "root_latin": "jīm nūn nūn",
+        "root_arabic": "ج ن ن"
+      }
+    },
+    {
+      "location": "69:22:3",
+      "transliteration": "ʿāliyatin",
+      "translation": "elevated,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73215",
+      "verse": "69:22",
+      "root": {
+        "root_latin": "ʿayn lām wāw",
+        "root_arabic": "ع ل و"
+      }
+    },
+    {
+      "location": "69:23:1",
+      "transliteration": "quṭūfuhā",
+      "translation": "Its clusters of fruits",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع و«ها» ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73216",
+      "verse": "69:23",
+      "root": {
+        "root_latin": "qāf ṭā fā",
+        "root_arabic": "ق ط ف"
+      }
+    },
+    {
+      "location": "69:23:2",
+      "transliteration": "dāniyatun",
+      "translation": "hanging near.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73217",
+      "verse": "69:23",
+      "root": {
+        "root_latin": "dāl nūn wāw",
+        "root_arabic": "د ن و"
+      }
+    },
+    {
+      "location": "69:24:1",
+      "transliteration": "kulū",
+      "translation": "\"Eat",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل أمر والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73218",
+      "verse": "69:24",
+      "root": {
+        "root_latin": "hamza kāf lām",
+        "root_arabic": "أ ك ل"
+      }
+    },
+    {
+      "location": "69:24:2",
+      "transliteration": "wa-ish'rabū",
+      "translation": "and drink",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل أمر والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73219",
+      "verse": "69:24",
+      "root": {
+        "root_latin": "shīn rā bā",
+        "root_arabic": "ش ر ب"
+      }
+    },
+    {
+      "location": "69:24:3",
+      "transliteration": "hanīan",
+      "translation": "(in) satisfaction",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73220",
+      "verse": "69:24",
+      "root": {
+        "root_latin": "hā nūn hamza",
+        "root_arabic": "ه ن أ"
+      }
+    },
+    {
+      "location": "69:24:4",
+      "transliteration": "",
+      "translation": "for what",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73221",
+      "verse": "69:24"
+    },
+    {
+      "location": "69:24:5",
+      "transliteration": "aslaftum",
+      "translation": "you sent before you",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض والتاء ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73222",
+      "verse": "69:24",
+      "root": {
+        "root_latin": "sīn lām fā",
+        "root_arabic": "س ل ف"
+      }
+    },
+    {
+      "location": "69:24:6",
+      "transliteration": "",
+      "translation": "in",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73223",
+      "verse": "69:24"
+    },
+    {
+      "location": "69:24:7",
+      "transliteration": "l-ayāmi",
+      "translation": "the days",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73224",
+      "verse": "69:24",
+      "root": {
+        "root_latin": "yā wāw mīm",
+        "root_arabic": "ي و م"
+      }
+    },
+    {
+      "location": "69:24:8",
+      "transliteration": "l-khāliyati",
+      "translation": "past.\"",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73225",
+      "verse": "69:24",
+      "root": {
+        "root_latin": "khā lām wāw",
+        "root_arabic": "خ ل و"
+      }
+    },
+    {
+      "location": "69:25:1",
+      "transliteration": "wa-ammā",
+      "translation": "But as for",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "EXL",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف تفصيل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73226",
+      "verse": "69:25"
+    },
+    {
+      "location": "69:25:2",
+      "transliteration": "",
+      "translation": "(him) who",
+      "tags": [
+        {
+          "tag": "COND",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم شرط",
+      "image_url": "https://corpus.quran.com/wordimage?id=73227",
+      "verse": "69:25"
+    },
+    {
+      "location": "69:25:3",
+      "transliteration": "ūtiya",
+      "translation": "is given",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض مبني للمجهول",
+      "image_url": "https://corpus.quran.com/wordimage?id=73228",
+      "verse": "69:25",
+      "root": {
+        "root_latin": "hamza tā yā",
+        "root_arabic": "أ ت ي"
+      }
+    },
+    {
+      "location": "69:25:4",
+      "transliteration": "kitābahu",
+      "translation": "his record",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73229",
+      "verse": "69:25",
+      "root": {
+        "root_latin": "kāf tā bā",
+        "root_arabic": "ك ت ب"
+      }
+    },
+    {
+      "location": "69:25:5",
+      "transliteration": "bishimālihi",
+      "translation": "in his left hand",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73230",
+      "verse": "69:25",
+      "root": {
+        "root_latin": "shīn mīm lām",
+        "root_arabic": "ش م ل"
+      }
+    },
+    {
+      "location": "69:25:6",
+      "transliteration": "fayaqūlu",
+      "translation": "will say,",
+      "tags": [
+        {
+          "tag": "RSLT",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء واقعة في جواب الشرط\nفعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73231",
+      "verse": "69:25",
+      "root": {
+        "root_latin": "qāf wāw lām",
+        "root_arabic": "ق و ل"
+      }
+    },
+    {
+      "location": "69:25:7",
+      "transliteration": "",
+      "translation": "\"O! I wish",
+      "tags": [
+        {
+          "tag": "VOC",
+          "description": ""
+        },
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "أداة نداء\nحرف نصب من اخوات «ان» والياء ضمير متصل في محل نصب اسم «ليت»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73232",
+      "verse": "69:25"
+    },
+    {
+      "location": "69:25:8",
+      "transliteration": "",
+      "translation": "not",
+      "tags": [
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73233",
+      "verse": "69:25"
+    },
+    {
+      "location": "69:25:9",
+      "transliteration": "ūta",
+      "translation": "I had been given",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع مبني للمجهول مجزوم",
+      "image_url": "https://corpus.quran.com/wordimage?id=73234",
+      "verse": "69:25",
+      "root": {
+        "root_latin": "hamza tā yā",
+        "root_arabic": "أ ت ي"
+      }
+    },
+    {
+      "location": "69:25:10",
+      "transliteration": "kitābiyah",
+      "translation": "my record",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73235",
+      "verse": "69:25",
+      "root": {
+        "root_latin": "kāf tā bā",
+        "root_arabic": "ك ت ب"
+      }
+    },
+    {
+      "location": "69:26:1",
+      "transliteration": "",
+      "translation": "And not",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73236",
+      "verse": "69:26"
+    },
+    {
+      "location": "69:26:2",
+      "transliteration": "adri",
+      "translation": "I had known",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع مجزوم",
+      "image_url": "https://corpus.quran.com/wordimage?id=73237",
+      "verse": "69:26",
+      "root": {
+        "root_latin": "dāl rā yā",
+        "root_arabic": "د ر ي"
+      }
+    },
+    {
+      "location": "69:26:3",
+      "transliteration": "",
+      "translation": "what",
+      "tags": [
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=73238",
+      "verse": "69:26"
+    },
+    {
+      "location": "69:26:4",
+      "transliteration": "ḥisābiyah",
+      "translation": "(is) my account.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع والياء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73239",
+      "verse": "69:26",
+      "root": {
+        "root_latin": "ḥā sīn bā",
+        "root_arabic": "ح س ب"
+      }
+    },
+    {
+      "location": "69:27:1",
+      "transliteration": "",
+      "translation": "O! I wish it",
+      "tags": [
+        {
+          "tag": "VOC",
+          "description": ""
+        },
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "أداة نداء\nحرف نصب من اخوات «ان» و«ها» ضمير متصل في محل نصب اسم «ليت»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73240",
+      "verse": "69:27"
+    },
+    {
+      "location": "69:27:2",
+      "transliteration": "kānati",
+      "translation": "had been",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73241",
+      "verse": "69:27",
+      "root": {
+        "root_latin": "kāf wāw nūn",
+        "root_arabic": "ك و ن"
+      }
+    },
+    {
+      "location": "69:27:3",
+      "transliteration": "l-qāḍiyata",
+      "translation": "the end",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73242",
+      "verse": "69:27",
+      "root": {
+        "root_latin": "qāf ḍād yā",
+        "root_arabic": "ق ض ي"
+      }
+    },
+    {
+      "location": "69:28:1",
+      "transliteration": "",
+      "translation": "Not",
+      "tags": [
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73243",
+      "verse": "69:28"
+    },
+    {
+      "location": "69:28:2",
+      "transliteration": "aghnā",
+      "translation": "has availed",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73244",
+      "verse": "69:28",
+      "root": {
+        "root_latin": "ghayn nūn yā",
+        "root_arabic": "غ ن ي"
+      }
+    },
+    {
+      "location": "69:28:3",
+      "transliteration": "",
+      "translation": "me",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73245",
+      "verse": "69:28"
+    },
+    {
+      "location": "69:28:4",
+      "transliteration": "māliyah",
+      "translation": "my wealth,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع والياء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73246",
+      "verse": "69:28",
+      "root": {
+        "root_latin": "mīm wāw lām",
+        "root_arabic": "م و ل"
+      }
+    },
+    {
+      "location": "69:29:1",
+      "transliteration": "halaka",
+      "translation": "Is gone",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73247",
+      "verse": "69:29",
+      "root": {
+        "root_latin": "hā lām kāf",
+        "root_arabic": "ه ل ك"
+      }
+    },
+    {
+      "location": "69:29:2",
+      "transliteration": "",
+      "translation": "from me",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73248",
+      "verse": "69:29"
+    },
+    {
+      "location": "69:29:3",
+      "transliteration": "sul'ṭāniyah",
+      "translation": "my authority.\"",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع والياء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73249",
+      "verse": "69:29",
+      "root": {
+        "root_latin": "sīn lām ṭā",
+        "root_arabic": "س ل ط"
+      }
+    },
+    {
+      "location": "69:30:1",
+      "transliteration": "khudhūhu",
+      "translation": "\"Seize him",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل أمر والواو ضمير متصل في محل رفع فاعل والهاء ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73250",
+      "verse": "69:30",
+      "root": {
+        "root_latin": "hamza khā dhāl",
+        "root_arabic": "أ خ ذ"
+      }
+    },
+    {
+      "location": "69:30:2",
+      "transliteration": "faghullūhu",
+      "translation": "and shackle him,",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء عاطفة\nفعل أمر والواو ضمير متصل في محل رفع فاعل والهاء ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73251",
+      "verse": "69:30",
+      "root": {
+        "root_latin": "ghayn lām lām",
+        "root_arabic": "غ ل ل"
+      }
+    },
+    {
+      "location": "69:31:1",
+      "transliteration": "",
+      "translation": "Then",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف عطف",
+      "image_url": "https://corpus.quran.com/wordimage?id=73252",
+      "verse": "69:31"
+    },
+    {
+      "location": "69:31:2",
+      "transliteration": "l-jaḥīma",
+      "translation": "(into) the Hellfire",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73253",
+      "verse": "69:31",
+      "root": {
+        "root_latin": "jīm ḥā mīm",
+        "root_arabic": "ج ح م"
+      }
+    },
+    {
+      "location": "69:31:3",
+      "transliteration": "ṣallūhu",
+      "translation": "burn him.",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل أمر والواو ضمير متصل في محل رفع فاعل والهاء ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73254",
+      "verse": "69:31",
+      "root": {
+        "root_latin": "ṣād lām yā",
+        "root_arabic": "ص ل ي"
+      }
+    },
+    {
+      "location": "69:32:1",
+      "transliteration": "",
+      "translation": "Then",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف عطف",
+      "image_url": "https://corpus.quran.com/wordimage?id=73255",
+      "verse": "69:32"
+    },
+    {
+      "location": "69:32:2",
+      "transliteration": "",
+      "translation": "into",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73256",
+      "verse": "69:32"
+    },
+    {
+      "location": "69:32:3",
+      "transliteration": "sil'silatin",
+      "translation": "a chain,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73257",
+      "verse": "69:32"
+    },
+    {
+      "location": "69:32:4",
+      "transliteration": "dharʿuhā",
+      "translation": "its length",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع و«ها» ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73258",
+      "verse": "69:32",
+      "root": {
+        "root_latin": "dhāl rā ʿayn",
+        "root_arabic": "ذ ر ع"
+      }
+    },
+    {
+      "location": "69:32:5",
+      "transliteration": "sabʿūna",
+      "translation": "(is) seventy",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73259",
+      "verse": "69:32",
+      "root": {
+        "root_latin": "sīn bā ʿayn",
+        "root_arabic": "س ب ع"
+      }
+    },
+    {
+      "location": "69:32:6",
+      "transliteration": "dhirāʿan",
+      "translation": "cubits,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73260",
+      "verse": "69:32",
+      "root": {
+        "root_latin": "dhāl rā ʿayn",
+        "root_arabic": "ذ ر ع"
+      }
+    },
+    {
+      "location": "69:32:7",
+      "transliteration": "fa-us'lukūhu",
+      "translation": "insert him.\"",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nفعل أمر والواو ضمير متصل في محل رفع فاعل والهاء ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73261",
+      "verse": "69:32",
+      "root": {
+        "root_latin": "sīn lām kāf",
+        "root_arabic": "س ل ك"
+      }
+    },
+    {
+      "location": "69:33:1",
+      "transliteration": "",
+      "translation": "Indeed, he",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب والهاء ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73262",
+      "verse": "69:33"
+    },
+    {
+      "location": "69:33:2",
+      "transliteration": "kāna",
+      "translation": "was",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73263",
+      "verse": "69:33",
+      "root": {
+        "root_latin": "kāf wāw nūn",
+        "root_arabic": "ك و ن"
+      }
+    },
+    {
+      "location": "69:33:3",
+      "transliteration": "",
+      "translation": "not",
+      "tags": [
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73264",
+      "verse": "69:33"
+    },
+    {
+      "location": "69:33:4",
+      "transliteration": "yu'minu",
+      "translation": "believing",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73265",
+      "verse": "69:33",
+      "root": {
+        "root_latin": "hamza mīm nūn",
+        "root_arabic": "أ م ن"
+      }
+    },
+    {
+      "location": "69:33:5",
+      "transliteration": "bil-lahi",
+      "translation": "in Allah",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PN",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73266",
+      "verse": "69:33",
+      "root": {
+        "root_latin": "hamza lām hā",
+        "root_arabic": "أ ل ه"
+      }
+    },
+    {
+      "location": "69:33:6",
+      "transliteration": "l-ʿaẓīmi",
+      "translation": "the Most Great,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73267",
+      "verse": "69:33",
+      "root": {
+        "root_latin": "ʿayn ẓā mīm",
+        "root_arabic": "ع ظ م"
+      }
+    },
+    {
+      "location": "69:34:1",
+      "transliteration": "",
+      "translation": "And (did) not",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73268",
+      "verse": "69:34"
+    },
+    {
+      "location": "69:34:2",
+      "transliteration": "yaḥuḍḍu",
+      "translation": "feel the urge",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73269",
+      "verse": "69:34",
+      "root": {
+        "root_latin": "ḥā ḍād ḍād",
+        "root_arabic": "ح ض ض"
+      }
+    },
+    {
+      "location": "69:34:3",
+      "transliteration": "",
+      "translation": "on",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73270",
+      "verse": "69:34"
+    },
+    {
+      "location": "69:34:4",
+      "transliteration": "ṭaʿāmi",
+      "translation": "(the) feeding",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73271",
+      "verse": "69:34",
+      "root": {
+        "root_latin": "ṭā ʿayn mīm",
+        "root_arabic": "ط ع م"
+      }
+    },
+    {
+      "location": "69:34:5",
+      "transliteration": "l-mis'kīni",
+      "translation": "(of) the poor.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73272",
+      "verse": "69:34",
+      "root": {
+        "root_latin": "sīn kāf nūn",
+        "root_arabic": "س ك ن"
+      }
+    },
+    {
+      "location": "69:35:1",
+      "transliteration": "falaysa",
+      "translation": "So not",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nفعل ماض من اخوات «كان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73273",
+      "verse": "69:35",
+      "root": {
+        "root_latin": "lām yā sīn",
+        "root_arabic": "ل ي س"
+      }
+    },
+    {
+      "location": "69:35:2",
+      "transliteration": "",
+      "translation": "for him",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73274",
+      "verse": "69:35"
+    },
+    {
+      "location": "69:35:3",
+      "transliteration": "l-yawma",
+      "translation": "today",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73275",
+      "verse": "69:35",
+      "root": {
+        "root_latin": "yā wāw mīm",
+        "root_arabic": "ي و م"
+      }
+    },
+    {
+      "location": "69:35:4",
+      "transliteration": "",
+      "translation": "here",
+      "tags": [
+        {
+          "tag": "VOC",
+          "description": ""
+        },
+        {
+          "tag": "DEM",
+          "description": ""
+        }
+      ],
+      "grammar": "أداة نداء\nاسم اشارة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73276",
+      "verse": "69:35"
+    },
+    {
+      "location": "69:35:5",
+      "transliteration": "ḥamīmun",
+      "translation": "any devoted friend,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73277",
+      "verse": "69:35",
+      "root": {
+        "root_latin": "ḥā mīm mīm",
+        "root_arabic": "ح م م"
+      }
+    },
+    {
+      "location": "69:36:1",
+      "transliteration": "",
+      "translation": "And not",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73278",
+      "verse": "69:36"
+    },
+    {
+      "location": "69:36:2",
+      "transliteration": "ṭaʿāmun",
+      "translation": "any food",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73279",
+      "verse": "69:36",
+      "root": {
+        "root_latin": "ṭā ʿayn mīm",
+        "root_arabic": "ط ع م"
+      }
+    },
+    {
+      "location": "69:36:3",
+      "transliteration": "illā",
+      "translation": "except",
+      "tags": [
+        {
+          "tag": "RES",
+          "description": ""
+        }
+      ],
+      "grammar": "أداة حصر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73280",
+      "verse": "69:36"
+    },
+    {
+      "location": "69:36:4",
+      "transliteration": "",
+      "translation": "from",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73281",
+      "verse": "69:36"
+    },
+    {
+      "location": "69:36:5",
+      "transliteration": "ghis'līnin",
+      "translation": "(the) discharge of wounds,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73282",
+      "verse": "69:36",
+      "root": {
+        "root_latin": "ghayn sīn lām",
+        "root_arabic": "غ س ل"
+      }
+    },
+    {
+      "location": "69:37:1",
+      "transliteration": "",
+      "translation": "Not",
+      "tags": [
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73283",
+      "verse": "69:37"
+    },
+    {
+      "location": "69:37:2",
+      "transliteration": "yakuluhu",
+      "translation": "will eat it",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع والهاء ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=73284",
+      "verse": "69:37",
+      "root": {
+        "root_latin": "hamza kāf lām",
+        "root_arabic": "أ ك ل"
+      }
+    },
+    {
+      "location": "69:37:3",
+      "transliteration": "illā",
+      "translation": "except",
+      "tags": [
+        {
+          "tag": "RES",
+          "description": ""
+        }
+      ],
+      "grammar": "أداة حصر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73285",
+      "verse": "69:37"
+    },
+    {
+      "location": "69:37:4",
+      "transliteration": "l-khāṭiūna",
+      "translation": "the sinners.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73286",
+      "verse": "69:37",
+      "root": {
+        "root_latin": "khā ṭā hamza",
+        "root_arabic": "خ ط أ"
+      }
+    },
+    {
+      "location": "69:38:1",
+      "transliteration": "",
+      "translation": "But nay!",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73287",
+      "verse": "69:38"
+    },
+    {
+      "location": "69:38:2",
+      "transliteration": "uq'simu",
+      "translation": "I swear",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73288",
+      "verse": "69:38",
+      "root": {
+        "root_latin": "qāf sīn mīm",
+        "root_arabic": "ق س م"
+      }
+    },
+    {
+      "location": "69:38:3",
+      "transliteration": "",
+      "translation": "by what",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73289",
+      "verse": "69:38"
+    },
+    {
+      "location": "69:38:4",
+      "transliteration": "tub'ṣirūna",
+      "translation": "you see,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73290",
+      "verse": "69:38",
+      "root": {
+        "root_latin": "bā ṣād rā",
+        "root_arabic": "ب ص ر"
+      }
+    },
+    {
+      "location": "69:39:1",
+      "transliteration": "",
+      "translation": "And what",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=73291",
+      "verse": "69:39"
+    },
+    {
+      "location": "69:39:2",
+      "transliteration": "",
+      "translation": "not",
+      "tags": [
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73292",
+      "verse": "69:39"
+    },
+    {
+      "location": "69:39:3",
+      "transliteration": "tub'ṣirūna",
+      "translation": "you see,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73293",
+      "verse": "69:39",
+      "root": {
+        "root_latin": "bā ṣād rā",
+        "root_arabic": "ب ص ر"
+      }
+    },
+    {
+      "location": "69:40:1",
+      "transliteration": "",
+      "translation": "Indeed, it (is)",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب والهاء ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73294",
+      "verse": "69:40"
+    },
+    {
+      "location": "69:40:2",
+      "transliteration": "laqawlu",
+      "translation": "surely (the) Word",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nاسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73295",
+      "verse": "69:40",
+      "root": {
+        "root_latin": "qāf wāw lām",
+        "root_arabic": "ق و ل"
+      }
+    },
+    {
+      "location": "69:40:3",
+      "transliteration": "rasūlin",
+      "translation": "(of) a Messenger",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73296",
+      "verse": "69:40",
+      "root": {
+        "root_latin": "rā sīn lām",
+        "root_arabic": "ر س ل"
+      }
+    },
+    {
+      "location": "69:40:4",
+      "transliteration": "karīmin",
+      "translation": "noble.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73297",
+      "verse": "69:40",
+      "root": {
+        "root_latin": "kāf rā mīm",
+        "root_arabic": "ك ر م"
+      }
+    },
+    {
+      "location": "69:41:1",
+      "transliteration": "",
+      "translation": "And not",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو استئنافية\nنافية بمنزلة «ليس»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73298",
+      "verse": "69:41"
+    },
+    {
+      "location": "69:41:2",
+      "transliteration": "",
+      "translation": "it",
+      "tags": [
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "ضمير منفصل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73299",
+      "verse": "69:41"
+    },
+    {
+      "location": "69:41:3",
+      "transliteration": "biqawli",
+      "translation": "(is the) word",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73300",
+      "verse": "69:41",
+      "root": {
+        "root_latin": "qāf wāw lām",
+        "root_arabic": "ق و ل"
+      }
+    },
+    {
+      "location": "69:41:4",
+      "transliteration": "shāʿirin",
+      "translation": "(of) a poet;",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73301",
+      "verse": "69:41",
+      "root": {
+        "root_latin": "shīn ʿayn rā",
+        "root_arabic": "ش ع ر"
+      }
+    },
+    {
+      "location": "69:41:5",
+      "transliteration": "qalīlan",
+      "translation": "little",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة منصوبة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73302",
+      "verse": "69:41",
+      "root": {
+        "root_latin": "qāf lām lām",
+        "root_arabic": "ق ل ل"
+      }
+    },
+    {
+      "location": "69:41:6",
+      "transliteration": "",
+      "translation": "(is) what",
+      "tags": [
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=73303",
+      "verse": "69:41"
+    },
+    {
+      "location": "69:41:7",
+      "transliteration": "tu'minūna",
+      "translation": "you believe!",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73304",
+      "verse": "69:41",
+      "root": {
+        "root_latin": "hamza mīm nūn",
+        "root_arabic": "أ م ن"
+      }
+    },
+    {
+      "location": "69:42:1",
+      "transliteration": "",
+      "translation": "And not",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73305",
+      "verse": "69:42"
+    },
+    {
+      "location": "69:42:2",
+      "transliteration": "biqawli",
+      "translation": "(it is the) word",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73306",
+      "verse": "69:42",
+      "root": {
+        "root_latin": "qāf wāw lām",
+        "root_arabic": "ق و ل"
+      }
+    },
+    {
+      "location": "69:42:3",
+      "transliteration": "kāhinin",
+      "translation": "(of) a soothsayer;",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73307",
+      "verse": "69:42",
+      "root": {
+        "root_latin": "kāf hā nūn",
+        "root_arabic": "ك ه ن"
+      }
+    },
+    {
+      "location": "69:42:4",
+      "transliteration": "qalīlan",
+      "translation": "little",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة منصوبة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73308",
+      "verse": "69:42",
+      "root": {
+        "root_latin": "qāf lām lām",
+        "root_arabic": "ق ل ل"
+      }
+    },
+    {
+      "location": "69:42:5",
+      "transliteration": "",
+      "translation": "(is) what",
+      "tags": [
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=73309",
+      "verse": "69:42"
+    },
+    {
+      "location": "69:42:6",
+      "transliteration": "tadhakkarūna",
+      "translation": "you take heed.",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73310",
+      "verse": "69:42",
+      "root": {
+        "root_latin": "dhāl kāf rā",
+        "root_arabic": "ذ ك ر"
+      }
+    },
+    {
+      "location": "69:43:1",
+      "transliteration": "tanzīlun",
+      "translation": "(It is) a revelation",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73311",
+      "verse": "69:43",
+      "root": {
+        "root_latin": "nūn zāy lām",
+        "root_arabic": "ن ز ل"
+      }
+    },
+    {
+      "location": "69:43:2",
+      "transliteration": "",
+      "translation": "from",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73312",
+      "verse": "69:43"
+    },
+    {
+      "location": "69:43:3",
+      "transliteration": "rabbi",
+      "translation": "(the) Lord",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73313",
+      "verse": "69:43",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "69:43:4",
+      "transliteration": "l-ʿālamīna",
+      "translation": "(of) the worlds.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73314",
+      "verse": "69:43",
+      "root": {
+        "root_latin": "ʿayn lām mīm",
+        "root_arabic": "ع ل م"
+      }
+    },
+    {
+      "location": "69:44:1",
+      "transliteration": "",
+      "translation": "And if",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "COND",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو استئنافية\nحرف شرط",
+      "image_url": "https://corpus.quran.com/wordimage?id=73315",
+      "verse": "69:44"
+    },
+    {
+      "location": "69:44:2",
+      "transliteration": "taqawwala",
+      "translation": "he (had) fabricated",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=73316",
+      "verse": "69:44",
+      "root": {
+        "root_latin": "qāf wāw lām",
+        "root_arabic": "ق و ل"
+      }
+    },
+    {
+      "location": "69:44:3",
+      "transliteration": "",
+      "translation": "against Us",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73317",
+      "verse": "69:44"
+    },
+    {
+      "location": "69:44:4",
+      "transliteration": "baʿḍa",
+      "translation": "some",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73318",
+      "verse": "69:44",
+      "root": {
+        "root_latin": "bā ʿayn ḍād",
+        "root_arabic": "ب ع ض"
+      }
+    },
+    {
+      "location": "69:44:5",
+      "transliteration": "l-aqāwīli",
+      "translation": "sayings,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73319",
+      "verse": "69:44",
+      "root": {
+        "root_latin": "qāf wāw lām",
+        "root_arabic": "ق و ل"
+      }
+    },
+    {
+      "location": "69:45:1",
+      "transliteration": "la-akhadhnā",
+      "translation": "Certainly We (would) have seized",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nفعل ماض و«نا» ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73320",
+      "verse": "69:45",
+      "root": {
+        "root_latin": "hamza khā dhāl",
+        "root_arabic": "أ خ ذ"
+      }
+    },
+    {
+      "location": "69:45:2",
+      "transliteration": "",
+      "translation": "him",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73321",
+      "verse": "69:45"
+    },
+    {
+      "location": "69:45:3",
+      "transliteration": "bil-yamīni",
+      "translation": "by the right hand;",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73322",
+      "verse": "69:45",
+      "root": {
+        "root_latin": "yā mīm nūn",
+        "root_arabic": "ي م ن"
+      }
+    },
+    {
+      "location": "69:46:1",
+      "transliteration": "",
+      "translation": "Then",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف عطف",
+      "image_url": "https://corpus.quran.com/wordimage?id=73323",
+      "verse": "69:46"
+    },
+    {
+      "location": "69:46:2",
+      "transliteration": "laqaṭaʿnā",
+      "translation": "certainly We (would) have cut off",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nفعل ماض و«نا» ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=73324",
+      "verse": "69:46",
+      "root": {
+        "root_latin": "qāf ṭā ʿayn",
+        "root_arabic": "ق ط ع"
+      }
+    },
+    {
+      "location": "69:46:3",
+      "transliteration": "",
+      "translation": "from him",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73325",
+      "verse": "69:46"
+    },
+    {
+      "location": "69:46:4",
+      "transliteration": "l-watīna",
+      "translation": "the aorta.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73326",
+      "verse": "69:46",
+      "root": {
+        "root_latin": "wāw tā nūn",
+        "root_arabic": "و ت ن"
+      }
+    },
+    {
+      "location": "69:47:1",
+      "transliteration": "",
+      "translation": "And not",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=73327",
+      "verse": "69:47"
+    },
+    {
+      "location": "69:47:2",
+      "transliteration": "",
+      "translation": "from you",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73328",
+      "verse": "69:47"
+    },
+    {
+      "location": "69:47:3",
+      "transliteration": "",
+      "translation": "any",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73329",
+      "verse": "69:47"
+    },
+    {
+      "location": "69:47:4",
+      "transliteration": "aḥadin",
+      "translation": "one",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73330",
+      "verse": "69:47",
+      "root": {
+        "root_latin": "hamza ḥā dāl",
+        "root_arabic": "أ ح د"
+      }
+    },
+    {
+      "location": "69:47:5",
+      "transliteration": "",
+      "translation": "[from him]",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73331",
+      "verse": "69:47"
+    },
+    {
+      "location": "69:47:6",
+      "transliteration": "ḥājizīna",
+      "translation": "(who could) prevent (it).",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73332",
+      "verse": "69:47",
+      "root": {
+        "root_latin": "ḥā jīm zāy",
+        "root_arabic": "ح ج ز"
+      }
+    },
+    {
+      "location": "69:48:1",
+      "transliteration": "",
+      "translation": "And indeed, it",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو استئنافية\nحرف نصب والهاء ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73333",
+      "verse": "69:48"
+    },
+    {
+      "location": "69:48:2",
+      "transliteration": "latadhkiratun",
+      "translation": "(is) surely a reminder",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nاسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73334",
+      "verse": "69:48",
+      "root": {
+        "root_latin": "dhāl kāf rā",
+        "root_arabic": "ذ ك ر"
+      }
+    },
+    {
+      "location": "69:48:3",
+      "transliteration": "lil'muttaqīna",
+      "translation": "for the Allah-fearing.",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73335",
+      "verse": "69:48",
+      "root": {
+        "root_latin": "wāw qāf yā",
+        "root_arabic": "و ق ي"
+      }
+    },
+    {
+      "location": "69:49:1",
+      "transliteration": "",
+      "translation": "And indeed, We",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نصب و«نا» ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73336",
+      "verse": "69:49"
+    },
+    {
+      "location": "69:49:2",
+      "transliteration": "lanaʿlamu",
+      "translation": "surely know",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nفعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73337",
+      "verse": "69:49",
+      "root": {
+        "root_latin": "ʿayn lām mīm",
+        "root_arabic": "ع ل م"
+      }
+    },
+    {
+      "location": "69:49:3",
+      "transliteration": "",
+      "translation": "that",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب من اخوات «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73338",
+      "verse": "69:49"
+    },
+    {
+      "location": "69:49:4",
+      "transliteration": "",
+      "translation": "among you",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73339",
+      "verse": "69:49"
+    },
+    {
+      "location": "69:49:5",
+      "transliteration": "mukadhibīna",
+      "translation": "(are) deniers.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=73340",
+      "verse": "69:49",
+      "root": {
+        "root_latin": "kāf dhāl bā",
+        "root_arabic": "ك ذ ب"
+      }
+    },
+    {
+      "location": "69:50:1",
+      "transliteration": "",
+      "translation": "And indeed, it",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نصب والهاء ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73341",
+      "verse": "69:50"
+    },
+    {
+      "location": "69:50:2",
+      "transliteration": "laḥasratun",
+      "translation": "(is) surely a regret",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nاسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73342",
+      "verse": "69:50",
+      "root": {
+        "root_latin": "ḥā sīn rā",
+        "root_arabic": "ح س ر"
+      }
+    },
+    {
+      "location": "69:50:3",
+      "transliteration": "",
+      "translation": "upon",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73343",
+      "verse": "69:50"
+    },
+    {
+      "location": "69:50:4",
+      "transliteration": "l-kāfirīna",
+      "translation": "the disbelievers.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73344",
+      "verse": "69:50",
+      "root": {
+        "root_latin": "kāf fā rā",
+        "root_arabic": "ك ف ر"
+      }
+    },
+    {
+      "location": "69:51:1",
+      "transliteration": "",
+      "translation": "And indeed, it (is)",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نصب والهاء ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=73345",
+      "verse": "69:51"
+    },
+    {
+      "location": "69:51:2",
+      "transliteration": "laḥaqqu",
+      "translation": "surely (the) truth",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nاسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=73346",
+      "verse": "69:51",
+      "root": {
+        "root_latin": "ḥā qāf qāf",
+        "root_arabic": "ح ق ق"
+      }
+    },
+    {
+      "location": "69:51:3",
+      "transliteration": "l-yaqīni",
+      "translation": "(of) certainty.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73347",
+      "verse": "69:51",
+      "root": {
+        "root_latin": "yā qāf nūn",
+        "root_arabic": "ي ق ن"
+      }
+    },
+    {
+      "location": "69:52:1",
+      "transliteration": "fasabbiḥ",
+      "translation": "So glorify",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nفعل أمر",
+      "image_url": "https://corpus.quran.com/wordimage?id=73348",
+      "verse": "69:52",
+      "root": {
+        "root_latin": "sīn bā ḥā",
+        "root_arabic": "س ب ح"
+      }
+    },
+    {
+      "location": "69:52:2",
+      "transliteration": "bi-is'mi",
+      "translation": "(the) name",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=73349",
+      "verse": "69:52",
+      "root": {
+        "root_latin": "sīn mīm wāw",
+        "root_arabic": "س م و"
+      }
+    },
+    {
+      "location": "69:52:3",
+      "transliteration": "rabbika",
+      "translation": "(of) your Lord,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور والكاف ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73350",
+      "verse": "69:52",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "69:52:4",
+      "transliteration": "l-ʿaẓīmi",
+      "translation": "the Most Great.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=73351",
+      "verse": "69:52",
+      "root": {
+        "root_latin": "ʿayn ẓā mīm",
+        "root_arabic": "ع ظ م"
+      }
+    }
+  ]
+}

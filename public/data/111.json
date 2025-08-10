@@ -1,0 +1,433 @@
+{
+  "metadata": {
+    "surah_number": 111,
+    "total_words": 23,
+    "scraped_at": "2025-07-06 17:42:23",
+    "scraper_version": "fast",
+    "duplicates_removed": 92
+  },
+  "words": [
+    {
+      "location": "111:1:1",
+      "transliteration": "tabbat",
+      "translation": "Perish",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77349",
+      "verse": "111:1",
+      "root": {
+        "root_latin": "tā bā bā",
+        "root_arabic": "ت ب ب"
+      }
+    },
+    {
+      "location": "111:1:2",
+      "transliteration": "yadā",
+      "translation": "(the) hands",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77350",
+      "verse": "111:1",
+      "root": {
+        "root_latin": "yā dāl yā",
+        "root_arabic": "ي د ي"
+      }
+    },
+    {
+      "location": "111:1:3",
+      "transliteration": "abī",
+      "translation": "(of) Abu",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77351",
+      "verse": "111:1",
+      "root": {
+        "root_latin": "hamza bā wāw",
+        "root_arabic": "أ ب و"
+      }
+    },
+    {
+      "location": "111:1:4",
+      "transliteration": "lahabin",
+      "translation": "Lahab",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77352",
+      "verse": "111:1",
+      "root": {
+        "root_latin": "lām hā bā",
+        "root_arabic": "ل ه ب"
+      }
+    },
+    {
+      "location": "111:1:5",
+      "transliteration": "watabba",
+      "translation": "and perish he.",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77353",
+      "verse": "111:1",
+      "root": {
+        "root_latin": "tā bā bā",
+        "root_arabic": "ت ب ب"
+      }
+    },
+    {
+      "location": "111:2:1",
+      "transliteration": "",
+      "translation": "Not",
+      "tags": [
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=77354",
+      "verse": "111:2"
+    },
+    {
+      "location": "111:2:2",
+      "transliteration": "aghnā",
+      "translation": "(will) avail",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77355",
+      "verse": "111:2",
+      "root": {
+        "root_latin": "ghayn nūn yā",
+        "root_arabic": "غ ن ي"
+      }
+    },
+    {
+      "location": "111:2:3",
+      "transliteration": "",
+      "translation": "him",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77356",
+      "verse": "111:2"
+    },
+    {
+      "location": "111:2:4",
+      "transliteration": "māluhu",
+      "translation": "his wealth",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77357",
+      "verse": "111:2",
+      "root": {
+        "root_latin": "mīm wāw lām",
+        "root_arabic": "م و ل"
+      }
+    },
+    {
+      "location": "111:2:5",
+      "transliteration": "",
+      "translation": "and what",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=77358",
+      "verse": "111:2"
+    },
+    {
+      "location": "111:2:6",
+      "transliteration": "kasaba",
+      "translation": "he earned.",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77359",
+      "verse": "111:2",
+      "root": {
+        "root_latin": "kāf sīn bā",
+        "root_arabic": "ك س ب"
+      }
+    },
+    {
+      "location": "111:3:1",
+      "transliteration": "sayaṣlā",
+      "translation": "He will be burnt",
+      "tags": [
+        {
+          "tag": "FUT",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف استقبال\nفعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77360",
+      "verse": "111:3",
+      "root": {
+        "root_latin": "ṣād lām yā",
+        "root_arabic": "ص ل ي"
+      }
+    },
+    {
+      "location": "111:3:2",
+      "transliteration": "nāran",
+      "translation": "(in) a Fire",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77361",
+      "verse": "111:3",
+      "root": {
+        "root_latin": "nūn wāw rā",
+        "root_arabic": "ن و ر"
+      }
+    },
+    {
+      "location": "111:3:3",
+      "transliteration": "",
+      "translation": "of",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77362",
+      "verse": "111:3"
+    },
+    {
+      "location": "111:3:4",
+      "transliteration": "lahabin",
+      "translation": "Blazing Flames,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77363",
+      "verse": "111:3",
+      "root": {
+        "root_latin": "lām hā bā",
+        "root_arabic": "ل ه ب"
+      }
+    },
+    {
+      "location": "111:4:1",
+      "transliteration": "wa-im'ra-atuhu",
+      "translation": "And his wife,",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم مرفوع والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77364",
+      "verse": "111:4",
+      "root": {
+        "root_latin": "mīm rā hamza",
+        "root_arabic": "م ر أ"
+      }
+    },
+    {
+      "location": "111:4:2",
+      "transliteration": "ḥammālata",
+      "translation": "(the) carrier",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77365",
+      "verse": "111:4",
+      "root": {
+        "root_latin": "ḥā mīm lām",
+        "root_arabic": "ح م ل"
+      }
+    },
+    {
+      "location": "111:4:3",
+      "transliteration": "l-ḥaṭabi",
+      "translation": "(of) firewood,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77366",
+      "verse": "111:4",
+      "root": {
+        "root_latin": "ḥā ṭā bā",
+        "root_arabic": "ح ط ب"
+      }
+    },
+    {
+      "location": "111:5:1",
+      "transliteration": "",
+      "translation": "In",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77367",
+      "verse": "111:5"
+    },
+    {
+      "location": "111:5:2",
+      "transliteration": "jīdihā",
+      "translation": "her neck",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور و«ها» ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77368",
+      "verse": "111:5",
+      "root": {
+        "root_latin": "jīm yā dāl",
+        "root_arabic": "ج ي د"
+      }
+    },
+    {
+      "location": "111:5:3",
+      "transliteration": "ḥablun",
+      "translation": "(will be) a rope",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77369",
+      "verse": "111:5",
+      "root": {
+        "root_latin": "ḥā bā lām",
+        "root_arabic": "ح ب ل"
+      }
+    },
+    {
+      "location": "111:5:4",
+      "transliteration": "",
+      "translation": "of",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77370",
+      "verse": "111:5"
+    },
+    {
+      "location": "111:5:5",
+      "transliteration": "masadin",
+      "translation": "palm-fiber.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77371",
+      "verse": "111:5",
+      "root": {
+        "root_latin": "mīm sīn dāl",
+        "root_arabic": "م س د"
+      }
+    }
+  ]
+}

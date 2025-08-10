@@ -1,0 +1,453 @@
+{
+  "metadata": {
+    "surah_number": 105,
+    "total_words": 23,
+    "scraped_at": "2025-07-06 17:41:35",
+    "scraper_version": "fast",
+    "duplicates_removed": 92
+  },
+  "words": [
+    {
+      "location": "105:1:1",
+      "transliteration": "",
+      "translation": "Have not",
+      "tags": [
+        {
+          "tag": "INTG",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الهمزة همزة استفهام\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=77229",
+      "verse": "105:1"
+    },
+    {
+      "location": "105:1:2",
+      "transliteration": "tara",
+      "translation": "you seen",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع مجزوم",
+      "image_url": "https://corpus.quran.com/wordimage?id=77230",
+      "verse": "105:1",
+      "root": {
+        "root_latin": "rā hamza yā",
+        "root_arabic": "ر أ ي"
+      }
+    },
+    {
+      "location": "105:1:3",
+      "transliteration": "kayfa",
+      "translation": "how",
+      "tags": [
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=77231",
+      "verse": "105:1",
+      "root": {
+        "root_latin": "kāf yā fā",
+        "root_arabic": "ك ي ف"
+      }
+    },
+    {
+      "location": "105:1:4",
+      "transliteration": "faʿala",
+      "translation": "dealt",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77232",
+      "verse": "105:1",
+      "root": {
+        "root_latin": "fā ʿayn lām",
+        "root_arabic": "ف ع ل"
+      }
+    },
+    {
+      "location": "105:1:5",
+      "transliteration": "rabbuka",
+      "translation": "your Lord",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع والكاف ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77233",
+      "verse": "105:1",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "105:1:6",
+      "transliteration": "bi-aṣḥābi",
+      "translation": "with (the) Companions",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77234",
+      "verse": "105:1",
+      "root": {
+        "root_latin": "ṣād ḥā bā",
+        "root_arabic": "ص ح ب"
+      }
+    },
+    {
+      "location": "105:1:7",
+      "transliteration": "l-fīli",
+      "translation": "(of the) Elephant?",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77235",
+      "verse": "105:1",
+      "root": {
+        "root_latin": "fā yā lām",
+        "root_arabic": "ف ي ل"
+      }
+    },
+    {
+      "location": "105:2:1",
+      "transliteration": "",
+      "translation": "Did not",
+      "tags": [
+        {
+          "tag": "INTG",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الهمزة همزة استفهام\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=77236",
+      "verse": "105:2"
+    },
+    {
+      "location": "105:2:2",
+      "transliteration": "yajʿal",
+      "translation": "He make",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع مجزوم",
+      "image_url": "https://corpus.quran.com/wordimage?id=77237",
+      "verse": "105:2",
+      "root": {
+        "root_latin": "jīm ʿayn lām",
+        "root_arabic": "ج ع ل"
+      }
+    },
+    {
+      "location": "105:2:3",
+      "transliteration": "kaydahum",
+      "translation": "their plan",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب و«هم» ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77238",
+      "verse": "105:2",
+      "root": {
+        "root_latin": "kāf yā dāl",
+        "root_arabic": "ك ي د"
+      }
+    },
+    {
+      "location": "105:2:4",
+      "transliteration": "",
+      "translation": "go",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77239",
+      "verse": "105:2"
+    },
+    {
+      "location": "105:2:5",
+      "transliteration": "taḍlīlin",
+      "translation": "astray?",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77240",
+      "verse": "105:2",
+      "root": {
+        "root_latin": "ḍād lām lām",
+        "root_arabic": "ض ل ل"
+      }
+    },
+    {
+      "location": "105:3:1",
+      "transliteration": "wa-arsala",
+      "translation": "And He sent",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77241",
+      "verse": "105:3",
+      "root": {
+        "root_latin": "rā sīn lām",
+        "root_arabic": "ر س ل"
+      }
+    },
+    {
+      "location": "105:3:2",
+      "transliteration": "",
+      "translation": "against them",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77242",
+      "verse": "105:3"
+    },
+    {
+      "location": "105:3:3",
+      "transliteration": "ṭayran",
+      "translation": "birds",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77243",
+      "verse": "105:3",
+      "root": {
+        "root_latin": "ṭā yā rā",
+        "root_arabic": "ط ي ر"
+      }
+    },
+    {
+      "location": "105:3:4",
+      "transliteration": "abābīla",
+      "translation": "(in) flocks.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة منصوبة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77244",
+      "verse": "105:3",
+      "root": {
+        "root_latin": "hamza bā lām",
+        "root_arabic": "أ ب ل"
+      }
+    },
+    {
+      "location": "105:4:1",
+      "transliteration": "tarmīhim",
+      "translation": "Striking them",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع و«هم» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=77245",
+      "verse": "105:4",
+      "root": {
+        "root_latin": "rā mīm yā",
+        "root_arabic": "ر م ي"
+      }
+    },
+    {
+      "location": "105:4:2",
+      "transliteration": "biḥijāratin",
+      "translation": "with stones",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77246",
+      "verse": "105:4",
+      "root": {
+        "root_latin": "ḥā jīm rā",
+        "root_arabic": "ح ج ر"
+      }
+    },
+    {
+      "location": "105:4:3",
+      "transliteration": "",
+      "translation": "of",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77247",
+      "verse": "105:4"
+    },
+    {
+      "location": "105:4:4",
+      "transliteration": "sijjīlin",
+      "translation": "baked clay.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77248",
+      "verse": "105:4",
+      "root": {
+        "root_latin": "sīn jīm lām",
+        "root_arabic": "س ج ل"
+      }
+    },
+    {
+      "location": "105:5:1",
+      "transliteration": "fajaʿalahum",
+      "translation": "Then He made them",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء عاطفة\nفعل ماض و«هم» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=77249",
+      "verse": "105:5",
+      "root": {
+        "root_latin": "jīm ʿayn lām",
+        "root_arabic": "ج ع ل"
+      }
+    },
+    {
+      "location": "105:5:2",
+      "transliteration": "kaʿaṣfin",
+      "translation": "like straw",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77250",
+      "verse": "105:5",
+      "root": {
+        "root_latin": "ʿayn ṣād fā",
+        "root_arabic": "ع ص ف"
+      }
+    },
+    {
+      "location": "105:5:3",
+      "transliteration": "makūlin",
+      "translation": "eaten up.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77251",
+      "verse": "105:5",
+      "root": {
+        "root_latin": "hamza kāf lām",
+        "root_arabic": "أ ك ل"
+      }
+    }
+  ]
+}

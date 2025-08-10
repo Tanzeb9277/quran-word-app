@@ -1,0 +1,515 @@
+{
+  "metadata": {
+    "surah_number": 102,
+    "total_words": 28,
+    "scraped_at": "2025-07-06 17:41:00",
+    "scraper_version": "fast",
+    "duplicates_removed": 104
+  },
+  "words": [
+    {
+      "location": "102:1:1",
+      "transliteration": "alhākumu",
+      "translation": "Diverts you",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض والكاف ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=77154",
+      "verse": "102:1",
+      "root": {
+        "root_latin": "lām hā wāw",
+        "root_arabic": "ل ه و"
+      }
+    },
+    {
+      "location": "102:1:2",
+      "transliteration": "l-takāthuru",
+      "translation": "the competition to increase",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77155",
+      "verse": "102:1",
+      "root": {
+        "root_latin": "kāf thā rā",
+        "root_arabic": "ك ث ر"
+      }
+    },
+    {
+      "location": "102:2:1",
+      "transliteration": "",
+      "translation": "Until",
+      "tags": [
+        {
+          "tag": "INC",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف ابتداء",
+      "image_url": "https://corpus.quran.com/wordimage?id=77156",
+      "verse": "102:2"
+    },
+    {
+      "location": "102:2:2",
+      "transliteration": "zur'tumu",
+      "translation": "you visit",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض والتاء ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77157",
+      "verse": "102:2",
+      "root": {
+        "root_latin": "zāy wāw rā",
+        "root_arabic": "ز و ر"
+      }
+    },
+    {
+      "location": "102:2:3",
+      "transliteration": "l-maqābira",
+      "translation": "the graves.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77158",
+      "verse": "102:2",
+      "root": {
+        "root_latin": "qāf bā rā",
+        "root_arabic": "ق ب ر"
+      }
+    },
+    {
+      "location": "102:3:1",
+      "transliteration": "",
+      "translation": "Nay!",
+      "tags": [
+        {
+          "tag": "AVR",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف ردع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77159",
+      "verse": "102:3"
+    },
+    {
+      "location": "102:3:2",
+      "transliteration": "",
+      "translation": "Soon",
+      "tags": [
+        {
+          "tag": "FUT",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف استقبال",
+      "image_url": "https://corpus.quran.com/wordimage?id=77160",
+      "verse": "102:3"
+    },
+    {
+      "location": "102:3:3",
+      "transliteration": "taʿlamūna",
+      "translation": "you will know.",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77161",
+      "verse": "102:3",
+      "root": {
+        "root_latin": "ʿayn lām mīm",
+        "root_arabic": "ع ل م"
+      }
+    },
+    {
+      "location": "102:4:1",
+      "transliteration": "",
+      "translation": "Then,",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف عطف",
+      "image_url": "https://corpus.quran.com/wordimage?id=77162",
+      "verse": "102:4"
+    },
+    {
+      "location": "102:4:2",
+      "transliteration": "",
+      "translation": "nay!",
+      "tags": [
+        {
+          "tag": "AVR",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف ردع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77163",
+      "verse": "102:4"
+    },
+    {
+      "location": "102:4:3",
+      "transliteration": "",
+      "translation": "Soon",
+      "tags": [
+        {
+          "tag": "FUT",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف استقبال",
+      "image_url": "https://corpus.quran.com/wordimage?id=77164",
+      "verse": "102:4"
+    },
+    {
+      "location": "102:4:4",
+      "transliteration": "taʿlamūna",
+      "translation": "you will know.",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77165",
+      "verse": "102:4",
+      "root": {
+        "root_latin": "ʿayn lām mīm",
+        "root_arabic": "ع ل م"
+      }
+    },
+    {
+      "location": "102:5:1",
+      "transliteration": "",
+      "translation": "Nay!",
+      "tags": [
+        {
+          "tag": "AVR",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف ردع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77166",
+      "verse": "102:5"
+    },
+    {
+      "location": "102:5:2",
+      "transliteration": "",
+      "translation": "If",
+      "tags": [
+        {
+          "tag": "COND",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف شرط",
+      "image_url": "https://corpus.quran.com/wordimage?id=77167",
+      "verse": "102:5"
+    },
+    {
+      "location": "102:5:3",
+      "transliteration": "taʿlamūna",
+      "translation": "you know",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77168",
+      "verse": "102:5",
+      "root": {
+        "root_latin": "ʿayn lām mīm",
+        "root_arabic": "ع ل م"
+      }
+    },
+    {
+      "location": "102:5:4",
+      "transliteration": "ʿil'ma",
+      "translation": "(with) a knowledge",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77169",
+      "verse": "102:5",
+      "root": {
+        "root_latin": "ʿayn lām mīm",
+        "root_arabic": "ع ل م"
+      }
+    },
+    {
+      "location": "102:5:5",
+      "transliteration": "l-yaqīni",
+      "translation": "(of) certainty.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77170",
+      "verse": "102:5",
+      "root": {
+        "root_latin": "yā qāf nūn",
+        "root_arabic": "ي ق ن"
+      }
+    },
+    {
+      "location": "102:6:1",
+      "transliteration": "latarawunna",
+      "translation": "Surely you will see",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "EMPH",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nفعل مضارع والنون للتوكيد",
+      "image_url": "https://corpus.quran.com/wordimage?id=77171",
+      "verse": "102:6",
+      "root": {
+        "root_latin": "rā hamza yā",
+        "root_arabic": "ر أ ي"
+      }
+    },
+    {
+      "location": "102:6:2",
+      "transliteration": "l-jaḥīma",
+      "translation": "the Hellfire.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77172",
+      "verse": "102:6",
+      "root": {
+        "root_latin": "jīm ḥā mīm",
+        "root_arabic": "ج ح م"
+      }
+    },
+    {
+      "location": "102:7:1",
+      "transliteration": "",
+      "translation": "Then",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف عطف",
+      "image_url": "https://corpus.quran.com/wordimage?id=77173",
+      "verse": "102:7"
+    },
+    {
+      "location": "102:7:2",
+      "transliteration": "latarawunnahā",
+      "translation": "surely you will see it",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nفعل مضارع والنون للتوكيد و«ها» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=77174",
+      "verse": "102:7",
+      "root": {
+        "root_latin": "rā hamza yā",
+        "root_arabic": "ر أ ي"
+      }
+    },
+    {
+      "location": "102:7:3",
+      "transliteration": "ʿayna",
+      "translation": "(with the) eye",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77175",
+      "verse": "102:7",
+      "root": {
+        "root_latin": "ʿayn yā nūn",
+        "root_arabic": "ع ي ن"
+      }
+    },
+    {
+      "location": "102:7:4",
+      "transliteration": "l-yaqīni",
+      "translation": "(of) certainty.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77176",
+      "verse": "102:7",
+      "root": {
+        "root_latin": "yā qāf nūn",
+        "root_arabic": "ي ق ن"
+      }
+    },
+    {
+      "location": "102:8:1",
+      "transliteration": "",
+      "translation": "Then,",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف عطف",
+      "image_url": "https://corpus.quran.com/wordimage?id=77177",
+      "verse": "102:8"
+    },
+    {
+      "location": "102:8:2",
+      "transliteration": "latus'alunna",
+      "translation": "surely you will be asked",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "EMPH",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nفعل مضارع مبني للمجهول والنون للتوكيد",
+      "image_url": "https://corpus.quran.com/wordimage?id=77178",
+      "verse": "102:8",
+      "root": {
+        "root_latin": "sīn hamza lām",
+        "root_arabic": "س أ ل"
+      }
+    },
+    {
+      "location": "102:8:3",
+      "transliteration": "",
+      "translation": "that Day",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=77179",
+      "verse": "102:8"
+    },
+    {
+      "location": "102:8:4",
+      "transliteration": "",
+      "translation": "about",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77180",
+      "verse": "102:8"
+    },
+    {
+      "location": "102:8:5",
+      "transliteration": "l-naʿīmi",
+      "translation": "the pleasures.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77181",
+      "verse": "102:8",
+      "root": {
+        "root_latin": "nūn ʿayn mīm",
+        "root_arabic": "ن ع م"
+      }
+    }
+  ]
+}

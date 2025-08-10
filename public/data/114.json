@@ -1,0 +1,355 @@
+{
+  "metadata": {
+    "surah_number": 114,
+    "total_words": 20,
+    "scraped_at": "2025-07-06 17:42:52",
+    "scraper_version": "fast",
+    "duplicates_removed": 100
+  },
+  "words": [
+    {
+      "location": "114:1:1",
+      "transliteration": "qul",
+      "translation": "Say,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل أمر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77410",
+      "verse": "114:1",
+      "root": {
+        "root_latin": "qāf wāw lām",
+        "root_arabic": "ق و ل"
+      }
+    },
+    {
+      "location": "114:1:2",
+      "transliteration": "aʿūdhu",
+      "translation": "\"I seek refuge",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77411",
+      "verse": "114:1",
+      "root": {
+        "root_latin": "ʿayn wāw dhāl",
+        "root_arabic": "ع و ذ"
+      }
+    },
+    {
+      "location": "114:1:3",
+      "transliteration": "birabbi",
+      "translation": "in (the) Lord",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77412",
+      "verse": "114:1",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "114:1:4",
+      "transliteration": "l-nāsi",
+      "translation": "(of) mankind,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77413",
+      "verse": "114:1",
+      "root": {
+        "root_latin": "nūn wāw sīn",
+        "root_arabic": "ن و س"
+      }
+    },
+    {
+      "location": "114:2:1",
+      "transliteration": "maliki",
+      "translation": "(The) King",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77414",
+      "verse": "114:2",
+      "root": {
+        "root_latin": "mīm lām kāf",
+        "root_arabic": "م ل ك"
+      }
+    },
+    {
+      "location": "114:2:2",
+      "transliteration": "l-nāsi",
+      "translation": "(of) mankind,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77415",
+      "verse": "114:2",
+      "root": {
+        "root_latin": "nūn wāw sīn",
+        "root_arabic": "ن و س"
+      }
+    },
+    {
+      "location": "114:3:1",
+      "transliteration": "ilāhi",
+      "translation": "(The) God",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77416",
+      "verse": "114:3",
+      "root": {
+        "root_latin": "hamza lām hā",
+        "root_arabic": "أ ل ه"
+      }
+    },
+    {
+      "location": "114:3:2",
+      "transliteration": "l-nāsi",
+      "translation": "(of) mankind,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77417",
+      "verse": "114:3",
+      "root": {
+        "root_latin": "nūn wāw sīn",
+        "root_arabic": "ن و س"
+      }
+    },
+    {
+      "location": "114:4:1",
+      "transliteration": "",
+      "translation": "From",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77418",
+      "verse": "114:4"
+    },
+    {
+      "location": "114:4:2",
+      "transliteration": "sharri",
+      "translation": "(the) evil",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77419",
+      "verse": "114:4",
+      "root": {
+        "root_latin": "shīn rā rā",
+        "root_arabic": "ش ر ر"
+      }
+    },
+    {
+      "location": "114:4:3",
+      "transliteration": "l-waswāsi",
+      "translation": "(of) the whisperer,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77420",
+      "verse": "114:4"
+    },
+    {
+      "location": "114:4:4",
+      "transliteration": "l-khanāsi",
+      "translation": "the one who withdraws,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77421",
+      "verse": "114:4",
+      "root": {
+        "root_latin": "khā nūn sīn",
+        "root_arabic": "خ ن س"
+      }
+    },
+    {
+      "location": "114:5:1",
+      "transliteration": "alladhī",
+      "translation": "The one who",
+      "tags": [
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=77422",
+      "verse": "114:5"
+    },
+    {
+      "location": "114:5:2",
+      "transliteration": "yuwaswisu",
+      "translation": "whispers",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77423",
+      "verse": "114:5"
+    },
+    {
+      "location": "114:5:3",
+      "transliteration": "",
+      "translation": "in",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77424",
+      "verse": "114:5"
+    },
+    {
+      "location": "114:5:4",
+      "transliteration": "ṣudūri",
+      "translation": "(the) breasts",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77425",
+      "verse": "114:5",
+      "root": {
+        "root_latin": "ṣād dāl rā",
+        "root_arabic": "ص د ر"
+      }
+    },
+    {
+      "location": "114:5:5",
+      "transliteration": "l-nāsi",
+      "translation": "(of) mankind,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77426",
+      "verse": "114:5",
+      "root": {
+        "root_latin": "nūn wāw sīn",
+        "root_arabic": "ن و س"
+      }
+    },
+    {
+      "location": "114:6:1",
+      "transliteration": "",
+      "translation": "From",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77427",
+      "verse": "114:6"
+    },
+    {
+      "location": "114:6:2",
+      "transliteration": "l-jinati",
+      "translation": "the jinn",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77428",
+      "verse": "114:6",
+      "root": {
+        "root_latin": "jīm nūn nūn",
+        "root_arabic": "ج ن ن"
+      }
+    },
+    {
+      "location": "114:6:3",
+      "transliteration": "wal-nāsi",
+      "translation": "and men.",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77429",
+      "verse": "114:6",
+      "root": {
+        "root_latin": "nūn wāw sīn",
+        "root_arabic": "ن و س"
+      }
+    }
+  ]
+}

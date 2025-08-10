@@ -1,0 +1,667 @@
+{
+  "metadata": {
+    "surah_number": 101,
+    "total_words": 36,
+    "scraped_at": "2025-07-06 17:40:44",
+    "scraper_version": "fast",
+    "duplicates_removed": 164
+  },
+  "words": [
+    {
+      "location": "101:1:1",
+      "transliteration": "al-qāriʿatu",
+      "translation": "The Striking Calamity!",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77118",
+      "verse": "101:1",
+      "root": {
+        "root_latin": "qāf rā ʿayn",
+        "root_arabic": "ق ر ع"
+      }
+    },
+    {
+      "location": "101:2:1",
+      "transliteration": "",
+      "translation": "What",
+      "tags": [
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=77119",
+      "verse": "101:2"
+    },
+    {
+      "location": "101:2:2",
+      "transliteration": "l-qāriʿatu",
+      "translation": "(is) the Striking Calamity?",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77120",
+      "verse": "101:2",
+      "root": {
+        "root_latin": "qāf rā ʿayn",
+        "root_arabic": "ق ر ع"
+      }
+    },
+    {
+      "location": "101:3:1",
+      "transliteration": "",
+      "translation": "And what",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=77121",
+      "verse": "101:3"
+    },
+    {
+      "location": "101:3:2",
+      "transliteration": "adrāka",
+      "translation": "will make you know",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض والكاف ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=77122",
+      "verse": "101:3",
+      "root": {
+        "root_latin": "dāl rā yā",
+        "root_arabic": "د ر ي"
+      }
+    },
+    {
+      "location": "101:3:3",
+      "transliteration": "",
+      "translation": "what",
+      "tags": [
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=77123",
+      "verse": "101:3"
+    },
+    {
+      "location": "101:3:4",
+      "transliteration": "l-qāriʿatu",
+      "translation": "(is) the Striking Calamity?",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77124",
+      "verse": "101:3",
+      "root": {
+        "root_latin": "qāf rā ʿayn",
+        "root_arabic": "ق ر ع"
+      }
+    },
+    {
+      "location": "101:4:1",
+      "transliteration": "yawma",
+      "translation": "(The) Day",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77125",
+      "verse": "101:4",
+      "root": {
+        "root_latin": "yā wāw mīm",
+        "root_arabic": "ي و م"
+      }
+    },
+    {
+      "location": "101:4:2",
+      "transliteration": "yakūnu",
+      "translation": "will be",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77126",
+      "verse": "101:4",
+      "root": {
+        "root_latin": "kāf wāw nūn",
+        "root_arabic": "ك و ن"
+      }
+    },
+    {
+      "location": "101:4:3",
+      "transliteration": "l-nāsu",
+      "translation": "the mankind",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77127",
+      "verse": "101:4",
+      "root": {
+        "root_latin": "nūn wāw sīn",
+        "root_arabic": "ن و س"
+      }
+    },
+    {
+      "location": "101:4:4",
+      "transliteration": "kal-farāshi",
+      "translation": "like moths,",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77128",
+      "verse": "101:4",
+      "root": {
+        "root_latin": "fā rā shīn",
+        "root_arabic": "ف ر ش"
+      }
+    },
+    {
+      "location": "101:4:5",
+      "transliteration": "l-mabthūthi",
+      "translation": "scattered,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77129",
+      "verse": "101:4",
+      "root": {
+        "root_latin": "bā thā thā",
+        "root_arabic": "ب ث ث"
+      }
+    },
+    {
+      "location": "101:5:1",
+      "transliteration": "watakūnu",
+      "translation": "And will be",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77130",
+      "verse": "101:5",
+      "root": {
+        "root_latin": "kāf wāw nūn",
+        "root_arabic": "ك و ن"
+      }
+    },
+    {
+      "location": "101:5:2",
+      "transliteration": "l-jibālu",
+      "translation": "the mountains",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77131",
+      "verse": "101:5",
+      "root": {
+        "root_latin": "jīm bā lām",
+        "root_arabic": "ج ب ل"
+      }
+    },
+    {
+      "location": "101:5:3",
+      "transliteration": "kal-ʿih'ni",
+      "translation": "like wool,",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77132",
+      "verse": "101:5",
+      "root": {
+        "root_latin": "ʿayn hā nūn",
+        "root_arabic": "ع ه ن"
+      }
+    },
+    {
+      "location": "101:5:4",
+      "transliteration": "l-manfūshi",
+      "translation": "fluffed up.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77133",
+      "verse": "101:5",
+      "root": {
+        "root_latin": "nūn fā shīn",
+        "root_arabic": "ن ف ش"
+      }
+    },
+    {
+      "location": "101:6:1",
+      "transliteration": "fa-ammā",
+      "translation": "Then as for",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "EXL",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nحرف تفصيل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77134",
+      "verse": "101:6"
+    },
+    {
+      "location": "101:6:2",
+      "transliteration": "",
+      "translation": "(him) whose",
+      "tags": [
+        {
+          "tag": "COND",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم شرط",
+      "image_url": "https://corpus.quran.com/wordimage?id=77135",
+      "verse": "101:6"
+    },
+    {
+      "location": "101:6:3",
+      "transliteration": "thaqulat",
+      "translation": "(are) heavy",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77136",
+      "verse": "101:6",
+      "root": {
+        "root_latin": "thā qāf lām",
+        "root_arabic": "ث ق ل"
+      }
+    },
+    {
+      "location": "101:6:4",
+      "transliteration": "mawāzīnuhu",
+      "translation": "his scales,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77137",
+      "verse": "101:6",
+      "root": {
+        "root_latin": "wāw zāy nūn",
+        "root_arabic": "و ز ن"
+      }
+    },
+    {
+      "location": "101:7:1",
+      "transliteration": "",
+      "translation": "Then he",
+      "tags": [
+        {
+          "tag": "RSLT",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء واقعة في جواب الشرط\nضمير منفصل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77138",
+      "verse": "101:7"
+    },
+    {
+      "location": "101:7:2",
+      "transliteration": "",
+      "translation": "(will be) in",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77139",
+      "verse": "101:7"
+    },
+    {
+      "location": "101:7:3",
+      "transliteration": "ʿīshatin",
+      "translation": "a life,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77140",
+      "verse": "101:7",
+      "root": {
+        "root_latin": "ʿayn yā shīn",
+        "root_arabic": "ع ي ش"
+      }
+    },
+    {
+      "location": "101:7:4",
+      "transliteration": "rāḍiyatin",
+      "translation": "pleasant.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77141",
+      "verse": "101:7",
+      "root": {
+        "root_latin": "rā ḍād wāw",
+        "root_arabic": "ر ض و"
+      }
+    },
+    {
+      "location": "101:8:1",
+      "transliteration": "wa-ammā",
+      "translation": "But as for",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "EXL",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف تفصيل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77142",
+      "verse": "101:8"
+    },
+    {
+      "location": "101:8:2",
+      "transliteration": "",
+      "translation": "(him) whose",
+      "tags": [
+        {
+          "tag": "COND",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم شرط",
+      "image_url": "https://corpus.quran.com/wordimage?id=77143",
+      "verse": "101:8"
+    },
+    {
+      "location": "101:8:3",
+      "transliteration": "khaffat",
+      "translation": "(are) light",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77144",
+      "verse": "101:8",
+      "root": {
+        "root_latin": "khā fā fā",
+        "root_arabic": "خ ف ف"
+      }
+    },
+    {
+      "location": "101:8:4",
+      "transliteration": "mawāzīnuhu",
+      "translation": "his scales,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77145",
+      "verse": "101:8",
+      "root": {
+        "root_latin": "wāw zāy nūn",
+        "root_arabic": "و ز ن"
+      }
+    },
+    {
+      "location": "101:9:1",
+      "transliteration": "fa-ummuhu",
+      "translation": "His abode",
+      "tags": [
+        {
+          "tag": "RSLT",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء واقعة في جواب الشرط\nاسم مرفوع والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77146",
+      "verse": "101:9",
+      "root": {
+        "root_latin": "hamza mīm mīm",
+        "root_arabic": "أ م م"
+      }
+    },
+    {
+      "location": "101:9:2",
+      "transliteration": "hāwiyatun",
+      "translation": "(will be the) Pit.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77147",
+      "verse": "101:9",
+      "root": {
+        "root_latin": "hā wāw yā",
+        "root_arabic": "ه و ي"
+      }
+    },
+    {
+      "location": "101:10:1",
+      "transliteration": "",
+      "translation": "And what",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=77148",
+      "verse": "101:10"
+    },
+    {
+      "location": "101:10:2",
+      "transliteration": "adrāka",
+      "translation": "will make you know",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض والكاف ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=77149",
+      "verse": "101:10",
+      "root": {
+        "root_latin": "dāl rā yā",
+        "root_arabic": "د ر ي"
+      }
+    },
+    {
+      "location": "101:10:3",
+      "transliteration": "",
+      "translation": "what",
+      "tags": [
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=77150",
+      "verse": "101:10"
+    },
+    {
+      "location": "101:10:4",
+      "transliteration": "",
+      "translation": "it is?",
+      "tags": [
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "ضمير منفصل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77151",
+      "verse": "101:10"
+    },
+    {
+      "location": "101:11:1",
+      "transliteration": "nārun",
+      "translation": "A Fire,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77152",
+      "verse": "101:11",
+      "root": {
+        "root_latin": "nūn wāw rā",
+        "root_arabic": "ن و ر"
+      }
+    },
+    {
+      "location": "101:11:2",
+      "transliteration": "ḥāmiyatun",
+      "translation": "intensely hot.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مرفوعة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77153",
+      "verse": "101:11",
+      "root": {
+        "root_latin": "ḥā mīm yā",
+        "root_arabic": "ح م ي"
+      }
+    }
+  ]
+}

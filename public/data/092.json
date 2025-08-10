@@ -1,0 +1,1381 @@
+{
+  "metadata": {
+    "surah_number": 92,
+    "total_words": 71,
+    "scraped_at": "2025-07-06 17:37:50",
+    "scraper_version": "fast",
+    "duplicates_removed": 390
+  },
+  "words": [
+    {
+      "location": "92:1:1",
+      "transliteration": "wa-al-layli",
+      "translation": "By the night",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76674",
+      "verse": "92:1",
+      "root": {
+        "root_latin": "lām yā lām",
+        "root_arabic": "ل ي ل"
+      }
+    },
+    {
+      "location": "92:1:2",
+      "transliteration": "idhā",
+      "translation": "when",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=76675",
+      "verse": "92:1"
+    },
+    {
+      "location": "92:1:3",
+      "transliteration": "yaghshā",
+      "translation": "it covers,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76676",
+      "verse": "92:1",
+      "root": {
+        "root_latin": "ghayn shīn wāw",
+        "root_arabic": "غ ش و"
+      }
+    },
+    {
+      "location": "92:2:1",
+      "transliteration": "wal-nahāri",
+      "translation": "And the day",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76677",
+      "verse": "92:2",
+      "root": {
+        "root_latin": "nūn hā rā",
+        "root_arabic": "ن ه ر"
+      }
+    },
+    {
+      "location": "92:2:2",
+      "transliteration": "idhā",
+      "translation": "when",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=76678",
+      "verse": "92:2"
+    },
+    {
+      "location": "92:2:3",
+      "transliteration": "tajallā",
+      "translation": "it shines in brightness,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76679",
+      "verse": "92:2",
+      "root": {
+        "root_latin": "jīm lām wāw",
+        "root_arabic": "ج ل و"
+      }
+    },
+    {
+      "location": "92:3:1",
+      "transliteration": "",
+      "translation": "And He Who",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=76680",
+      "verse": "92:3"
+    },
+    {
+      "location": "92:3:2",
+      "transliteration": "khalaqa",
+      "translation": "created",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76681",
+      "verse": "92:3",
+      "root": {
+        "root_latin": "khā lām qāf",
+        "root_arabic": "خ ل ق"
+      }
+    },
+    {
+      "location": "92:3:3",
+      "transliteration": "l-dhakara",
+      "translation": "the male",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76682",
+      "verse": "92:3",
+      "root": {
+        "root_latin": "dhāl kāf rā",
+        "root_arabic": "ذ ك ر"
+      }
+    },
+    {
+      "location": "92:3:4",
+      "transliteration": "wal-unthā",
+      "translation": "and the female,",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76683",
+      "verse": "92:3",
+      "root": {
+        "root_latin": "hamza nūn thā",
+        "root_arabic": "أ ن ث"
+      }
+    },
+    {
+      "location": "92:4:1",
+      "transliteration": "",
+      "translation": "Indeed,",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76684",
+      "verse": "92:4"
+    },
+    {
+      "location": "92:4:2",
+      "transliteration": "saʿyakum",
+      "translation": "your efforts",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب والكاف ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=76685",
+      "verse": "92:4",
+      "root": {
+        "root_latin": "sīn ʿayn yā",
+        "root_arabic": "س ع ي"
+      }
+    },
+    {
+      "location": "92:4:3",
+      "transliteration": "lashattā",
+      "translation": "(are) surely diverse.",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nاسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76686",
+      "verse": "92:4",
+      "root": {
+        "root_latin": "shīn tā tā",
+        "root_arabic": "ش ت ت"
+      }
+    },
+    {
+      "location": "92:5:1",
+      "transliteration": "fa-ammā",
+      "translation": "Then as for",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "EXL",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nحرف تفصيل",
+      "image_url": "https://corpus.quran.com/wordimage?id=76687",
+      "verse": "92:5"
+    },
+    {
+      "location": "92:5:2",
+      "transliteration": "",
+      "translation": "(him) who",
+      "tags": [
+        {
+          "tag": "COND",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم شرط",
+      "image_url": "https://corpus.quran.com/wordimage?id=76688",
+      "verse": "92:5"
+    },
+    {
+      "location": "92:5:3",
+      "transliteration": "aʿṭā",
+      "translation": "gives",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76689",
+      "verse": "92:5",
+      "root": {
+        "root_latin": "ʿayn ṭā wāw",
+        "root_arabic": "ع ط و"
+      }
+    },
+    {
+      "location": "92:5:4",
+      "transliteration": "wa-ittaqā",
+      "translation": "and fears,",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76690",
+      "verse": "92:5",
+      "root": {
+        "root_latin": "wāw qāf yā",
+        "root_arabic": "و ق ي"
+      }
+    },
+    {
+      "location": "92:6:1",
+      "transliteration": "waṣaddaqa",
+      "translation": "And believes",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76691",
+      "verse": "92:6",
+      "root": {
+        "root_latin": "ṣād dāl qāf",
+        "root_arabic": "ص د ق"
+      }
+    },
+    {
+      "location": "92:6:2",
+      "transliteration": "bil-ḥus'nā",
+      "translation": "in the best,",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76692",
+      "verse": "92:6",
+      "root": {
+        "root_latin": "ḥā sīn nūn",
+        "root_arabic": "ح س ن"
+      }
+    },
+    {
+      "location": "92:7:1",
+      "transliteration": "fasanuyassiruhu",
+      "translation": "Then We will ease him",
+      "tags": [
+        {
+          "tag": "RSLT",
+          "description": ""
+        },
+        {
+          "tag": "FUT",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء واقعة في جواب الشرط\nحرف استقبال\nفعل مضارع والهاء ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=76693",
+      "verse": "92:7",
+      "root": {
+        "root_latin": "yā sīn rā",
+        "root_arabic": "ي س ر"
+      }
+    },
+    {
+      "location": "92:7:2",
+      "transliteration": "lil'yus'rā",
+      "translation": "towards [the] ease.",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76694",
+      "verse": "92:7",
+      "root": {
+        "root_latin": "yā sīn rā",
+        "root_arabic": "ي س ر"
+      }
+    },
+    {
+      "location": "92:8:1",
+      "transliteration": "wa-ammā",
+      "translation": "But as for",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "EXL",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف تفصيل",
+      "image_url": "https://corpus.quran.com/wordimage?id=76695",
+      "verse": "92:8"
+    },
+    {
+      "location": "92:8:2",
+      "transliteration": "",
+      "translation": "(him) who",
+      "tags": [
+        {
+          "tag": "COND",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم شرط",
+      "image_url": "https://corpus.quran.com/wordimage?id=76696",
+      "verse": "92:8"
+    },
+    {
+      "location": "92:8:3",
+      "transliteration": "bakhila",
+      "translation": "withholds",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76697",
+      "verse": "92:8",
+      "root": {
+        "root_latin": "bā khā lām",
+        "root_arabic": "ب خ ل"
+      }
+    },
+    {
+      "location": "92:8:4",
+      "transliteration": "wa-is'taghnā",
+      "translation": "and considers himself free from need,",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76698",
+      "verse": "92:8",
+      "root": {
+        "root_latin": "ghayn nūn yā",
+        "root_arabic": "غ ن ي"
+      }
+    },
+    {
+      "location": "92:9:1",
+      "transliteration": "wakadhaba",
+      "translation": "And denies",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76699",
+      "verse": "92:9",
+      "root": {
+        "root_latin": "kāf dhāl bā",
+        "root_arabic": "ك ذ ب"
+      }
+    },
+    {
+      "location": "92:9:2",
+      "transliteration": "bil-ḥus'nā",
+      "translation": "the best,",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76700",
+      "verse": "92:9",
+      "root": {
+        "root_latin": "ḥā sīn nūn",
+        "root_arabic": "ح س ن"
+      }
+    },
+    {
+      "location": "92:10:1",
+      "transliteration": "fasanuyassiruhu",
+      "translation": "Then We will ease him",
+      "tags": [
+        {
+          "tag": "RSLT",
+          "description": ""
+        },
+        {
+          "tag": "FUT",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء واقعة في جواب الشرط\nحرف استقبال\nفعل مضارع والهاء ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=76701",
+      "verse": "92:10",
+      "root": {
+        "root_latin": "yā sīn rā",
+        "root_arabic": "ي س ر"
+      }
+    },
+    {
+      "location": "92:10:2",
+      "transliteration": "lil'ʿus'rā",
+      "translation": "towards [the] difficulty.",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76702",
+      "verse": "92:10",
+      "root": {
+        "root_latin": "ʿayn sīn rā",
+        "root_arabic": "ع س ر"
+      }
+    },
+    {
+      "location": "92:11:1",
+      "transliteration": "",
+      "translation": "And not",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو استئنافية\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=76703",
+      "verse": "92:11"
+    },
+    {
+      "location": "92:11:2",
+      "transliteration": "yugh'nī",
+      "translation": "will avail",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76704",
+      "verse": "92:11",
+      "root": {
+        "root_latin": "ghayn nūn yā",
+        "root_arabic": "غ ن ي"
+      }
+    },
+    {
+      "location": "92:11:3",
+      "transliteration": "",
+      "translation": "him",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76705",
+      "verse": "92:11"
+    },
+    {
+      "location": "92:11:4",
+      "transliteration": "māluhu",
+      "translation": "his wealth",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=76706",
+      "verse": "92:11",
+      "root": {
+        "root_latin": "mīm wāw lām",
+        "root_arabic": "م و ل"
+      }
+    },
+    {
+      "location": "92:11:5",
+      "transliteration": "idhā",
+      "translation": "when",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=76707",
+      "verse": "92:11"
+    },
+    {
+      "location": "92:11:6",
+      "transliteration": "taraddā",
+      "translation": "he falls.",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76708",
+      "verse": "92:11",
+      "root": {
+        "root_latin": "rā dāl yā",
+        "root_arabic": "ر د ي"
+      }
+    },
+    {
+      "location": "92:12:1",
+      "transliteration": "",
+      "translation": "Indeed,",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76709",
+      "verse": "92:12"
+    },
+    {
+      "location": "92:12:2",
+      "transliteration": "",
+      "translation": "upon Us",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76710",
+      "verse": "92:12"
+    },
+    {
+      "location": "92:12:3",
+      "transliteration": "lalhudā",
+      "translation": "(is) the guidance.",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nاسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76711",
+      "verse": "92:12",
+      "root": {
+        "root_latin": "hā dāl yā",
+        "root_arabic": "ه د ي"
+      }
+    },
+    {
+      "location": "92:13:1",
+      "transliteration": "",
+      "translation": "And indeed,",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "ACC",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نصب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76712",
+      "verse": "92:13"
+    },
+    {
+      "location": "92:13:2",
+      "transliteration": "",
+      "translation": "for Us",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76713",
+      "verse": "92:13"
+    },
+    {
+      "location": "92:13:3",
+      "transliteration": "lalākhirata",
+      "translation": "(is) the Hereafter",
+      "tags": [
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اللام لام التوكيد\nاسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76714",
+      "verse": "92:13",
+      "root": {
+        "root_latin": "hamza khā rā",
+        "root_arabic": "أ خ ر"
+      }
+    },
+    {
+      "location": "92:13:4",
+      "transliteration": "wal-ūlā",
+      "translation": "and the first (life).",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76715",
+      "verse": "92:13",
+      "root": {
+        "root_latin": "hamza wāw lām",
+        "root_arabic": "أ و ل"
+      }
+    },
+    {
+      "location": "92:14:1",
+      "transliteration": "fa-andhartukum",
+      "translation": "So I warn you",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nفعل ماض والتاء ضمير متصل في محل رفع فاعل والكاف ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=76716",
+      "verse": "92:14",
+      "root": {
+        "root_latin": "nūn dhāl rā",
+        "root_arabic": "ن ذ ر"
+      }
+    },
+    {
+      "location": "92:14:2",
+      "transliteration": "nāran",
+      "translation": "(of) a Fire",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76717",
+      "verse": "92:14",
+      "root": {
+        "root_latin": "nūn wāw rā",
+        "root_arabic": "ن و ر"
+      }
+    },
+    {
+      "location": "92:14:3",
+      "transliteration": "talaẓẓā",
+      "translation": "blazing,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76718",
+      "verse": "92:14",
+      "root": {
+        "root_latin": "lām ẓā yā",
+        "root_arabic": "ل ظ ي"
+      }
+    },
+    {
+      "location": "92:15:1",
+      "transliteration": "",
+      "translation": "Not",
+      "tags": [
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=76719",
+      "verse": "92:15"
+    },
+    {
+      "location": "92:15:2",
+      "transliteration": "yaṣlāhā",
+      "translation": "will burn (in) it",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع و«ها» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=76720",
+      "verse": "92:15",
+      "root": {
+        "root_latin": "ṣād lām yā",
+        "root_arabic": "ص ل ي"
+      }
+    },
+    {
+      "location": "92:15:3",
+      "transliteration": "illā",
+      "translation": "except",
+      "tags": [
+        {
+          "tag": "RES",
+          "description": ""
+        }
+      ],
+      "grammar": "أداة حصر",
+      "image_url": "https://corpus.quran.com/wordimage?id=76721",
+      "verse": "92:15"
+    },
+    {
+      "location": "92:15:4",
+      "transliteration": "l-ashqā",
+      "translation": "the most wretched,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76722",
+      "verse": "92:15",
+      "root": {
+        "root_latin": "shīn qāf wāw",
+        "root_arabic": "ش ق و"
+      }
+    },
+    {
+      "location": "92:16:1",
+      "transliteration": "alladhī",
+      "translation": "The one who",
+      "tags": [
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=76723",
+      "verse": "92:16"
+    },
+    {
+      "location": "92:16:2",
+      "transliteration": "kadhaba",
+      "translation": "denied",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76724",
+      "verse": "92:16",
+      "root": {
+        "root_latin": "kāf dhāl bā",
+        "root_arabic": "ك ذ ب"
+      }
+    },
+    {
+      "location": "92:16:3",
+      "transliteration": "watawallā",
+      "translation": "and turned away.",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=76725",
+      "verse": "92:16",
+      "root": {
+        "root_latin": "wāw lām yā",
+        "root_arabic": "و ل ي"
+      }
+    },
+    {
+      "location": "92:17:1",
+      "transliteration": "wasayujannabuhā",
+      "translation": "But will be removed from it",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "FUT",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف استقبال\nفعل مضارع مبني للمجهول و«ها» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=76726",
+      "verse": "92:17",
+      "root": {
+        "root_latin": "jīm nūn bā",
+        "root_arabic": "ج ن ب"
+      }
+    },
+    {
+      "location": "92:17:2",
+      "transliteration": "l-atqā",
+      "translation": "the righteous,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76727",
+      "verse": "92:17",
+      "root": {
+        "root_latin": "wāw qāf yā",
+        "root_arabic": "و ق ي"
+      }
+    },
+    {
+      "location": "92:18:1",
+      "transliteration": "alladhī",
+      "translation": "The one who",
+      "tags": [
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=76728",
+      "verse": "92:18"
+    },
+    {
+      "location": "92:18:2",
+      "transliteration": "yu'tī",
+      "translation": "gives",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76729",
+      "verse": "92:18",
+      "root": {
+        "root_latin": "hamza tā yā",
+        "root_arabic": "أ ت ي"
+      }
+    },
+    {
+      "location": "92:18:3",
+      "transliteration": "mālahu",
+      "translation": "his wealth",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=76730",
+      "verse": "92:18",
+      "root": {
+        "root_latin": "mīm wāw lām",
+        "root_arabic": "م و ل"
+      }
+    },
+    {
+      "location": "92:18:4",
+      "transliteration": "yatazakkā",
+      "translation": "(to) purify himself,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76731",
+      "verse": "92:18",
+      "root": {
+        "root_latin": "zāy kāf wāw",
+        "root_arabic": "ز ك و"
+      }
+    },
+    {
+      "location": "92:19:1",
+      "transliteration": "",
+      "translation": "And not",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "NEG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=76732",
+      "verse": "92:19"
+    },
+    {
+      "location": "92:19:2",
+      "transliteration": "li-aḥadin",
+      "translation": "for anyone",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76733",
+      "verse": "92:19",
+      "root": {
+        "root_latin": "hamza ḥā dāl",
+        "root_arabic": "أ ح د"
+      }
+    },
+    {
+      "location": "92:19:3",
+      "transliteration": "ʿindahu",
+      "translation": "with him",
+      "tags": [
+        {
+          "tag": "LOC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف مكان منصوب والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=76734",
+      "verse": "92:19",
+      "root": {
+        "root_latin": "ʿayn nūn dāl",
+        "root_arabic": "ع ن د"
+      }
+    },
+    {
+      "location": "92:19:4",
+      "transliteration": "",
+      "translation": "any",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=76735",
+      "verse": "92:19"
+    },
+    {
+      "location": "92:19:5",
+      "transliteration": "niʿ'matin",
+      "translation": "favor",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76736",
+      "verse": "92:19",
+      "root": {
+        "root_latin": "nūn ʿayn mīm",
+        "root_arabic": "ن ع م"
+      }
+    },
+    {
+      "location": "92:19:6",
+      "transliteration": "tuj'zā",
+      "translation": "to be recompensed",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع مبني للمجهول",
+      "image_url": "https://corpus.quran.com/wordimage?id=76737",
+      "verse": "92:19",
+      "root": {
+        "root_latin": "jīm zāy yā",
+        "root_arabic": "ج ز ي"
+      }
+    },
+    {
+      "location": "92:20:1",
+      "transliteration": "illā",
+      "translation": "Except",
+      "tags": [
+        {
+          "tag": "EXP",
+          "description": ""
+        }
+      ],
+      "grammar": "أداة استثناء",
+      "image_url": "https://corpus.quran.com/wordimage?id=76738",
+      "verse": "92:20"
+    },
+    {
+      "location": "92:20:2",
+      "transliteration": "ib'tighāa",
+      "translation": "seeking",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=76739",
+      "verse": "92:20",
+      "root": {
+        "root_latin": "bā ghayn yā",
+        "root_arabic": "ب غ ي"
+      }
+    },
+    {
+      "location": "92:20:3",
+      "transliteration": "wajhi",
+      "translation": "(the) Countenance",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76740",
+      "verse": "92:20",
+      "root": {
+        "root_latin": "wāw jīm hā",
+        "root_arabic": "و ج ه"
+      }
+    },
+    {
+      "location": "92:20:4",
+      "transliteration": "rabbihi",
+      "translation": "(of) his Lord,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور والهاء ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=76741",
+      "verse": "92:20",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "92:20:5",
+      "transliteration": "l-aʿlā",
+      "translation": "the Most High.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": ""
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=76742",
+      "verse": "92:20",
+      "root": {
+        "root_latin": "ʿayn lām wāw",
+        "root_arabic": "ع ل و"
+      }
+    },
+    {
+      "location": "92:21:1",
+      "transliteration": "",
+      "translation": "And soon, surely",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "EMPH",
+          "description": ""
+        },
+        {
+          "tag": "FUT",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاللام لام التوكيد\nحرف استقبال",
+      "image_url": "https://corpus.quran.com/wordimage?id=76743",
+      "verse": "92:21"
+    },
+    {
+      "location": "92:21:2",
+      "transliteration": "yarḍā",
+      "translation": "he will be pleased.",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76744",
+      "verse": "92:21",
+      "root": {
+        "root_latin": "rā ḍād wāw",
+        "root_arabic": "ر ض و"
+      }
+    }
+  ]
+}

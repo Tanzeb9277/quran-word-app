@@ -1,0 +1,545 @@
+{
+  "metadata": {
+    "surah_number": 1,
+    "total_words": 29,
+    "scraped_at": "2025-07-06 11:57:06",
+    "source_url": "https://corpus.quran.com/wordbyword.jsp?chapter=1&verse=1",
+    "duplicates_removed": 0
+  },
+  "words": [
+    {
+      "location": "1:1:1",
+      "transliteration": "bis'mi",
+      "translation": "In (the) name",
+      "tags": [
+        {
+          "tag": "P",
+          "description": "prefixed preposition bi"
+        },
+        {
+          "tag": "N",
+          "description": "genitive masculine noun"
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=1",
+      "verse": "1:1",
+      "root": {
+        "root_latin": "sīn mīm wāw",
+        "root_arabic": "س م و"
+      }
+    },
+    {
+      "location": "1:1:2",
+      "transliteration": "l-lahi",
+      "translation": "(of) Allah,",
+      "tags": [
+        {
+          "tag": "PN",
+          "description": "genitive proper noun → Allah"
+        }
+      ],
+      "grammar": "لفظ الجلالة مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=2",
+      "verse": "1:1",
+      "root": {
+        "root_latin": "hamza lām hā",
+        "root_arabic": "أ ل ه"
+      }
+    },
+    {
+      "location": "1:1:3",
+      "transliteration": "l-raḥmāni",
+      "translation": "the Most Gracious,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": "genitive masculine singular adjective"
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=3",
+      "verse": "1:1",
+      "root": {
+        "root_latin": "rā ḥā mīm",
+        "root_arabic": "ر ح م"
+      }
+    },
+    {
+      "location": "1:1:4",
+      "transliteration": "l-raḥīmi",
+      "translation": "the Most Merciful.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": "genitive masculine singular adjective"
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=4",
+      "verse": "1:1",
+      "root": {
+        "root_latin": "rā ḥā mīm",
+        "root_arabic": "ر ح م"
+      }
+    },
+    {
+      "location": "1:2:1",
+      "transliteration": "al-ḥamdu",
+      "translation": "All praises and thanks",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "nominative masculine noun"
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=5",
+      "verse": "1:2",
+      "root": {
+        "root_latin": "ḥā mīm dāl",
+        "root_arabic": "ح م د"
+      }
+    },
+    {
+      "location": "1:2:2",
+      "transliteration": "lillahi",
+      "translation": "(be) to Allah,",
+      "tags": [
+        {
+          "tag": "P",
+          "description": "prefixed preposition lām"
+        },
+        {
+          "tag": "PN",
+          "description": "genitive proper noun → Allah"
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=6",
+      "verse": "1:2",
+      "root": {
+        "root_latin": "hamza lām hā",
+        "root_arabic": "أ ل ه"
+      }
+    },
+    {
+      "location": "1:2:3",
+      "transliteration": "rabbi",
+      "translation": "the Lord",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "genitive masculine noun"
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=7",
+      "verse": "1:2",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "1:2:4",
+      "transliteration": "l-ʿālamīna",
+      "translation": "of the universe",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "genitive masculine plural noun"
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=8",
+      "verse": "1:2",
+      "root": {
+        "root_latin": "ʿayn lām mīm",
+        "root_arabic": "ع ل م"
+      }
+    },
+    {
+      "location": "1:3:1",
+      "transliteration": "al-raḥmāni",
+      "translation": "The Most Gracious,",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": "genitive masculine singular adjective"
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=9",
+      "verse": "1:3",
+      "root": {
+        "root_latin": "rā ḥā mīm",
+        "root_arabic": "ر ح م"
+      }
+    },
+    {
+      "location": "1:3:2",
+      "transliteration": "l-raḥīmi",
+      "translation": "the Most Merciful.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": "genitive masculine singular adjective"
+        }
+      ],
+      "grammar": "صفة مجرورة",
+      "image_url": "https://corpus.quran.com/wordimage?id=10",
+      "verse": "1:3",
+      "root": {
+        "root_latin": "rā ḥā mīm",
+        "root_arabic": "ر ح م"
+      }
+    },
+    {
+      "location": "1:4:1",
+      "transliteration": "māliki",
+      "translation": "(The) Master",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "genitive masculine active participle"
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=11",
+      "verse": "1:4",
+      "root": {
+        "root_latin": "mīm lām kāf",
+        "root_arabic": "م ل ك"
+      }
+    },
+    {
+      "location": "1:4:2",
+      "transliteration": "yawmi",
+      "translation": "(of the) Day",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "genitive masculine noun → Day of Resurrection"
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=12",
+      "verse": "1:4",
+      "root": {
+        "root_latin": "yā wāw mīm",
+        "root_arabic": "ي و م"
+      }
+    },
+    {
+      "location": "1:4:3",
+      "transliteration": "l-dīni",
+      "translation": "(of the) Judgment.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "genitive masculine noun"
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=13",
+      "verse": "1:4",
+      "root": {
+        "root_latin": "dāl yā nūn",
+        "root_arabic": "د ي ن"
+      }
+    },
+    {
+      "location": "1:5:1",
+      "transliteration": "",
+      "translation": "You Alone",
+      "tags": [
+        {
+          "tag": "PRON",
+          "description": "2nd person masculine singular personal pronoun → Allah"
+        }
+      ],
+      "grammar": "ضمير منفصل",
+      "image_url": "https://corpus.quran.com/wordimage?id=14",
+      "verse": "1:5"
+    },
+    {
+      "location": "1:5:2",
+      "transliteration": "naʿbudu",
+      "translation": "we worship,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": "1st person plural imperfect verb"
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=15",
+      "verse": "1:5",
+      "root": {
+        "root_latin": "ʿayn bā dāl",
+        "root_arabic": "ع ب د"
+      }
+    },
+    {
+      "location": "1:5:3",
+      "transliteration": "",
+      "translation": "and You Alone",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": "prefixed conjunction wa (and)"
+        },
+        {
+          "tag": "PRON",
+          "description": "2nd person masculine singular personal pronoun → Allah"
+        }
+      ],
+      "grammar": "الواو عاطفة\nضمير منفصل",
+      "image_url": "https://corpus.quran.com/wordimage?id=16",
+      "verse": "1:5"
+    },
+    {
+      "location": "1:5:4",
+      "transliteration": "nastaʿīnu",
+      "translation": "we ask for help.",
+      "tags": [
+        {
+          "tag": "V",
+          "description": "1st person plural (form X) imperfect verb"
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=17",
+      "verse": "1:5",
+      "root": {
+        "root_latin": "ʿayn wāw nūn",
+        "root_arabic": "ع و ن"
+      }
+    },
+    {
+      "location": "1:6:1",
+      "transliteration": "ih'dinā",
+      "translation": "Guide us",
+      "tags": [
+        {
+          "tag": "V",
+          "description": "2nd person masculine singular imperative verb"
+        },
+        {
+          "tag": "PRON",
+          "description": "1st person plural object pronoun"
+        },
+        {
+          "tag": "PRON",
+          "description": "1st person plural object pronoun"
+        }
+      ],
+      "grammar": "فعل أمر و«نا» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=18",
+      "verse": "1:6",
+      "root": {
+        "root_latin": "hā dāl yā",
+        "root_arabic": "ه د ي"
+      }
+    },
+    {
+      "location": "1:6:2",
+      "transliteration": "l-ṣirāṭa",
+      "translation": "(to) the path,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "accusative masculine noun"
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=19",
+      "verse": "1:6",
+      "root": {
+        "root_latin": "ṣād rā ṭā",
+        "root_arabic": "ص ر ط"
+      }
+    },
+    {
+      "location": "1:6:3",
+      "transliteration": "l-mus'taqīma",
+      "translation": "the straight.",
+      "tags": [
+        {
+          "tag": "ADJ",
+          "description": "accusative masculine (form X) active participle"
+        }
+      ],
+      "grammar": "صفة منصوبة",
+      "image_url": "https://corpus.quran.com/wordimage?id=20",
+      "verse": "1:6",
+      "root": {
+        "root_latin": "qāf wāw mīm",
+        "root_arabic": "ق و م"
+      }
+    },
+    {
+      "location": "1:7:1",
+      "transliteration": "ṣirāṭa",
+      "translation": "(The) path",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "accusative masculine noun"
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=21",
+      "verse": "1:7",
+      "root": {
+        "root_latin": "ṣād rā ṭā",
+        "root_arabic": "ص ر ط"
+      }
+    },
+    {
+      "location": "1:7:2",
+      "transliteration": "alladhīna",
+      "translation": "(of) those",
+      "tags": [
+        {
+          "tag": "REL",
+          "description": "masculine plural relative pronoun"
+        }
+      ],
+      "grammar": "اسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=22",
+      "verse": "1:7"
+    },
+    {
+      "location": "1:7:3",
+      "transliteration": "anʿamta",
+      "translation": "You have bestowed (Your) Favors",
+      "tags": [
+        {
+          "tag": "V",
+          "description": "2nd person masculine singular (form IV) perfect verb"
+        },
+        {
+          "tag": "PRON",
+          "description": "subject pronoun → Allah"
+        }
+      ],
+      "grammar": "فعل ماض والتاء ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=23",
+      "verse": "1:7",
+      "root": {
+        "root_latin": "nūn ʿayn mīm",
+        "root_arabic": "ن ع م"
+      }
+    },
+    {
+      "location": "1:7:4",
+      "transliteration": "",
+      "translation": "on them,",
+      "tags": [
+        {
+          "tag": "P",
+          "description": "preposition"
+        },
+        {
+          "tag": "PRON",
+          "description": "3rd person masculine plural object pronoun"
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=24",
+      "verse": "1:7"
+    },
+    {
+      "location": "1:7:5",
+      "transliteration": "ghayri",
+      "translation": "not (of)",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "genitive masculine noun"
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=25",
+      "verse": "1:7",
+      "root": {
+        "root_latin": "ghayn yā rā",
+        "root_arabic": "غ ي ر"
+      }
+    },
+    {
+      "location": "1:7:6",
+      "transliteration": "l-maghḍūbi",
+      "translation": "those who earned (Your) wrath",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "genitive masculine passive participle"
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=26",
+      "verse": "1:7",
+      "root": {
+        "root_latin": "ghayn ḍād bā",
+        "root_arabic": "غ ض ب"
+      }
+    },
+    {
+      "location": "1:7:7",
+      "transliteration": "",
+      "translation": "on themselves",
+      "tags": [
+        {
+          "tag": "P",
+          "description": "preposition"
+        },
+        {
+          "tag": "PRON",
+          "description": "3rd person masculine plural object pronoun"
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=27",
+      "verse": "1:7"
+    },
+    {
+      "location": "1:7:8",
+      "transliteration": "",
+      "translation": "and not",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": "prefixed conjunction wa (and)"
+        },
+        {
+          "tag": "NEG",
+          "description": "negative particle"
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف نفي",
+      "image_url": "https://corpus.quran.com/wordimage?id=28",
+      "verse": "1:7"
+    },
+    {
+      "location": "1:7:9",
+      "transliteration": "l-ḍālīna",
+      "translation": "(of) those who go astray.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": "genitive masculine plural active participle"
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=29",
+      "verse": "1:7",
+      "root": {
+        "root_latin": "ḍād lām lām",
+        "root_arabic": "ض ل ل"
+      }
+    }
+  ]
+}

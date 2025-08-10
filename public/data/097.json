@@ -1,0 +1,551 @@
+{
+  "metadata": {
+    "surah_number": 97,
+    "total_words": 30,
+    "scraped_at": "2025-07-06 17:39:32",
+    "scraper_version": "fast",
+    "duplicates_removed": 75
+  },
+  "words": [
+    {
+      "location": "97:1:1",
+      "transliteration": "",
+      "translation": "Indeed, We",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب و«نا» ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=76918",
+      "verse": "97:1"
+    },
+    {
+      "location": "97:1:2",
+      "transliteration": "anzalnāhu",
+      "translation": "revealed it",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض و«نا» ضمير متصل في محل رفع فاعل والهاء ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=76919",
+      "verse": "97:1",
+      "root": {
+        "root_latin": "nūn zāy lām",
+        "root_arabic": "ن ز ل"
+      }
+    },
+    {
+      "location": "97:1:3",
+      "transliteration": "",
+      "translation": "in",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=76920",
+      "verse": "97:1"
+    },
+    {
+      "location": "97:1:4",
+      "transliteration": "laylati",
+      "translation": "(the) Night",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76921",
+      "verse": "97:1",
+      "root": {
+        "root_latin": "lām yā lām",
+        "root_arabic": "ل ي ل"
+      }
+    },
+    {
+      "location": "97:1:5",
+      "transliteration": "l-qadri",
+      "translation": "(of) Power.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76922",
+      "verse": "97:1",
+      "root": {
+        "root_latin": "qāf dāl rā",
+        "root_arabic": "ق د ر"
+      }
+    },
+    {
+      "location": "97:2:1",
+      "transliteration": "",
+      "translation": "And what",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=76923",
+      "verse": "97:2"
+    },
+    {
+      "location": "97:2:2",
+      "transliteration": "adrāka",
+      "translation": "can make you know",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض والكاف ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=76924",
+      "verse": "97:2",
+      "root": {
+        "root_latin": "dāl rā yā",
+        "root_arabic": "د ر ي"
+      }
+    },
+    {
+      "location": "97:2:3",
+      "transliteration": "",
+      "translation": "what",
+      "tags": [
+        {
+          "tag": "INTG",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم استفهام",
+      "image_url": "https://corpus.quran.com/wordimage?id=76925",
+      "verse": "97:2"
+    },
+    {
+      "location": "97:2:4",
+      "transliteration": "laylatu",
+      "translation": "(the) Night",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76926",
+      "verse": "97:2",
+      "root": {
+        "root_latin": "lām yā lām",
+        "root_arabic": "ل ي ل"
+      }
+    },
+    {
+      "location": "97:2:5",
+      "transliteration": "l-qadri",
+      "translation": "(of) Power (is)?",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76927",
+      "verse": "97:2",
+      "root": {
+        "root_latin": "qāf dāl rā",
+        "root_arabic": "ق د ر"
+      }
+    },
+    {
+      "location": "97:3:1",
+      "transliteration": "laylatu",
+      "translation": "(The) Night",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76928",
+      "verse": "97:3",
+      "root": {
+        "root_latin": "lām yā lām",
+        "root_arabic": "ل ي ل"
+      }
+    },
+    {
+      "location": "97:3:2",
+      "transliteration": "l-qadri",
+      "translation": "(of) Power",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76929",
+      "verse": "97:3",
+      "root": {
+        "root_latin": "qāf dāl rā",
+        "root_arabic": "ق د ر"
+      }
+    },
+    {
+      "location": "97:3:3",
+      "transliteration": "khayrun",
+      "translation": "(is) better",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76930",
+      "verse": "97:3",
+      "root": {
+        "root_latin": "khā yā rā",
+        "root_arabic": "خ ي ر"
+      }
+    },
+    {
+      "location": "97:3:4",
+      "transliteration": "",
+      "translation": "than",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=76931",
+      "verse": "97:3"
+    },
+    {
+      "location": "97:3:5",
+      "transliteration": "alfi",
+      "translation": "a thousand",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76932",
+      "verse": "97:3",
+      "root": {
+        "root_latin": "hamza lām fā",
+        "root_arabic": "أ ل ف"
+      }
+    },
+    {
+      "location": "97:3:6",
+      "transliteration": "shahrin",
+      "translation": "month(s).",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76933",
+      "verse": "97:3",
+      "root": {
+        "root_latin": "shīn hā rā",
+        "root_arabic": "ش ه ر"
+      }
+    },
+    {
+      "location": "97:4:1",
+      "transliteration": "tanazzalu",
+      "translation": "Descend",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76934",
+      "verse": "97:4",
+      "root": {
+        "root_latin": "nūn zāy lām",
+        "root_arabic": "ن ز ل"
+      }
+    },
+    {
+      "location": "97:4:2",
+      "transliteration": "l-malāikatu",
+      "translation": "the Angels",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76935",
+      "verse": "97:4",
+      "root": {
+        "root_latin": "mīm lām kāf",
+        "root_arabic": "م ل ك"
+      }
+    },
+    {
+      "location": "97:4:3",
+      "transliteration": "wal-rūḥu",
+      "translation": "and the Spirit",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76936",
+      "verse": "97:4",
+      "root": {
+        "root_latin": "rā wāw ḥā",
+        "root_arabic": "ر و ح"
+      }
+    },
+    {
+      "location": "97:4:4",
+      "transliteration": "",
+      "translation": "therein,",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76937",
+      "verse": "97:4"
+    },
+    {
+      "location": "97:4:5",
+      "transliteration": "bi-idh'ni",
+      "translation": "by (the) permission",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76938",
+      "verse": "97:4",
+      "root": {
+        "root_latin": "hamza dhāl nūn",
+        "root_arabic": "أ ذ ن"
+      }
+    },
+    {
+      "location": "97:4:6",
+      "transliteration": "rabbihim",
+      "translation": "(of) their Lord,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور و«هم» ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=76939",
+      "verse": "97:4",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "97:4:7",
+      "transliteration": "",
+      "translation": "for",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=76940",
+      "verse": "97:4"
+    },
+    {
+      "location": "97:4:8",
+      "transliteration": "kulli",
+      "translation": "every",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76941",
+      "verse": "97:4",
+      "root": {
+        "root_latin": "kāf lām lām",
+        "root_arabic": "ك ل ل"
+      }
+    },
+    {
+      "location": "97:4:9",
+      "transliteration": "amrin",
+      "translation": "affair,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76942",
+      "verse": "97:4",
+      "root": {
+        "root_latin": "hamza mīm rā",
+        "root_arabic": "أ م ر"
+      }
+    },
+    {
+      "location": "97:5:1",
+      "transliteration": "salāmun",
+      "translation": "Peace",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=76943",
+      "verse": "97:5",
+      "root": {
+        "root_latin": "sīn lām mīm",
+        "root_arabic": "س ل م"
+      }
+    },
+    {
+      "location": "97:5:2",
+      "transliteration": "",
+      "translation": "it (is)",
+      "tags": [
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "ضمير منفصل",
+      "image_url": "https://corpus.quran.com/wordimage?id=76944",
+      "verse": "97:5"
+    },
+    {
+      "location": "97:5:3",
+      "transliteration": "",
+      "translation": "until",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=76945",
+      "verse": "97:5"
+    },
+    {
+      "location": "97:5:4",
+      "transliteration": "maṭlaʿi",
+      "translation": "(the) emergence",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76946",
+      "verse": "97:5",
+      "root": {
+        "root_latin": "ṭā lām ʿayn",
+        "root_arabic": "ط ل ع"
+      }
+    },
+    {
+      "location": "97:5:5",
+      "transliteration": "l-fajri",
+      "translation": "(of) the dawn.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=76947",
+      "verse": "97:5",
+      "root": {
+        "root_latin": "fā jīm rā",
+        "root_arabic": "ف ج ر"
+      }
+    }
+  ]
+}

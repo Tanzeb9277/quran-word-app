@@ -1,0 +1,211 @@
+{
+  "metadata": {
+    "surah_number": 108,
+    "total_words": 10,
+    "scraped_at": "2025-07-06 17:41:58",
+    "scraper_version": "fast",
+    "duplicates_removed": 20
+  },
+  "words": [
+    {
+      "location": "108:1:1",
+      "transliteration": "",
+      "translation": "Indeed, We,",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب و«نا» ضمير متصل في محل نصب اسم «ان»",
+      "image_url": "https://corpus.quran.com/wordimage?id=77294",
+      "verse": "108:1"
+    },
+    {
+      "location": "108:1:2",
+      "transliteration": "aʿṭaynāka",
+      "translation": "We have given you",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض و«نا» ضمير متصل في محل رفع فاعل والكاف ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=77295",
+      "verse": "108:1",
+      "root": {
+        "root_latin": "ʿayn ṭā wāw",
+        "root_arabic": "ع ط و"
+      }
+    },
+    {
+      "location": "108:1:3",
+      "transliteration": "l-kawthara",
+      "translation": "Al-Kauthar,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77296",
+      "verse": "108:1",
+      "root": {
+        "root_latin": "kāf thā rā",
+        "root_arabic": "ك ث ر"
+      }
+    },
+    {
+      "location": "108:2:1",
+      "transliteration": "faṣalli",
+      "translation": "So pray",
+      "tags": [
+        {
+          "tag": "REM",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء استئنافية\nفعل أمر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77297",
+      "verse": "108:2",
+      "root": {
+        "root_latin": "ṣād lām wāw",
+        "root_arabic": "ص ل و"
+      }
+    },
+    {
+      "location": "108:2:2",
+      "transliteration": "lirabbika",
+      "translation": "to your Lord",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور والكاف ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77298",
+      "verse": "108:2",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "108:2:3",
+      "transliteration": "wa-in'ḥar",
+      "translation": "and sacrifice.",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل أمر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77299",
+      "verse": "108:2",
+      "root": {
+        "root_latin": "nūn ḥā rā",
+        "root_arabic": "ن ح ر"
+      }
+    },
+    {
+      "location": "108:3:1",
+      "transliteration": "",
+      "translation": "Indeed,",
+      "tags": [
+        {
+          "tag": "ACC",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف نصب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77300",
+      "verse": "108:3"
+    },
+    {
+      "location": "108:3:2",
+      "transliteration": "shāni-aka",
+      "translation": "your enemy -",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب والكاف ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77301",
+      "verse": "108:3",
+      "root": {
+        "root_latin": "shīn nūn hamza",
+        "root_arabic": "ش ن أ"
+      }
+    },
+    {
+      "location": "108:3:3",
+      "transliteration": "",
+      "translation": "he (is)",
+      "tags": [
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "ضمير منفصل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77302",
+      "verse": "108:3"
+    },
+    {
+      "location": "108:3:4",
+      "transliteration": "l-abtaru",
+      "translation": "the one cut off.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مرفوع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77303",
+      "verse": "108:3",
+      "root": {
+        "root_latin": "bā tā rā",
+        "root_arabic": "ب ت ر"
+      }
+    }
+  ]
+}

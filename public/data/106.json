@@ -1,0 +1,333 @@
+{
+  "metadata": {
+    "surah_number": 106,
+    "total_words": 17,
+    "scraped_at": "2025-07-06 17:41:42",
+    "scraper_version": "fast",
+    "duplicates_removed": 51
+  },
+  "words": [
+    {
+      "location": "106:1:1",
+      "transliteration": "liīlāfi",
+      "translation": "For (the) familiarity",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77252",
+      "verse": "106:1",
+      "root": {
+        "root_latin": "hamza lām fā",
+        "root_arabic": "أ ل ف"
+      }
+    },
+    {
+      "location": "106:1:2",
+      "transliteration": "",
+      "translation": "(of the) Quraish,",
+      "tags": [
+        {
+          "tag": "PN",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم علم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77253",
+      "verse": "106:1"
+    },
+    {
+      "location": "106:2:1",
+      "transliteration": "īlāfihim",
+      "translation": "Their familiarity",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور و«هم» ضمير متصل في محل جر بالاضافة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77254",
+      "verse": "106:2",
+      "root": {
+        "root_latin": "hamza lām fā",
+        "root_arabic": "أ ل ف"
+      }
+    },
+    {
+      "location": "106:2:2",
+      "transliteration": "riḥ'lata",
+      "translation": "(with the) journey",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77255",
+      "verse": "106:2",
+      "root": {
+        "root_latin": "rā ḥā lām",
+        "root_arabic": "ر ح ل"
+      }
+    },
+    {
+      "location": "106:2:3",
+      "transliteration": "l-shitāi",
+      "translation": "(of) winter",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77256",
+      "verse": "106:2",
+      "root": {
+        "root_latin": "shīn tā wāw",
+        "root_arabic": "ش ت و"
+      }
+    },
+    {
+      "location": "106:2:4",
+      "transliteration": "wal-ṣayfi",
+      "translation": "and summer,",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nاسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77257",
+      "verse": "106:2",
+      "root": {
+        "root_latin": "ṣād yā fā",
+        "root_arabic": "ص ي ف"
+      }
+    },
+    {
+      "location": "106:3:1",
+      "transliteration": "falyaʿbudū",
+      "translation": "So let them worship",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "IMPV",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الفاء عاطفة\nاللام لام الامر\nفعل مضارع مجزوم والواو ضمير متصل في محل رفع فاعل",
+      "image_url": "https://corpus.quran.com/wordimage?id=77258",
+      "verse": "106:3",
+      "root": {
+        "root_latin": "ʿayn bā dāl",
+        "root_arabic": "ع ب د"
+      }
+    },
+    {
+      "location": "106:3:2",
+      "transliteration": "rabba",
+      "translation": "(the) Lord",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم منصوب",
+      "image_url": "https://corpus.quran.com/wordimage?id=77259",
+      "verse": "106:3",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "106:3:3",
+      "transliteration": "",
+      "translation": "(of) this",
+      "tags": [
+        {
+          "tag": "DEM",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم اشارة",
+      "image_url": "https://corpus.quran.com/wordimage?id=77260",
+      "verse": "106:3"
+    },
+    {
+      "location": "106:3:4",
+      "transliteration": "l-bayti",
+      "translation": "House,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77261",
+      "verse": "106:3",
+      "root": {
+        "root_latin": "bā yā tā",
+        "root_arabic": "ب ي ت"
+      }
+    },
+    {
+      "location": "106:4:1",
+      "transliteration": "alladhī",
+      "translation": "The One Who",
+      "tags": [
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=77262",
+      "verse": "106:4"
+    },
+    {
+      "location": "106:4:2",
+      "transliteration": "aṭʿamahum",
+      "translation": "feeds them",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض و«هم» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=77263",
+      "verse": "106:4",
+      "root": {
+        "root_latin": "ṭā ʿayn mīm",
+        "root_arabic": "ط ع م"
+      }
+    },
+    {
+      "location": "106:4:3",
+      "transliteration": "",
+      "translation": "[from]",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77264",
+      "verse": "106:4"
+    },
+    {
+      "location": "106:4:4",
+      "transliteration": "jūʿin",
+      "translation": "(against) hunger",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77265",
+      "verse": "106:4",
+      "root": {
+        "root_latin": "jīm wāw ʿayn",
+        "root_arabic": "ج و ع"
+      }
+    },
+    {
+      "location": "106:4:5",
+      "transliteration": "waāmanahum",
+      "translation": "and gives them security",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "V",
+          "description": ""
+        },
+        {
+          "tag": "PRON",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nفعل ماض و«هم» ضمير متصل في محل نصب مفعول به",
+      "image_url": "https://corpus.quran.com/wordimage?id=77266",
+      "verse": "106:4",
+      "root": {
+        "root_latin": "hamza mīm nūn",
+        "root_arabic": "أ م ن"
+      }
+    },
+    {
+      "location": "106:4:6",
+      "transliteration": "",
+      "translation": "from",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77267",
+      "verse": "106:4"
+    },
+    {
+      "location": "106:4:7",
+      "transliteration": "khawfin",
+      "translation": "fear.",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77268",
+      "verse": "106:4",
+      "root": {
+        "root_latin": "khā wāw fā",
+        "root_arabic": "خ و ف"
+      }
+    }
+  ]
+}

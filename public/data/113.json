@@ -1,0 +1,409 @@
+{
+  "metadata": {
+    "surah_number": 113,
+    "total_words": 23,
+    "scraped_at": "2025-07-06 17:42:38",
+    "scraper_version": "fast",
+    "duplicates_removed": 92
+  },
+  "words": [
+    {
+      "location": "113:1:1",
+      "transliteration": "qul",
+      "translation": "Say,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل أمر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77387",
+      "verse": "113:1",
+      "root": {
+        "root_latin": "qāf wāw lām",
+        "root_arabic": "ق و ل"
+      }
+    },
+    {
+      "location": "113:1:2",
+      "transliteration": "aʿūdhu",
+      "translation": "\"I seek refuge",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل مضارع",
+      "image_url": "https://corpus.quran.com/wordimage?id=77388",
+      "verse": "113:1",
+      "root": {
+        "root_latin": "ʿayn wāw dhāl",
+        "root_arabic": "ع و ذ"
+      }
+    },
+    {
+      "location": "113:1:3",
+      "transliteration": "birabbi",
+      "translation": "in (the) Lord",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        },
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "جار ومجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77389",
+      "verse": "113:1",
+      "root": {
+        "root_latin": "rā bā bā",
+        "root_arabic": "ر ب ب"
+      }
+    },
+    {
+      "location": "113:1:4",
+      "transliteration": "l-falaqi",
+      "translation": "(of) the dawn,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77390",
+      "verse": "113:1",
+      "root": {
+        "root_latin": "fā lām qāf",
+        "root_arabic": "ف ل ق"
+      }
+    },
+    {
+      "location": "113:2:1",
+      "transliteration": "",
+      "translation": "From",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77391",
+      "verse": "113:2"
+    },
+    {
+      "location": "113:2:2",
+      "transliteration": "sharri",
+      "translation": "(the) evil",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77392",
+      "verse": "113:2",
+      "root": {
+        "root_latin": "shīn rā rā",
+        "root_arabic": "ش ر ر"
+      }
+    },
+    {
+      "location": "113:2:3",
+      "transliteration": "",
+      "translation": "(of) what",
+      "tags": [
+        {
+          "tag": "REL",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم موصول",
+      "image_url": "https://corpus.quran.com/wordimage?id=77393",
+      "verse": "113:2"
+    },
+    {
+      "location": "113:2:4",
+      "transliteration": "khalaqa",
+      "translation": "He created,",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77394",
+      "verse": "113:2",
+      "root": {
+        "root_latin": "khā lām qāf",
+        "root_arabic": "خ ل ق"
+      }
+    },
+    {
+      "location": "113:3:1",
+      "transliteration": "",
+      "translation": "And from",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77395",
+      "verse": "113:3"
+    },
+    {
+      "location": "113:3:2",
+      "transliteration": "sharri",
+      "translation": "(the) evil",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77396",
+      "verse": "113:3",
+      "root": {
+        "root_latin": "shīn rā rā",
+        "root_arabic": "ش ر ر"
+      }
+    },
+    {
+      "location": "113:3:3",
+      "transliteration": "ghāsiqin",
+      "translation": "(of) darkness",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77397",
+      "verse": "113:3",
+      "root": {
+        "root_latin": "ghayn sīn qāf",
+        "root_arabic": "غ س ق"
+      }
+    },
+    {
+      "location": "113:3:4",
+      "transliteration": "idhā",
+      "translation": "when",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=77398",
+      "verse": "113:3"
+    },
+    {
+      "location": "113:3:5",
+      "transliteration": "waqaba",
+      "translation": "it spreads",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77399",
+      "verse": "113:3",
+      "root": {
+        "root_latin": "wāw qāf bā",
+        "root_arabic": "و ق ب"
+      }
+    },
+    {
+      "location": "113:4:1",
+      "transliteration": "",
+      "translation": "And from",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77400",
+      "verse": "113:4"
+    },
+    {
+      "location": "113:4:2",
+      "transliteration": "sharri",
+      "translation": "(the) evil",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77401",
+      "verse": "113:4",
+      "root": {
+        "root_latin": "shīn rā rā",
+        "root_arabic": "ش ر ر"
+      }
+    },
+    {
+      "location": "113:4:3",
+      "transliteration": "l-nafāthāti",
+      "translation": "(of) the blowers",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77402",
+      "verse": "113:4",
+      "root": {
+        "root_latin": "nūn fā thā",
+        "root_arabic": "ن ف ث"
+      }
+    },
+    {
+      "location": "113:4:4",
+      "transliteration": "",
+      "translation": "in",
+      "tags": [
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "حرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77403",
+      "verse": "113:4"
+    },
+    {
+      "location": "113:4:5",
+      "transliteration": "l-ʿuqadi",
+      "translation": "the knots,",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77404",
+      "verse": "113:4",
+      "root": {
+        "root_latin": "ʿayn qāf dāl",
+        "root_arabic": "ع ق د"
+      }
+    },
+    {
+      "location": "113:5:1",
+      "transliteration": "",
+      "translation": "And from",
+      "tags": [
+        {
+          "tag": "CONJ",
+          "description": ""
+        },
+        {
+          "tag": "P",
+          "description": ""
+        }
+      ],
+      "grammar": "الواو عاطفة\nحرف جر",
+      "image_url": "https://corpus.quran.com/wordimage?id=77405",
+      "verse": "113:5"
+    },
+    {
+      "location": "113:5:2",
+      "transliteration": "sharri",
+      "translation": "(the) evil",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77406",
+      "verse": "113:5",
+      "root": {
+        "root_latin": "shīn rā rā",
+        "root_arabic": "ش ر ر"
+      }
+    },
+    {
+      "location": "113:5:3",
+      "transliteration": "ḥāsidin",
+      "translation": "(of) an envier",
+      "tags": [
+        {
+          "tag": "N",
+          "description": ""
+        }
+      ],
+      "grammar": "اسم مجرور",
+      "image_url": "https://corpus.quran.com/wordimage?id=77407",
+      "verse": "113:5",
+      "root": {
+        "root_latin": "ḥā sīn dāl",
+        "root_arabic": "ح س د"
+      }
+    },
+    {
+      "location": "113:5:4",
+      "transliteration": "idhā",
+      "translation": "when",
+      "tags": [
+        {
+          "tag": "T",
+          "description": ""
+        }
+      ],
+      "grammar": "ظرف زمان",
+      "image_url": "https://corpus.quran.com/wordimage?id=77408",
+      "verse": "113:5"
+    },
+    {
+      "location": "113:5:5",
+      "transliteration": "ḥasada",
+      "translation": "he envies.\"",
+      "tags": [
+        {
+          "tag": "V",
+          "description": ""
+        }
+      ],
+      "grammar": "فعل ماض",
+      "image_url": "https://corpus.quran.com/wordimage?id=77409",
+      "verse": "113:5",
+      "root": {
+        "root_latin": "ḥā sīn dāl",
+        "root_arabic": "ح س د"
+      }
+    }
+  ]
+}
