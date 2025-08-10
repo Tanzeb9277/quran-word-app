@@ -82,7 +82,7 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [https://quran-word-app.vercel.app](https://quran-word-app.vercel.app) in your browser.
 
 ## 📁 Project Structure
 

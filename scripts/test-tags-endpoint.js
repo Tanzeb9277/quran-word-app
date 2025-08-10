@@ -4,7 +4,7 @@ async function testTagsEndpoint() {
   try {
     console.log('Testing /api/tags endpoint...');
     
-    const response = await fetch('http://localhost:3000/api/tags');
+    const response = await fetch('https://quran-word-app.vercel.app/api/tags');
     const data = await response.json();
     
     if (response.ok) {

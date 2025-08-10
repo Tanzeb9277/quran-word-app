@@ -1,10 +1,9 @@
 # Quran Word App API Documentation
 
-## 📋 Overview
+## Overview
+This document provides comprehensive documentation for the Quran Word App API endpoints.
 
-This API provides access to Quranic word data, including verses, translations, grammar information, and unique word analysis.
-
-**Base URL**: `http://localhost:3000/api`
+**Base URL**: `https://quran-word-app.vercel.app/api`
 
 ---
 
@@ -15,7 +14,7 @@ This API provides access to Quranic word data, including verses, translations, g
 **GET** `/words/random-verse`
 - **Description**: Fetch a random verse with all its words
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/words/random-verse`
+- **URL**: `https://quran-word-app.vercel.app/api/words/random-verse`
 
 **Response:**
 ```json
@@ -52,7 +51,7 @@ This API provides access to Quranic word data, including verses, translations, g
 **POST** `/words/random-verse`
 - **Description**: Fetch a random verse with verse length filter
 - **Method**: `POST`
-- **URL**: `http://localhost:3000/api/words/random-verse`
+- **URL**: `https://quran-word-app.vercel.app/api/words/random-verse`
 - **Body**:
 ```json
 {
@@ -73,7 +72,7 @@ This API provides access to Quranic word data, including verses, translations, g
 **GET** `/words/word-bank`
 - **Description**: Generate distractor words for the word bank
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/words/word-bank?avoidTranslations=word1,word2`
+- **URL**: `https://quran-word-app.vercel.app/api/words/word-bank?avoidTranslations=word1,word2`
 
 **Query Parameters:**
 - `avoidTranslations` (optional): Comma-separated list of translations to avoid
@@ -101,7 +100,7 @@ This API provides access to Quranic word data, including verses, translations, g
 **GET** `/words/unique`
 - **Description**: Get all unique words across the entire Quran
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/words/unique`
+- **URL**: `https://quran-word-app.vercel.app/api/words/unique`
 
 **Query Parameters:**
 - `orderBy` (optional): `"location"` | `"frequency"` (default: `"location"`)
@@ -144,7 +143,7 @@ GET /api/words/unique?orderBy=frequency
 **POST** `/words/unique`
 - **Description**: Get unique words for a specific surah
 - **Method**: `POST`
-- **URL**: `http://localhost:3000/api/words/unique`
+- **URL**: `https://quran-word-app.vercel.app/api/words/unique`
 - **Body**:
 ```json
 {
@@ -174,7 +173,7 @@ GET /api/words/unique?orderBy=frequency
 **GET** `/words/roots/[root]`
 - **Description**: Get words by root letters
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/words/roots/b%20s%20m`
+- **URL**: `https://quran-word-app.vercel.app/api/words/roots/b%20s%20m`
 
 **Response:**
 ```json
@@ -199,7 +198,7 @@ GET /api/words/unique?orderBy=frequency
 **GET** `/words/roots`
 - **Description**: Get all available roots
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/words/roots`
+- **URL**: `https://quran-word-app.vercel.app/api/words/roots`
 
 ---
 
@@ -208,14 +207,14 @@ GET /api/words/unique?orderBy=frequency
 **GET** `/words/surah/[surah_number]`
 - **Description**: Get words from a specific surah
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/words/surah/1`
+- **URL**: `https://quran-word-app.vercel.app/api/words/surah/1`
 
 ---
 
 **GET** `/words/surahs`
 - **Description**: Get list of all surahs
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/words/surahs`
+- **URL**: `https://quran-word-app.vercel.app/api/words/surahs`
 
 ---
 
@@ -224,14 +223,14 @@ GET /api/words/unique?orderBy=frequency
 **GET** `/words/tag/[tag]`
 - **Description**: Get words by grammatical tag
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/words/tag/N`
+- **URL**: `https://quran-word-app.vercel.app/api/words/tag/N`
 
 ---
 
 **GET** `/words/tags`
 - **Description**: Get all available tags
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/words/tags`
+- **URL**: `https://quran-word-app.vercel.app/api/words/tags`
 
 ---
 
@@ -240,7 +239,7 @@ GET /api/words/unique?orderBy=frequency
 ### **GET** `/tags`
 - **Description**: Fetch all tags with their descriptions
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/tags`
+- **URL**: `https://quran-word-app.vercel.app/api/tags`
 
 **Response:**
 ```json
@@ -301,7 +300,7 @@ GET /api/words/unique?orderBy=frequency
 ### **POST** `/quiz/start`
 - **Description**: Start a new quiz
 - **Method**: `POST`
-- **URL**: `http://localhost:3000/api/quiz/start`
+- **URL**: `https://quran-word-app.vercel.app/api/quiz/start`
 - **Body**:
 ```json
 {
@@ -315,14 +314,14 @@ GET /api/words/unique?orderBy=frequency
 ### **GET** `/quiz/active`
 - **Description**: Get active quiz status
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/quiz/active`
+- **URL**: `https://quran-word-app.vercel.app/api/quiz/active`
 
 ---
 
 ### **POST** `/quiz/answer`
 - **Description**: Submit quiz answer
 - **Method**: `POST`
-- **URL**: `http://localhost:3000/api/quiz/answer`
+- **URL**: `https://quran-word-app.vercel.app/api/quiz/answer`
 - **Body**:
 ```json
 {
@@ -336,7 +335,7 @@ GET /api/words/unique?orderBy=frequency
 ### **GET** `/quiz/[quiz_id]`
 - **Description**: Get specific quiz details
 - **Method**: `GET`
-- **URL**: `http://localhost:3000/api/quiz/123e4567-e89b-12d3-a456-426614174000`
+- **URL**: `https://quran-word-app.vercel.app/api/quiz/123e4567-e89b-12d3-a456-426614174000`
 
 ---
 
@@ -397,22 +396,22 @@ The unique words endpoint uses sophisticated filtering:
 
 **1. Test Random Verse:**
 ```
-GET http://localhost:3000/api/words/random-verse
+GET https://quran-word-app.vercel.app/api/words/random-verse
 ```
 
 **2. Test Unique Words (Location):**
 ```
-GET http://localhost:3000/api/words/unique?orderBy=location
+GET https://quran-word-app.vercel.app/api/words/unique?orderBy=location
 ```
 
 **3. Test Unique Words (Frequency):**
 ```
-GET http://localhost:3000/api/words/unique?orderBy=frequency
+GET https://quran-word-app.vercel.app/api/words/unique?orderBy=frequency
 ```
 
 **4. Test Surah-Specific Unique Words:**
 ```json
-POST http://localhost:3000/api/words/unique
+POST https://quran-word-app.vercel.app/api/words/unique
 {
   "surah_number": 1,
   "orderBy": "frequency"
@@ -421,7 +420,7 @@ POST http://localhost:3000/api/words/unique
 
 **5. Test Tags:**
 ```
-GET http://localhost:3000/api/tags
+GET https://quran-word-app.vercel.app/api/tags
 ```
 
 ---
