@@ -17,6 +17,7 @@ export default function GamePage() {
   const [verseLengthFilter, setVerseLengthFilter] = useState('all')
   const [submissionResults, setSubmissionResults] = useState(null)
   const [showDetailedInfo, setShowDetailedInfo] = useState(false)
+  const [revealedWords, setRevealedWords] = useState(new Set())
 
   const cleanWord = (word) => {
     return word
@@ -77,6 +78,7 @@ export default function GamePage() {
     setSelectedWords([])
     setSubmissionResults(null)
     setShowDetailedInfo(false)
+    setRevealedWords(new Set())
 
     try {
       const response = await fetch('/api/words/random-verse', {
@@ -147,7 +149,8 @@ export default function GamePage() {
 
   const handleWordSelect = (word, clearAll = false, submit = false) => {
     if (submit) {
-      const isComplete = selectedWords.every((word) => word !== null)
+      // Check if all words are filled (either selected by user or revealed)
+      const isComplete = selectedWords.every((word, index) => word !== null || revealedWords.has(index))
       if (isComplete) {
         checkAccuracy()
       } else {
@@ -208,11 +211,13 @@ export default function GamePage() {
 
     selectedWords.forEach((selectedWord, index) => {
       const correctWord = cleanWord(verseData.words[index].translation)
-      const isCorrect = selectedWord === correctWord
+      // If the word was revealed, use the correct translation
+      const actualSelectedWord = revealedWords.has(index) ? correctWord : selectedWord
+      const isCorrect = actualSelectedWord === correctWord
       if (isCorrect) {
         correctCount++
       }
-      wordResults.push({ index, selectedWord, correctWord, isCorrect })
+      wordResults.push({ index, selectedWord: actualSelectedWord, correctWord, isCorrect })
     })
 
     const accuracy = (correctCount / totalWords) * 100
@@ -278,18 +283,19 @@ export default function GamePage() {
         </div>
       )}
 
-      {verseData && (
-        <VerseViewer 
-          verseData={verseData}
-          onRefresh={fetchRandomVerse}
-          selectedWords={selectedWords}
-          onWordSelect={handleSlotClick}
-          currentFilter={verseLengthFilter}
-          submissionResults={submissionResults}
-          showDetailedInfo={showDetailedInfo}
-          setShowDetailedInfo={setShowDetailedInfo}
-        />
-      )}
+             {verseData && (
+         <VerseViewer 
+           verseData={verseData}
+           onRefresh={fetchRandomVerse}
+           selectedWords={selectedWords}
+           onWordSelect={handleSlotClick}
+           currentFilter={verseLengthFilter}
+           submissionResults={submissionResults}
+           showDetailedInfo={showDetailedInfo}
+           setShowDetailedInfo={setShowDetailedInfo}
+           onRevealedWordsChange={setRevealedWords}
+         />
+       )}
 
       {wordBank.length > 0 && (
         <WordBankKeyboard

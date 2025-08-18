@@ -14,13 +14,41 @@ import { useState, useEffect } from "react"
  * @param {boolean} props.showDetailedInfo - Whether to show detailed word information
  * @param {Function} props.setShowDetailedInfo - Function to toggle detailed info
  */
-export default function VerseViewer({ verseData, onRefresh, selectedWords = [], onWordSelect, currentFilter = 'all', submissionResults = null, showDetailedInfo = false, setShowDetailedInfo = null }) {
+export default function VerseViewer({ verseData, onRefresh, selectedWords = [], onWordSelect, currentFilter = 'all', submissionResults = null, showDetailedInfo = false, setShowDetailedInfo = null, onRevealedWordsChange = null }) {
   const [showAnswers, setShowAnswers] = useState(false)
+  const [revealedWords, setRevealedWords] = useState(new Set())
   
   // Reset showAnswers when verseData changes (new verse loaded)
   useEffect(() => {
     setShowAnswers(false)
-  }, [verseData])
+    setRevealedWords(new Set())
+    // Notify parent component that revealed words are reset
+    if (onRevealedWordsChange) {
+      onRevealedWordsChange(new Set())
+    }
+  }, [verseData, onRevealedWordsChange])
+  
+  // Find the next unfilled word index
+  const getNextUnfilledIndex = () => {
+    return selectedWords.findIndex((word, index) => !word && !revealedWords.has(index))
+  }
+  
+  // Reveal the next unfilled word
+  const revealNextWord = () => {
+    const nextIndex = getNextUnfilledIndex()
+    if (nextIndex !== -1) {
+      const newRevealedWords = new Set([...revealedWords, nextIndex])
+      setRevealedWords(newRevealedWords)
+      // Auto-fill the revealed word in the selectedWords array
+      if (onWordSelect) {
+        onWordSelect(nextIndex, verseData.words[nextIndex].translation)
+      }
+      // Notify parent component about revealed words
+      if (onRevealedWordsChange) {
+        onRevealedWordsChange(newRevealedWords)
+      }
+    }
+  }
   // Guard against undefined verseData
   if (!verseData || !verseData.words) {
     return (
@@ -33,7 +61,11 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   }
 
   return (
-    <div className="w-full max-w-full sm:max-w-4xl mx-auto p-2 sm:p-4 bg-white rounded-lg shadow-lg mb-32">
+    <div className={`w-full max-w-full sm:max-w-4xl mx-auto p-2 sm:p-4 bg-white rounded-lg shadow-lg ${
+      showAnswers || revealedWords.size > 0 
+        ? 'mb-80 sm:mb-48' 
+        : 'mb-64 sm:mb-40'
+    }`}>
       {/* Verse Header */}
       <div className="text-center mb-6">
         <div className="flex flex-col sm:flex-row items-center justify-between mb-4 gap-2">
@@ -42,16 +74,29 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
           </h2>
           <div className="flex gap-2">
             {!submissionResults && (
-              <button
-                onClick={() => setShowAnswers(!showAnswers)}
-                className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded transition-colors ${
-                  showAnswers 
-                    ? 'bg-orange-500 text-white hover:bg-orange-600' 
-                    : 'bg-green-500 text-white hover:bg-green-600'
-                }`}
-              >
-                {showAnswers ? 'Hide Answers' : 'Reveal Answers'}
-              </button>
+              <>
+                <button
+                  onClick={revealNextWord}
+                  disabled={getNextUnfilledIndex() === -1}
+                  className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded transition-colors ${
+                    getNextUnfilledIndex() === -1
+                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      : 'bg-purple-500 text-white hover:bg-purple-600'
+                  }`}
+                >
+                  Reveal Next
+                </button>
+                <button
+                  onClick={() => setShowAnswers(!showAnswers)}
+                  className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded transition-colors ${
+                    showAnswers 
+                      ? 'bg-orange-500 text-white hover:bg-orange-600' 
+                      : 'bg-green-500 text-white hover:bg-green-600'
+                  }`}
+                >
+                  {showAnswers ? 'Hide Answers' : 'Reveal Answers'}
+                </button>
+              </>
             )}
             {onRefresh && (
               <button
@@ -160,7 +205,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                           : 'bg-gradient-to-br from-red-400 to-red-500 text-white border-2 border-red-300 shadow-red-200'
                       }
                     }
-                    if (showAnswers) {
+                    if (showAnswers || revealedWords.has(index)) {
                       return 'bg-gradient-to-br from-blue-400 to-blue-500 text-white border-2 border-blue-300 shadow-blue-200'
                     }
                     return selectedWords[index] 
@@ -168,20 +213,20 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                       : 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-500 border-2 border-dashed border-gray-300 hover:border-blue-400 hover:from-blue-50 hover:to-blue-100'
                   })()}
                 `}
-                onClick={() => !submissionResults && !showAnswers && onWordSelect && onWordSelect(index, selectedWords[index])}
+                onClick={() => !submissionResults && !showAnswers && !revealedWords.has(index) && onWordSelect && onWordSelect(index, selectedWords[index])}
               >
                 <span className={`font-medium text-center px-1 leading-tight break-words ${
-                  selectedWords[index] || showAnswers
+                  selectedWords[index] || showAnswers || revealedWords.has(index)
                     ? 'text-white drop-shadow-sm' 
                     : 'text-gray-500'
                 } ${
-                  (selectedWords[index] || showAnswers) && (selectedWords[index]?.length > 12 || word.translation?.length > 12)
+                  (selectedWords[index] || showAnswers || revealedWords.has(index)) && (selectedWords[index]?.length > 12 || word.translation?.length > 12)
                     ? 'text-xs' 
-                    : (selectedWords[index] || showAnswers) && (selectedWords[index]?.length > 8 || word.translation?.length > 8)
+                    : (selectedWords[index] || showAnswers || revealedWords.has(index)) && (selectedWords[index]?.length > 8 || word.translation?.length > 8)
                     ? 'text-sm' 
                     : 'text-sm'
                 }`}>
-                  {showAnswers ? word.translation : (selectedWords[index] || '')}
+                  {showAnswers || revealedWords.has(index) ? word.translation : (selectedWords[index] || '')}
                 </span>
               </div>
               
