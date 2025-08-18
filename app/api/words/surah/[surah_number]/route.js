@@ -6,7 +6,6 @@ export async function GET(request, { params }) {
     const { surah_number } = await params
     const { searchParams } = new URL(request.url)
     const tag = searchParams.get("tag")
-    const verse = searchParams.get("verse")
 
     let query = sql`
       SELECT * FROM words 
@@ -23,16 +22,6 @@ export async function GET(request, { params }) {
         AND tags @> ${JSON.stringify([{ tag }])}
         ORDER BY 
           CAST(SPLIT_PART(location, ':', 2) AS INTEGER),
-          CAST(SPLIT_PART(location, ':', 3) AS INTEGER)
-      `
-    }
-
-    if (verse) {
-      query = sql`
-        SELECT * FROM words 
-        WHERE surah_number = ${surah_number} 
-        AND verse = ${verse}
-        ORDER BY 
           CAST(SPLIT_PART(location, ':', 3) AS INTEGER)
       `
     }

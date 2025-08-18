@@ -16,7 +16,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
-import { Filter, Loader2, SlidersHorizontal } from "lucide-react"
+import { Filter, Loader2, SlidersHorizontal, X } from "lucide-react"
 
 // ---------- Remove static sample and tag meta; fetch from API ----------
 
@@ -45,6 +45,37 @@ function parseTags(value) {
   } catch {
     return []
   }
+}
+
+// Extract verse number from location field (e.g., "112:1:3" -> 1)
+function getVerseNumber(location) {
+  if (!location) return 0
+  const parts = location.split(':')
+  return parts.length >= 2 ? parseInt(parts[1]) : 0
+}
+
+// Group words by verse number
+function groupWordsByVerse(words) {
+  const grouped = {}
+  words.forEach(word => {
+    const verseNum = getVerseNumber(word.location)
+    if (!grouped[verseNum]) {
+      grouped[verseNum] = []
+    }
+    grouped[verseNum].push(word)
+  })
+  return grouped
+}
+
+// Get unique verse numbers from words
+function getUniqueVerses(words) {
+  if (!words || words.length === 0) return []
+  const verseSet = new Set()
+  words.forEach(word => {
+    const verseNum = getVerseNumber(word.location)
+    if (verseNum > 0) verseSet.add(verseNum)
+  })
+  return Array.from(verseSet).sort((a, b) => a - b)
 }
 
 function wordHasAnyTag(word, selected) {
@@ -89,50 +120,52 @@ function TagBadge({ code }) {
 
 function WordCard({ word }) {
   const tags = parseTags(word.tags).map((t) => t.tag)
+  
+  // Extract location components (surah:verse:word)
+  const locationParts = word.location ? word.location.split(':') : []
+  const locationDisplay = locationParts.length === 3 ? locationParts.join(':') : word.verse || ''
+  
   return (
     <Card className="overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-      <CardHeader className="space-y-1 pb-2">
-        <CardTitle className="text-base font-semibold flex items-center justify-between">
-          <span className="text-sm text-muted-foreground">{word.verse}</span>
-          <div className="flex gap-1 flex-wrap">
-            {tags.slice(0, 4).map((t) => (
-              <TagBadge key={t} code={t} />
-            ))}
-            {tags.length > 4 ? (
-              <Badge variant="secondary" className="rounded-md text-[10px]">
-                {"+"}
-                {tags.length - 4}
-              </Badge>
-            ) : null}
+      <CardHeader className="pb-2">
+        <div className="flex items-start justify-between">
+          {/* Left side */}
+          <div className="space-y-1">
+            <div className="flex gap-1 flex-wrap">
+              {word.root_arabic ? (
+                <span className="font-arabic text-lg text-indigo-600 font-semibold">{word.root_arabic}</span>
+              ) : null}
+            </div>
           </div>
-        </CardTitle>
-        <CardDescription className="text-xs">{word.grammar || ""}</CardDescription>
+          {/* Right side */}
+          <div className="space-y-1 text-right">
+            <div className="text-sm text-muted-foreground">{locationDisplay}</div>
+            <div className="text-xs text-muted-foreground">{word.grammar || ""}</div>
+          </div>
+        </div>
       </CardHeader>
       <CardContent className="grid gap-3">
         <div className="rounded-md p-3 bg-gradient-to-r from-indigo-200/40 to-indigo-500/10 border border-indigo-100">
           <img
             src={word.image_url || "/placeholder.svg?height=48&width=220&query=arabic%20word%20image"}
-            alt={word.transliteration ? `Arabic: ${word.transliteration}` : "Arabic word image"}
+            alt={word.translation ? `Arabic: ${word.translation}` : "Arabic word image"}
             className="mx-auto h-12 object-contain"
             loading="lazy"
           />
         </div>
-        <div className="grid gap-1">
-          <div className="text-sm">
-            <span className="font-medium">{"Transliteration: "}</span>
-            <span className="text-muted-foreground">{word.transliteration || "-"}</span>
-          </div>
-          <div className="text-sm">
-            <span className="font-medium">{"Translation: "}</span>
-            <span className="text-muted-foreground">{word.translation || "-"}</span>
-          </div>
-          <div className="text-sm">
-            <span className="font-medium">{"Root: "}</span>
-            <span className="text-muted-foreground">
-              {word.root_arabic ? <span className="font-arabic text-lg mr-1">{word.root_arabic}</span> : "-"}
-              {word.root_latin ? <span className="ml-1">({word.root_latin})</span> : null}
-            </span>
-          </div>
+        <div className="text-base font-medium text-foreground text-center">
+          {word.translation || "-"}
+        </div>
+        <div className="flex gap-1 flex-wrap justify-center">
+          {tags.slice(0, 4).map((t) => (
+            <TagBadge key={t} code={t} />
+          ))}
+          {tags.length > 4 ? (
+            <Badge variant="secondary" className="rounded-md text-[10px]">
+              {"+"}
+              {tags.length - 4}
+            </Badge>
+          ) : null}
         </div>
       </CardContent>
     </Card>
@@ -276,6 +309,12 @@ export default function WordExplorer(props) {
   const [groupByVerse, setGroupByVerse] = useState(false)
   const [selectedTags, setSelectedTags] = useState(new Set())
 
+  // Verse selection
+  const [selectedVerse, setSelectedVerse] = useState("")
+  const [verseStart, setVerseStart] = useState("")
+  const [verseEnd, setVerseEnd] = useState("")
+  const [verseMode, setVerseMode] = useState("all") // "all", "single", "range"
+
   // Pagination
   const [page, setPage] = useState(1)
 
@@ -313,6 +352,22 @@ export default function WordExplorer(props) {
     return () => { cancelled = true }
   }, [surahsProp, tagsMetaProp])
 
+
+
+  // Frontend verse filtering - no API calls needed
+  const applyVerseFilter = () => {
+    // Validate verse range
+    if (verseMode === "range") {
+      if (verseStart && verseEnd && parseInt(verseStart) > parseInt(verseEnd)) {
+        setError("Start verse must be less than or equal to end verse.")
+        return
+      }
+    }
+    
+    setError("")
+    setPage(1)
+  }
+
   // Load words on surah change
   useEffect(() => {
     let cancelled = false
@@ -321,6 +376,13 @@ export default function WordExplorer(props) {
       setError("")
       setWords([])
       setPage(1)
+      
+      // Reset verse selection when surah changes
+      setSelectedVerse("")
+      setVerseStart("")
+      setVerseEnd("")
+      setVerseMode("all")
+      
       try {
         let data = []
         if (typeof fetchWords === "function") {
@@ -348,10 +410,39 @@ export default function WordExplorer(props) {
     }
   }, [selectedSurah, fetchWords])
 
-  // Derived filtered words
-  const { filtered, totalCount } = useMemo(() => {
+  // Derived filtered words with verse filtering
+  const { filtered, totalCount, verses } = useMemo(() => {
     const q = normalize(search)
-    const filteredAll = (words || []).filter((w) => {
+    
+    // First apply verse filtering
+    let verseFiltered = words || []
+    if (verseMode === "single" && selectedVerse) {
+      const targetVerse = parseInt(selectedVerse)
+      if (!isNaN(targetVerse)) {
+        verseFiltered = words.filter(w => getVerseNumber(w.location) === targetVerse)
+      }
+    } else if (verseMode === "range") {
+      if (verseStart || verseEnd) {
+        verseFiltered = words.filter(w => {
+          const verseNum = getVerseNumber(w.location)
+          if (verseStart && verseEnd) {
+            const start = parseInt(verseStart)
+            const end = parseInt(verseEnd)
+            return !isNaN(start) && !isNaN(end) && verseNum >= start && verseNum <= end
+          } else if (verseStart) {
+            const start = parseInt(verseStart)
+            return !isNaN(start) && verseNum >= start
+          } else if (verseEnd) {
+            const end = parseInt(verseEnd)
+            return !isNaN(end) && verseNum <= end
+          }
+          return true
+        })
+      }
+    }
+    
+    // Then apply tag and search filtering
+    const filteredAll = verseFiltered.filter((w) => {
       if (!wordHasAnyTag(w, selectedTags)) return false
       if (!q) return true
       const hay = [w.transliteration, w.translation, w.root_latin, w.root_arabic, w.verse, w.grammar]
@@ -367,8 +458,11 @@ export default function WordExplorer(props) {
         )
       : filteredAll
 
-    return { filtered: unique, totalCount: unique.length }
-  }, [words, search, uniqueOnly, selectedTags])
+    // Get available verses from the current words
+    const availableVerses = getUniqueVerses(words || [])
+
+    return { filtered: unique, totalCount: unique.length, verses: availableVerses }
+  }, [words, search, uniqueOnly, selectedTags, verseMode, selectedVerse, verseStart, verseEnd])
 
   // Pagination slice (disabled when grouping by verse)
   const totalPages = Math.max(1, Math.ceil(totalCount / pageSize))
@@ -401,25 +495,111 @@ export default function WordExplorer(props) {
                 {"Explore words by surah, filter by tags, and view roots and grammar."}
               </p>
             </div>
-            <div className="flex items-center gap-2">
-              <label htmlFor="surah-select" className="text-sm font-medium">
-                {"Surah"}
-              </label>
-              <select
-                id="surah-select"
-                className="h-9 rounded-md border bg-background px-3 text-sm"
-                value={selectedSurah}
-                onChange={(e) => setSelectedSurah(Number(e.target.value))}
-              >
-                {surahs.map((s) => (
-                  <option key={s.number} value={s.number}>
-                    {s.number}
-                    {" - "}
-                    {s.name || "Surah"}
-                    {s.wordCount ? ` (${s.wordCount})` : ""}
-                  </option>
-                ))}
-              </select>
+            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
+              <div className="flex items-center gap-2">
+                <label htmlFor="surah-select" className="text-sm font-medium">
+                  {"Surah"}
+                </label>
+                <select
+                  id="surah-select"
+                  className="h-9 rounded-md border bg-background px-3 text-sm"
+                  value={selectedSurah}
+                  onChange={(e) => setSelectedSurah(Number(e.target.value))}
+                >
+                  {surahs.map((s) => (
+                    <option key={s.number} value={s.number}>
+                      {s.number}
+                      {" - "}
+                      {s.name || "Surah"}
+                      {s.wordCount ? ` (${s.wordCount})` : ""}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              
+              {/* Verse Selector */}
+              <div className="flex flex-wrap items-center gap-2">
+                <label className="text-sm font-medium">Verse:</label>
+                <select
+                  className={`h-9 rounded-md border px-3 text-sm w-24 transition-colors ${
+                    verseMode !== "all" ? "border-blue-300 bg-blue-50" : "border-input bg-background"
+                  }`}
+                  value={verseMode}
+                  onChange={(e) => setVerseMode(e.target.value)}
+                >
+                  <option value="all">All Verses</option>
+                  <option value="single">Single Verse</option>
+                  <option value="range">Verse Range</option>
+                </select>
+                
+                {verseMode === "single" && (
+                  <select
+                    className="h-9 rounded-md border bg-background px-3 text-sm w-20"
+                    value={selectedVerse}
+                    onChange={(e) => setSelectedVerse(e.target.value)}
+                  >
+                    <option value="">Select</option>
+                    {verses.map((verseNum) => {
+                      const verseWords = words.filter(w => getVerseNumber(w.location) === verseNum)
+                      return (
+                        <option key={verseNum} value={verseNum}>
+                          {verseNum} ({verseWords.length})
+                        </option>
+                      )
+                    })}
+                  </select>
+                )}
+                
+                {verseMode === "range" && (
+                  <>
+                    <input
+                      type="number"
+                      placeholder="Start"
+                      className="h-9 rounded-md border bg-background px-3 text-sm w-20"
+                      value={verseStart}
+                      onChange={(e) => setVerseStart(e.target.value)}
+                      min={verses.length > 0 ? 1 : 0}
+                      max={verses.length > 0 ? Math.max(...verses) : 0}
+                    />
+                    <span className="text-sm text-muted-foreground">to</span>
+                    <input
+                      type="number"
+                      placeholder="End"
+                      className="h-9 rounded-md border bg-background px-3 text-sm w-20"
+                      value={verseEnd}
+                      onChange={(e) => setVerseEnd(e.target.value)}
+                      min={verses.length > 0 ? 1 : 0}
+                      max={verses.length > 0 ? Math.max(...verses) : 0}
+                    />
+                  </>
+                )}
+                
+                {(verseMode === "single" || verseMode === "range") && (
+                  <>
+                    <Button
+                      size="sm"
+                      onClick={applyVerseFilter}
+                      className="h-9 px-3"
+                    >
+                      Apply
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => {
+                        setVerseMode("all")
+                        setSelectedVerse("")
+                        setVerseStart("")
+                        setVerseEnd("")
+                      }}
+                      className="h-9 px-2"
+                      title="Reset verse filter"
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -432,11 +612,27 @@ export default function WordExplorer(props) {
             </span>
           </div>
           <div className="text-muted-foreground">
+            <span className="font-medium">{"Verses:"}</span> <span>{verses.length}</span>
+          </div>
+          <div className="text-muted-foreground">
             <span className="font-medium">{"Words:"}</span> <span>{words.length}</span>
           </div>
           <div className="text-muted-foreground">
             <span className="font-medium">{"Filtered:"}</span> <span>{totalCount}</span>
           </div>
+          {verseMode === "single" && selectedVerse && (
+            <div className="text-blue-600 bg-blue-50 px-2 py-1 rounded-md">
+              <span className="font-medium">{"Verse:"}</span> <span>{selectedVerse}</span>
+            </div>
+          )}
+          {verseMode === "range" && (verseStart || verseEnd) && (
+            <div className="text-blue-600 bg-blue-50 px-2 py-1 rounded-md">
+              <span className="font-medium">{"Range:"}</span>{" "}
+              <span>
+                {verseStart || "1"} - {verseEnd || verses.length}
+              </span>
+            </div>
+          )}
           {!groupByVerse && (
             <div className="text-muted-foreground">
               <span className="font-medium">{"Page:"}</span>{" "}
@@ -491,6 +687,102 @@ export default function WordExplorer(props) {
                   <SheetTitle>{"Filters"}</SheetTitle>
                 </SheetHeader>
                 <div className="mt-4">
+                  {/* Verse Selection in Mobile */}
+                  <div className="mb-6 p-4 border rounded-lg bg-gray-50">
+                    <h3 className="font-medium mb-3">Verse Selection</h3>
+                    <div className="space-y-3">
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Mode:</label>
+                        <select
+                          className="w-full h-9 rounded-md border bg-background px-3 text-sm"
+                          value={verseMode}
+                          onChange={(e) => setVerseMode(e.target.value)}
+                        >
+                          <option value="all">All Verses</option>
+                          <option value="single">Single Verse</option>
+                          <option value="range">Verse Range</option>
+                        </select>
+                      </div>
+                      
+                      {verseMode === "single" && (
+                        <div>
+                          <label className="block text-sm font-medium mb-2">Select Verse:</label>
+                          <select
+                            className="w-full h-9 rounded-md border bg-background px-3 text-sm"
+                            value={selectedVerse}
+                            onChange={(e) => setSelectedVerse(e.target.value)}
+                          >
+                            <option value="">Choose a verse</option>
+                            {verses.map((verseNum) => {
+                              const verseWords = words.filter(w => getVerseNumber(w.location) === verseNum)
+                              return (
+                                <option key={verseNum} value={verseNum}>
+                                  Verse {verseNum} ({verseWords.length} words)
+                                </option>
+                              )
+                            })}
+                          </select>
+                        </div>
+                      )}
+                      
+                      {verseMode === "range" && (
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <label className="block text-sm font-medium mb-2">Start:</label>
+                            <input
+                              type="number"
+                              placeholder="Start verse"
+                              className="w-full h-9 rounded-md border bg-background px-3 text-sm"
+                              value={verseStart}
+                              onChange={(e) => setVerseStart(e.target.value)}
+                              min={verses.length > 0 ? 1 : 0}
+                              max={verses.length > 0 ? Math.max(...verses) : 0}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium mb-2">End:</label>
+                            <input
+                              type="number"
+                              placeholder="End verse"
+                              className="w-full h-9 rounded-md border bg-background px-3 text-sm"
+                              value={verseEnd}
+                              onChange={(e) => setVerseEnd(e.target.value)}
+                              min={verses.length > 0 ? 1 : 0}
+                              max={verses.length > 0 ? Math.max(...verses) : 0}
+                            />
+                          </div>
+                        </div>
+                      )}
+                      
+                      {(verseMode === "single" || verseMode === "range") && (
+                        <div className="flex gap-2">
+                                                  <Button
+                          size="sm"
+                          onClick={() => {
+                            applyVerseFilter()
+                            setFiltersOpen(false)
+                          }}
+                          className="flex-1"
+                        >
+                          Apply
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => {
+                            setVerseMode("all")
+                            setSelectedVerse("")
+                            setVerseStart("")
+                            setVerseEnd("")
+                          }}
+                        >
+                          Reset
+                        </Button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
                   <FiltersPanel
                     search={search}
                     setSearch={setSearch}
@@ -525,7 +817,25 @@ export default function WordExplorer(props) {
           ) : error ? (
             <div className="text-sm text-red-600">{error}</div>
           ) : totalCount === 0 ? (
-            <div className="text-sm text-muted-foreground">{"No words match your filters."}</div>
+            <div className="text-center py-8">
+              <div className="text-sm text-muted-foreground mb-2">
+                {verseMode !== "all" ? "No words found for the selected verse(s)." : "No words match your filters."}
+              </div>
+              {verseMode !== "all" && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setVerseMode("all")
+                    setSelectedVerse("")
+                    setVerseStart("")
+                    setVerseEnd("")
+                  }}
+                >
+                  Show All Verses
+                </Button>
+              )}
+            </div>
           ) : groupByVerse ? (
             <Accordion type="multiple" className="w-full">
               {Object.entries(grouped).map(([verse, items]) => (

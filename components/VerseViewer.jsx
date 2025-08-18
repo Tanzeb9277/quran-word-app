@@ -1,5 +1,7 @@
 "use client"
 
+import { useState, useEffect } from "react"
+
 /**
  * VerseViewer Component
  * @param {Object} props
@@ -13,6 +15,12 @@
  * @param {Function} props.setShowDetailedInfo - Function to toggle detailed info
  */
 export default function VerseViewer({ verseData, onRefresh, selectedWords = [], onWordSelect, currentFilter = 'all', submissionResults = null, showDetailedInfo = false, setShowDetailedInfo = null }) {
+  const [showAnswers, setShowAnswers] = useState(false)
+  
+  // Reset showAnswers when verseData changes (new verse loaded)
+  useEffect(() => {
+    setShowAnswers(false)
+  }, [verseData])
   // Guard against undefined verseData
   if (!verseData || !verseData.words) {
     return (
@@ -32,14 +40,28 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
           <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
             Arabic Words
           </h2>
-          {onRefresh && (
-            <button
-              onClick={onRefresh}
-              className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-            >
-              New Verse
-            </button>
-          )}
+          <div className="flex gap-2">
+            {!submissionResults && (
+              <button
+                onClick={() => setShowAnswers(!showAnswers)}
+                className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded transition-colors ${
+                  showAnswers 
+                    ? 'bg-orange-500 text-white hover:bg-orange-600' 
+                    : 'bg-green-500 text-white hover:bg-green-600'
+                }`}
+              >
+                {showAnswers ? 'Hide Answers' : 'Reveal Answers'}
+              </button>
+            )}
+            {onRefresh && (
+              <button
+                onClick={onRefresh}
+                className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+              >
+                New Verse
+              </button>
+            )}
+          </div>
         </div>
         
         {/* Verse Info */}
@@ -138,25 +160,28 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                           : 'bg-gradient-to-br from-red-400 to-red-500 text-white border-2 border-red-300 shadow-red-200'
                       }
                     }
+                    if (showAnswers) {
+                      return 'bg-gradient-to-br from-blue-400 to-blue-500 text-white border-2 border-blue-300 shadow-blue-200'
+                    }
                     return selectedWords[index] 
                       ? 'bg-gradient-to-br from-green-400 to-green-500 text-white border-2 border-green-300 shadow-green-200' 
                       : 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-500 border-2 border-dashed border-gray-300 hover:border-blue-400 hover:from-blue-50 hover:to-blue-100'
                   })()}
                 `}
-                onClick={() => !submissionResults && onWordSelect && onWordSelect(index, selectedWords[index])}
+                onClick={() => !submissionResults && !showAnswers && onWordSelect && onWordSelect(index, selectedWords[index])}
               >
                 <span className={`font-medium text-center px-1 leading-tight break-words ${
-                  selectedWords[index] 
+                  selectedWords[index] || showAnswers
                     ? 'text-white drop-shadow-sm' 
                     : 'text-gray-500'
                 } ${
-                  selectedWords[index] && selectedWords[index].length > 12 
+                  (selectedWords[index] || showAnswers) && (selectedWords[index]?.length > 12 || word.translation?.length > 12)
                     ? 'text-xs' 
-                    : selectedWords[index] && selectedWords[index].length > 8 
+                    : (selectedWords[index] || showAnswers) && (selectedWords[index]?.length > 8 || word.translation?.length > 8)
                     ? 'text-sm' 
                     : 'text-sm'
                 }`}>
-                  {selectedWords[index] || ''}
+                  {showAnswers ? word.translation : (selectedWords[index] || '')}
                 </span>
               </div>
               
