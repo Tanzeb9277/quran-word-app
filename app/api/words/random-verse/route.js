@@ -68,6 +68,7 @@ async function handleRandomVerseRequest({ verseLength = 'all' }) {
         image_url,
         root_latin,
         root_arabic,
+        arabic_text,
         tags,
         CASE 
           WHEN root_latin IS NOT NULL AND root_arabic IS NOT NULL 

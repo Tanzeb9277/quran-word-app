@@ -14,41 +14,15 @@ import { useState, useEffect } from "react"
  * @param {boolean} props.showDetailedInfo - Whether to show detailed word information
  * @param {Function} props.setShowDetailedInfo - Function to toggle detailed info
  */
-export default function VerseViewer({ verseData, onRefresh, selectedWords = [], onWordSelect, currentFilter = 'all', submissionResults = null, showDetailedInfo = false, setShowDetailedInfo = null, onRevealedWordsChange = null }) {
-  const [showAnswers, setShowAnswers] = useState(false)
-  const [revealedWords, setRevealedWords] = useState(new Set())
-  
-  // Reset showAnswers when verseData changes (new verse loaded)
+export default function VerseViewer({ verseData, onRefresh, selectedWords = [], onWordSelect, currentFilter = 'all', submissionResults = null, showDetailedInfo = false, setShowDetailedInfo = null, onRevealedWordsChange = null, revealedWords = new Set() }) {
+  // Reset revealed words when verseData changes (new verse loaded)
   useEffect(() => {
-    setShowAnswers(false)
-    setRevealedWords(new Set())
     // Notify parent component that revealed words are reset
     if (onRevealedWordsChange) {
       onRevealedWordsChange(new Set())
     }
   }, [verseData, onRevealedWordsChange])
   
-  // Find the next unfilled word index
-  const getNextUnfilledIndex = () => {
-    return selectedWords.findIndex((word, index) => !word && !revealedWords.has(index))
-  }
-  
-  // Reveal the next unfilled word
-  const revealNextWord = () => {
-    const nextIndex = getNextUnfilledIndex()
-    if (nextIndex !== -1) {
-      const newRevealedWords = new Set([...revealedWords, nextIndex])
-      setRevealedWords(newRevealedWords)
-      // Auto-fill the revealed word in the selectedWords array
-      if (onWordSelect) {
-        onWordSelect(nextIndex, verseData.words[nextIndex].translation)
-      }
-      // Notify parent component about revealed words
-      if (onRevealedWordsChange) {
-        onRevealedWordsChange(newRevealedWords)
-      }
-    }
-  }
   // Guard against undefined verseData
   if (!verseData || !verseData.words) {
     return (
@@ -61,52 +35,17 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   }
 
   return (
-    <div className={`w-full max-w-full sm:max-w-4xl mx-auto p-2 sm:p-4 bg-white rounded-lg shadow-lg ${
-      showAnswers || revealedWords.size > 0 
+    <div className={`w-full max-w-full sm:max-w-4xl mx-auto p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
+      revealedWords.size > 0 
         ? 'mb-80 sm:mb-48' 
         : 'mb-64 sm:mb-40'
     }`}>
       {/* Verse Header */}
       <div className="text-center mb-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between mb-4 gap-2">
+        <div className="text-center mb-4">
           <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
             Arabic Words
           </h2>
-          <div className="flex gap-2">
-            {!submissionResults && (
-              <>
-                <button
-                  onClick={revealNextWord}
-                  disabled={getNextUnfilledIndex() === -1}
-                  className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded transition-colors ${
-                    getNextUnfilledIndex() === -1
-                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      : 'bg-purple-500 text-white hover:bg-purple-600'
-                  }`}
-                >
-                  Reveal Next
-                </button>
-                <button
-                  onClick={() => setShowAnswers(!showAnswers)}
-                  className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded transition-colors ${
-                    showAnswers 
-                      ? 'bg-orange-500 text-white hover:bg-orange-600' 
-                      : 'bg-green-500 text-white hover:bg-green-600'
-                  }`}
-                >
-                  {showAnswers ? 'Hide Answers' : 'Reveal Answers'}
-                </button>
-              </>
-            )}
-            {onRefresh && (
-              <button
-                onClick={onRefresh}
-                className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-              >
-                New Verse
-              </button>
-            )}
-          </div>
         </div>
         
         {/* Verse Info */}
@@ -144,14 +83,21 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
             <div className="text-lg font-semibold mb-2">
               {submissionResults.isAccurate ? '🎉 Perfect!' : '📝 Good effort!'}
             </div>
-            <div className="text-sm">
-              You got {submissionResults.correctCount} out of {submissionResults.totalWords} words correct 
-              ({submissionResults.accuracy.toFixed(1)}% accuracy)
+            <div className="text-sm space-y-1">
+              <div>
+                You got {submissionResults.correctCount} out of {submissionResults.guessedWords} words correct 
+                ({submissionResults.accuracy.toFixed(1)}% accuracy)
+              </div>
+              {submissionResults.revealedCount > 0 && (
+                <div className="text-xs text-gray-600">
+                  {submissionResults.revealedCount} word{submissionResults.revealedCount > 1 ? 's' : ''} revealed
+                </div>
+              )}
             </div>
-            <div className="flex gap-2 justify-center mt-3">
+            <div className="flex justify-center mt-3">
               <button
                 onClick={() => setShowDetailedInfo && setShowDetailedInfo(!showDetailedInfo)}
-                className={`px-4 py-2 rounded-lg transition-colors text-sm ${
+                className={`w-full sm:w-auto px-4 py-2 rounded-lg transition-colors text-sm ${
                   showDetailedInfo 
                     ? 'bg-gray-500 text-white hover:bg-gray-600' 
                     : 'bg-blue-500 text-white hover:bg-blue-600'
@@ -159,14 +105,6 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
               >
                 {showDetailedInfo ? 'Hide Details' : 'Show Details'}
               </button>
-              {!submissionResults.isAccurate && (
-                <button
-                  onClick={onRefresh}
-                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors text-sm"
-                >
-                  Try New Verse
-                </button>
-              )}
             </div>
           </div>
         </div>
@@ -174,15 +112,15 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
 
       {/* Arabic Words with Slots - RTL */}
       <div className="mb-8">
-        <div className="flex flex-wrap justify-center items-start gap-2 sm:gap-4 md:gap-6 lg:gap-8 mb-6" dir="rtl">
+        <div className="flex flex-wrap justify-center items-start gap-1 sm:gap-2 md:gap-4 lg:gap-6 mb-6" dir="rtl">
           {verseData.words.map((word, index) => (
-            <div key={word.id} className="flex flex-col items-center min-w-[70px] sm:min-w-[80px] max-w-[100px] sm:max-w-[120px] group">
+            <div key={word.id} className="flex flex-col items-center min-w-[60px] sm:min-w-[70px] md:min-w-[80px] max-w-[80px] sm:max-w-[100px] md:max-w-[120px] group">
               {/* Arabic Word Image */}
               <div className="relative mb-2 sm:mb-3 p-2 sm:p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200 border border-gray-200">
                 <img
                   src={word.image_url || "/placeholder.svg"}
                   alt={`Arabic word ${index + 1}`}
-                  className="object-contain w-full h-10 sm:h-12 max-w-[80px] sm:max-w-[100px] transition-transform duration-200 group-hover:scale-105"
+                  className="object-contain w-full h-8 sm:h-10 md:h-12 max-w-[60px] sm:max-w-[80px] md:max-w-[100px] transition-transform duration-200 group-hover:scale-105"
                   onError={(e) => {
                     e.currentTarget.src = "/placeholder.svg?height=40&width=80&text=Arabic+Word"
                   }}
@@ -192,7 +130,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
               {/* Enhanced Word Slot directly under the Arabic word */}
               <div 
                 className={`
-                  w-24 sm:w-32 h-12 sm:h-16 rounded-xl flex items-center justify-center mb-2 
+                  w-20 sm:w-24 md:w-32 h-10 sm:h-12 md:h-16 rounded-xl flex items-center justify-center mb-2 
                   transition-all duration-300 transform hover:scale-105 active:scale-95
                   shadow-md hover:shadow-lg
                   ${submissionResults ? 'cursor-not-allowed' : 'cursor-pointer'}
@@ -200,12 +138,15 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                     if (submissionResults) {
                       const result = submissionResults.wordResults.find(r => r.index === index)
                       if (result) {
+                        if (result.wasRevealed) {
+                          return 'bg-gradient-to-br from-blue-400 to-blue-500 text-white border-2 border-blue-300 shadow-blue-200'
+                        }
                         return result.isCorrect
                           ? 'bg-gradient-to-br from-green-400 to-green-500 text-white border-2 border-green-300 shadow-green-200'
                           : 'bg-gradient-to-br from-red-400 to-red-500 text-white border-2 border-red-300 shadow-red-200'
                       }
                     }
-                    if (showAnswers || revealedWords.has(index)) {
+                    if (revealedWords.has(index)) {
                       return 'bg-gradient-to-br from-blue-400 to-blue-500 text-white border-2 border-blue-300 shadow-blue-200'
                     }
                     return selectedWords[index] 
@@ -213,20 +154,20 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                       : 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-500 border-2 border-dashed border-gray-300 hover:border-blue-400 hover:from-blue-50 hover:to-blue-100'
                   })()}
                 `}
-                onClick={() => !submissionResults && !showAnswers && !revealedWords.has(index) && onWordSelect && onWordSelect(index, selectedWords[index])}
+                onClick={() => !submissionResults && !revealedWords.has(index) && onWordSelect && onWordSelect(index, selectedWords[index])}
               >
                 <span className={`font-medium text-center px-1 leading-tight break-words ${
-                  selectedWords[index] || showAnswers || revealedWords.has(index)
+                  selectedWords[index] || revealedWords.has(index)
                     ? 'text-white drop-shadow-sm' 
                     : 'text-gray-500'
                 } ${
-                  (selectedWords[index] || showAnswers || revealedWords.has(index)) && (selectedWords[index]?.length > 12 || word.translation?.length > 12)
+                  (selectedWords[index] || revealedWords.has(index)) && (selectedWords[index]?.length > 12 || word.translation?.length > 12)
                     ? 'text-xs' 
-                    : (selectedWords[index] || showAnswers || revealedWords.has(index)) && (selectedWords[index]?.length > 8 || word.translation?.length > 8)
-                    ? 'text-sm' 
-                    : 'text-sm'
+                    : (selectedWords[index] || revealedWords.has(index)) && (selectedWords[index]?.length > 8 || word.translation?.length > 8)
+                    ? 'text-xs sm:text-sm' 
+                    : 'text-xs sm:text-sm'
                 }`}>
-                  {showAnswers || revealedWords.has(index) ? word.translation : (selectedWords[index] || '')}
+                  {revealedWords.has(index) ? word.translation : (selectedWords[index] || '')}
                 </span>
               </div>
               
@@ -235,13 +176,13 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                 Word {index + 1}
               </div>
               
-              {/* Show correct answer for incorrect submissions */}
+              {/* Show correct answer for incorrect submissions only */}
               {submissionResults && (() => {
                 const result = submissionResults.wordResults.find(r => r.index === index)
-                if (result && !result.isCorrect) {
+                if (result && !result.isCorrect && !result.wasRevealed) {
                   return (
-                    <div className="mt-2 max-w-[96px] sm:max-w-[128px]">
-                      <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-300 rounded-lg px-2 py-1 shadow-sm">
+                    <div className="mt-2 max-w-[80px] sm:max-w-[96px] md:max-w-[128px]">
+                      <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-300 rounded-lg px-1 sm:px-2 py-1 shadow-sm">
                         <div className="flex items-center justify-center">
                           <span className="text-xs font-medium text-green-800 break-words leading-tight text-center">
                             {result.correctWord}
@@ -264,7 +205,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
           <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4 text-center">
             Detailed Word Analysis
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
             {verseData.words.map((word, index) => {
               const result = submissionResults.wordResults.find(r => r.index === index)
               console.log(`Word ${index + 1} grammar:`, word.grammar)
