@@ -37,7 +37,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   }
 
   return (
-    <div className={`w-full max-w-full sm:max-w-5xl mx-auto p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
+    <div className={`w-screen p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
       revealedWords.size > 0 
         ? 'mb-80 sm:mb-48' 
         : 'mb-64 sm:mb-40'
@@ -114,20 +114,20 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
 
       {/* Arabic Words with Slots - RTL */}
       <div className="mb-8">
-        <div className="flex flex-wrap justify-center items-start gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-6" dir="rtl">
+        <div className="flex flex-wrap justify-center items-start gap-1 sm:gap-3 md:gap-4 lg:gap-6 mb-6" dir="rtl">
           {verseData.words.map((word, index) => (
-            <div key={word.id} className="flex flex-col items-center min-w-[120px] sm:min-w-[120px] md:min-w-[150px] max-w-[120px] sm:max-w-[150px] md:max-w-[180px] group">
+            <div key={word.id} className="flex flex-col items-center min-w-[110px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[160px] max-w-[110px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[180px] group">
               {/* Arabic Word Image */}
               <div 
-                className="relative mb-2 sm:mb-3 p-2 sm:p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200 border border-gray-200 cursor-pointer"
+                className="relative mb-1.5 sm:mb-3 p-1.5 sm:p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200 border border-gray-200 cursor-pointer"
                 onClick={() => setEnlargedImageIndex(enlargedImageIndex === index ? null : index)}
               >
                 <img
                   src={word.image_url || "/placeholder.svg"}
                   alt={`Arabic word ${index + 1}`}
-                  className="object-contain w-full h-14 sm:h-14 md:h-18 max-w-[113px] sm:max-w-[108px] md:max-w-[135px] transition-transform duration-200 group-hover:scale-105"
+                  className="object-contain w-full h-12 sm:h-14 md:h-16 lg:h-18 max-w-[100px] sm:max-w-[120px] md:max-w-[140px] lg:max-w-[160px] transition-transform duration-200 group-hover:scale-105"
                   onError={(e) => {
-                    e.currentTarget.src = "/placeholder.svg?height=56&width=113&text=Arabic+Word"
+                    e.currentTarget.src = "/placeholder.svg?height=48&width=100&text=Arabic+Word"
                   }}
                 />
               </div>
@@ -135,7 +135,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
               {/* Enhanced Word Slot directly under the Arabic word */}
               <div 
                 className={`
-                  w-24 sm:w-28 md:w-36 h-12 sm:h-14 md:h-18 rounded-xl flex items-center justify-center mb-2 
+                  w-22 sm:w-26 md:w-32 lg:w-36 h-11 sm:h-13 md:h-15 lg:h-17 rounded-xl flex items-center justify-center mb-1.5 sm:mb-2 
                   transition-all duration-300 transform hover:scale-105 active:scale-95
                   shadow-md hover:shadow-lg
                   ${submissionResults ? 'cursor-not-allowed' : 'cursor-pointer'}
@@ -222,9 +222,9 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                       <img
                         src={word.image_url || "/placeholder.svg"}
                         alt={`Arabic word ${index + 1}`}
-                        className="object-contain w-full h-24 max-w-[180px] mx-auto"
+                        className="object-contain w-full h-22 max-w-[180px] mx-auto"
                         onError={(e) => {
-                          e.currentTarget.src = "/placeholder.svg?height=96&width=180&text=Arabic+Word"
+                          e.currentTarget.src = "/placeholder.svg?height=88&width=180&text=Arabic+Word"
                         }}
                       />
                     </div>
