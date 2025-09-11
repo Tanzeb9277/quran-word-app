@@ -37,7 +37,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   }
 
   return (
-    <div className={`w-screen p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
+    <div className={`w-full max-w-screen p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
       revealedWords.size > 0 
         ? 'mb-80 sm:mb-48' 
         : 'mb-64 sm:mb-40'
@@ -114,7 +114,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
 
       {/* Arabic Words with Slots - RTL */}
       <div className="mb-8">
-        <div className="flex flex-wrap justify-center items-start gap-1 sm:gap-3 md:gap-4 lg:gap-6 mb-6" dir="rtl">
+        <div className="flex flex-wrap justify-center items-start gap-1 sm:gap-3 md:gap-4 lg:gap-6 mb-6 w-full max-w-full overflow-hidden" dir="rtl">
           {verseData.words.map((word, index) => (
             <div key={word.id} className="flex flex-col items-center min-w-[110px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[160px] max-w-[110px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[180px] group">
               {/* Arabic Word Image */}
