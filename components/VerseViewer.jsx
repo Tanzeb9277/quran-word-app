@@ -116,7 +116,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
       <div className="mb-8">
         <div className="flex flex-wrap justify-center items-start gap-1 sm:gap-3 md:gap-4 lg:gap-6 mb-6 w-full max-w-full overflow-hidden" dir="rtl">
           {verseData.words.map((word, index) => (
-            <div key={word.id} className="flex flex-col items-center min-w-[110px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[160px] max-w-[110px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[180px] group">
+            <div key={word.id} className="flex flex-col items-center min-w-[100px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[160px] max-w-[110px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[180px] group">
               {/* Arabic Word Image */}
               <div 
                 className="relative mb-1.5 sm:mb-3 p-1.5 sm:p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200 border border-gray-200 cursor-pointer"
