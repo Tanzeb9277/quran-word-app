@@ -8,6 +8,99 @@ All endpoints are prefixed with `/api/`
 
 ---
 
+## 📖 Translation Endpoints
+
+### 1. Get Verse Translation by Surah and Verse
+**Endpoint:** `GET /api/translations/verse/[surah]/[verse]`
+
+**Description:** Fetches verse translations for a specific surah and verse number.
+
+**Parameters:**
+- `surah` (path): Surah number (1-114)
+- `verse` (path): Verse number (positive integer)
+- `include_footnotes` (query, optional): Include footnotes in translation (`true`/`false`, default: `false`)
+- `source` (query, optional): Filter by translation source
+
+**Example Request:**
+```
+GET /api/translations/verse/2/255?include_footnotes=true&source=Yusuf Ali
+```
+
+**Example Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "verse_reference": "2:255",
+    "surah_number": 2,
+    "verse_number": 255,
+    "translation": "Allah! There is no god but He, the Ever-Living, the Self-Sustaining.",
+    "translation_with_footnotes": "Allah! There is no god but He, the Ever-Living, the Self-Sustaining.¹",
+    "has_footnotes": true,
+    "footnote_count": 1,
+    "translation_source": "Yusuf Ali",
+    "display_translation": "Allah! There is no god but He, the Ever-Living, the Self-Sustaining.¹"
+  },
+  "count": 1,
+  "surah_number": 2,
+  "verse_number": 255,
+  "include_footnotes": true,
+  "source_filter": "Yusuf Ali"
+}
+```
+
+### 2. Get Verse Translation by Reference
+**Endpoint:** `GET /api/translations/reference/[reference]`
+
+**Description:** Fetches verse translations using the reference format "surah:verse".
+
+**Parameters:**
+- `reference` (path): Verse reference in format "surah:verse" (e.g., "2:255")
+- `include_footnotes` (query, optional): Include footnotes in translation (`true`/`false`, default: `false`)
+- `source` (query, optional): Filter by translation source
+
+**Example Request:**
+```
+GET /api/translations/reference/2:255?include_footnotes=false
+```
+
+**Example Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "verse_reference": "2:255",
+      "surah_number": 2,
+      "verse_number": 255,
+      "translation": "Allah! There is no god but He, the Ever-Living, the Self-Sustaining.",
+      "translation_with_footnotes": "Allah! There is no god but He, the Ever-Living, the Self-Sustaining.¹",
+      "has_footnotes": true,
+      "footnote_count": 1,
+      "translation_source": "Yusuf Ali",
+      "display_translation": "Allah! There is no god but He, the Ever-Living, the Self-Sustaining."
+    },
+    {
+      "verse_reference": "2:255",
+      "surah_number": 2,
+      "verse_number": 255,
+      "translation": "Allah! There is no deity except Him, the Ever-Living, the Sustainer of existence.",
+      "translation_with_footnotes": null,
+      "has_footnotes": false,
+      "footnote_count": 0,
+      "translation_source": "Sahih International",
+      "display_translation": "Allah! There is no deity except Him, the Ever-Living, the Sustainer of existence."
+    }
+  ],
+  "count": 2,
+  "reference": "2:255",
+  "include_footnotes": false,
+  "source_filter": null
+}
+```
+
+---
+
 ## 📚 Words Endpoints
 
 ### 1. Random Verse

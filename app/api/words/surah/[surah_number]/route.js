@@ -9,15 +9,23 @@ export async function GET(request, { params }) {
 
     let query = sql`
       SELECT 
+        id,
         surah_number,
         verse,
-        arabic_text,
+        location,
         transliteration,
         translation,
         grammar,
-        root_arabic,
+        image_url,
         root_latin,
-        location
+        root_arabic,
+        arabic_text,
+        tags,
+        CASE 
+          WHEN root_latin IS NOT NULL AND root_arabic IS NOT NULL 
+          THEN json_build_object('root_latin', root_latin, 'root_arabic', root_arabic)
+          ELSE NULL
+        END as root
       FROM words 
       WHERE surah_number = ${surah_number}
       ORDER BY 
@@ -28,15 +36,23 @@ export async function GET(request, { params }) {
     if (tag) {
       query = sql`
         SELECT 
+          id,
           surah_number,
           verse,
-          arabic_text,
+          location,
           transliteration,
           translation,
           grammar,
-          root_arabic,
+          image_url,
           root_latin,
-          location
+          root_arabic,
+          arabic_text,
+          tags,
+          CASE 
+            WHEN root_latin IS NOT NULL AND root_arabic IS NOT NULL 
+            THEN json_build_object('root_latin', root_latin, 'root_arabic', root_arabic)
+            ELSE NULL
+          END as root
         FROM words 
         WHERE surah_number = ${surah_number} 
         AND tags @> ${JSON.stringify([{ tag }])}
@@ -63,13 +79,19 @@ export async function GET(request, { params }) {
       }
       
       versesMap.get(verseNumber).words.push({
-        arabic_text: word.arabic_text,
+        id: word.id,
+        surah_number: word.surah_number,
+        verse: word.verse,
+        location: word.location,
         transliteration: word.transliteration,
         translation: word.translation,
         grammar: word.grammar,
-        root_arabic: word.root_arabic,
+        image_url: word.image_url,
         root_latin: word.root_latin,
-        location: word.location
+        root_arabic: word.root_arabic,
+        arabic_text: word.arabic_text,
+        tags: word.tags,
+        root: word.root
       })
     })
 

@@ -16,6 +16,10 @@ import { useState, useEffect } from "react"
  */
 export default function VerseViewer({ verseData, onRefresh, selectedWords = [], onWordSelect, currentFilter = 'all', submissionResults = null, showDetailedInfo = false, setShowDetailedInfo = null, onRevealedWordsChange = null, revealedWords = new Set() }) {
   const [enlargedImageIndex, setEnlargedImageIndex] = useState(null)
+  const [showTranslation, setShowTranslation] = useState(false)
+  const [translationData, setTranslationData] = useState(null)
+  const [translationLoading, setTranslationLoading] = useState(false)
+  const [translationError, setTranslationError] = useState(null)
   
   // Reset revealed words when verseData changes (new verse loaded)
   useEffect(() => {
@@ -23,7 +27,36 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
     if (onRevealedWordsChange) {
       onRevealedWordsChange(new Set())
     }
+    // Reset translation state when verse changes
+    setShowTranslation(false)
+    setTranslationData(null)
+    setTranslationError(null)
   }, [verseData, onRevealedWordsChange])
+
+  // Function to fetch verse translation
+  const fetchTranslation = async () => {
+    if (!verseData) return
+    
+    setTranslationLoading(true)
+    setTranslationError(null)
+    
+    try {
+      const response = await fetch(`/api/translations/reference/${verseData.verse}`)
+      const result = await response.json()
+      
+      if (result.success) {
+        setTranslationData(result.data)
+        setShowTranslation(true)
+      } else {
+        setTranslationError(result.error || 'Failed to fetch translation')
+      }
+    } catch (error) {
+      console.error('Error fetching translation:', error)
+      setTranslationError('Network error occurred while fetching translation')
+    } finally {
+      setTranslationLoading(false)
+    }
+  }
   
   // Guard against undefined verseData
   if (!verseData || !verseData.words) {
@@ -96,7 +129,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                 </div>
               )}
             </div>
-            <div className="flex justify-center mt-3">
+            <div className="flex flex-col sm:flex-row justify-center gap-2 mt-3">
               <button
                 onClick={() => setShowDetailedInfo && setShowDetailedInfo(!showDetailedInfo)}
                 className={`w-full sm:w-auto px-4 py-2 rounded-lg transition-colors text-sm ${
@@ -107,7 +140,74 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
               >
                 {showDetailedInfo ? 'Hide Details' : 'Show Details'}
               </button>
+              <button
+                onClick={fetchTranslation}
+                disabled={translationLoading}
+                className={`w-full sm:w-auto px-4 py-2 rounded-lg transition-colors text-sm ${
+                  translationLoading
+                    ? 'bg-gray-400 text-white cursor-not-allowed'
+                    : showTranslation
+                    ? 'bg-green-500 text-white hover:bg-green-600'
+                    : 'bg-purple-500 text-white hover:bg-purple-600'
+                }`}
+              >
+                {translationLoading ? 'Loading...' : showTranslation ? 'Hide Translation' : 'Show Translation'}
+              </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Translation Display */}
+      {showTranslation && translationData && (
+        <div className="mb-6 p-4 rounded-lg border-2 bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
+          <div className="text-center mb-4">
+            <h3 className="text-lg font-semibold text-purple-800 mb-2">
+              📖 Verse Translation
+            </h3>
+            <div className="text-sm text-purple-600 mb-3">
+              Surah {translationData.surah_number}, Verse {translationData.verse_number}
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-lg p-4 shadow-sm border border-purple-100">
+            <div className="text-center">
+              <p className="text-lg leading-relaxed text-gray-800 mb-3">
+                {translationData.display_translation}
+              </p>
+              
+              {translationData.translation_source && (
+                <div className="text-sm text-gray-600 mb-2">
+                  <span className="font-medium">Translation by:</span> {translationData.translation_source}
+                </div>
+              )}
+              
+              {translationData.has_footnotes && translationData.footnote_count > 0 && (
+                <div className="text-xs text-gray-500">
+                  {translationData.footnote_count} footnote{translationData.footnote_count > 1 ? 's' : ''} available
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Translation Error */}
+      {translationError && (
+        <div className="mb-6 p-4 rounded-lg border-2 bg-red-50 border-red-200">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold text-red-800 mb-2">
+              ⚠️ Translation Error
+            </h3>
+            <p className="text-sm text-red-600 mb-3">
+              {translationError}
+            </p>
+            <button
+              onClick={fetchTranslation}
+              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm"
+            >
+              Try Again
+            </button>
           </div>
         </div>
       )}
@@ -347,7 +447,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
             {/* Footer with word info */}
             <div className="p-4 border-t border-gray-200 bg-white">
               <div className="text-center text-sm text-gray-600">
-                <p className="font-medium">Translation: {verseData.words[enlargedImageIndex].translation}</p>
+
                 {verseData.words[enlargedImageIndex].transliteration && (
                   <p className="mt-1">Transliteration: {verseData.words[enlargedImageIndex].transliteration}</p>
                 )}

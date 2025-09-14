@@ -21,6 +21,34 @@ export default function GamePage() {
   const [showDetailedInfo, setShowDetailedInfo] = useState(false)
   const [revealedWords, setRevealedWords] = useState(new Set())
   const [usedWords, setUsedWords] = useState([])
+  
+  // Surah selection and progression state
+  const [gameMode, setGameMode] = useState('random') // 'random' or 'surah'
+  const [surahs, setSurahs] = useState([])
+  const [selectedSurah, setSelectedSurah] = useState(null)
+  const [currentVerse, setCurrentVerse] = useState(1)
+  const [surahVerses, setSurahVerses] = useState([])
+  const [surahLoading, setSurahLoading] = useState(false)
+
+  // Fetch surahs on component mount
+  useEffect(() => {
+    fetchSurahs()
+  }, [])
+
+  const fetchSurahs = async () => {
+    try {
+      const response = await fetch('/api/words/surahs')
+      const data = await response.json()
+      
+      if (data.success && Array.isArray(data.data)) {
+        setSurahs(data.data)
+      } else {
+        console.error('Error fetching surahs:', data.error)
+      }
+    } catch (error) {
+      console.error('Error fetching surahs:', error)
+    }
+  }
 
   const cleanWord = (word) => {
     return word
@@ -150,6 +178,136 @@ export default function GamePage() {
       fetchRandomVerse()
     }
   }, [verseLengthFilter])
+
+  // Surah mode functions
+  const fetchSurahVerses = async (surahNumber) => {
+    setSurahLoading(true)
+    setError(null)
+    
+    try {
+      const response = await fetch(`/api/words/surah/${surahNumber}`)
+      const result = await response.json()
+      
+      if (result.success && Array.isArray(result.data)) {
+        setSurahVerses(result.data)
+        setCurrentVerse(1) // Start from first verse
+        await fetchSpecificVerse(surahNumber, 1, result.data)
+      } else {
+        setError(result.error || 'Failed to fetch surah verses')
+      }
+    } catch (err) {
+      console.error('Error fetching surah verses:', err)
+      setError('Network error occurred while fetching surah verses')
+    } finally {
+      setSurahLoading(false)
+    }
+  }
+
+  const fetchSpecificVerse = async (surahNumber, verseNumber, versesData = null) => {
+    setLoading(true)
+    setError(null)
+    setSubmissionResults(null)
+    setShowDetailedInfo(false)
+    setSelectedWords([])
+    setRevealedWords(new Set())
+    setUsedWords([])
+    setWordBank([])
+
+    try {
+      // Find the specific verse in the surah data
+      // The API returns verse as string like '1:1', so we need to match against the verse number part
+      const targetVerse = versesData ? versesData.find(v => {
+        // Extract verse number from string format like '1:1' -> 1
+        const verseNum = typeof v.verse === 'string' ? parseInt(v.verse.split(':')[1]) : v.verse
+        return verseNum === verseNumber
+      }) : null
+      
+      if (targetVerse && targetVerse.words) {
+        // Create verse data in the expected format
+        const verseData = {
+          surah_number: surahNumber,
+          verse: verseNumber,
+          words: targetVerse.words.map((word, index) => ({
+            ...word,
+            position_in_verse: index + 1
+          }))
+        }
+        
+        setVerseData(verseData)
+        
+        // Initialize selectedWords array with correct length
+        setSelectedWords(new Array(verseData.words.length).fill(null))
+        
+        // Generate word bank for this verse
+        if (verseData.words && verseData.words.length > 0) {
+          const verseTranslations = verseData.words.map(word => ({
+            translation: word.translation,
+            cleanTranslation: cleanWord(word.translation),
+            transliteration: word.transliteration,
+            originalWord: word
+          }))
+
+          const RandomSelectedWords = getRandomWords(verseData.words, 3)
+          const distractors = []
+          const existingTranslations = verseTranslations.map(vt => vt.cleanTranslation)
+
+          for (const selectedWord of RandomSelectedWords) {
+            const distractor = await generateDistractor(selectedWord, existingTranslations)
+            if (distractor) {
+              distractors.push({
+                translation: distractor.translation,
+                cleanTranslation: cleanWord(distractor.translation),
+                transliteration: distractor.transliteration,
+                originalWord: distractor
+              })
+            }
+          }
+
+          const allWords = [...verseTranslations, ...distractors]
+          setWordBank(shuffleArray(allWords))
+        }
+      } else {
+        setError(`Verse ${verseNumber} not found in Surah ${surahNumber}`)
+      }
+    } catch (err) {
+      console.error('Error fetching specific verse:', err)
+      setError('Network error occurred while fetching verse')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleSurahSelect = async (surah) => {
+    setSelectedSurah(surah)
+    setGameMode('surah')
+    await fetchSurahVerses(surah.surah_number)
+  }
+
+  const handleNextVerse = async () => {
+    if (!selectedSurah || !surahVerses.length) return
+    
+    const nextVerse = currentVerse + 1
+    if (nextVerse <= selectedSurah.verses_count) {
+      setCurrentVerse(nextVerse)
+      await fetchSpecificVerse(selectedSurah.surah_number, nextVerse, surahVerses)
+    }
+  }
+
+  const handlePreviousVerse = async () => {
+    if (!selectedSurah || currentVerse <= 1) return
+    
+    const prevVerse = currentVerse - 1
+    setCurrentVerse(prevVerse)
+    await fetchSpecificVerse(selectedSurah.surah_number, prevVerse, surahVerses)
+  }
+
+  const handleRandomMode = () => {
+    setGameMode('random')
+    setSelectedSurah(null)
+    setCurrentVerse(1)
+    setSurahVerses([])
+    fetchRandomVerse()
+  }
 
   const handleSlotClick = (index, word) => {
     const newSelectedWords = [...selectedWords]
@@ -366,57 +524,130 @@ export default function GamePage() {
 
         {/* Controls Section */}
         <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Verse Length Filter */}
-            <div className="flex flex-col sm:flex-row items-center gap-3">
+          <div className="flex flex-col gap-6">
+            {/* Test Mode Toggle */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2">
-                <Target className="w-4 h-4 text-gray-500" />
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Verse Length:</span>
+                <Book className="w-4 h-4 text-gray-500" />
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Test Mode:</span>
               </div>
               <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
-                {[
-                  { value: 'all', label: 'All', color: 'bg-gray-200 dark:bg-gray-700', icon: '📚' },
-                  { value: 'short', label: 'Short (≤7)', color: 'bg-green-200 dark:bg-green-700', icon: '🌱' },
-                  { value: 'medium', label: 'Medium (8-15)', color: 'bg-yellow-200 dark:bg-yellow-700', icon: '🌿' },
-                  { value: 'long', label: 'Long (15+)', color: 'bg-red-200 dark:bg-red-700', icon: '🌳' }
-                ].map((filter) => (
-                  <button
-                    key={filter.value}
-                    onClick={() => setVerseLengthFilter(filter.value)}
-                    className={`flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${
-                      verseLengthFilter === filter.value
-                        ? `${filter.color} text-gray-900 dark:text-gray-100 shadow-sm`
-                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700'
-                    }`}
-                  >
-                    <span className="text-xs">{filter.icon}</span>
-                    <span className="hidden sm:inline">{filter.label}</span>
-                    <span className="sm:hidden">{filter.label.split(' ')[0]}</span>
-                  </button>
-                ))}
+                <button
+                  onClick={handleRandomMode}
+                  className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                    gameMode === 'random'
+                      ? 'bg-blue-200 dark:bg-blue-700 text-gray-900 dark:text-gray-100 shadow-sm'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  }`}
+                >
+                  <span className="text-sm">❓</span>
+                  <span>Random Verse</span>
+                </button>
+                <button
+                  onClick={() => setGameMode('surah')}
+                  className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                    gameMode === 'surah'
+                      ? 'bg-purple-200 dark:bg-purple-700 text-gray-900 dark:text-gray-100 shadow-sm'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  }`}
+                >
+                  <span className="text-sm">📖</span>
+                  <span>Study Surah</span>
+                </button>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex items-center gap-2">
-              <Button
-                onClick={fetchRandomVerse}
-                disabled={loading}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-2 text-sm font-medium shadow-sm"
-              >
-                {loading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Loading...
-                  </>
-                ) : (
-                  <>
-                    <Search className="w-4 h-4 mr-2" />
-                    New Verse
-                  </>
-                )}
-              </Button>
-            </div>
+            {/* Surah Selection (only show in surah mode) */}
+            {gameMode === 'surah' && (
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <Search className="w-4 h-4 text-gray-500" />
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Select Surah:</span>
+                </div>
+                <div className="flex-1 max-w-md">
+                  <select
+                    value={selectedSurah?.surah_number || ''}
+                    onChange={(e) => {
+                      const surahNumber = parseInt(e.target.value)
+                      const surah = surahs.find(s => s.surah_number === surahNumber)
+                      if (surah) handleSurahSelect(surah)
+                    }}
+                    disabled={surahLoading}
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option value="">Choose a Surah...</option>
+                    {surahs.map((surah) => (
+                      <option key={surah.surah_number} value={surah.surah_number}>
+                        {surah.surah_number}. {surah.name_english} ({surah.name_arabic}) - {surah.verses_count} verses
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
+
+            {/* Verse Length Filter (only show in random mode) */}
+            {gameMode === 'random' && (
+              <div className="flex flex-col sm:flex-row items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <Target className="w-4 h-4 text-gray-500" />
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Verse Length:</span>
+                </div>
+                <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+                  {[
+                    { value: 'all', label: 'All', color: 'bg-gray-200 dark:bg-gray-700', icon: '📚' },
+                    { value: 'short', label: 'Short (≤7)', color: 'bg-green-200 dark:bg-green-700', icon: '🌱' },
+                    { value: 'medium', label: 'Medium (8-15)', color: 'bg-yellow-200 dark:bg-yellow-700', icon: '🌿' },
+                    { value: 'long', label: 'Long (15+)', color: 'bg-red-200 dark:bg-red-700', icon: '🌳' }
+                  ].map((filter) => (
+                    <button
+                      key={filter.value}
+                      onClick={() => setVerseLengthFilter(filter.value)}
+                      className={`flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${
+                        verseLengthFilter === filter.value
+                          ? `${filter.color} text-gray-900 dark:text-gray-100 shadow-sm`
+                          : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700'
+                      }`}
+                    >
+                      <span className="text-xs">{filter.icon}</span>
+                      <span className="hidden sm:inline">{filter.label}</span>
+                      <span className="sm:hidden">{filter.label.split(' ')[0]}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Surah Progress (only show in surah mode with selected surah) */}
+            {gameMode === 'surah' && selectedSurah && (
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Progress: Verse {currentVerse} of {selectedSurah.verses_count}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button
+                    onClick={handlePreviousVerse}
+                    disabled={currentVerse <= 1 || loading}
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-1"
+                  >
+                    ← Previous
+                  </Button>
+                  <Button
+                    onClick={handleNextVerse}
+                    disabled={currentVerse >= selectedSurah.verses_count || loading}
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-1"
+                  >
+                    Next →
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -453,7 +684,7 @@ export default function GamePage() {
              {verseData && (
          <VerseViewer 
            verseData={verseData}
-           onRefresh={fetchRandomVerse}
+           onRefresh={gameMode === 'surah' ? () => fetchSpecificVerse(selectedSurah?.surah_number, currentVerse, surahVerses) : fetchRandomVerse}
            selectedWords={selectedWords}
            onWordSelect={handleSlotClick}
            currentFilter={verseLengthFilter}

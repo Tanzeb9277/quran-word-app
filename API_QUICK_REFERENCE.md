@@ -5,6 +5,10 @@
 
 ## Core Endpoints
 
+### Translations
+- **By Surah/Verse**: `GET /translations/verse/[surah]/[verse]`
+- **By Reference**: `GET /translations/reference/[reference]`
+
 ### Words
 - **Random Verse**: `GET /words/random-verse`
 - **Word Bank**: `GET /words/word-bank`
@@ -25,6 +29,12 @@
 ---
 
 ## Full URLs
+
+### Translations
+- `GET  https://quran-word-app.vercel.app/api/translations/verse/2/255`
+- `GET  https://quran-word-app.vercel.app/api/translations/reference/2:255`
+- `GET  https://quran-word-app.vercel.app/api/translations/verse/2/255?include_footnotes=true`
+- `GET  https://quran-word-app.vercel.app/api/translations/reference/2:255?source=Yusuf Ali`
 
 ### Words
 - `GET  https://quran-word-app.vercel.app/api/words/random-verse`
