@@ -22,6 +22,10 @@ export default function GamePage() {
   const [revealedWords, setRevealedWords] = useState(new Set())
   const [usedWords, setUsedWords] = useState([])
   
+  // New state for individual word banks
+  const [individualWordBanks, setIndividualWordBanks] = useState([])
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  
   // Surah selection and progression state
   const [gameMode, setGameMode] = useState('random') // 'random' or 'surah'
   const [surahs, setSurahs] = useState([])
@@ -58,6 +62,13 @@ export default function GamePage() {
       .trim()
   }
 
+  const getVerseLength = (words) => {
+    if (!words || words.length === 0) return 'short'
+    if (words.length <= 7) return 'short'
+    if (words.length <= 15) return 'medium'
+    return 'long'
+  }
+
   const generateDistractor = async (correctWord, avoidTranslations = []) => {
     try {
       const response = await fetch('/api/words/word-bank', {
@@ -85,6 +96,38 @@ export default function GamePage() {
       }
     } catch (error) {
       console.error('Error calling word bank API:', error)
+      return null
+    }
+  }
+
+  const generateIndividualWordBank = async (correctWord, allVerseWords) => {
+    try {
+      const response = await fetch('/api/words/word-bank', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          correctWord,
+          distractorCount: 6,
+          options: {
+            difficulty: 'medium',
+            includeSemantic: true,
+            includeSurah: true,
+            includeRandom: true,
+            avoidTranslations: allVerseWords.map(word => cleanWord(word.translation))
+          }
+        })
+      })
+
+      const result = await response.json()
+      if (result.success && result.data.length >= 7) {
+        // Return the correct word + 6 distractors
+        return result.data
+      } else {
+        console.error('Error generating individual word bank:', result.error)
+        return null
+      }
+    } catch (error) {
+      console.error('Error calling word bank API for individual bank:', error)
       return null
     }
   }
@@ -123,40 +166,74 @@ export default function GamePage() {
       if (result.success) {
         setVerseData(result.data)
         if (result.data.words && result.data.words.length > 0) {
-          const verseTranslations = result.data.words.map(word => ({
-            translation: word.translation, // Keep original capitalization for display
-            cleanTranslation: cleanWord(word.translation), // Clean version for comparison
-            transliteration: word.transliteration,
-            originalWord: word
-          }))
+          const verseLength = getVerseLength(result.data.words)
+          
+          if (verseLength === 'short') {
+            // Original logic for short verses
+            const verseTranslations = result.data.words.map(word => ({
+              translation: word.translation, // Keep original capitalization for display
+              cleanTranslation: cleanWord(word.translation), // Clean version for comparison
+              transliteration: word.transliteration,
+              originalWord: word
+            }))
 
-          const RandomSelectedWords = getRandomWords(result.data.words, 3)
-          const distractors = []
-          const existingTranslations = verseTranslations.map(vt => vt.cleanTranslation)
+            const RandomSelectedWords = getRandomWords(result.data.words, 3)
+            const distractors = []
+            const existingTranslations = verseTranslations.map(vt => vt.cleanTranslation)
 
-          for (const selectedWord of RandomSelectedWords) {
-            const distractor = await generateDistractor(selectedWord, existingTranslations)
-            if (distractor) {
-              distractors.push({
-                translation: distractor.translation, // Keep original capitalization for display
-                cleanTranslation: cleanWord(distractor.translation), // Clean version for comparison
-                transliteration: distractor.transliteration,
-                originalWord: distractor
-              })
+            for (const selectedWord of RandomSelectedWords) {
+              const distractor = await generateDistractor(selectedWord, existingTranslations)
+              if (distractor) {
+                distractors.push({
+                  translation: distractor.translation, // Keep original capitalization for display
+                  cleanTranslation: cleanWord(distractor.translation), // Clean version for comparison
+                  transliteration: distractor.transliteration,
+                  originalWord: distractor
+                })
+              }
             }
+
+            // Create a set of cleaned verse translations for case-insensitive comparison
+            const verseTranslationSet = new Set(verseTranslations.map(vt => vt.cleanTranslation))
+            const uniqueDistractors = distractors.filter(distractor => {
+              return !verseTranslationSet.has(distractor.cleanTranslation)
+            })
+
+            const combinedWordBank = [...verseTranslations, ...uniqueDistractors]
+            const finalWordBank = shuffleArray(combinedWordBank)
+            setWordBank(finalWordBank)
+            setSelectedWords(new Array(verseTranslations.length).fill(null))
+            setUsedWords([])
+            
+            // Clear individual word banks for short verses (use original behavior)
+            setIndividualWordBanks([])
+            setCurrentWordIndex(0)
+          } else {
+            // New logic for medium and long verses - individual word banks
+            const individualWordBanks = []
+            
+            for (const word of result.data.words) {
+              const wordBank = await generateIndividualWordBank(word, result.data.words)
+              if (wordBank) {
+                const formattedWordBank = wordBank.map(wb => ({
+                  translation: wb.translation,
+                  cleanTranslation: cleanWord(wb.translation),
+                  transliteration: wb.transliteration,
+                  originalWord: wb,
+                  isCorrect: wb.isCorrect,
+                  wordIndex: result.data.words.indexOf(word)
+                }))
+                individualWordBanks.push(formattedWordBank)
+              }
+            }
+            
+            // Store individual word banks for the game logic
+            setIndividualWordBanks(individualWordBanks)
+            setCurrentWordIndex(0)
+            setWordBank(individualWordBanks[0] || [])
+            setSelectedWords(new Array(result.data.words.length).fill(null))
+            setUsedWords([])
           }
-
-          // Create a set of cleaned verse translations for case-insensitive comparison
-          const verseTranslationSet = new Set(verseTranslations.map(vt => vt.cleanTranslation))
-          const uniqueDistractors = distractors.filter(distractor => {
-            return !verseTranslationSet.has(distractor.cleanTranslation)
-          })
-
-          const combinedWordBank = [...verseTranslations, ...uniqueDistractors]
-          const finalWordBank = shuffleArray(combinedWordBank)
-          setWordBank(finalWordBank)
-          setSelectedWords(new Array(verseTranslations.length).fill(null))
-          setUsedWords([])
         }
       } else {
         setError(result.error || 'Failed to fetch verse')
@@ -240,31 +317,63 @@ export default function GamePage() {
         
         // Generate word bank for this verse
         if (verseData.words && verseData.words.length > 0) {
-          const verseTranslations = verseData.words.map(word => ({
-            translation: word.translation,
-            cleanTranslation: cleanWord(word.translation),
-            transliteration: word.transliteration,
-            originalWord: word
-          }))
+          const verseLength = getVerseLength(verseData.words)
+          
+          if (verseLength === 'short') {
+            // Original logic for short verses
+            const verseTranslations = verseData.words.map(word => ({
+              translation: word.translation,
+              cleanTranslation: cleanWord(word.translation),
+              transliteration: word.transliteration,
+              originalWord: word
+            }))
 
-          const RandomSelectedWords = getRandomWords(verseData.words, 3)
-          const distractors = []
-          const existingTranslations = verseTranslations.map(vt => vt.cleanTranslation)
+            const RandomSelectedWords = getRandomWords(verseData.words, 3)
+            const distractors = []
+            const existingTranslations = verseTranslations.map(vt => vt.cleanTranslation)
 
-          for (const selectedWord of RandomSelectedWords) {
-            const distractor = await generateDistractor(selectedWord, existingTranslations)
-            if (distractor) {
-              distractors.push({
-                translation: distractor.translation,
-                cleanTranslation: cleanWord(distractor.translation),
-                transliteration: distractor.transliteration,
-                originalWord: distractor
-              })
+            for (const selectedWord of RandomSelectedWords) {
+              const distractor = await generateDistractor(selectedWord, existingTranslations)
+              if (distractor) {
+                distractors.push({
+                  translation: distractor.translation,
+                  cleanTranslation: cleanWord(distractor.translation),
+                  transliteration: distractor.transliteration,
+                  originalWord: distractor
+                })
+              }
             }
-          }
 
-          const allWords = [...verseTranslations, ...distractors]
-          setWordBank(shuffleArray(allWords))
+            const allWords = [...verseTranslations, ...distractors]
+            setWordBank(shuffleArray(allWords))
+            
+            // Clear individual word banks for short verses (use original behavior)
+            setIndividualWordBanks([])
+            setCurrentWordIndex(0)
+          } else {
+            // New logic for medium and long verses - individual word banks
+            const individualWordBanks = []
+            
+            for (const word of verseData.words) {
+              const wordBank = await generateIndividualWordBank(word, verseData.words)
+              if (wordBank) {
+                const formattedWordBank = wordBank.map(wb => ({
+                  translation: wb.translation,
+                  cleanTranslation: cleanWord(wb.translation),
+                  transliteration: wb.transliteration,
+                  originalWord: wb,
+                  isCorrect: wb.isCorrect,
+                  wordIndex: verseData.words.indexOf(word)
+                }))
+                individualWordBanks.push(formattedWordBank)
+              }
+            }
+            
+            // Store individual word banks for the game logic
+            setIndividualWordBanks(individualWordBanks)
+            setCurrentWordIndex(0)
+            setWordBank(individualWordBanks[0] || [])
+          }
         }
       } else {
         setError(`Verse ${verseNumber} not found in Surah ${surahNumber}`)
@@ -301,11 +410,36 @@ export default function GamePage() {
     await fetchSpecificVerse(selectedSurah.surah_number, prevVerse, surahVerses)
   }
 
+  const handleVerseSelect = async (verseNumber) => {
+    if (!selectedSurah || !surahVerses.length) return
+    
+    if (verseNumber >= 1 && verseNumber <= selectedSurah.verses_count) {
+      setCurrentVerse(verseNumber)
+      await fetchSpecificVerse(selectedSurah.surah_number, verseNumber, surahVerses)
+    }
+  }
+
+
   const handleRandomMode = () => {
     setGameMode('random')
     setSelectedSurah(null)
     setCurrentVerse(1)
     setSurahVerses([])
+    setIndividualWordBanks([])
+    setCurrentWordIndex(0)
+    fetchRandomVerse()
+  }
+
+  const handleNewVerse = () => {
+    // Reset all game state
+    setSubmissionResults(null)
+    setShowDetailedInfo(false)
+    setRevealedWords(new Set())
+    setUsedWords([])
+    setIndividualWordBanks([])
+    setCurrentWordIndex(0)
+    
+    // Fetch a new random verse
     fetchRandomVerse()
   }
 
@@ -338,6 +472,12 @@ export default function GamePage() {
       })
       setSelectedWords(newSelectedWords)
       setUsedWords([])
+      
+      // Reset to first word bank for individual word banks
+      if (individualWordBanks.length > 0) {
+        setCurrentWordIndex(0)
+        setWordBank(individualWordBanks[0] || [])
+      }
       return
     }
 
@@ -351,11 +491,26 @@ export default function GamePage() {
         const newSelectedWords = [...selectedWords]
         newSelectedWords[lastFilledIndex] = null
         setSelectedWords(newSelectedWords)
+        
+        // Only change word bank for medium/long verses (individual word banks)
+        // Short verses keep the same word bank throughout
+        if (individualWordBanks.length > 0) {
+          const prevUnfilledIndex = newSelectedWords.findIndex((w, index) => w === null && !revealedWords.has(index))
+          if (prevUnfilledIndex !== -1) {
+            setCurrentWordIndex(prevUnfilledIndex)
+            setWordBank(individualWordBanks[prevUnfilledIndex] || [])
+          } else {
+            // All words are filled or revealed, show the first word bank
+            setCurrentWordIndex(0)
+            setWordBank(individualWordBanks[0] || [])
+          }
+        }
+        // For short verses, word bank remains unchanged (original behavior)
       }
       return
     }
 
-    const emptyIndex = selectedWords.findIndex((w) => w === null)
+    const emptyIndex = selectedWords.findIndex((w, index) => w === null && !revealedWords.has(index))
     if (emptyIndex !== -1) {
       const newSelectedWords = [...selectedWords]
       newSelectedWords[emptyIndex] = word
@@ -380,6 +535,22 @@ export default function GamePage() {
       }
 
       setSelectedWords(newSelectedWords)
+      
+      // Only advance word bank for medium/long verses (individual word banks)
+      // Short verses keep the same word bank throughout
+      if (individualWordBanks.length > 0) {
+        const nextUnfilledIndex = newSelectedWords.findIndex((w, index) => w === null && !revealedWords.has(index))
+        if (nextUnfilledIndex !== -1) {
+          setCurrentWordIndex(nextUnfilledIndex)
+          setWordBank(individualWordBanks[nextUnfilledIndex] || [])
+        } else {
+          // All words are filled, show the last word bank
+          const lastIndex = individualWordBanks.length - 1
+          setCurrentWordIndex(lastIndex)
+          setWordBank(individualWordBanks[lastIndex] || [])
+        }
+      }
+      // For short verses, word bank remains unchanged (original behavior)
     }
   }
 
@@ -469,6 +640,23 @@ export default function GamePage() {
       }
       
       setSelectedWords(newSelectedWords)
+      
+      // Only update word bank position for medium/long verses (individual word banks)
+      // Short verses keep the same word bank throughout
+      if (individualWordBanks.length > 0) {
+        // Find the next unfilled word position after the revealed one
+        const nextUnfilledIndex = newSelectedWords.findIndex((word, index) => !word && !newRevealedWords.has(index))
+        if (nextUnfilledIndex !== -1) {
+          setCurrentWordIndex(nextUnfilledIndex)
+          setWordBank(individualWordBanks[nextUnfilledIndex] || [])
+        } else {
+          // All words are filled, show the last word bank
+          const lastIndex = individualWordBanks.length - 1
+          setCurrentWordIndex(lastIndex)
+          setWordBank(individualWordBanks[lastIndex] || [])
+        }
+      }
+      // For short verses, word bank remains unchanged (original behavior)
     }
   }
 
@@ -484,6 +672,21 @@ export default function GamePage() {
     })
     setSelectedWords(newSelectedWords)
     setUsedWords([])
+    
+    // Only reset word bank position for medium/long verses (individual word banks)
+    // Short verses keep the same word bank throughout
+    if (individualWordBanks.length > 0) {
+      const firstUnfilledIndex = newSelectedWords.findIndex((word, index) => !word && !revealedWords.has(index))
+      if (firstUnfilledIndex !== -1) {
+        setCurrentWordIndex(firstUnfilledIndex)
+        setWordBank(individualWordBanks[firstUnfilledIndex] || [])
+      } else {
+        // All words are filled or revealed, show the first word bank
+        setCurrentWordIndex(0)
+        setWordBank(individualWordBanks[0] || [])
+      }
+    }
+    // For short verses, word bank remains unchanged (original behavior)
   }
 
 
@@ -618,33 +821,74 @@ export default function GamePage() {
               </div>
             )}
 
+            {/* New Verse Button (only show in random mode) */}
+            {gameMode === 'random' && (
+              <div className="flex flex-col sm:flex-row items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Get New Verse:</span>
+                </div>
+                <Button
+                  onClick={handleNewVerse}
+                  disabled={loading}
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2 bg-blue-100 text-blue-700 border-blue-300 hover:bg-blue-200"
+                >
+                  <span>New Verse</span>
+                </Button>
+              </div>
+            )}
+
             {/* Surah Progress (only show in surah mode with selected surah) */}
             {gameMode === 'surah' && selectedSurah && (
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Progress: Verse {currentVerse} of {selectedSurah.verses_count}
-                  </span>
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Progress: Verse {currentVerse} of {selectedSurah.verses_count}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      onClick={handlePreviousVerse}
+                      disabled={currentVerse <= 1 || loading}
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-1"
+                    >
+                      ← Previous
+                    </Button>
+                    <Button
+                      onClick={handleNextVerse}
+                      disabled={currentVerse >= selectedSurah.verses_count || loading}
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-1"
+                    >
+                      Next →
+                    </Button>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Button
-                    onClick={handlePreviousVerse}
-                    disabled={currentVerse <= 1 || loading}
-                    variant="outline"
-                    size="sm"
-                    className="flex items-center gap-1"
-                  >
-                    ← Previous
-                  </Button>
-                  <Button
-                    onClick={handleNextVerse}
-                    disabled={currentVerse >= selectedSurah.verses_count || loading}
-                    variant="outline"
-                    size="sm"
-                    className="flex items-center gap-1"
-                  >
-                    Next →
-                  </Button>
+                
+                {/* Verse Selector */}
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Jump to Verse:</span>
+                  </div>
+                  <div className="flex-1 max-w-xs">
+                    <select
+                      value={currentVerse}
+                      onChange={(e) => handleVerseSelect(parseInt(e.target.value))}
+                      disabled={loading || !surahVerses.length}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      {Array.from({ length: selectedSurah.verses_count }, (_, i) => i + 1).map((verseNum) => (
+                        <option key={verseNum} value={verseNum}>
+                          Verse {verseNum}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
             )}
