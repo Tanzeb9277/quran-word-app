@@ -12,7 +12,7 @@ export default function DistractorTester() {
   const [testData, setTestData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [strategy, setStrategy] = useState('smart')
+  const [strategy, setStrategy] = useState('easy')
   const [wordsPerVerse, setWordsPerVerse] = useState(3)
   const [surah, setSurah] = useState('')
   const [verse, setVerse] = useState('')
@@ -89,11 +89,15 @@ export default function DistractorTester() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="smart">Smart</SelectItem>
-                  <SelectItem value="semantic">Semantic</SelectItem>
-                  <SelectItem value="surah">Surah</SelectItem>
-                  <SelectItem value="phonetic">Phonetic</SelectItem>
+                  <SelectItem value="easy">Easy (Different)</SelectItem>
+                  <SelectItem value="simple">Simple (Common)</SelectItem>
+                  <SelectItem value="length">Length-Based</SelectItem>
+                  <SelectItem value="different-surah">Different Surah</SelectItem>
                   <SelectItem value="random">Random</SelectItem>
+                  <SelectItem value="smart">Smart (Current)</SelectItem>
+                  <SelectItem value="semantic">Semantic</SelectItem>
+                  <SelectItem value="surah">Same Surah</SelectItem>
+                  <SelectItem value="phonetic">Phonetic</SelectItem>
                   <SelectItem value="mixed">Mixed</SelectItem>
                 </SelectContent>
               </Select>

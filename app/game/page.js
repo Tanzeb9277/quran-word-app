@@ -449,6 +449,7 @@ export default function GamePage() {
     setSelectedWords(newSelectedWords)
   }
 
+
   const handleWordSelect = (word, clearAll = false, submit = false) => {
     if (submit) {
       // Check if all words are filled (either selected by user or revealed)
@@ -521,13 +522,17 @@ export default function GamePage() {
         setUsedWords([...usedWords, cleanedWord])
       }
 
+      // Auto-fill words with same translation when one is selected
       if (verseData && verseData.words) {
         const currentWord = verseData.words[emptyIndex]
-        if (currentWord.transliteration) {
+        
+        // Fill words with same translation
+        if (currentWord.translation) {
           verseData.words.forEach((verseWord, idx) => {
             if (idx !== emptyIndex &&
-                verseWord.transliteration &&
-                verseWord.transliteration === currentWord.transliteration) {
+                verseWord.translation &&
+                verseWord.translation === currentWord.translation &&
+                newSelectedWords[idx] === null) {
               newSelectedWords[idx] = word
             }
           })
@@ -951,8 +956,13 @@ export default function GamePage() {
           canRevealNext={!submissionResults && selectedWords.some((word, index) => !word && !revealedWords.has(index))}
           hasSelectedWords={!submissionResults && selectedWords.some(word => word !== null)}
           isSubmitted={!!submissionResults}
+          selectedWords={selectedWords}
+          revealedWords={revealedWords}
+          verseData={verseData}
+          submissionResults={submissionResults}
         />
       )}
+
     </div>
   )
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import ArabicWordDisplay from "./ArabicWordDisplay"
 
 /**
  * VerseViewer Component
@@ -72,8 +73,8 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   return (
     <div className={`w-full max-w-screen p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
       revealedWords.size > 0 
-        ? 'mb-80 sm:mb-48' 
-        : 'mb-64 sm:mb-40'
+        ? 'mb-[350px] sm:mb-96' 
+        : 'mb-[350px] sm:mb-80'
     }`}>
       {/* Verse Header */}
       <div className="text-center mb-6">
@@ -212,96 +213,60 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
         </div>
       )}
 
-      {/* Arabic Words with Slots - RTL */}
+      {/* Arabic Words with Text Display - RTL */}
       <div className="mb-8">
-        <div className="flex flex-wrap justify-center items-start gap-1 sm:gap-3 md:gap-4 lg:gap-6 mb-6 w-full max-w-full overflow-hidden" dir="rtl">
-          {verseData.words.map((word, index) => (
-            <div key={word.id} className="flex flex-col items-center min-w-[100px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[160px] max-w-[110px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[180px] group">
-              {/* Arabic Word Image */}
-              <div 
-                className="relative mb-1.5 sm:mb-3 p-1.5 sm:p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200 border border-gray-200 cursor-pointer"
-                onClick={() => setEnlargedImageIndex(enlargedImageIndex === index ? null : index)}
-              >
-                <img
-                  src={word.image_url || "/placeholder.svg"}
-                  alt={`Arabic word ${index + 1}`}
-                  className="object-contain w-full h-12 sm:h-14 md:h-16 lg:h-18 max-w-[100px] sm:max-w-[120px] md:max-w-[140px] lg:max-w-[160px] transition-transform duration-200 group-hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.src = "/placeholder.svg?height=48&width=100&text=Arabic+Word"
-                  }}
-                />
-              </div>
-
-              {/* Enhanced Word Slot directly under the Arabic word */}
-              <div 
-                className={`
-                  w-22 sm:w-26 md:w-32 lg:w-36 h-11 sm:h-13 md:h-15 lg:h-17 rounded-xl flex items-center justify-center mb-1.5 sm:mb-2 
-                  transition-all duration-300 transform hover:scale-105 active:scale-95
-                  shadow-md hover:shadow-lg
-                  ${submissionResults ? 'cursor-not-allowed' : 'cursor-pointer'}
-                  ${(() => {
-                    if (submissionResults) {
-                      const result = submissionResults.wordResults.find(r => r.index === index)
-                      if (result) {
-                        if (result.wasRevealed) {
-                          return 'bg-gradient-to-br from-blue-400 to-blue-500 text-white border-2 border-blue-300 shadow-blue-200'
-                        }
-                        return result.isCorrect
-                          ? 'bg-gradient-to-br from-green-400 to-green-500 text-white border-2 border-green-300 shadow-green-200'
-                          : 'bg-gradient-to-br from-red-400 to-red-500 text-white border-2 border-red-300 shadow-red-200'
-                      }
-                    }
-                    if (revealedWords.has(index)) {
-                      return 'bg-gradient-to-br from-blue-400 to-blue-500 text-white border-2 border-blue-300 shadow-blue-200'
-                    }
-                    return selectedWords[index] 
-                      ? 'bg-gradient-to-br from-green-400 to-green-500 text-white border-2 border-green-300 shadow-green-200' 
-                      : 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-500 border-2 border-dashed border-gray-300 hover:border-blue-400 hover:from-blue-50 hover:to-blue-100'
-                  })()}
-                `}
-                onClick={() => !submissionResults && !revealedWords.has(index) && onWordSelect && onWordSelect(index, selectedWords[index])}
-              >
-                <span className={`font-medium text-center px-2 leading-tight break-words ${
-                  selectedWords[index] || revealedWords.has(index)
-                    ? 'text-white drop-shadow-sm' 
-                    : 'text-gray-500'
-                } ${
-                  (selectedWords[index] || revealedWords.has(index)) && (selectedWords[index]?.length > 15 || word.translation?.length > 15)
-                    ? 'text-xs' 
-                    : (selectedWords[index] || revealedWords.has(index)) && (selectedWords[index]?.length > 10 || word.translation?.length > 10)
-                    ? 'text-xs sm:text-sm' 
-                    : 'text-sm sm:text-base'
-                }`}>
-                  {revealedWords.has(index) ? word.translation : (selectedWords[index] || '')}
-                </span>
-              </div>
-              
-              {/* Word number label */}
-              <div className="text-xs text-gray-500 text-center font-medium">
-                Word {index + 1}
-              </div>
-              
-              {/* Show correct answer for incorrect submissions only */}
-              {submissionResults && (() => {
+        <div className="text-center mb-6 w-full max-w-full overflow-hidden" dir="rtl">
+          <div className="inline-block">
+            {verseData.words.map((word, index) => {
+              const isSelected = !!selectedWords[index]
+              const isRevealed = revealedWords.has(index)
+              const isCorrect = submissionResults ? (() => {
                 const result = submissionResults.wordResults.find(r => r.index === index)
-                if (result && !result.isCorrect && !result.wasRevealed) {
-                  return (
-                    <div className="mt-2 max-w-[96px] sm:max-w-[112px] md:max-w-[144px]">
-                      <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-300 rounded-lg px-2 sm:px-3 py-1 shadow-sm">
-                        <div className="flex items-center justify-center">
-                          <span className="text-xs font-medium text-green-800 break-words leading-tight text-center">
-                            {result.correctWord}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                }
-                return null
-              })()}
-            </div>
-          ))}
+                return result ? result.isCorrect : null
+              })() : null
+              
+              // Find current word index (next empty slot)
+              const currentWordIndex = selectedWords.findIndex((word, index) => !word && !revealedWords.has(index))
+              const isCurrentWord = index === currentWordIndex
+              
+              // Check if this word has the same translation as the current word
+              const isSameTranslationAsCurrent = currentWordIndex !== -1 && 
+                verseData.words[currentWordIndex]?.translation === word.translation
+              
+              return (
+                <ArabicWordDisplay
+                  key={word.id}
+                  word={word}
+                  index={index}
+                  isSelected={isSelected}
+                  isRevealed={isRevealed}
+                  isCorrect={isCorrect}
+                  isCurrentWord={isCurrentWord}
+                  isSameTranslationAsCurrent={isSameTranslationAsCurrent}
+                  onClick={!submissionResults && !isRevealed ? onWordSelect : null}
+                  isClickable={!submissionResults && !isRevealed}
+                  showTransliteration={false}
+                />
+              )
+            })}
+          </div>
         </div>
+        
+        {/* Show correct answers for incorrect submissions */}
+        {submissionResults && (
+          <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+            <div className="text-sm font-medium text-gray-700 mb-2">Correct answers for incorrect words:</div>
+            <div className="flex flex-wrap gap-2">
+              {submissionResults.wordResults
+                .filter(result => !result.isCorrect && !result.wasRevealed)
+                .map((result, idx) => (
+                  <span key={idx} className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">
+                    Word {result.index + 1}: {result.correctWord}
+                  </span>
+                ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Detailed Word Information */}
@@ -322,9 +287,9 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                       <img
                         src={word.image_url || "/placeholder.svg"}
                         alt={`Arabic word ${index + 1}`}
-                        className="object-contain w-full h-22 max-w-[180px] mx-auto"
+                        className="object-contain w-full h-16 sm:h-22 max-w-[135px] sm:max-w-[180px] mx-auto"
                         onError={(e) => {
-                          e.currentTarget.src = "/placeholder.svg?height=88&width=180&text=Arabic+Word"
+                          e.currentTarget.src = "/placeholder.svg?height=64&width=135&text=Arabic+Word"
                         }}
                       />
                     </div>

@@ -13,7 +13,11 @@ export default function WordBankKeyboard({
   onShowUsedWords,
   canRevealNext = false,
   hasSelectedWords = false,
-  isSubmitted = false
+  isSubmitted = false,
+  selectedWords = [],
+  revealedWords = new Set(),
+  verseData = null,
+  submissionResults = null
 }) {
   const [flashingWords, setFlashingWords] = useState(new Set())
 
@@ -39,8 +43,111 @@ export default function WordBankKeyboard({
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 p-3 pb-6 max-h-[33vh] sm:max-h-[60vh] overflow-y-auto">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 p-3 pb-6 max-h-[50vh] sm:max-h-[60vh] overflow-y-auto">
       <div className="max-w-6xl mx-auto">
+        
+        {/* Selected Words Display */}
+        <div className="mb-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="text-sm font-semibold text-gray-700">
+              Progress
+            </h3>
+            <div className="text-xs text-gray-500">
+              {selectedWords.filter(word => word).length} selected, {revealedWords.size} revealed
+            </div>
+          </div>
+          
+          <div className="bg-white rounded border border-gray-300 p-4 min-h-[80px] max-h-[150px] sm:max-h-[180px] overflow-y-auto">
+            {selectedWords.some(word => word) || revealedWords.size > 0 ? (
+              <div className="text-sm text-gray-800 leading-relaxed">
+                {/* Selected Words */}
+                {selectedWords.some(word => word) && (
+                  <div className="mb-4">
+                    <div className="text-xs font-medium text-gray-600 mb-1">Selected:</div>
+                    <div className="text-gray-700 break-words">
+                      {(() => {
+                        // Find the current word index (next empty slot)
+                        const currentWordIndex = selectedWords.findIndex((word, index) => !word && !revealedWords.has(index))
+                        
+                        // Group consecutive words with same translation
+                        const groupedWords = []
+                        let currentGroup = []
+                        let currentTranslation = null
+                        
+                        selectedWords.forEach((word, index) => {
+                          if (!word) return
+                          
+                          // Check if this word is incorrect
+                          const isIncorrect = submissionResults?.wordResults?.find(r => r.index === index && !r.isCorrect && !r.wasRevealed)
+                          
+                          if (word === currentTranslation) {
+                            // Same translation as previous word, add to current group
+                            currentGroup.push({ word, index, isIncorrect })
+                          } else {
+                            // Different translation, save current group and start new one
+                            if (currentGroup.length > 0) {
+                              groupedWords.push([...currentGroup])
+                            }
+                            currentGroup = [{ word, index, isIncorrect }]
+                            currentTranslation = word
+                          }
+                        })
+                        
+                        // Add the last group
+                        if (currentGroup.length > 0) {
+                          groupedWords.push(currentGroup)
+                        }
+                        
+                        return groupedWords.map((group, groupIndex) => {
+                          const hasIncorrect = group.some(item => item.isIncorrect)
+                          const translation = group[0].word
+                          const isCurrentWord = group.some(item => item.index === currentWordIndex)
+                          
+                          return (
+                            <span key={groupIndex} className="mr-2">
+                              <span className={`${
+                                isCurrentWord
+                                  ? 'bg-blue-200 text-blue-900 font-semibold' // Current word highlight
+                                  : hasIncorrect 
+                                    ? 'bg-red-200 text-red-900 font-semibold' // Incorrect highlight
+                                    : 'text-gray-700' // Normal text
+                              }`}>
+                                {translation}
+                              </span>
+                              {group.length > 1 && (
+                                <span className="text-xs text-gray-500 ml-1">
+                                  ({group.length} words)
+                                </span>
+                              )}
+                            </span>
+                          )
+                        })
+                      })()}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Revealed Words */}
+                {revealedWords.size > 0 && verseData && (
+                  <div>
+                    <div className="text-xs font-medium text-blue-600 mb-1">Revealed:</div>
+                    <div className="text-blue-700 break-words">
+                      {Array.from(revealedWords).map(index => verseData.words[index]?.translation).filter(Boolean).join(', ')}
+                    </div>
+                  </div>
+                )}
+                
+                <div className="text-xs text-gray-500 mt-2 hidden sm:block">
+                  Words will appear in the verse slots above
+                </div>
+              </div>
+            ) : (
+              <div className="text-gray-500 text-sm italic">
+                No words selected yet. Choose words from the options below.
+              </div>
+            )}
+          </div>
+        </div>
         {/* Toolbar */}
         <div className="flex justify-center items-center gap-2 mb-3 pb-2 border-b border-gray-100">
           {/* Reveal Next Word */}

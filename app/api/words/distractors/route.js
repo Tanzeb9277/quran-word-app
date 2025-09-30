@@ -75,6 +75,18 @@ export async function GET(request) {
           case 'mixed':
             distractors = await DistractorGenerator.getMixedDistractors(word, 1)
             break
+          case 'easy':
+            distractors = await DistractorGenerator.getEasyDistractors(word, 1)
+            break
+          case 'length':
+            distractors = await DistractorGenerator.getLengthBasedDistractors(word, 1)
+            break
+          case 'different-surah':
+            distractors = await DistractorGenerator.getDifferentSurahDistractors(word, 1)
+            break
+          case 'simple':
+            distractors = await DistractorGenerator.getSimpleDistractors(word, 1)
+            break
           case 'smart':
           default:
             distractors = await DistractorGenerator.getSmartDistractors(word, 1, {
