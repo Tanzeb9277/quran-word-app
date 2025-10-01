@@ -22,6 +22,15 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   const [translationLoading, setTranslationLoading] = useState(false)
   const [translationError, setTranslationError] = useState(null)
   
+  // Helper function to extract verse number from verse field
+  // Handles both formats: "8", 8 (number), and "56:20"
+  const getVerseNumber = (verseField) => {
+    if (!verseField) return ''
+    // Convert to string to handle both string and number types
+    const verseStr = String(verseField)
+    return verseStr.includes(':') ? verseStr.split(':')[1] : verseStr
+  }
+  
   // Reset revealed words when verseData changes (new verse loaded)
   useEffect(() => {
     // Notify parent component that revealed words are reset
@@ -42,7 +51,11 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
     setTranslationError(null)
     
     try {
-      const response = await fetch(`/api/translations/reference/${verseData.verse}`)
+      // Construct proper API format: surah:verse
+      const verseNumber = getVerseNumber(verseData.verse)
+      const reference = `${verseData.surah_number}:${verseNumber}`
+      
+      const response = await fetch(`/api/translations/reference/${reference}`)
       const result = await response.json()
       
       if (result.success) {
@@ -87,7 +100,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
         {/* Verse Info */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-4 text-xs sm:text-sm text-gray-600">
           <span className="bg-gray-100 px-2 py-1 rounded">
-            Surah {verseData.surah_number}, Verse {verseData.verse}
+            Surah {verseData.surah_number}, Verse {getVerseNumber(verseData.verse)}
           </span>
           <span className="bg-gray-100 px-2 py-1 rounded">
             {verseData.words.length} words
@@ -229,9 +242,29 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
               const currentWordIndex = selectedWords.findIndex((word, index) => !word && !revealedWords.has(index))
               const isCurrentWord = index === currentWordIndex
               
-              // Check if this word has the same translation as the current word
-              const isSameTranslationAsCurrent = currentWordIndex !== -1 && 
-                verseData.words[currentWordIndex]?.translation === word.translation
+              // Check if this word is part of consecutive words with same translation as current word
+              const isSameTranslationAsCurrent = (() => {
+                if (currentWordIndex === -1) return false
+                
+                const currentTranslation = verseData.words[currentWordIndex]?.translation
+                if (!currentTranslation || word.translation !== currentTranslation) return false
+                
+                // Check if this word is in the consecutive group containing the current word
+                // Find the start of the consecutive group
+                let groupStart = currentWordIndex
+                while (groupStart > 0 && verseData.words[groupStart - 1]?.translation === currentTranslation) {
+                  groupStart--
+                }
+                
+                // Find the end of the consecutive group
+                let groupEnd = currentWordIndex
+                while (groupEnd < verseData.words.length - 1 && verseData.words[groupEnd + 1]?.translation === currentTranslation) {
+                  groupEnd++
+                }
+                
+                // Check if current index is within the consecutive group
+                return index >= groupStart && index <= groupEnd
+              })()
               
               return (
                 <ArabicWordDisplay
