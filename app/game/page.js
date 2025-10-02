@@ -490,7 +490,21 @@ export default function GamePage() {
 
       if (lastFilledIndex !== undefined) {
         const newSelectedWords = [...selectedWords]
+        const wordToRemove = newSelectedWords[lastFilledIndex]
         newSelectedWords[lastFilledIndex] = null
+        
+        // Also clear any other words with the same translation that were auto-filled
+        if (verseData && verseData.words && wordToRemove) {
+          verseData.words.forEach((verseWord, idx) => {
+            if (idx !== lastFilledIndex &&
+                verseWord.translation &&
+                verseWord.translation === wordToRemove &&
+                newSelectedWords[idx] === wordToRemove) {
+              newSelectedWords[idx] = null
+            }
+          })
+        }
+        
         setSelectedWords(newSelectedWords)
         
         // Only change word bank for medium/long verses (individual word banks)
@@ -546,8 +560,16 @@ export default function GamePage() {
       if (individualWordBanks.length > 0) {
         const nextUnfilledIndex = newSelectedWords.findIndex((w, index) => w === null && !revealedWords.has(index))
         if (nextUnfilledIndex !== -1) {
-          setCurrentWordIndex(nextUnfilledIndex)
-          setWordBank(individualWordBanks[nextUnfilledIndex] || [])
+          // Make sure we have a word bank for this position
+          if (nextUnfilledIndex < individualWordBanks.length) {
+            setCurrentWordIndex(nextUnfilledIndex)
+            setWordBank(individualWordBanks[nextUnfilledIndex] || [])
+          } else {
+            // If we don't have a word bank for this position, use the last available one
+            const lastIndex = individualWordBanks.length - 1
+            setCurrentWordIndex(lastIndex)
+            setWordBank(individualWordBanks[lastIndex] || [])
+          }
         } else {
           // All words are filled, show the last word bank
           const lastIndex = individualWordBanks.length - 1
