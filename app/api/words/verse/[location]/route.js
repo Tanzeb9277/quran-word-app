@@ -11,6 +11,7 @@ export async function GET(request, { params }) {
     const locationParts = decodedLocation.split(':')
     const surahNumber = locationParts[0]
     const verseNumber = locationParts[1]
+    console.log(surahNumber, verseNumber)
     
     if (!surahNumber || !verseNumber) {
       return NextResponse.json({ 
@@ -23,9 +24,8 @@ export async function GET(request, { params }) {
     const words = await sql`
         SELECT *
         FROM words
-        WHERE verse = ${location}
+        WHERE verse = ${decodedLocation}
         ORDER BY CAST(SPLIT_PART(location, ':', 3) AS INTEGER);
-
     `
 
     if (words.length === 0) {

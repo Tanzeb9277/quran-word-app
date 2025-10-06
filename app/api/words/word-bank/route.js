@@ -5,6 +5,7 @@ export async function POST(request) {
   try {
     const { correctWord, distractorCount = 3, options = {} } = await request.json()
 
+
     if (!correctWord) {
       return NextResponse.json(
         { success: false, error: 'Correct word is required' },
@@ -23,6 +24,7 @@ export async function POST(request) {
         ...options
       }
     )
+
 
     return NextResponse.json({
       success: true,

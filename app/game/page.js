@@ -102,32 +102,36 @@ export default function GamePage() {
 
   const generateIndividualWordBank = async (correctWord, allVerseWords) => {
     try {
+      const requestBody = {
+        correctWord,
+        distractorCount: 6,
+        options: {
+          difficulty: 'medium',
+          includeSemantic: true,
+          includeSurah: true,
+          includeRandom: true,
+          avoidTranslations: allVerseWords.map(word => cleanWord(word.translation))
+        }
+      }
+      
+      
       const response = await fetch('/api/words/word-bank', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          correctWord,
-          distractorCount: 6,
-          options: {
-            difficulty: 'medium',
-            includeSemantic: true,
-            includeSurah: true,
-            includeRandom: true,
-            avoidTranslations: allVerseWords.map(word => cleanWord(word.translation))
-          }
-        })
+        body: JSON.stringify(requestBody)
       })
 
       const result = await response.json()
-      if (result.success && result.data.length >= 7) {
+      
+      
+      if (result.success && result.data.length >= 6) {
         // Return the correct word + 6 distractors
         return result.data
       } else {
-        console.error('Error generating individual word bank:', result.error)
-        return null
       }
+      return null
     } catch (error) {
-      console.error('Error calling word bank API for individual bank:', error)
+      console.error('🚨 Error calling word bank API for individual bank:', error)
       return null
     }
   }
@@ -212,22 +216,28 @@ export default function GamePage() {
             // New logic for medium and long verses - individual word banks
             const individualWordBanks = []
             
-            for (const word of result.data.words) {
+            
+            for (let i = 0; i < result.data.words.length; i++) {
+              const word = result.data.words[i]
+              
               const wordBank = await generateIndividualWordBank(word, result.data.words)
               if (wordBank) {
+                
                 const formattedWordBank = wordBank.map(wb => ({
                   translation: wb.translation,
                   cleanTranslation: cleanWord(wb.translation),
                   transliteration: wb.transliteration,
                   originalWord: wb,
                   isCorrect: wb.isCorrect,
-                  wordIndex: result.data.words.indexOf(word)
+                  wordIndex: i
                 }))
                 individualWordBanks.push(formattedWordBank)
+              } else {
               }
             }
             
             // Store individual word banks for the game logic
+            
             setIndividualWordBanks(individualWordBanks)
             setCurrentWordIndex(0)
             setWordBank(individualWordBanks[0] || [])
@@ -511,6 +521,7 @@ export default function GamePage() {
         // Short verses keep the same word bank throughout
         if (individualWordBanks.length > 0) {
           const prevUnfilledIndex = newSelectedWords.findIndex((w, index) => w === null && !revealedWords.has(index))
+          
           if (prevUnfilledIndex !== -1) {
             setCurrentWordIndex(prevUnfilledIndex)
             setWordBank(individualWordBanks[prevUnfilledIndex] || [])
@@ -673,6 +684,7 @@ export default function GamePage() {
       if (individualWordBanks.length > 0) {
         // Find the next unfilled word position after the revealed one
         const nextUnfilledIndex = newSelectedWords.findIndex((word, index) => !word && !newRevealedWords.has(index))
+        
         if (nextUnfilledIndex !== -1) {
           setCurrentWordIndex(nextUnfilledIndex)
           setWordBank(individualWordBanks[nextUnfilledIndex] || [])
