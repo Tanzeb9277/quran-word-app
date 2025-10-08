@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import knowledgeTestStatsStore from "@/lib/game-stats"
+import ThemeToggle from "./ThemeToggle"
 import { 
   Brain,
   Search,
@@ -280,6 +281,7 @@ export default function QuranDashboard() {
             <Search className="nav-icon" />
             <span className="nav-text">Explorer</span>
           </Link>
+          <ThemeToggle />
         </div>
       </div>
 

@@ -4,10 +4,11 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Book, Brain, Search, Target } from "lucide-react"
+import { Book, Brain, Search, Target, Home } from "lucide-react"
 import VerseViewer from "@/components/VerseViewer"
 import WordBankKeyboard from "@/components/WordBankKeyboard"
 import GameSummary from "@/components/GameSummary"
+import ThemeToggle from "@/components/ThemeToggle"
 import knowledgeTestStatsStore from "@/lib/game-stats"
 
 export default function GamePage() {
@@ -102,6 +103,12 @@ export default function GamePage() {
 
   const generateIndividualWordBank = async (correctWord, allVerseWords) => {
     try {
+      // console.log('🎯 generateIndividualWordBank called for word:', {
+      //   translation: correctWord.translation,
+      //   location: correctWord.location,
+      //   wordIndex: allVerseWords.findIndex(w => w.location === correctWord.location)
+      // })
+      
       const requestBody = {
         correctWord,
         distractorCount: 6,
@@ -114,6 +121,10 @@ export default function GamePage() {
         }
       }
       
+      // console.log('📤 Request body:', {
+      //   correctWord: requestBody.correctWord.translation,
+      //   avoidTranslations: requestBody.options.avoidTranslations
+      // })
       
       const response = await fetch('/api/words/word-bank', {
         method: 'POST',
@@ -123,11 +134,27 @@ export default function GamePage() {
 
       const result = await response.json()
       
+      // console.log('📥 Word bank API response:', {
+      //   success: result.success,
+      //   dataLength: result.data?.length,
+      //   wordBank: result.data?.map(wb => ({
+      //     translation: wb.translation,
+      //     location: wb.location,
+      //     isCorrect: wb.isCorrect
+      //   }))
+      // })
       
-      if (result.success && result.data.length >= 6) {
-        // Return the correct word + 6 distractors
+      if (result.success && result.data.length >= 4) {
+        // Return the word bank (correct word + distractors)
+        // Minimum 4 words: 1 correct + 3 distractors
+        // console.log(`✅ Word bank generated with ${result.data.length} words`)
         return result.data
       } else {
+        // console.log('❌ Word bank generation failed or insufficient data:', {
+        //   success: result.success,
+        //   dataLength: result.data?.length,
+        //   expected: 'at least 4'
+        // })
       }
       return null
     } catch (error) {
@@ -216,12 +243,22 @@ export default function GamePage() {
             // New logic for medium and long verses - individual word banks
             const individualWordBanks = []
             
+            // console.log('🔄 Creating individual word banks for', result.data.words.length, 'words')
             
             for (let i = 0; i < result.data.words.length; i++) {
               const word = result.data.words[i]
               
+              // console.log(`📝 Processing word ${i + 1}/${result.data.words.length}:`, {
+              //   translation: word.translation,
+              //   location: word.location
+              // })
+              
               const wordBank = await generateIndividualWordBank(word, result.data.words)
               if (wordBank) {
+                // console.log(`✅ Word bank ${i + 1} generated successfully:`, wordBank.map(wb => ({
+                //   translation: wb.translation,
+                //   isCorrect: wb.isCorrect
+                // })))
                 
                 const formattedWordBank = wordBank.map(wb => ({
                   translation: wb.translation,
@@ -233,11 +270,17 @@ export default function GamePage() {
                 }))
                 individualWordBanks.push(formattedWordBank)
               } else {
+                // console.log(`❌ Word bank ${i + 1} generation failed`)
               }
             }
             
-            // Store individual word banks for the game logic
+            // console.log('🎯 Final individual word banks:', individualWordBanks.map((wb, index) => ({
+            //   wordIndex: index,
+            //   wordCount: wb.length,
+            //   words: wb.map(w => ({ translation: w.translation, isCorrect: w.isCorrect }))
+            // })))
             
+            // Store individual word banks for the game logic
             setIndividualWordBanks(individualWordBanks)
             setCurrentWordIndex(0)
             setWordBank(individualWordBanks[0] || [])
@@ -493,6 +536,12 @@ export default function GamePage() {
     }
 
     if (word === 'BACKSPACE') {
+      // console.log('⌫ Backspace pressed, current state:', {
+      //   selectedWords,
+      //   currentWordIndex,
+      //   individualWordBanksLength: individualWordBanks.length
+      // })
+      
       // Find the last user-selected word (not revealed)
       const lastFilledIndex = selectedWords.map((word, index) => ({ word, index }))
         .filter(item => item.word !== null && !revealedWords.has(item.index))
@@ -503,6 +552,8 @@ export default function GamePage() {
         const wordToRemove = newSelectedWords[lastFilledIndex]
         newSelectedWords[lastFilledIndex] = null
         
+        // console.log(`🗑️ Removing word at index ${lastFilledIndex}:`, { wordToRemove })
+        
         // Also clear any other words with the same translation that were auto-filled
         if (verseData && verseData.words && wordToRemove) {
           verseData.words.forEach((verseWord, idx) => {
@@ -511,6 +562,7 @@ export default function GamePage() {
                 verseWord.translation === wordToRemove &&
                 newSelectedWords[idx] === wordToRemove) {
               newSelectedWords[idx] = null
+              // console.log(`🔄 Also cleared auto-filled word at index ${idx}`)
             }
           })
         }
@@ -521,30 +573,40 @@ export default function GamePage() {
         // Short verses keep the same word bank throughout
         if (individualWordBanks.length > 0) {
           const prevUnfilledIndex = newSelectedWords.findIndex((w, index) => w === null && !revealedWords.has(index))
+          // console.log('🔄 Finding previous unfilled index:', prevUnfilledIndex)
           
           if (prevUnfilledIndex !== -1) {
+            // console.log(`📝 Switching to word bank for index ${prevUnfilledIndex}`)
             setCurrentWordIndex(prevUnfilledIndex)
             setWordBank(individualWordBanks[prevUnfilledIndex] || [])
           } else {
             // All words are filled or revealed, show the first word bank
+            // console.log('🎯 All words filled or revealed, showing first word bank')
             setCurrentWordIndex(0)
             setWordBank(individualWordBanks[0] || [])
           }
         }
         // For short verses, word bank remains unchanged (original behavior)
+      } else {
+        // console.log('⚠️ No words to remove with backspace')
       }
       return
     }
 
     const emptyIndex = selectedWords.findIndex((w, index) => w === null && !revealedWords.has(index))
+    // console.log('🎯 Word selection - empty index:', emptyIndex, 'for word:', word)
+    
     if (emptyIndex !== -1) {
       const newSelectedWords = [...selectedWords]
       newSelectedWords[emptyIndex] = word
+
+      // console.log(`✅ Selected word "${word}" for position ${emptyIndex}`)
 
       // Track used word (cleaned version for comparison)
       const cleanedWord = cleanWord(word)
       if (!usedWords.includes(cleanedWord)) {
         setUsedWords([...usedWords, cleanedWord])
+        // console.log('📝 Added to used words:', cleanedWord)
       }
 
       // Auto-fill words with same translation when one is selected
@@ -559,6 +621,7 @@ export default function GamePage() {
                 verseWord.translation === currentWord.translation &&
                 newSelectedWords[idx] === null) {
               newSelectedWords[idx] = word
+              // console.log(`🔄 Auto-filled same translation at index ${idx}`)
             }
           })
         }
@@ -570,20 +633,25 @@ export default function GamePage() {
       // Short verses keep the same word bank throughout
       if (individualWordBanks.length > 0) {
         const nextUnfilledIndex = newSelectedWords.findIndex((w, index) => w === null && !revealedWords.has(index))
+        // console.log('🔄 Next unfilled index:', nextUnfilledIndex)
+        
         if (nextUnfilledIndex !== -1) {
           // Make sure we have a word bank for this position
           if (nextUnfilledIndex < individualWordBanks.length) {
+            // console.log(`📝 Switching to word bank for index ${nextUnfilledIndex}`)
             setCurrentWordIndex(nextUnfilledIndex)
             setWordBank(individualWordBanks[nextUnfilledIndex] || [])
           } else {
             // If we don't have a word bank for this position, use the last available one
             const lastIndex = individualWordBanks.length - 1
+            // console.log(`⚠️ Using last available word bank (index ${lastIndex})`)
             setCurrentWordIndex(lastIndex)
             setWordBank(individualWordBanks[lastIndex] || [])
           }
         } else {
           // All words are filled, show the last word bank
           const lastIndex = individualWordBanks.length - 1
+          // console.log(`🎯 All words filled, showing last word bank (index ${lastIndex})`)
           setCurrentWordIndex(lastIndex)
           setWordBank(individualWordBanks[lastIndex] || [])
         }
@@ -730,39 +798,79 @@ export default function GamePage() {
 
 
   return (
-    <div className="w-full max-w-full sm:max-w-6xl mx-auto p-4 sm:p-8">
-      {/* Header Section */}
-      <div className="mb-8">
-        {/* Main Header */}
-        <div className="text-center mb-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-            {/* Left side - empty on mobile, GameSummary on desktop */}
-            <div className="hidden sm:block flex-1">
-              <GameSummary />
-            </div>
-            
-            {/* Center - Title */}
-            <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                Quran Word App
-              </h1>
-              <div className="flex items-center justify-center gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                <Brain className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="font-medium">Knowledge Test</span>
-              </div>
-            </div>
-            
-            {/* Right side - GameSummary on mobile, empty on desktop */}
+    <div className="theme-container">
+      <div className="w-full max-w-6xl mx-auto">
+        {/* Header Section */}
+        <div className="mb-8">
+          {/* Main Header */}
+          <div className="mb-6">
+            {/* Mobile Layout */}
             <div className="sm:hidden">
-              <GameSummary />
+              {/* Top row - Navigation and Theme */}
+              <div className="flex items-center justify-between mb-4">
+                <Link href="/" className="nav-link-icon-only">
+                  <Home className="nav-icon" />
+                </Link>
+                <ThemeToggle />
+              </div>
+              
+              {/* Title */}
+              <div className="text-center mb-4">
+                <h1 className="dashboard-main-title text-2xl mb-2">
+                  Quran Word App
+                </h1>
+                <div className="flex items-center justify-center gap-2 text-sm dashboard-subtitle">
+                  <Brain className="w-4 h-4" />
+                  <span className="font-medium">Knowledge Test</span>
+                </div>
+              </div>
+              
+              {/* Game Summary */}
+              <div className="mb-4 flex justify-center">
+                <GameSummary />
+              </div>
+              
+              {/* Description */}
+              <p className="text-sm dashboard-subtitle text-center leading-relaxed">
+                Test your knowledge by rebuilding the verse using the word bank below
+              </p>
+            </div>
+            
+            {/* Desktop Layout */}
+            <div className="hidden sm:block">
+              <div className="flex items-center justify-between gap-4 mb-6">
+                {/* Left - Navigation */}
+                <div className="flex items-center gap-2">
+                  <Link href="/" className="nav-link">
+                    <Home className="nav-icon" />
+                    <span className="nav-text">Dashboard</span>
+                  </Link>
+                </div>
+                
+                {/* Center - Title */}
+                <div className="flex-1 text-center">
+                  <h1 className="dashboard-main-title text-3xl lg:text-4xl mb-2">
+                    Quran Word App
+                  </h1>
+                  <div className="flex items-center justify-center gap-2 text-base dashboard-subtitle">
+                    <Brain className="w-5 h-5" />
+                    <span className="font-medium">Knowledge Test</span>
+                  </div>
+                </div>
+                
+                {/* Right - Theme Toggle & GameSummary */}
+                <div className="flex items-center gap-2">
+                  <ThemeToggle />
+                  <GameSummary />
+                </div>
+              </div>
+              
+              {/* Description */}
+              <p className="text-base dashboard-subtitle text-center max-w-2xl mx-auto leading-relaxed">
+                Test your knowledge by rebuilding the verse using the word bank below
+              </p>
             </div>
           </div>
-          
-          {/* Description */}
-          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Test your knowledge by rebuilding the verse using the word bank below
-          </p>
-        </div>
 
         {/* Controls Section */}
         <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
@@ -996,7 +1104,7 @@ export default function GamePage() {
           submissionResults={submissionResults}
         />
       )}
-
+      </div>
     </div>
   )
 }
