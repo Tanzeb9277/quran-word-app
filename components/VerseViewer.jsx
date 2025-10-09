@@ -124,7 +124,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
       {/* Submission Results */}
       {submissionResults && (
         <div className="mb-6 p-4 rounded-lg border-2">
-          <div className={`text-center mb-4 ${
+          <div className={`text-center p-4 rounded-lg border-2 ${
             submissionResults.isAccurate 
               ? 'bg-green-50 border-green-200 text-green-800' 
               : 'bg-yellow-50 border-yellow-200 text-yellow-800'
@@ -143,7 +143,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                 </div>
               )}
             </div>
-            <div className="flex flex-col sm:flex-row justify-center gap-2 mt-3">
+            <div className="flex flex-col sm:flex-row justify-center gap-2 mt-3 mb-4">
               <button
                 onClick={() => setShowDetailedInfo && setShowDetailedInfo(!showDetailedInfo)}
                 className={`w-full sm:w-auto px-4 py-2 rounded-lg transition-colors text-sm ${
