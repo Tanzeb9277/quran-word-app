@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -17,6 +18,7 @@ import {
 } from 'lucide-react'
 
 export default function WordPopup({ word, onClose, root, verse, onPrevious, onNext, currentIndex, totalWords }) {
+  const router = useRouter()
   const [verseContext, setVerseContext] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -374,7 +376,18 @@ export default function WordPopup({ word, onClose, root, verse, onPrevious, onNe
                 <Star className="w-4 h-4 mr-2" />
                 Add to Favorites
               </Button>
-              <Button size="sm" variant="outline" className="w-full sm:w-auto">
+              <Button 
+                size="sm" 
+                variant="outline" 
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  if (root && root.arabic) {
+                    onClose()
+                    router.push(`/explorer/root/${encodeURIComponent(root.arabic)}`)
+                  }
+                }}
+                disabled={!root || !root.arabic}
+              >
                 <BookOpen className="w-4 h-4 mr-2" />
                 Study Root Family
               </Button>
@@ -386,22 +399,24 @@ export default function WordPopup({ word, onClose, root, verse, onPrevious, onNe
           </div>
 
           {/* Related Words */}
-          <div>
-            <h4 className="font-medium text-gray-900 mb-3">Related Words</h4>
-            <div className="text-sm text-gray-600">
-              Explore other words from the same root family to understand morphological patterns.
+          {root && root.arabic && (
+            <div>
+              <h4 className="font-medium text-gray-900 mb-3">Related Words</h4>
+              <div className="text-sm text-gray-600">
+                Explore other words from the same root family to understand morphological patterns.
+              </div>
+              <Button 
+                size="sm" 
+                className="mt-2 bg-green-600 hover:bg-green-700"
+                onClick={() => {
+                  onClose()
+                  router.push(`/explorer/root/${encodeURIComponent(root.arabic)}`)
+                }}
+              >
+                Explore Root Family
+              </Button>
             </div>
-            <Button 
-              size="sm" 
-              className="mt-2 bg-green-600 hover:bg-green-700"
-              onClick={() => {
-                // This would navigate to the root explorer
-                onClose()
-              }}
-            >
-              Explore Root Family
-            </Button>
-          </div>
+          )}
         </CardContent>
       </Card>
     </div>

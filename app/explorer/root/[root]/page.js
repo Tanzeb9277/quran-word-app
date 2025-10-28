@@ -101,69 +101,18 @@ export default function RootDetail({ params }) {
     )
   }
 
-  // Group words by Arabic text within each grammar category
-  const groupWordsByArabic = (words) => {
-    const grouped = {}
-    
-    words.forEach(word => {
-      const arabicKey = word.arabic
-      
-      // Debug: Log the word data to see what we're getting
-      console.log('Processing word:', {
-        arabic: word.arabic,
-        translation: word.translation,
-        occurrences: word.occurrences,
-        occurrencesType: typeof word.occurrences
-      })
-      
-      if (!grouped[arabicKey]) {
-        grouped[arabicKey] = {
-          arabic: word.arabic,
-          transliteration: word.transliteration,
-          translations: [],
-          totalOccurrences: parseInt(word.occurrences) || 0,
-          allLocations: [...(word.locations || [])],
-          allSurahs: [...(word.surahs || [])]
-        }
-        
-        // Add the first translation
-        grouped[arabicKey].translations.push({
-          text: word.translation,
-          occurrences: parseInt(word.occurrences) || 0,
-          locations: word.locations || [],
-          surahs: word.surahs || []
-        })
-      } else {
-        // Add translation if it's not already there
-        if (!grouped[arabicKey].translations.some(t => t.text === word.translation)) {
-          grouped[arabicKey].translations.push({
-            text: word.translation,
-            occurrences: parseInt(word.occurrences) || 0,
-            locations: word.locations || [],
-            surahs: word.surahs || []
-          })
-        }
-        
-        // Update totals - ensure we're adding numbers, not strings
-        grouped[arabicKey].totalOccurrences += parseInt(word.occurrences) || 0
-        grouped[arabicKey].allLocations = [...new Set([...grouped[arabicKey].allLocations, ...(word.locations || [])])]
-        grouped[arabicKey].allSurahs = [...new Set([...grouped[arabicKey].allSurahs, ...(word.surahs || [])])]
-      }
-    })
-    
-    const result = Object.values(grouped)
-    console.log('Grouped result:', result.map(w => ({
-      arabic: w.arabic,
-      totalOccurrences: w.totalOccurrences,
-      totalOccurrencesType: typeof w.totalOccurrences,
-      translations: w.translations.map(t => ({
-        text: t.text,
-        occurrences: t.occurrences,
-        occurrencesType: typeof t.occurrences
-      }))
-    })))
-    
-    return result
+  // Words are already unique (by arabic_text + normalized translation) from the API
+  // We can use them directly, but let's format them for display
+  const processWordsForDisplay = (words) => {
+    return words.map(word => ({
+      arabic: word.arabic || word.arabic_text,
+      transliteration: word.transliteration,
+      translation: word.translation,
+      translations: [{ text: word.translation, occurrences: word.occurrences }],
+      totalOccurrences: parseInt(word.occurrences) || 0,
+      allLocations: word.locations || [],
+      allSurahs: word.surahs || []
+    }))
   }
 
   const grammarCategories = Object.keys(rootData.grammar_categories || {})
@@ -171,10 +120,10 @@ export default function RootDetail({ params }) {
     ? { [filterGrammar]: rootData.grammar_categories[filterGrammar] }
     : rootData.grammar_categories
 
-  // Process each grammar category to group words by Arabic text
+  // Process each grammar category - words are already unique from API
   const processedCategories = {}
   Object.entries(filteredCategories).forEach(([grammar, words]) => {
-    processedCategories[grammar] = groupWordsByArabic(words)
+    processedCategories[grammar] = processWordsForDisplay(words)
   })
 
   return (

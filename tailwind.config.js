@@ -64,6 +64,17 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        arabic: [
+          "Amiri",
+          "Noto Naskh Arabic",
+          "Scheherazade New",
+          "Traditional Arabic",
+          "Arabic Typesetting",
+          "Arial Unicode MS",
+          "sans-serif"
+        ],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
