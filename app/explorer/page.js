@@ -16,8 +16,11 @@ import {
   ChevronLeft,
   ChevronRight,
   Search, 
-  MapPin
+  MapPin,
+  Grid3x3,
+  AlignJustify
 } from 'lucide-react'
+import { Switch } from '@/components/ui/switch'
 
 export default function ExplorerHome() {
   const router = useRouter()
@@ -30,6 +33,7 @@ export default function ExplorerHome() {
   const [pageInfo, setPageInfo] = useState(null)
   const [selectedWord, setSelectedWord] = useState(null)
   const [selectedWordIndex, setSelectedWordIndex] = useState(-1)
+  const [viewMode, setViewMode] = useState('cards') // 'cards' or 'mushaf'
 
   // Initialize from URL params
   useEffect(() => {
@@ -163,15 +167,19 @@ export default function ExplorerHome() {
           {/* Surah Selector */}
           <Card className="mb-6">
             <CardContent className="pt-6">
-              <div className="flex items-center gap-4">
-                <label className="font-medium text-gray-700">Select Surah:</label>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                <label className="font-medium whitespace-nowrap">Select Surah:</label>
                 <Select value={selectedSurah || ''} onValueChange={handleSurahChange}>
-                  <SelectTrigger className="w-[300px]">
+                  <SelectTrigger className="w-full sm:w-[300px]">
                     <SelectValue placeholder="Choose a surah" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="max-h-[300px] overflow-y-auto bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700">
                     {surahs.map((surah) => (
-                      <SelectItem key={surah.surah_number} value={surah.surah_number.toString()}>
+                      <SelectItem 
+                        key={surah.surah_number} 
+                        value={surah.surah_number.toString()}
+                        className="text-gray-900 dark:text-white focus:bg-gray-100 dark:focus:bg-gray-800 focus:text-gray-900 dark:focus:text-white"
+                      >
                         {surah.surah_number}. {surah.name_english} - {surah.name_arabic}
                         {' '}({surah.verses_count} verses, {surah.words_count} words)
                       </SelectItem>
@@ -198,7 +206,7 @@ export default function ExplorerHome() {
             <Card className="mb-6">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between flex-wrap gap-4">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 flex-wrap">
                     <Badge variant="outline" className="text-lg px-4 py-2">
                       {getSurahName(pageInfo?.surahNumber || parseInt(selectedSurah || '1'))}
                     </Badge>
@@ -211,115 +219,175 @@ export default function ExplorerHome() {
                         Verses {pageInfo.startVerse} - {pageInfo.endVerse}
                       </div>
                     )}
-                      </div>
-                    </div>
+                  </div>
+                  {/* View Mode Toggle */}
+                  <div className="flex items-center gap-2">
+                    <Grid3x3 className={`w-4 h-4 ${viewMode === 'cards' ? 'text-blue-600' : 'text-gray-400'}`} />
+                    <Switch
+                      checked={viewMode === 'mushaf'}
+                      onCheckedChange={(checked) => setViewMode(checked ? 'mushaf' : 'cards')}
+                    />
+                    <AlignJustify className={`w-4 h-4 ${viewMode === 'mushaf' ? 'text-blue-600' : 'text-gray-400'}`} />
+                    <span className="text-sm text-gray-600 ml-1">
+                      {viewMode === 'cards' ? 'Cards' : 'Mushaf'}
+                    </span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
-            {/* Words grouped by verse */}
-            <div className="space-y-8 mb-8">
-              {Object.entries(groupedByVerse).map(([verse, verseWords]) => (
-                <Card key={verse} className="overflow-hidden">
-                  <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-lg">
-                        Verse {verse}
-                      </CardTitle>
-                      <Badge variant="secondary">
-                        {verseWords.length} {verseWords.length === 1 ? 'word' : 'words'}
-                      </Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="pt-6">
-                    <div className="flex flex-row-reverse flex-wrap gap-4 justify-end" dir="rtl">
-                      {verseWords.slice().reverse().map((word, idx) => {
-                        const globalIndex = words.findIndex(w => w.id === word.id)
-                        const hasRoot = word.root && word.root.root_arabic
-                        
-                        return (
-                          <div
-                            key={word.id}
-                            onClick={() => handleWordClick(word, globalIndex)}
-                            className="p-4 border rounded-lg hover:shadow-lg transition-all cursor-pointer bg-white hover:border-blue-400 group min-w-[200px] max-w-[280px] flex-shrink-0"
-                          >
-                            {/* Arabic Text */}
-                            <div className="text-center mb-3">
-                              {word.arabic_text ? (
-                                <div className="text-3xl font-arabic mb-2" dir="rtl">
-                                  {word.arabic_text}
+            {/* Words Display - Cards or Mushaf */}
+            {viewMode === 'cards' ? (
+              /* Cards View */
+              <div className="space-y-8 mb-8">
+                {Object.entries(groupedByVerse).map(([verse, verseWords]) => (
+                  <Card key={verse} className="overflow-hidden">
+                    <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b">
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="text-lg">
+                          Verse {verse}
+                        </CardTitle>
+                        <Badge variant="secondary">
+                          {verseWords.length} {verseWords.length === 1 ? 'word' : 'words'}
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <div className="flex flex-col sm:flex-row-reverse flex-wrap gap-4 sm:justify-end" dir="rtl">
+                        {verseWords.slice().reverse().map((word, idx) => {
+                          const globalIndex = words.findIndex(w => w.id === word.id)
+                          const hasRoot = word.root && word.root.root_arabic
+                          
+                          return (
+                            <div
+                              key={word.id}
+                              onClick={() => handleWordClick(word, globalIndex)}
+                              className="w-full sm:min-w-[200px] sm:max-w-[280px] sm:flex-shrink-0 p-4 border rounded-lg hover:shadow-lg transition-all cursor-pointer bg-white hover:border-blue-400 group"
+                            >
+                              {/* Arabic Text */}
+                              <div className="text-center mb-3">
+                                {word.arabic_text ? (
+                                  <div className="text-3xl font-arabic mb-2" dir="rtl">
+                                    {word.arabic_text}
+                                  </div>
+                                ) : word.image_url ? (
+                                  <img
+                                    src={word.image_url}
+                                    alt={word.transliteration}
+                                    className="h-16 mx-auto object-contain"
+                                    onError={(e) => {
+                                      e.currentTarget.style.display = 'none'
+                                    }}
+                                  />
+                                ) : null}
+                                
+                                {/* Root Highlight */}
+                                {hasRoot && (
+                                  <div className="mt-2 p-2 bg-green-50 rounded-lg border border-green-200">
+                                    <div className="text-xs text-gray-600 mb-1">Root</div>
+                                    <div className="text-xl font-arabic text-green-800 font-bold" dir="rtl">
+                                      {word.root.root_arabic}
+                                    </div>
+                                    <div className="text-xs text-green-600 mt-1">
+                                      {word.root.root_latin}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+
+                              {/* Translation */}
+                              <div className="text-center mb-2">
+                                <div className="font-semibold text-gray-900">
+                                  {word.translation}
                                 </div>
-                              ) : word.image_url ? (
-                                <img
-                                  src={word.image_url}
-                                  alt={word.transliteration}
-                                  className="h-16 mx-auto object-contain"
-                                  onError={(e) => {
-                                    e.currentTarget.style.display = 'none'
-                                  }}
-                                />
-                              ) : null}
-                              
-                              {/* Root Highlight */}
-                              {hasRoot && (
-                                <div className="mt-2 p-2 bg-green-50 rounded-lg border border-green-200">
-                                  <div className="text-xs text-gray-600 mb-1">Root</div>
-                                  <div className="text-xl font-arabic text-green-800 font-bold" dir="rtl">
-                                    {word.root.root_arabic}
+                                {word.transliteration && (
+                                  <div className="text-sm text-gray-500 italic mt-1">
+                                    {word.transliteration}
                                   </div>
-                                  <div className="text-xs text-green-600 mt-1">
-                                    {word.root.root_latin}
-                                  </div>
+                                )}
+                              </div>
+
+                              {/* Grammar */}
+                              {word.grammar && (
+                                <div className="text-xs text-gray-600 bg-gray-50 px-2 py-1 rounded text-center">
+                                  {word.grammar}
                                 </div>
                               )}
-                            </div>
 
-                            {/* Translation */}
-                            <div className="text-center mb-2">
-                              <div className="font-semibold text-gray-900">
-                                {word.translation}
+                              {/* Click hint */}
+                              <div className="text-xs text-blue-600 mt-2 text-center opacity-0 group-hover:opacity-100 transition-opacity" dir="ltr">
+                                ← Click to explore root
                               </div>
-                              {word.transliteration && (
-                                <div className="text-sm text-gray-500 italic mt-1">
-                                  {word.transliteration}
-                                </div>
-                              )}
                             </div>
-
-                            {/* Grammar */}
-                            {word.grammar && (
-                              <div className="text-xs text-gray-600 bg-gray-50 px-2 py-1 rounded text-center">
-                                {word.grammar}
-                              </div>
-                            )}
-
-                            {/* Click hint */}
-                            <div className="text-xs text-blue-600 mt-2 text-center opacity-0 group-hover:opacity-100 transition-opacity" dir="ltr">
-                              ← Click to explore root
+                          )
+                        })}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              /* Mushaf View */
+              <Card className="mb-8">
+                <CardContent className="pt-6 text-right" dir="rtl">
+                  <div className="space-y-8">
+                    {Object.entries(groupedByVerse).map(([verse, verseWords], verseIndex) => {
+                      return (
+                        <div key={verse} className="relative w-full">
+                          {/* Verse Break with Number */}
+                          <div className="mb-4 flex items-center justify-center">
+                            <div className="flex-1 border-t border-gray-300"></div>
+                            <div className="mx-4 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-100 border-2 border-blue-400 shadow-sm">
+                              <span className="text-sm sm:text-base font-bold text-blue-700" dir="ltr">
+                                {verse}
+                              </span>
                             </div>
+                            <div className="flex-1 border-t border-gray-300"></div>
                           </div>
-                        )
-                      })}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                          
+                          {/* Arabic Text Flow - Right Aligned */}
+                          <div className="w-full flex flex-wrap items-baseline gap-1.5 sm:gap-2 leading-relaxed text-right" dir="rtl">
+                            {verseWords.map((word) => {
+                              const globalWordIndex = words.findIndex(w => w.id === word.id)
+                              
+                              return (
+                                <span
+                                  key={word.id}
+                                  onClick={() => handleWordClick(word, globalWordIndex)}
+                                  className="inline-block text-2xl sm:text-3xl md:text-4xl font-arabic text-gray-900 cursor-pointer hover:text-blue-600 hover:bg-blue-50 rounded px-1 py-0.5 transition-all active:scale-95"
+                                  dir="rtl"
+                                  title={word.translation || word.transliteration}
+                                >
+                                  {word.arabic_text || '\u200B'}
+                                </span>
+                              )
+                            })}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
 
             {/* Pagination */}
             {pageInfo && pageInfo.totalPages > 1 && (
               <Card className="mb-8">
-                <CardContent className="pt-6">
-                  <div className="flex items-center justify-center gap-4">
+                <CardContent className="pt-4 sm:pt-6 p-4 sm:p-6">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full">
                     <Button
                       variant="outline"
                       onClick={() => handlePageChange(currentPage - 1)}
                       disabled={!pageInfo.hasPreviousPage}
+                      className="w-full sm:w-auto bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800"
                     >
                       <ChevronLeft className="w-4 h-4 mr-2" />
-                      Previous
+                      <span className="hidden sm:inline">Previous</span>
+                      <span className="sm:hidden">Prev</span>
                     </Button>
                     
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap justify-center">
                       {Array.from({ length: Math.min(5, pageInfo.totalPages) }, (_, i) => {
                         let pageNum
                         if (pageInfo.totalPages <= 5) {
@@ -337,7 +405,11 @@ export default function ExplorerHome() {
                             key={pageNum}
                             variant={currentPage === pageNum ? "default" : "outline"}
                             onClick={() => handlePageChange(pageNum)}
-                            className="min-w-[40px]"
+                            className={`min-w-[40px] ${
+                              currentPage === pageNum 
+                                ? "bg-blue-600 text-white hover:bg-blue-700" 
+                                : "bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800"
+                            }`}
                           >
                             {pageNum}
                           </Button>
@@ -349,8 +421,10 @@ export default function ExplorerHome() {
                       variant="outline"
                       onClick={() => handlePageChange(currentPage + 1)}
                       disabled={!pageInfo.hasNextPage}
+                      className="w-full sm:w-auto bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800"
                     >
-                      Next
+                      <span className="hidden sm:inline">Next</span>
+                      <span className="sm:hidden">Next</span>
                       <ChevronRight className="w-4 h-4 ml-2" />
                     </Button>
                   </div>
