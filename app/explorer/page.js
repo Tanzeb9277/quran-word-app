@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge'
 import ThemeToggle from '@/components/ThemeToggle'
 import WordPopup from '@/components/WordPopup'
+import VerseTranslationDialog from '@/components/VerseTranslationDialog'
 import { 
   BookOpen, 
   TreePine, 
@@ -18,7 +19,8 @@ import {
   Search, 
   MapPin,
   Grid3x3,
-  AlignJustify
+  AlignJustify,
+  BookOpenCheck
 } from 'lucide-react'
 import { Switch } from '@/components/ui/switch'
 
@@ -34,6 +36,8 @@ export default function ExplorerHome() {
   const [selectedWord, setSelectedWord] = useState(null)
   const [selectedWordIndex, setSelectedWordIndex] = useState(-1)
   const [viewMode, setViewMode] = useState('cards') // 'cards' or 'mushaf'
+  const [verseDialogOpen, setVerseDialogOpen] = useState(false)
+  const [selectedVerse, setSelectedVerse] = useState(null)
 
   // Initialize from URL params
   useEffect(() => {
@@ -125,6 +129,19 @@ export default function ExplorerHome() {
       setSelectedWord(nextWord)
       setSelectedWordIndex(selectedWordIndex + 1)
     }
+  }
+
+  const handleViewTranslation = (verseKey) => {
+    // verseKey is in format "surah:verse" (e.g., "1:1")
+    // Extract verse number from the key
+    const verseParts = verseKey.toString().split(':')
+    const verseNumber = verseParts.length > 1 ? parseInt(verseParts[1]) : parseInt(verseKey)
+    
+    setSelectedVerse({
+      surah: parseInt(selectedSurah),
+      verse: verseNumber
+    })
+    setVerseDialogOpen(true)
   }
 
   const getSurahName = (number) => {
@@ -247,14 +264,26 @@ export default function ExplorerHome() {
                         <CardTitle className="text-lg">
                           Verse {verse}
                         </CardTitle>
-                        <Badge variant="secondary">
-                          {verseWords.length} {verseWords.length === 1 ? 'word' : 'words'}
-                        </Badge>
+                        <div className="flex items-center gap-2">
+                          <Badge variant="secondary">
+                            {verseWords.length} {verseWords.length === 1 ? 'word' : 'words'}
+                          </Badge>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleViewTranslation(verse)}
+                            className="flex items-center gap-1"
+                          >
+                            <BookOpenCheck className="w-4 h-4" />
+                            <span className="hidden sm:inline">Translation & Tafsir</span>
+                            <span className="sm:hidden">View</span>
+                          </Button>
+                        </div>
                       </div>
                     </CardHeader>
                     <CardContent className="pt-6">
-                      <div className="flex flex-col sm:flex-row-reverse flex-wrap gap-4 sm:justify-end" dir="rtl">
-                        {verseWords.slice().reverse().map((word, idx) => {
+                      <div className="flex flex-wrap gap-4 justify-start" dir="rtl">
+                        {verseWords.map((word, idx) => {
                           const globalIndex = words.findIndex(w => w.id === word.id)
                           const hasRoot = word.root && word.root.root_arabic
                           
@@ -337,16 +366,27 @@ export default function ExplorerHome() {
                           {/* Verse Break with Number */}
                           <div className="mb-4 flex items-center justify-center">
                             <div className="flex-1 border-t border-gray-300"></div>
-                            <div className="mx-4 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-100 border-2 border-blue-400 shadow-sm">
-                              <span className="text-sm sm:text-base font-bold text-blue-700" dir="ltr">
-                                {verse}
-                              </span>
+                            <div className="mx-4 flex flex-col items-center gap-2">
+                              <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-100 border-2 border-blue-400 shadow-sm">
+                                <span className="text-sm sm:text-base font-bold text-blue-700" dir="ltr">
+                                  {verse}
+                                </span>
+                              </div>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => handleViewTranslation(verse)}
+                                className="flex items-center gap-1 text-xs"
+                              >
+                                <BookOpenCheck className="w-3 h-3" />
+                                <span>Translation & Tafsir</span>
+                              </Button>
                             </div>
                             <div className="flex-1 border-t border-gray-300"></div>
                           </div>
                           
                           {/* Arabic Text Flow - Right Aligned */}
-                          <div className="w-full flex flex-wrap items-baseline gap-1.5 sm:gap-2 leading-relaxed text-right" dir="rtl">
+                          <div className="w-full flex flex-wrap items-baseline gap-1.5 sm:gap-2 leading-relaxed text-right justify-center" dir="rtl">
                             {verseWords.map((word) => {
                               const globalWordIndex = words.findIndex(w => w.id === word.id)
                               
@@ -466,6 +506,16 @@ export default function ExplorerHome() {
           onNext={handleNextWord}
           currentIndex={selectedWordIndex}
           totalWords={words.length}
+        />
+      )}
+
+      {/* Verse Translation Dialog */}
+      {selectedVerse && (
+        <VerseTranslationDialog
+          open={verseDialogOpen}
+          onOpenChange={setVerseDialogOpen}
+          surahNumber={selectedVerse.surah}
+          verseNumber={selectedVerse.verse}
         />
       )}
     </div>
