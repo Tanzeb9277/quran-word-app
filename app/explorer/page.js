@@ -363,26 +363,20 @@ export default function ExplorerHome() {
                     {Object.entries(groupedByVerse).map(([verse, verseWords], verseIndex) => {
                       return (
                         <div key={verse} className="relative w-full">
-                          {/* Verse Break with Number */}
+                          {/* Verse Break with Integrated Number and Tafsir Button */}
                           <div className="mb-4 flex items-center justify-center">
-                            <div className="flex-1 border-t border-gray-300"></div>
-                            <div className="mx-4 flex flex-col items-center gap-2">
-                              <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-100 border-2 border-blue-400 shadow-sm">
-                                <span className="text-sm sm:text-base font-bold text-blue-700" dir="ltr">
-                                  {verse}
-                                </span>
+                            <div className="flex-1 border-t border-gray-300 dark:border-gray-600"></div>
+                            <Button
+                              variant="outline"
+                              onClick={() => handleViewTranslation(verse)}
+                              className="mx-4 flex items-center gap-2 pl-3 pr-0 py-2 rounded-full bg-blue-50 dark:bg-gray-700 border-2 border-blue-400 dark:border-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 transition-all shadow-sm hover:shadow-md w-fit cursor-pointer"
+                            >
+                              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500 dark:bg-blue-600 text-white font-bold text-sm">
+                                {verse}
                               </div>
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                onClick={() => handleViewTranslation(verse)}
-                                className="flex items-center gap-1 text-xs"
-                              >
-                                <BookOpenCheck className="w-3 h-3" />
-                                <span>Translation & Tafsir</span>
-                              </Button>
-                            </div>
-                            <div className="flex-1 border-t border-gray-300"></div>
+                              <BookOpenCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                            </Button>
+                            <div className="flex-1 border-t border-gray-300 dark:border-gray-600"></div>
                           </div>
                           
                           {/* Arabic Text Flow - Right Aligned */}

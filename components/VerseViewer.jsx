@@ -21,6 +21,10 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   const [translationData, setTranslationData] = useState(null)
   const [translationLoading, setTranslationLoading] = useState(false)
   const [translationError, setTranslationError] = useState(null)
+  const [showTafsir, setShowTafsir] = useState(false)
+  const [tafsirData, setTafsirData] = useState(null)
+  const [tafsirLoading, setTafsirLoading] = useState(false)
+  const [tafsirError, setTafsirError] = useState(null)
   
   // Helper function to extract verse number from verse field
   // Handles both formats: "8", 8 (number), and "56:20"
@@ -37,10 +41,13 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
     if (onRevealedWordsChange) {
       onRevealedWordsChange(new Set())
     }
-    // Reset translation state when verse changes
+    // Reset translation and tafsir state when verse changes
     setShowTranslation(false)
     setTranslationData(null)
     setTranslationError(null)
+    setShowTafsir(false)
+    setTafsirData(null)
+    setTafsirError(null)
   }, [verseData, onRevealedWordsChange])
 
   // Function to fetch verse translation
@@ -69,6 +76,34 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
       setTranslationError('Network error occurred while fetching translation')
     } finally {
       setTranslationLoading(false)
+    }
+  }
+
+  // Function to fetch verse tafsir
+  const fetchTafsir = async () => {
+    if (!verseData) return
+    
+    setTafsirLoading(true)
+    setTafsirError(null)
+    
+    try {
+      // Construct proper API format: surah:verse
+      const verseNumber = getVerseNumber(verseData.verse)
+      
+      const response = await fetch(`/api/tafsir/${verseData.surah_number}/${verseNumber}`)
+      const result = await response.json()
+      
+      if (result.success) {
+        setTafsirData(result.data)
+        setShowTafsir(true)
+      } else {
+        setTafsirError(result.error || 'Failed to fetch tafsir')
+      }
+    } catch (error) {
+      console.error('Error fetching tafsir:', error)
+      setTafsirError('Network error occurred while fetching tafsir')
+    } finally {
+      setTafsirLoading(false)
     }
   }
   
@@ -167,6 +202,19 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
               >
                 {translationLoading ? 'Loading...' : showTranslation ? 'Hide Translation' : 'Show Translation'}
               </button>
+              <button
+                onClick={fetchTafsir}
+                disabled={tafsirLoading}
+                className={`w-full sm:w-auto px-4 py-2 rounded-lg transition-colors text-sm ${
+                  tafsirLoading
+                    ? 'bg-gray-400 text-white cursor-not-allowed'
+                    : showTafsir
+                    ? 'bg-green-500 text-white hover:bg-green-600'
+                    : 'bg-orange-500 text-white hover:bg-orange-600'
+                }`}
+              >
+                {tafsirLoading ? 'Loading...' : showTafsir ? 'Hide Tafsir' : 'Show Tafsir'}
+              </button>
             </div>
           </div>
         </div>
@@ -218,6 +266,73 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
             </p>
             <button
               onClick={fetchTranslation}
+              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Tafsir Display */}
+      {showTafsir && tafsirData && (
+        <div className="mb-6 p-4 rounded-lg border-2 bg-gradient-to-r from-orange-50 to-amber-50 border-orange-200 dark:bg-gray-800 dark:border-gray-700">
+          <div className="text-center mb-4">
+            <h3 className="text-lg font-semibold text-orange-800 dark:text-orange-300 mb-2">
+              📚 Tafsir Ibn Kathir
+            </h3>
+            <div className="text-sm text-orange-600 dark:text-orange-400 mb-3">
+              Surah {tafsirData.surah}, Verse {tafsirData.ayah}
+            </div>
+            {tafsirData.all_verse_refs && (
+              <div className="text-xs text-orange-500 dark:text-orange-400 mb-2">
+                Verse References: {tafsirData.all_verse_refs}
+              </div>
+            )}
+          </div>
+          
+          <div className="bg-white dark:bg-gray-700 rounded-lg p-4 shadow-sm border border-orange-100 dark:border-gray-600">
+            <div className="text-center">
+              {tafsirData.tafsir_html ? (
+                <div 
+                  className="prose prose-sm max-w-none text-gray-800 dark:text-white leading-relaxed prose-headings:text-gray-800 dark:prose-headings:text-white prose-p:text-gray-800 dark:prose-p:text-white prose-strong:text-gray-800 dark:prose-strong:text-white prose-a:text-blue-600 dark:prose-a:text-blue-400 dark:[&_*]:text-white"
+                  dangerouslySetInnerHTML={{ 
+                    __html: `<style>
+                      .dark .tafsir-content-wrapper * {
+                        color: white !important;
+                      }
+                      .dark .tafsir-content-wrapper a {
+                        color: rgb(96 165 250) !important;
+                      }
+                    </style><div class="tafsir-content-wrapper">${tafsirData.tafsir_html}</div>`
+                  }}
+                />
+              ) : tafsirData.tafsir_text ? (
+                <p className="text-base leading-relaxed text-gray-800 dark:text-white whitespace-pre-wrap">
+                  {tafsirData.tafsir_text}
+                </p>
+              ) : (
+                <p className="text-gray-500 dark:text-gray-400">
+                  No tafsir content available
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Tafsir Error */}
+      {tafsirError && (
+        <div className="mb-6 p-4 rounded-lg border-2 bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold text-red-800 dark:text-red-300 mb-2">
+              ⚠️ Tafsir Error
+            </h3>
+            <p className="text-sm text-red-600 dark:text-red-400 mb-3">
+              {tafsirError}
+            </p>
+            <button
+              onClick={fetchTafsir}
               className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm"
             >
               Try Again
