@@ -43,7 +43,7 @@ export default function WordBankKeyboard({
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 p-3 pb-6 max-h-[50vh] sm:max-h-[60vh] overflow-y-auto">
+    <div className="w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg p-3 pb-6">
       <div className="max-w-6xl mx-auto">
         
         {/* Selected Words Display */}

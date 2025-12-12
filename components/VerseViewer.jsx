@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { Maximize2, X } from "lucide-react"
 import ArabicWordDisplay from "./ArabicWordDisplay"
 
 /**
@@ -25,6 +26,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   const [tafsirData, setTafsirData] = useState(null)
   const [tafsirLoading, setTafsirLoading] = useState(false)
   const [tafsirError, setTafsirError] = useState(null)
+  const [isTafsirFullscreen, setIsTafsirFullscreen] = useState(false)
   
   // Helper function to extract verse number from verse field
   // Handles both formats: "8", 8 (number), and "56:20"
@@ -276,49 +278,128 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
 
       {/* Tafsir Display */}
       {showTafsir && tafsirData && (
-        <div className="mb-6 p-4 rounded-lg border-2 bg-gradient-to-r from-orange-50 to-amber-50 border-orange-200 dark:bg-gray-800 dark:border-gray-700">
-          <div className="text-center mb-4">
-            <h3 className="text-lg font-semibold text-orange-800 dark:text-orange-300 mb-2">
-              📚 Tafsir Ibn Kathir
-            </h3>
-            <div className="text-sm text-orange-600 dark:text-orange-400 mb-3">
-              Surah {tafsirData.surah}, Verse {tafsirData.ayah}
-            </div>
-            {tafsirData.all_verse_refs && (
-              <div className="text-xs text-orange-500 dark:text-orange-400 mb-2">
-                Verse References: {tafsirData.all_verse_refs}
+        <>
+          {/* Regular Tafsir Display */}
+          {!isTafsirFullscreen && (
+            <div className="mb-6 p-4 rounded-lg border-2 bg-gradient-to-r from-orange-50 to-amber-50 border-orange-200 dark:bg-gray-800 dark:border-gray-700">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-center flex-1">
+                  <h3 className="text-lg font-semibold text-orange-800 dark:text-orange-300 mb-2">
+                    📚 Tafsir Ibn Kathir
+                  </h3>
+                  <div className="text-sm text-orange-600 dark:text-orange-400 mb-3">
+                    Surah {tafsirData.surah}, Verse {tafsirData.ayah}
+                  </div>
+                  {tafsirData.all_verse_refs && (
+                    <div className="text-xs text-orange-500 dark:text-orange-400 mb-2">
+                      Verse References: {tafsirData.all_verse_refs}
+                    </div>
+                  )}
+                </div>
+                <button
+                  onClick={() => setIsTafsirFullscreen(true)}
+                  className="p-2 hover:bg-orange-100 dark:hover:bg-gray-700 rounded transition-colors ml-4"
+                  aria-label="Expand tafsir to fullscreen"
+                  title="Expand to fullscreen"
+                >
+                  <Maximize2 className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                </button>
               </div>
-            )}
-          </div>
-          
-          <div className="bg-white dark:bg-gray-700 rounded-lg p-4 shadow-sm border border-orange-100 dark:border-gray-600">
-            <div className="text-center">
-              {tafsirData.tafsir_html ? (
-                <div 
-                  className="prose prose-sm max-w-none text-gray-800 dark:text-white leading-relaxed prose-headings:text-gray-800 dark:prose-headings:text-white prose-p:text-gray-800 dark:prose-p:text-white prose-strong:text-gray-800 dark:prose-strong:text-white prose-a:text-blue-600 dark:prose-a:text-blue-400 dark:[&_*]:text-white"
-                  dangerouslySetInnerHTML={{ 
-                    __html: `<style>
-                      .dark .tafsir-content-wrapper * {
-                        color: white !important;
-                      }
-                      .dark .tafsir-content-wrapper a {
-                        color: rgb(96 165 250) !important;
-                      }
-                    </style><div class="tafsir-content-wrapper">${tafsirData.tafsir_html}</div>`
-                  }}
-                />
-              ) : tafsirData.tafsir_text ? (
-                <p className="text-base leading-relaxed text-gray-800 dark:text-white whitespace-pre-wrap">
-                  {tafsirData.tafsir_text}
-                </p>
-              ) : (
-                <p className="text-gray-500 dark:text-gray-400">
-                  No tafsir content available
-                </p>
-              )}
+              
+              <div className="bg-white dark:bg-gray-700 rounded-lg p-4 shadow-sm border border-orange-100 dark:border-gray-600">
+                <div className="text-center">
+                  {tafsirData.tafsir_html ? (
+                    <div 
+                      className="prose prose-sm max-w-none text-gray-800 dark:text-white leading-relaxed prose-headings:text-gray-800 dark:prose-headings:text-white prose-p:text-gray-800 dark:prose-p:text-white prose-strong:text-gray-800 dark:prose-strong:text-white prose-a:text-blue-600 dark:prose-a:text-blue-400 dark:[&_*]:text-white"
+                      dangerouslySetInnerHTML={{ 
+                        __html: `<style>
+                          .dark .tafsir-content-wrapper * {
+                            color: white !important;
+                          }
+                          .dark .tafsir-content-wrapper a {
+                            color: rgb(96 165 250) !important;
+                          }
+                        </style><div class="tafsir-content-wrapper">${tafsirData.tafsir_html}</div>`
+                      }}
+                    />
+                  ) : tafsirData.tafsir_text ? (
+                    <p className="text-base leading-relaxed text-gray-800 dark:text-white whitespace-pre-wrap">
+                      {tafsirData.tafsir_text}
+                    </p>
+                  ) : (
+                    <p className="text-gray-500 dark:text-gray-400">
+                      No tafsir content available
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )}
+
+          {/* Fullscreen Tafsir Modal */}
+          {isTafsirFullscreen && (
+            <div 
+              className="fixed inset-0 bg-black bg-opacity-90 dark:bg-opacity-95 z-50 flex flex-col"
+              onClick={() => setIsTafsirFullscreen(false)}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 bg-gray-900 dark:bg-gray-800 border-b border-gray-700">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-white mb-1">
+                    📚 Tafsir Ibn Kathir
+                  </h3>
+                  <div className="text-sm text-gray-300">
+                    Surah {tafsirData.surah}, Verse {tafsirData.ayah}
+                  </div>
+                  {tafsirData.all_verse_refs && (
+                    <div className="text-xs text-gray-400 mt-1">
+                      Verse References: {tafsirData.all_verse_refs}
+                    </div>
+                  )}
+                </div>
+                <button
+                  onClick={() => setIsTafsirFullscreen(false)}
+                  className="p-2 hover:bg-gray-700 rounded transition-colors ml-4"
+                  aria-label="Close fullscreen"
+                >
+                  <X className="w-6 h-6 text-white" />
+                </button>
+              </div>
+              
+              {/* Content */}
+              <div 
+                className="flex-1 overflow-y-auto p-6 bg-gray-900 dark:bg-gray-800"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="max-w-4xl mx-auto">
+                  {tafsirData.tafsir_html ? (
+                    <div 
+                      className="prose prose-lg max-w-none text-white leading-relaxed prose-headings:text-white prose-p:text-white prose-strong:text-white prose-a:text-blue-400 dark:[&_*]:text-white"
+                      dangerouslySetInnerHTML={{ 
+                        __html: `<style>
+                          .tafsir-fullscreen-content * {
+                            color: white !important;
+                          }
+                          .tafsir-fullscreen-content a {
+                            color: rgb(96 165 250) !important;
+                          }
+                        </style><div class="tafsir-fullscreen-content">${tafsirData.tafsir_html}</div>`
+                      }}
+                    />
+                  ) : tafsirData.tafsir_text ? (
+                    <p className="text-lg leading-relaxed text-white whitespace-pre-wrap">
+                      {tafsirData.tafsir_text}
+                    </p>
+                  ) : (
+                    <p className="text-gray-400 text-center">
+                      No tafsir content available
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </>
       )}
 
       {/* Tafsir Error */}

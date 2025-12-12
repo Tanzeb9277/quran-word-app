@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Book, Brain, Search, Target, Home } from "lucide-react"
+import { Book, Brain, Search, Target, Home, ChevronUp, ChevronDown, Maximize2, X } from "lucide-react"
 import VerseViewer from "@/components/VerseViewer"
 import WordBankKeyboard from "@/components/WordBankKeyboard"
 import GameSummary from "@/components/GameSummary"
@@ -22,6 +22,7 @@ export default function GamePage() {
   const [showDetailedInfo, setShowDetailedInfo] = useState(false)
   const [revealedWords, setRevealedWords] = useState(new Set())
   const [usedWords, setUsedWords] = useState([])
+  const [isWordBankMinimized, setIsWordBankMinimized] = useState(false)
   
   // New state for individual word banks
   const [individualWordBanks, setIndividualWordBanks] = useState([])
@@ -1088,21 +1089,44 @@ export default function GamePage() {
        )}
 
       {wordBank.length > 0 && (
-        <WordBankKeyboard
-          words={wordBank}
-          usedWords={usedWords}
-          onWordSelect={handleWordSelect}
-          onRevealNext={handleRevealNext}
-          onClearAll={handleClearAll}
-          onShowUsedWords={() => {}} // This is handled internally in the component
-          canRevealNext={!submissionResults && selectedWords.some((word, index) => !word && !revealedWords.has(index))}
-          hasSelectedWords={!submissionResults && selectedWords.some(word => word !== null)}
-          isSubmitted={!!submissionResults}
-          selectedWords={selectedWords}
-          revealedWords={revealedWords}
-          verseData={verseData}
-          submissionResults={submissionResults}
-        />
+        <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg z-[60]">
+          {/* Word Bank Header with Minimize Button */}
+          <div className="flex items-center justify-between px-4 py-2 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-[61] relative">
+            <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Word Bank</h3>
+            <button
+              onClick={() => setIsWordBankMinimized(!isWordBankMinimized)}
+              className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors z-[62] relative"
+              aria-label={isWordBankMinimized ? "Expand word bank" : "Minimize word bank"}
+            >
+              {isWordBankMinimized ? (
+                <ChevronUp className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+              )}
+            </button>
+          </div>
+          
+          {/* Word Bank Content */}
+          {!isWordBankMinimized && (
+            <div className="max-h-[400px] overflow-y-auto relative z-[60]">
+              <WordBankKeyboard
+                words={wordBank}
+                usedWords={usedWords}
+                onWordSelect={handleWordSelect}
+                onRevealNext={handleRevealNext}
+                onClearAll={handleClearAll}
+                onShowUsedWords={() => {}} // This is handled internally in the component
+                canRevealNext={!submissionResults && selectedWords.some((word, index) => !word && !revealedWords.has(index))}
+                hasSelectedWords={!submissionResults && selectedWords.some(word => word !== null)}
+                isSubmitted={!!submissionResults}
+                selectedWords={selectedWords}
+                revealedWords={revealedWords}
+                verseData={verseData}
+                submissionResults={submissionResults}
+              />
+            </div>
+          )}
+        </div>
       )}
       </div>
     </div>
