@@ -16,7 +16,7 @@ import ArabicWordDisplay from "./ArabicWordDisplay"
  * @param {boolean} props.showDetailedInfo - Whether to show detailed word information
  * @param {Function} props.setShowDetailedInfo - Function to toggle detailed info
  */
-export default function VerseViewer({ verseData, onRefresh, selectedWords = [], onWordSelect, currentFilter = 'all', submissionResults = null, showDetailedInfo = false, setShowDetailedInfo = null, onRevealedWordsChange = null, revealedWords = new Set() }) {
+export default function VerseViewer({ verseData, onRefresh, selectedWords = [], onWordSelect, currentFilter = 'all', submissionResults = null, showDetailedInfo = false, setShowDetailedInfo = null, onRevealedWordsChange = null, revealedWords = new Set(), isWordBankMinimized = false }) {
   const [enlargedImageIndex, setEnlargedImageIndex] = useState(null)
   const [showTranslation, setShowTranslation] = useState(false)
   const [translationData, setTranslationData] = useState(null)
@@ -122,9 +122,11 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
 
   return (
     <div className={`w-full max-w-screen p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
-      revealedWords.size > 0 
-        ? 'mb-[350px] sm:mb-96' 
-        : 'mb-[350px] sm:mb-80'
+      isWordBankMinimized
+        ? 'mb-[60px] sm:mb-[60px]'
+        : revealedWords.size > 0 
+          ? 'mb-[380px] sm:mb-[420px]' 
+          : 'mb-[380px] sm:mb-[420px]'
     }`}>
       {/* Verse Header */}
       <div className="text-center mb-6">

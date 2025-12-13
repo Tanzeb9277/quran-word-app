@@ -1057,6 +1057,97 @@
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
+/* Custom Scrollbar Styles */
+/* WebKit browsers (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--dashboard-card);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  margin: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--dashboard-border);
+  border-radius: 10px;
+  border: 2px solid var(--dashboard-card);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--dashboard-text-muted);
+  border-color: var(--dashboard-card);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: var(--dashboard-text);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--dashboard-card);
+}
+
+/* Dark mode scrollbar adjustments */
+.dark *::-webkit-scrollbar-track {
+  background: var(--dashboard-card);
+  border-color: transparent;
+}
+
+.dark *::-webkit-scrollbar-thumb {
+  background: var(--dashboard-border);
+  border-color: var(--dashboard-card);
+}
+
+.dark *::-webkit-scrollbar-thumb:hover {
+  background: var(--dashboard-text-muted);
+  border-color: var(--dashboard-card);
+}
+
+.dark *::-webkit-scrollbar-thumb:active {
+  background: var(--dashboard-text);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--dashboard-border) var(--dashboard-card);
+}
+
+.dark * {
+  scrollbar-color: var(--dashboard-border) var(--dashboard-card);
+}
+
+/* Specific scrollbar styling for overflow containers (smaller, more subtle) */
+.overflow-y-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-auto::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track,
+.overflow-x-auto::-webkit-scrollbar-track,
+.overflow-auto::-webkit-scrollbar-track {
+  margin: 1px;
+  border: none;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb,
+.overflow-auto::-webkit-scrollbar-thumb {
+  border-width: 1px;
+  border-radius: 8px;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Game/Explorer Page Container - Theme without grid */
 .theme-container {
   background: var(--dashboard-bg) !important;

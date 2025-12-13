@@ -1074,19 +1074,20 @@ export default function GamePage() {
       )}
 
              {verseData && (
-         <VerseViewer 
-           verseData={verseData}
-           onRefresh={gameMode === 'surah' ? () => fetchSpecificVerse(selectedSurah?.surah_number, currentVerse, surahVerses) : fetchRandomVerse}
-           selectedWords={selectedWords}
-           onWordSelect={handleSlotClick}
-           currentFilter={verseLengthFilter}
-           submissionResults={submissionResults}
-           showDetailedInfo={showDetailedInfo}
-           setShowDetailedInfo={setShowDetailedInfo}
-           onRevealedWordsChange={setRevealedWords}
-           revealedWords={revealedWords}
-         />
-       )}
+        <VerseViewer 
+          verseData={verseData}
+          onRefresh={gameMode === 'surah' ? () => fetchSpecificVerse(selectedSurah?.surah_number, currentVerse, surahVerses) : fetchRandomVerse}
+          selectedWords={selectedWords}
+          onWordSelect={handleSlotClick}
+          currentFilter={verseLengthFilter}
+          submissionResults={submissionResults}
+          showDetailedInfo={showDetailedInfo}
+          setShowDetailedInfo={setShowDetailedInfo}
+          onRevealedWordsChange={setRevealedWords}
+          revealedWords={revealedWords}
+          isWordBankMinimized={isWordBankMinimized}
+        />
+      )}
 
       {wordBank.length > 0 && (
         <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg z-[60]">
@@ -1108,7 +1109,7 @@ export default function GamePage() {
           
           {/* Word Bank Content */}
           {!isWordBankMinimized && (
-            <div className="max-h-[400px] overflow-y-auto relative z-[60]">
+            <div className="max-h-[300px] sm:max-h-[350px] overflow-y-auto relative z-[60]">
               <WordBankKeyboard
                 words={wordBank}
                 usedWords={usedWords}
