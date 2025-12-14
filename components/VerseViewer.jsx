@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Maximize2, X } from "lucide-react"
+import { Maximize2, X, Tag } from "lucide-react"
+import Link from "next/link"
 import ArabicWordDisplay from "./ArabicWordDisplay"
 
 /**
@@ -298,14 +299,24 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                     </div>
                   )}
                 </div>
-                <button
-                  onClick={() => setIsTafsirFullscreen(true)}
-                  className="p-2 hover:bg-orange-100 dark:hover:bg-gray-700 rounded transition-colors ml-4"
-                  aria-label="Expand tafsir to fullscreen"
-                  title="Expand to fullscreen"
-                >
-                  <Maximize2 className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href={`/tafsir/${verseData.surah_number}/${getVerseNumber(verseData.verse)}/topics`}
+                    className="p-2 hover:bg-orange-100 dark:hover:bg-gray-700 rounded transition-colors"
+                    aria-label="Assign topics to tafsir"
+                    title="Assign topics"
+                  >
+                    <Tag className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                  </Link>
+                  <button
+                    onClick={() => setIsTafsirFullscreen(true)}
+                    className="p-2 hover:bg-orange-100 dark:hover:bg-gray-700 rounded transition-colors"
+                    aria-label="Expand tafsir to fullscreen"
+                    title="Expand to fullscreen"
+                  >
+                    <Maximize2 className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                  </button>
+                </div>
               </div>
               
               <div className="bg-white dark:bg-gray-700 rounded-lg p-4 shadow-sm border border-orange-100 dark:border-gray-600">
@@ -359,13 +370,23 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
                     </div>
                   )}
                 </div>
-                <button
-                  onClick={() => setIsTafsirFullscreen(false)}
-                  className="p-2 hover:bg-gray-700 rounded transition-colors ml-4"
-                  aria-label="Close fullscreen"
-                >
-                  <X className="w-6 h-6 text-white" />
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href={`/tafsir/${verseData.surah_number}/${getVerseNumber(verseData.verse)}/topics`}
+                    className="p-2 hover:bg-gray-700 rounded transition-colors"
+                    aria-label="Assign topics to tafsir"
+                    title="Assign topics"
+                  >
+                    <Tag className="w-6 h-6 text-white" />
+                  </Link>
+                  <button
+                    onClick={() => setIsTafsirFullscreen(false)}
+                    className="p-2 hover:bg-gray-700 rounded transition-colors"
+                    aria-label="Close fullscreen"
+                  >
+                    <X className="w-6 h-6 text-white" />
+                  </button>
+                </div>
               </div>
               
               {/* Content */}

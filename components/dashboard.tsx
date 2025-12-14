@@ -15,7 +15,8 @@ import {
   Trophy,
   TrendingUp,
   Award,
-  Star
+  Star,
+  Tag
 } from "lucide-react"
 
 // Type definitions
@@ -280,6 +281,10 @@ export default function QuranDashboard() {
           <Link href="/explorer" className="nav-link">
             <Search className="nav-icon" />
             <span className="nav-text">Explorer</span>
+          </Link>
+          <Link href="/admin/tafsir-topics" className="nav-link">
+            <Tag className="nav-icon" />
+            <span className="nav-text">Tafsir Topics</span>
           </Link>
           <ThemeToggle />
         </div>
