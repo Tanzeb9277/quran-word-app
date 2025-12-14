@@ -370,7 +370,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
               
               {/* Content */}
               <div 
-                className="flex-1 overflow-y-auto p-6 bg-gray-900 dark:bg-gray-800"
+                className="flex-1 overflow-y-auto p-6 pb-24 sm:pb-6 bg-gray-900 dark:bg-gray-800"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="max-w-4xl mx-auto">
