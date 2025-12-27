@@ -29,3 +29,44 @@ export async function GET() {
   }
 }
 
+// POST create a new topic
+export async function POST(request) {
+  try {
+    const body = await request.json()
+    const name = body?.name?.trim()
+    const description = body?.description?.trim() || null
+
+    if (!name) {
+      return NextResponse.json({
+        success: false,
+        error: "Topic name is required"
+      }, { status: 400 })
+    }
+
+    const result = await sql`
+      INSERT INTO topics (name, description)
+      VALUES (${name}, ${description})
+      ON CONFLICT (name) DO UPDATE
+      SET description = EXCLUDED.description
+      RETURNING topic_id, name, description
+    `
+
+    const topic = Array.isArray(result) ? result[0] : (result.rows && result.rows[0])
+
+    return NextResponse.json({
+      success: true,
+      data: topic
+    }, { status: 201 })
+  } catch (error) {
+    console.error('Error creating topic:', error)
+
+    // Handle duplicate topic names gracefully if conflict target differs
+    const isConflict = error.code === '23505'
+    return NextResponse.json({
+      success: false,
+      error: isConflict ? "Topic name already exists" : "Failed to create topic",
+      details: error.message
+    }, { status: isConflict ? 409 : 500 })
+  }
+}
+

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Tag, Check, Loader2, Maximize2, X } from 'lucide-react'
+import { ArrowLeft, Tag, Check, Loader2, Maximize2, X, Plus } from 'lucide-react'
 
 export default function TafsirTopicsPage({ params }) {
   const [topics, setTopics] = useState([])
@@ -16,8 +16,13 @@ export default function TafsirTopicsPage({ params }) {
   const [isTafsirFullscreen, setIsTafsirFullscreen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [isSaving, setIsSaving] = useState(false)
+  const [isCreatingTopic, setIsCreatingTopic] = useState(false)
   const [error, setError] = useState(null)
+  const [createError, setCreateError] = useState(null)
   const [success, setSuccess] = useState(false)
+  const [createSuccess, setCreateSuccess] = useState(false)
+  const [newTopicName, setNewTopicName] = useState('')
+  const [newTopicDescription, setNewTopicDescription] = useState('')
   const router = useRouter()
   
   // Unwrap params Promise
@@ -90,6 +95,62 @@ export default function TafsirTopicsPage({ params }) {
       newSelected.add(topicId)
     }
     setSelectedTopics(newSelected)
+  }
+
+  const handleCreateTopic = async () => {
+    const name = newTopicName.trim()
+    const description = newTopicDescription.trim()
+
+    if (!name) {
+      setCreateError('Please enter a topic name.')
+      return
+    }
+
+    try {
+      setIsCreatingTopic(true)
+      setCreateError(null)
+      setCreateSuccess(false)
+
+      const response = await fetch('/api/topics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          description: description || null
+        })
+      })
+
+      const data = await response.json()
+
+      if (data.success && data.data) {
+        const created = data.data
+        setTopics(prev => {
+          const exists = prev.some(t => t.topic_id === created.topic_id)
+          const updated = exists
+            ? prev.map(t => t.topic_id === created.topic_id ? created : t)
+            : [...prev, created]
+          return updated.sort((a, b) => a.name.localeCompare(b.name))
+        })
+
+        setSelectedTopics(prev => {
+          const updated = new Set(prev)
+          updated.add(created.topic_id)
+          return updated
+        })
+
+        setNewTopicName('')
+        setNewTopicDescription('')
+        setCreateSuccess(true)
+        setTimeout(() => setCreateSuccess(false), 2000)
+      } else {
+        setCreateError(data.error || 'Failed to create topic')
+      }
+    } catch (err) {
+      console.error('Error creating topic:', err)
+      setCreateError('Failed to create topic. Please try again.')
+    } finally {
+      setIsCreatingTopic(false)
+    }
   }
 
   const handleSave = async () => {
@@ -330,9 +391,61 @@ export default function TafsirTopicsPage({ params }) {
             </CardDescription>
           </CardHeader>
           <CardContent>
+          <div className="mb-6 p-4 border border-dashed border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800/60">
+            <div className="flex items-start gap-4 flex-col sm:flex-row">
+              <div className="flex-1 space-y-3 w-full">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Custom topic name
+                  </label>
+                  <input
+                    type="text"
+                    value={newTopicName}
+                    onChange={(e) => setNewTopicName(e.target.value)}
+                    placeholder="e.g., Mercy in trials"
+                    className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Description (optional)
+                  </label>
+                  <textarea
+                    value={newTopicDescription}
+                    onChange={(e) => setNewTopicDescription(e.target.value)}
+                    placeholder="Briefly describe this topic"
+                    className="w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                    rows={2}
+                  />
+                </div>
+                {(createError || createSuccess) && (
+                  <p className={`text-sm ${createError ? 'text-red-600 dark:text-red-400' : 'text-green-600 dark:text-green-400'}`}>
+                    {createError || 'Custom topic added and selected.'}
+                  </p>
+                )}
+              </div>
+              <Button
+                onClick={handleCreateTopic}
+                disabled={isCreatingTopic}
+                className="self-stretch sm:self-auto"
+              >
+                {isCreatingTopic ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Adding...
+                  </>
+                ) : (
+                  <>
+                    <Plus className="w-4 h-4 mr-2" />
+                    Add & select
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
             {topics.length === 0 ? (
               <p className="text-gray-500 dark:text-gray-400 text-center py-8">
-                No topics available. Please add topics to the database first.
+              No topics available. Add a custom topic above to get started.
               </p>
             ) : (
               <div className="space-y-2 max-h-[500px] overflow-y-auto">
