@@ -6,7 +6,16 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Tag, Edit, Trash2, Loader2, Search, Filter } from 'lucide-react'
+import { ArrowLeft, Tag, Edit, Trash2, Loader2, Search, Filter, Menu, Home, Brain } from 'lucide-react'
+import ThemeToggle from '@/components/ThemeToggle'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+
+const navLinks = [
+  { href: '/', label: 'Dashboard', icon: Home },
+  { href: '/game', label: 'Knowledge Test', icon: Brain },
+  { href: '/explorer', label: 'Explorer', icon: Search },
+  { href: '/admin/tafsir-topics', label: 'Tafsir Topics', icon: Tag },
+]
 
 export default function TafsirTopicsManagementPage() {
   const [assignments, setAssignments] = useState([])
@@ -18,6 +27,7 @@ export default function TafsirTopicsManagementPage() {
   const [selectedTopicFilter, setSelectedTopicFilter] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
   const router = useRouter()
+  const filteredNavLinks = navLinks.filter((link) => link.href !== '/admin/tafsir-topics')
 
   useEffect(() => {
     fetchData()
@@ -136,10 +146,67 @@ export default function TafsirTopicsManagementPage() {
     return acc
   }, {})
 
+  const renderNavHeader = () => (
+    <header className="border-b bg-card/70 backdrop-blur supports-[backdrop-filter]:backdrop-blur -mx-4 -mt-4 sm:-mx-4">
+      <div className="mx-auto flex w-full max-w-full items-center justify-between gap-3 px-3 py-4 sm:max-w-7xl sm:px-4">
+        <div className="flex items-center gap-2">
+          <Sheet modal={false}>
+            <SheetTrigger className="inline-flex h-10 w-10 items-center justify-center rounded-md border md:hidden">
+              <Menu className="h-5 w-5" />
+            </SheetTrigger>
+            <SheetContent side="left" className="flex h-full w-screen max-w-[100vw] flex-col overflow-y-auto sm:w-80 sm:max-w-sm">
+              <SheetHeader className="pb-4">
+                <SheetTitle>Navigate</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-1 flex-col gap-3">
+                {filteredNavLinks.map((link) => (
+                  <Button key={link.href} asChild variant="outline" className="justify-start">
+                    <Link href={link.href}>
+                      <link.icon className="mr-2 h-4 w-4" />
+                      {link.label}
+                    </Link>
+                  </Button>
+                ))}
+              </div>
+              <div className="mt-auto pt-4">
+                <ThemeToggle />
+              </div>
+            </SheetContent>
+          </Sheet>
+
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
+              <Tag className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-lg font-semibold leading-tight">Tafsir Topics</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden items-center gap-2 md:flex">
+          {filteredNavLinks.map((link) => (
+            <Button key={link.href} asChild variant="ghost" className="text-sm">
+              <Link href={link.href} className="flex items-center gap-2">
+                <link.icon className="h-4 w-4" />
+                {link.label}
+              </Link>
+            </Button>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-2 md:h-10">
+          <ThemeToggle />
+        </div>
+      </div>
+    </header>
+  )
+
   if (isLoading) {
     return (
-      <div className="theme-container">
-        <div className="w-full max-w-6xl mx-auto p-4">
+      <div className="theme-container min-h-screen">
+        {renderNavHeader()}
+        <div className="w-full max-w-6xl mx-auto px-3 sm:px-4 py-6">
           <div className="flex items-center justify-center min-h-[400px]">
             <Loader2 className="w-8 h-8 animate-spin text-gray-500" />
           </div>
@@ -149,18 +216,11 @@ export default function TafsirTopicsManagementPage() {
   }
 
   return (
-    <div className="theme-container">
-      <div className="w-full max-w-6xl mx-auto p-4">
+    <div className="theme-container min-h-screen">
+      {renderNavHeader()}
+      <div className="w-full max-w-6xl mx-auto px-3 sm:px-4 py-6">
         {/* Header */}
         <div className="mb-6">
-          <Link
-            href="/game"
-            className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 mb-4"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Game
-          </Link>
-          
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             Tafsir Topic Assignments
           </h1>

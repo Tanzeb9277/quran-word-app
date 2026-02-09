@@ -20,13 +20,25 @@ import {
   MapPin,
   Grid3x3,
   AlignJustify,
-  BookOpenCheck
+  BookOpenCheck,
+  Brain,
+  Tag,
+  Menu
 } from 'lucide-react'
 import { Switch } from '@/components/ui/switch'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+
+const navLinks = [
+  { href: '/', label: 'Dashboard', icon: Home },
+  { href: '/game', label: 'Knowledge Test', icon: Brain },
+  { href: '/explorer', label: 'Explorer', icon: Search },
+  { href: '/admin/tafsir-topics', label: 'Tafsir Topics', icon: Tag },
+]
 
 export default function ExplorerHome() {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const filteredNavLinks = navLinks.filter((link) => link.href !== '/explorer')
   const [surahs, setSurahs] = useState([])
   const [selectedSurah, setSelectedSurah] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
@@ -161,25 +173,70 @@ export default function ExplorerHome() {
 
   return (
     <div className="theme-container min-h-screen">
-      <div className="max-w-7xl mx-auto p-4">
-        {/* Header */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <Link href="/" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
-              <Home className="w-5 h-5" />
-              <span>Dashboard</span>
-            </Link>
+      <header className="border-b bg-card/70 backdrop-blur supports-[backdrop-filter]:backdrop-blur -mx-4 -mt-4 sm:-mx-4">
+        <div className="mx-auto flex w-full max-w-full items-center justify-between gap-3 px-3 py-4 sm:max-w-7xl sm:px-4">
+          <div className="flex items-center gap-2">
+            <Sheet modal={false}>
+              <SheetTrigger className="inline-flex h-10 w-10 items-center justify-center rounded-md border md:hidden">
+                <Menu className="h-5 w-5" />
+              </SheetTrigger>
+              <SheetContent side="left" className="flex h-full w-screen max-w-[100vw] flex-col overflow-y-auto sm:w-80 sm:max-w-sm">
+                <SheetHeader className="pb-4">
+                  <SheetTitle>Navigate</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-1 flex-col gap-3">
+                  {filteredNavLinks.map((link) => (
+                    <Button key={link.href} asChild variant="outline" className="justify-start">
+                      <Link href={link.href}>
+                        <link.icon className="mr-2 h-4 w-4" />
+                        {link.label}
+                      </Link>
+                    </Button>
+                  ))}
+                </div>
+                <div className="mt-auto pt-4">
+                  <ThemeToggle />
+                </div>
+              </SheetContent>
+            </Sheet>
+
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
+                <Search className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-lg font-semibold leading-tight">Explorer</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="hidden items-center gap-2 md:flex">
+            {filteredNavLinks.map((link) => (
+              <Button key={link.href} asChild variant="ghost" className="text-sm">
+                <Link href={link.href} className="flex items-center gap-2">
+                  <link.icon className="h-4 w-4" />
+                  {link.label}
+                </Link>
+              </Button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2 md:h-10">
             <ThemeToggle />
           </div>
-          
+        </div>
+      </header>
+
+      <div className="w-full max-w-6xl mx-auto px-3 sm:px-4 py-6">
+        <div className="mb-6">
           <div className="text-center mb-6">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
               Quran Word Explorer
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               Discover the true meaning of words through their root forms
             </p>
-        </div>
+          </div>
 
           {/* Surah Selector */}
           <Card className="mb-6">

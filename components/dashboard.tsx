@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
@@ -401,12 +401,6 @@ export default function QuranDashboard() {
                       </Link>
                     </Button>
                   ))}
-                  <Button asChild>
-                    <Link href="/game">
-                      Start session
-                      <ArrowUpRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
                 </div>
                 <div className="mt-auto pt-4">
                   <ThemeToggle />
@@ -420,7 +414,6 @@ export default function QuranDashboard() {
               </div>
               <div>
                 <p className="text-lg font-semibold leading-tight">Quran Word App</p>
-                <p className="text-sm text-muted-foreground">Your performance command center</p>
               </div>
             </div>
           </div>
@@ -436,14 +429,8 @@ export default function QuranDashboard() {
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 md:h-10">
             <ThemeToggle />
-            <Button asChild size="sm" className="hidden md:inline-flex">
-              <Link href="/game">
-                Start session
-                <ArrowUpRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
           </div>
         </div>
       </header>

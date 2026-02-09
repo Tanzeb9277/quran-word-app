@@ -122,12 +122,12 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   }
 
   return (
-    <div className={`w-full max-w-6xl mx-auto p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
+    <div className={`w-full max-w-6xl mx-auto p-3 sm:p-4 bg-white rounded-lg shadow-lg mt-6 sm:mt-8 ${
       isWordBankMinimized
-        ? 'mb-[60px] sm:mb-[60px]'
+        ? 'mb-[80px] sm:mb-[96px]'
         : revealedWords.size > 0 
-          ? 'mb-[380px] sm:mb-[420px]' 
-          : 'mb-[380px] sm:mb-[420px]'
+          ? 'mb-[400px] sm:mb-[440px]' 
+          : 'mb-[400px] sm:mb-[440px]'
     }`}>
       {/* Verse Header */}
       <div className="text-center mb-6">

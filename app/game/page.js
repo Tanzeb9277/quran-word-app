@@ -4,11 +4,18 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Book, Brain, Search, Target, Home, ChevronUp, ChevronDown, Maximize2, X } from "lucide-react"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Book, Brain, Search, Target, ChevronUp, ChevronDown, Maximize2, X, Menu, ArrowUpRight, Tag, Sparkles, Home } from "lucide-react"
 import VerseViewer from "@/components/VerseViewer"
 import WordBankKeyboard from "@/components/WordBankKeyboard"
 import ThemeToggle from "@/components/ThemeToggle"
 import knowledgeTestStatsStore from "@/lib/game-stats"
+
+const navLinks = [
+  { href: "/", label: "Dashboard", icon: Home },
+  { href: "/explorer", label: "Explorer", icon: Search },
+  { href: "/admin/tafsir-topics", label: "Tafsir Topics", icon: Tag },
+]
 
 export default function GamePage() {
   const [verseData, setVerseData] = useState(null)
@@ -798,42 +805,62 @@ export default function GamePage() {
 
 
   return (
-    <div className="theme-container">
-      <div className="w-full max-w-6xl mx-auto">
-        {/* Header Section */}
-        <div className="mb-8">
-          <div className="relative rounded-2xl border border-border/70 bg-card/80 shadow-sm p-4 sm:p-6">
-            <div className="absolute right-4 top-4 sm:right-6 sm:top-6 md:hidden">
-              <ThemeToggle />
-            </div>
-
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
-                  <Brain className="h-5 w-5" />
+    <div className="theme-container min-h-screen">
+      <header className="border-b bg-card/70 backdrop-blur supports-[backdrop-filter]:backdrop-blur -mx-4 -mt-4 sm:-mx-4">
+        <div className="mx-auto flex w-full max-w-full items-center justify-between gap-3 px-3 py-4 sm:max-w-7xl sm:px-4">
+          <div className="flex items-center gap-2">
+            <Sheet modal={false}>
+              <SheetTrigger className="inline-flex h-10 w-10 items-center justify-center rounded-md border md:hidden">
+                <Menu className="h-5 w-5" />
+              </SheetTrigger>
+              <SheetContent side="left" className="flex h-full w-screen max-w-[100vw] flex-col overflow-y-auto sm:w-80 sm:max-w-sm">
+                <SheetHeader className="pb-4">
+                  <SheetTitle>Navigate</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-1 flex-col gap-3">
+                  {navLinks.map((link) => (
+                    <Button key={link.href} asChild variant="outline" className="justify-start">
+                      <Link href={link.href}>
+                        <link.icon className="mr-2 h-4 w-4" />
+                        {link.label}
+                      </Link>
+                    </Button>
+                  ))}
                 </div>
-                <div>
-                  <p className="text-lg font-semibold text-foreground">Knowledge Test</p>
-                  <p className="text-sm text-muted-foreground">
-                    Rebuild the verse using the word bank below.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Button asChild variant="outline" className="gap-2">
-                  <Link href="/">
-                    <Home className="h-4 w-4" />
-                    Dashboard
-                  </Link>
-                </Button>
-                <div className="hidden md:block">
+                <div className="mt-auto pt-4">
                   <ThemeToggle />
                 </div>
+              </SheetContent>
+            </Sheet>
+
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
+                <Brain className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-lg font-semibold leading-tight">Knowledge Test</p>
               </div>
             </div>
           </div>
+
+          <div className="hidden items-center gap-2 md:flex">
+            {navLinks.map((link) => (
+              <Button key={link.href} asChild variant="ghost" className="text-sm">
+                <Link href={link.href} className="flex items-center gap-2">
+                  <link.icon className="h-4 w-4" />
+                  {link.label}
+                </Link>
+              </Button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2 md:h-10">
+            <ThemeToggle />
+          </div>
         </div>
+      </header>
+
+      <div className="w-full max-w-6xl mx-auto pt-8">
 
         {/* Controls Section */}
         <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
