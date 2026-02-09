@@ -7,7 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Book, Brain, Search, Target, Home, ChevronUp, ChevronDown, Maximize2, X } from "lucide-react"
 import VerseViewer from "@/components/VerseViewer"
 import WordBankKeyboard from "@/components/WordBankKeyboard"
-import GameSummary from "@/components/GameSummary"
 import ThemeToggle from "@/components/ThemeToggle"
 import knowledgeTestStatsStore from "@/lib/game-stats"
 
@@ -803,75 +802,38 @@ export default function GamePage() {
       <div className="w-full max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="mb-8">
-          {/* Main Header */}
-          <div className="mb-6">
-            {/* Mobile Layout */}
-            <div className="sm:hidden">
-              {/* Top row - Navigation and Theme */}
-              <div className="flex items-center justify-between mb-4">
-                <Link href="/" className="nav-link-icon-only">
-                  <Home className="nav-icon" />
-                </Link>
-                <ThemeToggle />
-              </div>
-              
-              {/* Title */}
-              <div className="text-center mb-4">
-                <h1 className="dashboard-main-title text-2xl mb-2">
-                  Quran Word App
-                </h1>
-                <div className="flex items-center justify-center gap-2 text-sm dashboard-subtitle">
-                  <Brain className="w-4 h-4" />
-                  <span className="font-medium">Knowledge Test</span>
-                </div>
-              </div>
-              
-              {/* Game Summary */}
-              <div className="mb-4 flex justify-center">
-                <GameSummary />
-              </div>
-              
-              {/* Description */}
-              <p className="text-sm dashboard-subtitle text-center leading-relaxed">
-                Test your knowledge by rebuilding the verse using the word bank below
-              </p>
+          <div className="relative rounded-2xl border border-border/70 bg-card/80 shadow-sm p-4 sm:p-6">
+            <div className="absolute right-4 top-4 sm:right-6 sm:top-6 md:hidden">
+              <ThemeToggle />
             </div>
-            
-            {/* Desktop Layout */}
-            <div className="hidden sm:block">
-              <div className="flex items-center justify-between gap-4 mb-6">
-                {/* Left - Navigation */}
-                <div className="flex items-center gap-2">
-                  <Link href="/" className="nav-link">
-                    <Home className="nav-icon" />
-                    <span className="nav-text">Dashboard</span>
-                  </Link>
+
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
+                  <Brain className="h-5 w-5" />
                 </div>
-                
-                {/* Center - Title */}
-                <div className="flex-1 text-center">
-                  <h1 className="dashboard-main-title text-3xl lg:text-4xl mb-2">
-                    Quran Word App
-                  </h1>
-                  <div className="flex items-center justify-center gap-2 text-base dashboard-subtitle">
-                    <Brain className="w-5 h-5" />
-                    <span className="font-medium">Knowledge Test</span>
-                  </div>
-                </div>
-                
-                {/* Right - Theme Toggle & GameSummary */}
-                <div className="flex items-center gap-2">
-                  <ThemeToggle />
-                  <GameSummary />
+                <div>
+                  <p className="text-lg font-semibold text-foreground">Knowledge Test</p>
+                  <p className="text-sm text-muted-foreground">
+                    Rebuild the verse using the word bank below.
+                  </p>
                 </div>
               </div>
-              
-              {/* Description */}
-              <p className="text-base dashboard-subtitle text-center max-w-2xl mx-auto leading-relaxed">
-                Test your knowledge by rebuilding the verse using the word bank below
-              </p>
+
+              <div className="flex items-center gap-2">
+                <Button asChild variant="outline" className="gap-2">
+                  <Link href="/">
+                    <Home className="h-4 w-4" />
+                    Dashboard
+                  </Link>
+                </Button>
+                <div className="hidden md:block">
+                  <ThemeToggle />
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
         {/* Controls Section */}
         <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
@@ -1047,7 +1009,7 @@ export default function GamePage() {
       {loading && (
         <div className="text-center py-12">
           <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-8 max-w-md mx-auto">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Loading Verse</h3>
             <p className="text-gray-600 dark:text-gray-300">Finding the perfect verse for your test...</p>
           </div>
@@ -1062,21 +1024,21 @@ export default function GamePage() {
             </div>
             <h3 className="text-lg font-semibold text-red-900 dark:text-red-100 mb-2">Oops! Something went wrong</h3>
             <p className="text-red-700 dark:text-red-300 mb-4">{error}</p>
-            <Button 
-              onClick={fetchRandomVerse} 
-              className="bg-red-600 hover:bg-red-700 text-white"
-              variant="outline"
-            >
+            <Button onClick={fetchRandomVerse} className="bg-red-600 hover:bg-red-700 text-white" variant="outline">
               Try Again
             </Button>
           </div>
         </div>
       )}
 
-             {verseData && (
-        <VerseViewer 
+      {verseData && (
+        <VerseViewer
           verseData={verseData}
-          onRefresh={gameMode === 'surah' ? () => fetchSpecificVerse(selectedSurah?.surah_number, currentVerse, surahVerses) : fetchRandomVerse}
+          onRefresh={
+            gameMode === 'surah'
+              ? () => fetchSpecificVerse(selectedSurah?.surah_number, currentVerse, surahVerses)
+              : fetchRandomVerse
+          }
           selectedWords={selectedWords}
           onWordSelect={handleSlotClick}
           currentFilter={verseLengthFilter}
@@ -1091,7 +1053,6 @@ export default function GamePage() {
 
       {wordBank.length > 0 && (
         <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg z-[60]">
-          {/* Word Bank Header with Minimize Button */}
           <div className="flex items-center justify-between px-4 py-2 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-[61] relative">
             <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Word Bank</h3>
             <button
@@ -1106,8 +1067,7 @@ export default function GamePage() {
               )}
             </button>
           </div>
-          
-          {/* Word Bank Content */}
+
           {!isWordBankMinimized && (
             <div className="max-h-[300px] sm:max-h-[350px] overflow-y-auto relative z-[60]">
               <WordBankKeyboard
@@ -1116,9 +1076,11 @@ export default function GamePage() {
                 onWordSelect={handleWordSelect}
                 onRevealNext={handleRevealNext}
                 onClearAll={handleClearAll}
-                onShowUsedWords={() => {}} // This is handled internally in the component
-                canRevealNext={!submissionResults && selectedWords.some((word, index) => !word && !revealedWords.has(index))}
-                hasSelectedWords={!submissionResults && selectedWords.some(word => word !== null)}
+                onShowUsedWords={() => {}}
+                canRevealNext={
+                  !submissionResults && selectedWords.some((word, index) => !word && !revealedWords.has(index))
+                }
+                hasSelectedWords={!submissionResults && selectedWords.some((word) => word !== null)}
                 isSubmitted={!!submissionResults}
                 selectedWords={selectedWords}
                 revealedWords={revealedWords}
@@ -1129,7 +1091,6 @@ export default function GamePage() {
           )}
         </div>
       )}
-      </div>
     </div>
   )
 }

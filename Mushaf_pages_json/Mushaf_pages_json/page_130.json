@@ -1,0 +1,146 @@
+{
+  "page_number": 130,
+  "info": {
+    "name": "Quran Complex V1 ( 1405 print )",
+    "number_of_pages": 604,
+    "lines_per_page": 15,
+    "font_name": "v1"
+  },
+  "lines": [
+    {
+      "page_number": 130,
+      "line_number": 1,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17241,
+      "last_word_id": 17253,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 2,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17254,
+      "last_word_id": 17263,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 3,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17264,
+      "last_word_id": 17276,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 4,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17277,
+      "last_word_id": 17284,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 5,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17285,
+      "last_word_id": 17294,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 6,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17295,
+      "last_word_id": 17306,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 7,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17307,
+      "last_word_id": 17316,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 8,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17317,
+      "last_word_id": 17328,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 9,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17329,
+      "last_word_id": 17339,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 10,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17340,
+      "last_word_id": 17350,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 11,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17351,
+      "last_word_id": 17361,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 12,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17362,
+      "last_word_id": 17373,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 13,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17374,
+      "last_word_id": 17383,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 14,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17384,
+      "last_word_id": 17395,
+      "surah_number": null
+    },
+    {
+      "page_number": 130,
+      "line_number": 15,
+      "line_type": "ayah",
+      "is_centered": 0,
+      "first_word_id": 17396,
+      "last_word_id": 17406,
+      "surah_number": null
+    }
+  ]
+}

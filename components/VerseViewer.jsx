@@ -113,7 +113,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   // Guard against undefined verseData
   if (!verseData || !verseData.words) {
     return (
-      <div className="w-full max-w-4xl mx-auto p-4 bg-white rounded-lg shadow-lg">
+      <div className="w-full max-w-6xl mx-auto p-4 bg-white rounded-lg shadow-lg">
         <div className="text-center py-8">
           <p className="text-gray-500">No verse data available</p>
         </div>
@@ -122,7 +122,7 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
   }
 
   return (
-    <div className={`w-full max-w-screen p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
+    <div className={`w-full max-w-6xl mx-auto p-3 sm:p-4 bg-white rounded-lg shadow-lg ${
       isWordBankMinimized
         ? 'mb-[60px] sm:mb-[60px]'
         : revealedWords.size > 0 

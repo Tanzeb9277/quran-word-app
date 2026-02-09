@@ -1,25 +1,45 @@
-"use client"
+﻿"use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
 import knowledgeTestStatsStore from "@/lib/game-stats"
 import ThemeToggle from "./ThemeToggle"
-import { 
-  Brain,
-  Search,
-  BookOpen,
+import {
+  ArrowUpRight,
   BarChart3,
+  BookOpen,
+  Brain,
+  CheckCircle2,
+  Flame,
+  Menu,
+  Search,
+  Sparkles,
   Target,
-  ClipboardList,
-  Clock,
   Trophy,
-  TrendingUp,
-  Award,
-  Star,
-  Tag
+  Clock,
+  Tag,
 } from "lucide-react"
 
-// Type definitions
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Progress } from "@/components/ui/progress"
+import { Separator } from "@/components/ui/separator"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Skeleton } from "@/components/ui/skeleton"
+import { cn } from "@/lib/utils"
+
 interface SessionData {
   id: string
   timestamp: string
@@ -71,22 +91,32 @@ interface DashboardData {
   }>
 }
 
-// Helper function to calculate streak
+const navLinks = [
+  { href: "/game", label: "Knowledge Test", icon: Brain },
+  { href: "/explorer", label: "Explorer", icon: Search },
+  { href: "/admin/tafsir-topics", label: "Tafsir Topics", icon: Tag },
+]
+
+const priorityTone: Record<string, "destructive" | "secondary" | "outline"> = {
+  high: "destructive",
+  medium: "secondary",
+  low: "outline",
+}
+
 const calculateStreak = (sessions: SessionData[]) => {
   if (sessions.length === 0) return 0
-  
-  // Sort sessions by date (most recent first)
-  const sortedSessions = [...sessions].sort((a, b) => 
-    new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+
+  const sortedSessions = [...sessions].sort(
+    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
   )
-  
+
   let streak = 0
   let currentDate = new Date()
-  
+
   for (const session of sortedSessions) {
     const sessionDate = new Date(session.timestamp)
     const daysDiff = Math.floor((currentDate.getTime() - sessionDate.getTime()) / (1000 * 60 * 60 * 24))
-    
+
     if (daysDiff === streak) {
       streak++
       currentDate = sessionDate
@@ -94,68 +124,137 @@ const calculateStreak = (sessions: SessionData[]) => {
       break
     }
   }
-  
+
   return streak
 }
 
-// Helper function to format date
 const formatDate = (dateString: string) => {
   const date = new Date(dateString)
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   })
 }
 
-// Helper function to analyze areas to work on
 const analyzeAreasToWorkOn = (sessions: SessionData[]) => {
-  const missedWords = new Map()
-  const grammarMistakes = new Map()
-  const rootMistakes = new Map()
-  
-  sessions.forEach(session => {
+  const missedWords = new Map<string, number>()
+
+  sessions.forEach((session) => {
     if (session.wordResults) {
       session.wordResults.forEach((result: any) => {
         if (!result.isCorrect) {
-          // Track missed words
           const word = result.correctWord
           missedWords.set(word, (missedWords.get(word) || 0) + 1)
-          
-          // You could add more sophisticated analysis here
-          // based on the word's grammar, root, etc.
         }
       })
     }
   })
-  
-  // Get top missed words
+
   const topMissedWords = Array.from(missedWords.entries())
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3)
     .map(([word]) => word)
-  
+
   return [
     {
       category: "Missed Words",
       items: topMissedWords.length > 0 ? topMissedWords : ["No data yet"],
-      accuracy: topMissedWords.length > 0 ? Math.max(0, 100 - (topMissedWords.length * 10)) : 100,
+      accuracy: topMissedWords.length > 0 ? Math.max(0, 100 - topMissedWords.length * 10) : 100,
       priority: topMissedWords.length > 2 ? "high" : topMissedWords.length > 0 ? "medium" : "low",
     },
     {
       category: "Grammar Rules",
       items: ["Definite Articles", "Plural Forms", "Verb Conjugation"],
-      accuracy: 85, // Placeholder - could be calculated from actual grammar mistakes
+      accuracy: 85,
       priority: "medium",
     },
     {
       category: "Root Words",
       items: ["ر-ح-م", "س-م-و", "أ-ر-ض"],
-      accuracy: 90, // Placeholder - could be calculated from actual root mistakes
+      accuracy: 90,
       priority: "low",
     },
   ]
+}
+
+function MetricTile({
+  label,
+  value,
+  helper,
+  progress,
+}: {
+  label: string
+  value: string | number
+  helper: string
+  progress?: number
+}) {
+  return (
+    <div className="rounded-xl border border-border/70 bg-muted/30 p-4 shadow-sm">
+      <div className="flex items-center justify-between text-sm text-muted-foreground">
+        <span>{label}</span>
+        <span className="font-semibold text-foreground">{value}</span>
+      </div>
+      {typeof progress === "number" ? (
+        <>
+          <div className="mt-3">
+            <Progress value={progress} className="h-2" />
+          </div>
+          <p className="mt-2 text-xs text-muted-foreground">{helper}</p>
+        </>
+      ) : (
+        <p className="mt-2 text-xs text-muted-foreground">{helper}</p>
+      )}
+    </div>
+  )
+}
+
+function QuickStat({
+  label,
+  value,
+  helper,
+}: {
+  label: string
+  value: string | number
+  helper: string
+}) {
+  return (
+    <div className="rounded-lg border border-border/70 bg-card/70 p-3 shadow-sm">
+      <p className="text-xs text-muted-foreground">{label}</p>
+      <p className="text-xl font-semibold leading-tight text-foreground">{value}</p>
+      <p className="text-xs text-muted-foreground">{helper}</p>
+    </div>
+  )
+}
+
+function DashboardSkeleton() {
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="mx-auto max-w-7xl space-y-6 px-4 py-10">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Skeleton className="h-12 w-12 rounded-full" />
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-40" />
+              <Skeleton className="h-3 w-28" />
+            </div>
+          </div>
+          <Skeleton className="h-10 w-40" />
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, idx) => (
+            <Skeleton key={idx} className="h-28 rounded-xl" />
+          ))}
+        </div>
+        <Skeleton className="h-80 rounded-xl" />
+        <div className="grid gap-4 lg:grid-cols-[2fr,1fr]">
+          <Skeleton className="h-96 rounded-xl" />
+          <Skeleton className="h-96 rounded-xl" />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default function QuranDashboard() {
@@ -174,44 +273,28 @@ export default function QuranDashboard() {
     recentSessions: [],
     areasToWorkOn: [],
   })
-  const [expandedCards, setExpandedCards] = useState<{
-    stats: boolean
-    performance: boolean
-    activity: boolean
-    areasToWorkOn: boolean
-  }>({
-    stats: false,
-    performance: false,
-    activity: false,
-    areasToWorkOn: false,
-  })
-
-  const [expandedSessions, setExpandedSessions] = useState<{ [key: number]: boolean }>({})
   const [isLoading, setIsLoading] = useState(true)
-  const [showMobileSidebar, setShowMobileSidebar] = useState(false)
 
-  // Load session data on component mount
   useEffect(() => {
     const loadSessionData = () => {
       try {
         const stats = knowledgeTestStatsStore.getStats()
         const recentSessions = knowledgeTestStatsStore.getRecentSessions(10)
-        
+
         const streak = calculateStreak(recentSessions)
         const areasToWorkOn = analyzeAreasToWorkOn(recentSessions)
-        
-        // Format recent sessions for display
+
         const formattedSessions = recentSessions.map((session: SessionData, index: number) => ({
           id: index + 1,
           date: formatDate(session.timestamp),
-          verses: 1, // Each session is one verse
+          verses: 1,
           words: session.totalWords,
           accuracy: Math.round(session.accuracy * 10) / 10,
           surahNumber: session.surahNumber,
           verse: session.verse,
           isPerfect: session.isPerfect,
           revealedWords: session.revealedWords,
-          originalSession: session
+          originalSession: session,
         }))
 
         setData({
@@ -229,10 +312,10 @@ export default function QuranDashboard() {
           recentSessions: formattedSessions,
           areasToWorkOn: areasToWorkOn,
         })
-        
+
         setIsLoading(false)
       } catch (error) {
-        console.error('Error loading session data:', error)
+        console.error("Error loading session data:", error)
         setIsLoading(false)
       }
     }
@@ -240,490 +323,450 @@ export default function QuranDashboard() {
     loadSessionData()
   }, [])
 
-  const toggleCard = (cardName: keyof typeof expandedCards) => {
-    setExpandedCards((prev) => ({
-      ...prev,
-      [cardName]: !prev[cardName],
-    }))
-  }
+  const todaySessions = useMemo(
+    () =>
+      data.recentSessions.filter((s) => {
+        const today = new Date().toDateString()
+        const sessionDate = new Date(s.originalSession.timestamp).toDateString()
+        return today === sessionDate
+      }).length,
+    [data.recentSessions],
+  )
 
-  const toggleSession = (sessionId: number) => {
-    setExpandedSessions((prev) => ({
-      ...prev,
-      [sessionId]: !prev[sessionId],
-    }))
-  }
+  const weekSessions = useMemo(
+    () =>
+      data.recentSessions.filter((s) => {
+        const weekAgo = new Date()
+        weekAgo.setDate(weekAgo.getDate() - 7)
+        return new Date(s.originalSession.timestamp) >= weekAgo
+      }).length,
+    [data.recentSessions],
+  )
+
+  const bestAccuracy = useMemo(
+    () => (data.recentSessions.length ? Math.max(...data.recentSessions.map((s) => s.accuracy)) : 0),
+    [data.recentSessions],
+  )
+
+  const averageWords = useMemo(() => {
+    if (!data.recentSessions.length) return 0
+    const total = data.recentSessions.reduce((sum, s) => sum + s.words, 0)
+    return Math.round(total / data.recentSessions.length)
+  }, [data.recentSessions])
+
+  const perfectSessionCount = useMemo(
+    () => data.recentSessions.filter((s) => s.isPerfect).length,
+    [data.recentSessions],
+  )
+
+  const revealedWordsTotal = useMemo(
+    () => data.recentSessions.reduce((sum, session) => sum + (session.revealedWords || 0), 0),
+    [data.recentSessions],
+  )
+
+  const averageMistakes = useMemo(() => {
+    if (!data.recentSessions.length) return 0
+    const total = data.recentSessions.reduce(
+      (sum, session) => sum + (session.originalSession.inaccurateGuesses || 0),
+      0,
+    )
+    return Math.round((total / data.recentSessions.length) * 10) / 10
+  }, [data.recentSessions])
+
+  const latestSession = data.recentSessions[0]
 
   if (isLoading) {
-    return (
-      <div className="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50">
-        <div className="loading-state">
-          <div className="loading-spinner"></div>
-          <p>Loading your progress...</p>
-        </div>
-      </div>
-    )
+    return <DashboardSkeleton />
   }
 
   return (
-    <div className="dashboard-container">
-      {/* Navigation Header */}
-      <div className="dashboard-header">
-        <div className="dashboard-title">
-          <h1 className="dashboard-main-title">Quran Word App</h1>
-          <p className="dashboard-subtitle">Track your learning progress and continue your journey</p>
-        </div>
-        <div className="dashboard-nav">
-          <Link href="/game" className="nav-link">
-            <Brain className="nav-icon" />
-            <span className="nav-text">Knowledge Test</span>
-          </Link>
-          <Link href="/explorer" className="nav-link">
-            <Search className="nav-icon" />
-            <span className="nav-text">Explorer</span>
-          </Link>
-          <Link href="/admin/tafsir-topics" className="nav-link">
-            <Tag className="nav-icon" />
-            <span className="nav-text">Tafsir Topics</span>
-          </Link>
-          <ThemeToggle />
-        </div>
-      </div>
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="border-b bg-card/70 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
+        <div className="mx-auto flex w-full max-w-full items-center justify-between gap-3 px-3 py-4 sm:max-w-7xl sm:px-4">
+          <div className="flex items-center gap-2">
+            <Sheet modal={false}>
+              <SheetTrigger className="inline-flex h-10 w-10 items-center justify-center rounded-md border md:hidden">
+                <Menu className="h-5 w-5" />
+              </SheetTrigger>
+              <SheetContent side="left" className="flex h-full w-screen max-w-[100vw] flex-col overflow-y-auto sm:w-80 sm:max-w-sm">
+                <SheetHeader className="pb-4">
+                  <SheetTitle>Navigate</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-1 flex-col gap-3">
+                  {navLinks.map((link) => (
+                    <Button key={link.href} asChild variant="outline" className="justify-start">
+                      <Link href={link.href}>
+                        <link.icon className="mr-2 h-4 w-4" />
+                        {link.label}
+                      </Link>
+                    </Button>
+                  ))}
+                  <Button asChild>
+                    <Link href="/game">
+                      Start session
+                      <ArrowUpRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+                <div className="mt-auto pt-4">
+                  <ThemeToggle />
+                </div>
+              </SheetContent>
+            </Sheet>
 
-      {/* Stats Overview Card */}
-      <div className="stats-card">
-        <div className="stats-card-header" onClick={() => toggleCard("stats")}>
-          <h2 className="stats-card-title">Overview</h2>
-          <div className="stats-card-controls">
-            <BarChart3 className="stats-card-icon" />
-            <div className={`expand-icon ${expandedCards.stats ? "expanded" : ""}`}>▼</div>
-          </div>
-        </div>
-        <div className="stats-grid">
-          <div className="stat-item">
-            <div className="stat-value">{data.stats.totalWords}</div>
-            <div className="stat-label">Words</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-value">{data.stats.accuracy}%</div>
-            <div className="stat-label">Accuracy</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-value">{data.stats.streak}</div>
-            <div className="stat-label">Day Streak</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-value">{data.stats.perfectVerses}</div>
-            <div className="stat-label">Perfect</div>
-          </div>
-        </div>
-
-        {expandedCards.stats && (
-          <div className="expanded-content">
-            <div className="detailed-stats">
-              <div className="detailed-stat-row">
-                <span>Total Verses Studied:</span>
-                <span>{data.stats.perfectVerses + Math.max(0, data.recentSessions.length - data.stats.perfectVerses)}</span>
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
+                <Sparkles className="h-5 w-5" />
               </div>
-              <div className="detailed-stat-row">
-                <span>Unique Words Learned:</span>
-                <span>{data.performance.wordsLearned}</span>
-              </div>
-              <div className="detailed-stat-row">
-                <span>Current Streak:</span>
-                <span>{data.stats.streak} days</span>
-              </div>
-              <div className="detailed-stat-row">
-                <span>Total Words Attempted:</span>
-                <span>{data.stats.totalWords}</span>
-              </div>
-              <div className="detailed-stat-row">
-                <span>Perfect Verses:</span>
-                <span>{data.stats.perfectVerses}</span>
-              </div>
-              <div className="detailed-stat-row">
-                <span>Revealed Words:</span>
-                <span>{data.recentSessions.reduce((sum, session) => sum + (session.revealedWords || 0), 0)}</span>
+              <div>
+                <p className="text-lg font-semibold leading-tight">Quran Word App</p>
+                <p className="text-sm text-muted-foreground">Your performance command center</p>
               </div>
             </div>
           </div>
-        )}
-      </div>
 
-      {/* Performance Card */}
-      <div className="performance-card">
-        <div className="performance-header" onClick={() => toggleCard("performance")}>
-          <div className="performance-left">
-            <Target className="performance-icon" />
-            <h2 className="performance-title">Performance</h2>
+          <div className="hidden items-center gap-2 md:flex">
+            {navLinks.map((link) => (
+              <Button key={link.href} asChild variant="ghost" className="text-sm">
+                <Link href={link.href} className="flex items-center gap-2">
+                  <link.icon className="h-4 w-4" />
+                  {link.label}
+                </Link>
+              </Button>
+            ))}
           </div>
-          <div className={`expand-icon ${expandedCards.performance ? "expanded" : ""}`}>▼</div>
-        </div>
 
-        <div className="progress-bar-container">
-          <div className="progress-label">
-            <span className="progress-text">Overall Accuracy</span>
-            <span className="progress-percentage">{data.performance.accuracy}%</span>
-          </div>
-          <div className="progress-bar">
-            <div className="progress-fill" style={{ width: `${data.performance.accuracy}%` }}></div>
-          </div>
-        </div>
-
-        <div className="progress-bar-container">
-          <div className="progress-label">
-            <span className="progress-text">Perfect Verses</span>
-            <span className="progress-percentage">{data.performance.perfectRate}%</span>
-          </div>
-          <div className="progress-bar">
-            <div className="progress-fill" style={{ width: `${data.performance.perfectRate}%` }}></div>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button asChild size="sm" className="hidden md:inline-flex">
+              <Link href="/game">
+                Start session
+                <ArrowUpRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
+      </header>
 
-        {expandedCards.performance && (
-          <div className="expanded-content">
-            <div className="performance-breakdown">
-              <h4>Performance by Category</h4>
-              <div className="category-performance">
-                <div className="category-item">
-                  <span>Nouns</span>
-                  <div className="mini-progress">
-                    <div className="mini-progress-fill" style={{ width: "92%" }}></div>
-                  </div>
-                  <span>92%</span>
-                </div>
-                <div className="category-item">
-                  <span>Verbs</span>
-                  <div className="mini-progress">
-                    <div className="mini-progress-fill" style={{ width: "88%" }}></div>
-                  </div>
-                  <span>88%</span>
-                </div>
-                <div className="category-item">
-                  <span>Particles</span>
-                  <div className="mini-progress">
-                    <div className="mini-progress-fill" style={{ width: "96%" }}></div>
-                  </div>
-                  <span>96%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Areas to Work On Card */}
-      <div className="areas-card">
-        <div className="areas-header" onClick={() => toggleCard("areasToWorkOn")}>
-          <div className="areas-left">
-            <ClipboardList className="areas-icon" />
-            <h2 className="areas-title">Areas to Work On</h2>
-          </div>
-          <div className={`expand-icon ${expandedCards.areasToWorkOn ? "expanded" : ""}`}>▼</div>
-        </div>
-
-        <div className="areas-list">
-          {data.areasToWorkOn.map((area, index) => (
-            <div key={index} className={`area-item priority-${area.priority}`}>
-              <div className="area-info">
-                <div className="area-category">{area.category}</div>
-                <div className="area-accuracy">{area.accuracy}% accuracy</div>
-              </div>
-              <div className={`priority-badge priority-${area.priority}`}>{area.priority}</div>
-            </div>
+      <main className="mx-auto w-full max-w-full space-y-8 px-3 py-8 sm:max-w-7xl sm:px-4">
+        <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            {
+              label: "Words studied",
+              value: data.stats.totalWords,
+              icon: BookOpen,
+              helper: "Lifetime attempts",
+            },
+            {
+              label: "Accuracy",
+              value: `${data.stats.accuracy}%`,
+              icon: Target,
+              helper: "Overall average",
+            },
+            {
+              label: "Day streak",
+              value: `${data.stats.streak}d`,
+              icon: Flame,
+              helper: "Consistency",
+            },
+            {
+              label: "Perfect verses",
+              value: data.stats.perfectVerses,
+              icon: Trophy,
+              helper: "No mistakes",
+            },
+          ].map((item) => (
+            <Card key={item.label} className="border-border/70 bg-card/80 shadow-sm">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium text-foreground">{item.label}</CardTitle>
+                <item.icon className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent className="space-y-1">
+                <div className="text-3xl font-semibold tracking-tight text-foreground">{item.value}</div>
+                <p className="text-xs text-muted-foreground">{item.helper}</p>
+              </CardContent>
+            </Card>
           ))}
-        </div>
+        </section>
 
-        {expandedCards.areasToWorkOn && (
-          <div className="expanded-content">
-            <div className="areas-breakdown">
+        <section className="grid gap-6 lg:grid-cols-[2fr,1fr]">
+          <Card className="border-border/70 bg-card/80 shadow-sm">
+            <CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <CardTitle className="flex items-center gap-2 text-foreground">
+                  <BarChart3 className="h-4 w-4" />
+                  Performance pulse
+                </CardTitle>
+                <CardDescription>Track accuracy, mastery, and momentum at a glance.</CardDescription>
+              </div>
+              <Badge variant="outline" className="gap-1">
+                <CheckCircle2 className="h-3.5 w-3.5" />
+                {data.performance.wordsLearned} unique words
+              </Badge>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <Tabs defaultValue="overview" className="space-y-6">
+                <TabsList className="bg-muted/50">
+                  <TabsTrigger value="overview">Overview</TabsTrigger>
+                  <TabsTrigger value="quality">Quality</TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="overview" className="space-y-4">
+                  <div className="grid gap-4 md:grid-cols-3">
+                    <MetricTile
+                      label="Accuracy"
+                      value={`${data.performance.accuracy}%`}
+                      helper="Overall precision"
+                      progress={data.performance.accuracy}
+                    />
+                    <MetricTile
+                      label="Perfect rate"
+                      value={`${data.performance.perfectRate}%`}
+                      helper="Flawless verses"
+                      progress={data.performance.perfectRate}
+                    />
+                    <MetricTile
+                      label="Words mastered"
+                      value={data.performance.wordsLearned}
+                      helper="Unique across sessions"
+                    />
+                  </div>
+                  <Separator />
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-xl border border-border/70 bg-muted/20 p-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm font-semibold">Latest session</p>
+                          <p className="text-xs text-muted-foreground">
+                            {latestSession ? latestSession.date : "No sessions yet"}
+                          </p>
+                        </div>
+                        <Badge variant="secondary" className="gap-1">
+                          <Clock className="h-3.5 w-3.5" />
+                          recent
+                        </Badge>
+                      </div>
+                      {latestSession ? (
+                        <div className="mt-4 space-y-2 text-sm">
+                          <div className="flex items-center justify-between">
+                            <span className="text-muted-foreground">Surah:Verse</span>
+                            <span className="font-medium">
+                              {latestSession.surahNumber}:{latestSession.verse}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-muted-foreground">Words</span>
+                            <span className="font-medium">{latestSession.words}</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-muted-foreground">Accuracy</span>
+                            <span className="font-medium">{latestSession.accuracy}%</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className="mt-4 text-sm text-muted-foreground">Complete a session to see insights.</p>
+                      )}
+                    </div>
+                    <div className="rounded-xl border border-border/70 bg-muted/20 p-4">
+                      <p className="text-sm font-semibold">Consistency</p>
+                      <p className="text-xs text-muted-foreground">How steady your practice is.</p>
+                      <div className="mt-4 space-y-2 text-sm">
+                        <div className="flex items-center justify-between">
+                          <span className="text-muted-foreground">Day streak</span>
+                          <span className="font-medium">{data.stats.streak} days</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-muted-foreground">Perfect sessions</span>
+                          <span className="font-medium">{perfectSessionCount}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-muted-foreground">Revealed words</span>
+                          <span className="font-medium">{revealedWordsTotal}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="quality" className="space-y-4">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Badge variant="secondary" className="gap-1">
+                      <BarChart3 className="h-3.5 w-3.5" />
+                      Quality signals
+                    </Badge>
+                    <p className="text-sm text-muted-foreground">
+                      Track mistakes and revealed hints to focus on mastery.
+                    </p>
+                  </div>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <MetricTile
+                      label="Avg. mistakes"
+                      value={averageMistakes}
+                      helper="Per session"
+                      progress={Math.min(100, (averageMistakes / 5) * 100)}
+                    />
+                    <MetricTile
+                      label="Hints used"
+                      value={revealedWordsTotal}
+                      helper="Revealed words"
+                      progress={Math.min(
+                        100,
+                        (revealedWordsTotal / Math.max(1, data.stats.totalWords || 1)) * 100,
+                      )}
+                    />
+                  </div>
+                  <div className="rounded-xl border border-border/70 bg-muted/10 p-4">
+                    <p className="text-sm font-semibold">Focus areas</p>
+                    <p className="text-xs text-muted-foreground">Top categories to revisit soon.</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {data.areasToWorkOn.slice(0, 4).map((area, idx) => (
+                        <Badge
+                          key={`${area.category}-${idx}`}
+                          variant={priorityTone[area.priority]}
+                          className="capitalize"
+                        >
+                          {area.category}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/70 bg-card/80 shadow-sm">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-foreground">
+                <Brain className="h-4 w-4" />
+                Quick actions & insights
+              </CardTitle>
+              <CardDescription>Jump back in and keep the streak alive.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="grid gap-3 sm:grid-cols-2">
+                <QuickStat label="Today's sessions" value={todaySessions} helper="Completed today" />
+                <QuickStat label="This week" value={weekSessions} helper="Sessions in the last 7 days" />
+                <QuickStat label="Best accuracy" value={`${bestAccuracy}%`} helper="Personal best" />
+                <QuickStat label="Avg. words" value={averageWords} helper="Per recent session" />
+              </div>
+
+              <Separator />
+
+              <div className="rounded-xl border border-border/70 bg-muted/20 p-4">
+                <div className="flex items-center gap-3">
+                  <Avatar className="h-10 w-10">
+                    <AvatarFallback className="bg-primary text-primary-foreground">QW</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="text-sm font-semibold">Stay on pace</p>
+                    <p className="text-xs text-muted-foreground">
+                      Your streak thrives on short, focused sessions.
+                    </p>
+                  </div>
+                </div>
+                <Button asChild className="mt-4 w-full">
+                  <Link href="/game">
+                    Resume practice
+                    <ArrowUpRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="grid gap-6 lg:grid-cols-[2fr,1fr]">
+          <Card className="border-border/70 bg-card/80 shadow-sm">
+            <CardHeader className="flex items-center justify-between">
+              <div>
+                <CardTitle className="text-foreground">Recent sessions</CardTitle>
+                <CardDescription>Latest activity with accuracy and reveal counts.</CardDescription>
+              </div>
+              <Badge variant="outline" className="gap-1">
+                <Clock className="h-3.5 w-3.5" />
+                {data.recentSessions.length} total
+              </Badge>
+            </CardHeader>
+            <CardContent>
+              {data.recentSessions.length === 0 ? (
+                <div className="rounded-lg border border-dashed border-border/70 p-6 text-center text-sm text-muted-foreground">
+                  No sessions yet. Start a knowledge test to see your timeline here.
+                </div>
+              ) : (
+                <ScrollArea className="h-[360px]">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Date</TableHead>
+                        <TableHead>Passage</TableHead>
+                        <TableHead className="text-right">Words</TableHead>
+                        <TableHead className="text-right">Accuracy</TableHead>
+                        <TableHead className="text-right">Status</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {data.recentSessions.map((session) => (
+                        <TableRow key={session.id} className="hover:bg-muted/40">
+                          <TableCell className="whitespace-nowrap text-sm font-medium">{session.date}</TableCell>
+                          <TableCell className="text-sm text-muted-foreground">
+                            Surah {session.surahNumber}:{session.verse}
+                          </TableCell>
+                          <TableCell className="text-right text-sm font-medium">{session.words}</TableCell>
+                          <TableCell className="text-right text-sm font-medium">{session.accuracy}%</TableCell>
+                          <TableCell className="text-right">
+                            <Badge
+                              variant={session.isPerfect ? "default" : "secondary"}
+                              className={cn(
+                                "capitalize",
+                                session.isPerfect ? "bg-primary text-primary-foreground" : "",
+                              )}
+                            >
+                              {session.isPerfect ? "Perfect" : `${session.revealedWords || 0} revealed`}
+                            </Badge>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </ScrollArea>
+              )}
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/70 bg-card/80 shadow-sm">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-foreground">
+                <CheckCircle2 className="h-4 w-4" />
+                Areas to work on
+              </CardTitle>
+              <CardDescription>Prioritize what moves the needle next.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
               {data.areasToWorkOn.map((area, index) => (
-                <div key={index} className="area-detail">
-                  <h4>{area.category}</h4>
-                  <div className="area-items">
-                    {area.items.map((item: string, itemIndex: number) => (
-                      <span key={itemIndex} className="area-tag">
-                        {item}
-                      </span>
-                    ))}
+                <div key={`${area.category}-${index}`} className="rounded-xl border border-border/70 bg-muted/20 p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-semibold">{area.category}</p>
+                      <p className="text-xs text-muted-foreground">{area.items.join(", ")}</p>
+                    </div>
+                    <Badge variant={priorityTone[area.priority]} className="capitalize">
+                      {area.priority}
+                    </Badge>
+                  </div>
+                  <div className="mt-3 space-y-2">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                      <span>Mastery</span>
+                      <span className="font-semibold text-foreground">{area.accuracy}%</span>
+                    </div>
+                    <Progress value={area.accuracy} className="h-2" />
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Recent Activity Card */}
-      <div className="activity-card">
-        <div className="activity-header-static">
-          <div className="activity-left">
-            <Clock className="activity-icon" />
-            <h2 className="activity-title">Recent Sessions</h2>
-          </div>
-        </div>
-
-        <div className="activity-list">
-          {data.recentSessions.map((session) => (
-            <div key={session.id} className="activity-item-expandable">
-              <div className="activity-item-header" onClick={() => toggleSession(session.id)}>
-                <div className="activity-info">
-                  <div className="activity-date">{session.date}</div>
-                  <div className="activity-details">
-                    {session.verses} verses • {session.words} words
-                  </div>
-                </div>
-                <div className="activity-right">
-                  <div className="activity-score">{session.accuracy}%</div>
-                  <div className={`expand-icon-small ${expandedSessions[session.id] ? "expanded" : ""}`}>▼</div>
-                </div>
-              </div>
-
-              {expandedSessions[session.id] && (
-                <div className="session-expanded-content">
-                  <div className="session-stats-grid">
-                    <div className="session-stat">
-                      <span className="stat-label">Surah</span>
-                      <span className="stat-value">{session.surahNumber}</span>
-                    </div>
-                    <div className="session-stat">
-                      <span className="stat-label">Verse</span>
-                      <span className="stat-value">{session.verse}</span>
-                    </div>
-                    <div className="session-stat">
-                      <span className="stat-label">Mistakes</span>
-                      <span className="stat-value">{session.originalSession.inaccurateGuesses}</span>
-                    </div>
-                    <div className="session-stat">
-                      <span className="stat-label">Revealed</span>
-                      <span className="stat-value">{session.revealedWords || 0}</span>
-                    </div>
-                    <div className="session-stat">
-                      <span className="stat-label">Perfect</span>
-                      <span className="stat-value">{session.isPerfect ? "Yes" : "No"}</span>
-                    </div>
-                    <div className="session-stat">
-                      <span className="stat-label">Correct Words</span>
-                      <span className="stat-value">{session.originalSession.correctWords}</span>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile More Stats Button */}
-      <button 
-        className="mobile-sidebar-toggle"
-        onClick={() => setShowMobileSidebar(!showMobileSidebar)}
-      >
-        <BarChart3 className="nav-icon" />
-        <span className="nav-text">{showMobileSidebar ? 'Hide Stats' : 'More Stats'}</span>
-      </button>
-
-      {/* Mobile Sidebar */}
-      {showMobileSidebar && (
-        <div className="mobile-sidebar">
-          {/* Quick Stats Card */}
-          <div className="sidebar-card">
-            <h3 className="sidebar-title">
-              <TrendingUp className="achievement-icon" />
-              Quick Stats
-            </h3>
-            <div className="quick-stats">
-              <div className="quick-stat-item">
-                <span className="quick-stat-label">Today's Sessions</span>
-                <span className="quick-stat-value">{data.recentSessions.filter(s => {
-                  const today = new Date().toDateString()
-                  const sessionDate = new Date(s.originalSession.timestamp).toDateString()
-                  return today === sessionDate
-                }).length}</span>
-              </div>
-              <div className="quick-stat-item">
-                <span className="quick-stat-label">This Week</span>
-                <span className="quick-stat-value">{data.recentSessions.filter(s => {
-                  const weekAgo = new Date()
-                  weekAgo.setDate(weekAgo.getDate() - 7)
-                  return new Date(s.originalSession.timestamp) >= weekAgo
-                }).length}</span>
-              </div>
-              <div className="quick-stat-item">
-                <span className="quick-stat-label">Best Accuracy</span>
-                <span className="quick-stat-value">{Math.max(...data.recentSessions.map(s => s.accuracy), 0)}%</span>
-              </div>
-              <div className="quick-stat-item">
-                <span className="quick-stat-label">Avg. Words/Session</span>
-                <span className="quick-stat-value">{data.recentSessions.length > 0 ? Math.round(data.recentSessions.reduce((sum, s) => sum + s.words, 0) / data.recentSessions.length) : 0}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Achievements Card */}
-          <div className="sidebar-card">
-            <h3 className="sidebar-title">
-              <Trophy className="achievement-icon" />
-              Achievements
-            </h3>
-            <div className="achievement-list">
-              {data.stats.streak >= 7 && (
-                <div className="achievement-item">
-                  <Star className="achievement-icon" />
-                  <span className="achievement-text">7-Day Streak</span>
-                </div>
-              )}
-              {data.stats.perfectVerses >= 10 && (
-                <div className="achievement-item">
-                  <Award className="achievement-icon" />
-                  <span className="achievement-text">10 Perfect Verses</span>
-                </div>
-              )}
-              {data.stats.totalWords >= 100 && (
-                <div className="achievement-item">
-                  <Brain className="achievement-icon" />
-                  <span className="achievement-text">100 Words Learned</span>
-                </div>
-              )}
-              {data.stats.accuracy >= 90 && (
-                <div className="achievement-item">
-                  <Target className="achievement-icon" />
-                  <span className="achievement-text">90% Accuracy</span>
-                </div>
-              )}
-              {data.stats.streak < 7 && data.stats.perfectVerses < 10 && data.stats.totalWords < 100 && data.stats.accuracy < 90 && (
-                <div className="achievement-item">
-                  <Star className="achievement-icon" />
-                  <span className="achievement-text">Keep learning to unlock achievements!</span>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Learning Tips Card */}
-          <div className="sidebar-card">
-            <h3 className="sidebar-title">
-              <BookOpen className="achievement-icon" />
-              Learning Tips
-            </h3>
-            <div className="achievement-list">
-              <div className="achievement-item">
-                <span className="achievement-text">Practice daily for better retention</span>
-              </div>
-              <div className="achievement-item">
-                <span className="achievement-text">Focus on root words to understand patterns</span>
-              </div>
-              <div className="achievement-item">
-                <span className="achievement-text">Use the explorer to dive deeper</span>
-              </div>
-              <div className="achievement-item">
-                <span className="achievement-text">Review missed words regularly</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Desktop Sidebar */}
-      <div className="dashboard-sidebar">
-        {/* Quick Stats Card */}
-        <div className="sidebar-card">
-          <h3 className="sidebar-title">
-            <TrendingUp className="achievement-icon" />
-            Quick Stats
-          </h3>
-          <div className="quick-stats">
-            <div className="quick-stat-item">
-              <span className="quick-stat-label">Today's Sessions</span>
-              <span className="quick-stat-value">{data.recentSessions.filter(s => {
-                const today = new Date().toDateString()
-                const sessionDate = new Date(s.originalSession.timestamp).toDateString()
-                return today === sessionDate
-              }).length}</span>
-            </div>
-            <div className="quick-stat-item">
-              <span className="quick-stat-label">This Week</span>
-              <span className="quick-stat-value">{data.recentSessions.filter(s => {
-                const weekAgo = new Date()
-                weekAgo.setDate(weekAgo.getDate() - 7)
-                return new Date(s.originalSession.timestamp) >= weekAgo
-              }).length}</span>
-            </div>
-            <div className="quick-stat-item">
-              <span className="quick-stat-label">Best Accuracy</span>
-              <span className="quick-stat-value">{Math.max(...data.recentSessions.map(s => s.accuracy), 0)}%</span>
-            </div>
-            <div className="quick-stat-item">
-              <span className="quick-stat-label">Avg. Words/Session</span>
-              <span className="quick-stat-value">{data.recentSessions.length > 0 ? Math.round(data.recentSessions.reduce((sum, s) => sum + s.words, 0) / data.recentSessions.length) : 0}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Achievements Card */}
-        <div className="sidebar-card">
-          <h3 className="sidebar-title">
-            <Trophy className="achievement-icon" />
-            Achievements
-          </h3>
-          <div className="achievement-list">
-            {data.stats.streak >= 7 && (
-              <div className="achievement-item">
-                <Star className="achievement-icon" />
-                <span className="achievement-text">7-Day Streak</span>
-              </div>
-            )}
-            {data.stats.perfectVerses >= 10 && (
-              <div className="achievement-item">
-                <Award className="achievement-icon" />
-                <span className="achievement-text">10 Perfect Verses</span>
-              </div>
-            )}
-            {data.stats.totalWords >= 100 && (
-              <div className="achievement-item">
-                <Brain className="achievement-icon" />
-                <span className="achievement-text">100 Words Learned</span>
-              </div>
-            )}
-            {data.stats.accuracy >= 90 && (
-              <div className="achievement-item">
-                <Target className="achievement-icon" />
-                <span className="achievement-text">90% Accuracy</span>
-              </div>
-            )}
-            {data.stats.streak < 7 && data.stats.perfectVerses < 10 && data.stats.totalWords < 100 && data.stats.accuracy < 90 && (
-              <div className="achievement-item">
-                <Star className="achievement-icon" />
-                <span className="achievement-text">Keep learning to unlock achievements!</span>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Learning Tips Card */}
-        <div className="sidebar-card">
-          <h3 className="sidebar-title">
-            <BookOpen className="achievement-icon" />
-            Learning Tips
-          </h3>
-          <div className="achievement-list">
-            <div className="achievement-item">
-              <span className="achievement-text">Practice daily for better retention</span>
-            </div>
-            <div className="achievement-item">
-              <span className="achievement-text">Focus on root words to understand patterns</span>
-            </div>
-            <div className="achievement-item">
-              <span className="achievement-text">Use the explorer to dive deeper</span>
-            </div>
-            <div className="achievement-item">
-              <span className="achievement-text">Review missed words regularly</span>
-            </div>
-          </div>
-      </div>
-      </div>
-
+            </CardContent>
+          </Card>
+        </section>
+      </main>
     </div>
   )
 }
-
