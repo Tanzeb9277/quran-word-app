@@ -222,6 +222,33 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
               </button>
             </div>
           </div>
+
+          {/* Correct Answer with Highlights */}
+          {verseData?.words?.length > 0 && (
+            <div className="mt-4 bg-gray-50 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-lg p-3 sm:p-4">
+              <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                Correct answer (highlighted where you were corrected)
+              </h4>
+              <div className="flex flex-wrap gap-2 text-base sm:text-lg leading-relaxed">
+                {verseData.words.map((word, idx) => {
+                  const result = submissionResults?.wordResults?.find((w) => w.index === idx)
+                  const needsHighlight = result && (!result.isCorrect || result.wasRevealed)
+                  return (
+                    <span
+                      key={idx}
+                      className={`px-1 rounded ${
+                        needsHighlight
+                          ? 'bg-yellow-200 text-yellow-900 dark:bg-yellow-500/30 dark:text-yellow-50 underline'
+                          : 'bg-transparent text-gray-900 dark:text-gray-100'
+                      }`}
+                    >
+                      {word.translation}
+                    </span>
+                  )
+                })}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -504,21 +531,6 @@ export default function VerseViewer({ verseData, onRefresh, selectedWords = [], 
           </div>
         </div>
         
-        {/* Show correct answers for incorrect submissions */}
-        {submissionResults && (
-          <div className="mt-4 p-3 bg-gray-50 rounded-lg">
-            <div className="text-sm font-medium text-gray-700 mb-2">Correct answers for incorrect words:</div>
-            <div className="flex flex-wrap gap-2">
-              {submissionResults.wordResults
-                .filter(result => !result.isCorrect && !result.wasRevealed)
-                .map((result, idx) => (
-                  <span key={idx} className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">
-                    Word {result.index + 1}: {result.correctWord}
-                  </span>
-                ))}
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Detailed Word Information */}
