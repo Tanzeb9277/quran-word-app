@@ -22,7 +22,6 @@ import {
   AlignJustify,
   BookOpenCheck,
   Brain,
-  Tag,
   Menu
 } from 'lucide-react'
 import { Switch } from '@/components/ui/switch'
@@ -31,14 +30,12 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 const navLinks = [
   { href: '/', label: 'Dashboard', icon: Home },
   { href: '/game', label: 'Knowledge Test', icon: Brain },
-  { href: '/explorer', label: 'Explorer', icon: Search },
-  { href: '/admin/tafsir-topics', label: 'Tafsir Topics', icon: Tag },
+  { href: '/learn', label: 'Learn', icon: BookOpen },
 ]
 
 export default function ExplorerHome() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const filteredNavLinks = navLinks.filter((link) => link.href !== '/explorer')
   const [surahs, setSurahs] = useState([])
   const [selectedSurah, setSelectedSurah] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
@@ -185,7 +182,7 @@ export default function ExplorerHome() {
                   <SheetTitle>Navigate</SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-1 flex-col gap-3">
-                  {filteredNavLinks.map((link) => (
+                  {navLinks.map((link) => (
                     <Button key={link.href} asChild variant="outline" className="justify-start">
                       <Link href={link.href}>
                         <link.icon className="mr-2 h-4 w-4" />
@@ -211,7 +208,7 @@ export default function ExplorerHome() {
           </div>
 
           <div className="hidden items-center gap-2 md:flex">
-            {filteredNavLinks.map((link) => (
+            {navLinks.map((link) => (
               <Button key={link.href} asChild variant="ghost" className="text-sm">
                 <Link href={link.href} className="flex items-center gap-2">
                   <link.icon className="h-4 w-4" />

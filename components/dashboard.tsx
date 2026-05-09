@@ -11,13 +11,12 @@ import {
   Brain,
   CheckCircle2,
   Flame,
+  Home,
   Menu,
-  Search,
   Sparkles,
   Target,
-  Trophy,
   Clock,
-  Tag,
+  Trophy,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -92,9 +91,9 @@ interface DashboardData {
 }
 
 const navLinks = [
+  { href: "/", label: "Dashboard", icon: Home },
   { href: "/game", label: "Knowledge Test", icon: Brain },
-  { href: "/explorer", label: "Explorer", icon: Search },
-  { href: "/admin/tafsir-topics", label: "Tafsir Topics", icon: Tag },
+  { href: "/learn", label: "Learn", icon: BookOpen },
 ]
 
 const priorityTone: Record<string, "destructive" | "secondary" | "outline"> = {

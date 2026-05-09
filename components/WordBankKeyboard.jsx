@@ -1,13 +1,14 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Eye, RotateCcw, Shuffle, Trash2, CheckCircle, Hash } from "lucide-react"
 
-export default function WordBankKeyboard({ 
-  words, 
-  usedWords, 
-  onWordSelect, 
+export default function WordBankKeyboard({
+  words,
+  usedWords,
+  onWordSelect,
   onRevealNext,
   onClearAll,
   onShowUsedWords,
@@ -17,7 +18,11 @@ export default function WordBankKeyboard({
   selectedWords = [],
   revealedWords = new Set(),
   verseData = null,
-  submissionResults = null
+  submissionResults = null,
+  activeHint = null,
+  onDismissHint,
+  currentWordHintCount = 0,
+  currentWordTotalHints = 0
 }) {
   const [flashingWords, setFlashingWords] = useState(new Set())
 
@@ -150,17 +155,22 @@ export default function WordBankKeyboard({
         </div>
         {/* Toolbar */}
         <div className="flex justify-center items-center gap-2 mb-3 pb-2 border-b border-gray-100">
-          {/* Reveal Next Word */}
+          {/* Progressive Hint / Reveal */}
           <Button
             onClick={onRevealNext}
             disabled={!canRevealNext || isSubmitted}
             variant="outline"
             size="sm"
             className="text-xs h-7 px-2 flex items-center gap-1 bg-purple-100 text-purple-700 border-purple-300 hover:bg-purple-200 disabled:bg-gray-100 disabled:text-gray-400"
-            title={isSubmitted ? "Game completed" : "Reveal next word"}
           >
             <Eye className="w-3 h-3" />
-            <span className="hidden sm:inline">Reveal Next</span>
+            <span className="hidden sm:inline">
+              {currentWordHintCount >= currentWordTotalHints - 1
+                ? 'Reveal'
+                : currentWordHintCount === 0
+                  ? 'Get Hint'
+                  : `Hint ${currentWordHintCount + 1}/${currentWordTotalHints - 1}`}
+            </span>
           </Button>
 
           {/* Clear All */}
@@ -190,6 +200,38 @@ export default function WordBankKeyboard({
             <span className="sm:hidden">{usedWords.length}</span>
           </Button>
         </div>
+
+        {/* Active Hint Card */}
+        {activeHint && (
+          <div className="mb-3 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg relative">
+            <button
+              onClick={onDismissHint}
+              className="absolute top-2 right-2 text-amber-400 hover:text-amber-600 text-xs"
+            >✕</button>
+            <div className="flex items-center gap-2 mb-1">
+              <span>{activeHint.icon}</span>
+              <span className="text-xs font-semibold text-amber-800 dark:text-amber-200">
+                {activeHint.title}
+              </span>
+            </div>
+            <p className="text-sm text-amber-900 dark:text-amber-100 pr-4">
+              {activeHint.text}
+            </p>
+            {activeHint.explanation && (
+              <p className="text-sm text-amber-700 dark:text-amber-300 mt-1 pr-4">
+                {activeHint.explanation}
+              </p>
+            )}
+            {activeHint.learnConstruction && (
+              <Link
+                href={`/learn/${encodeURIComponent(activeHint.learnConstruction)}`}
+                className="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 dark:text-amber-400 hover:underline font-medium"
+              >
+                → Learn about {activeHint.learnConstruction}
+              </Link>
+            )}
+          </div>
+        )}
 
         {/* Keyboard Keys - Centered with even spacing */}
         <div className="flex flex-wrap justify-center items-center gap-3 mb-4">

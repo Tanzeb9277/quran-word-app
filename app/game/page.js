@@ -13,8 +13,8 @@ import knowledgeTestStatsStore from "@/lib/game-stats"
 
 const navLinks = [
   { href: "/", label: "Dashboard", icon: Home },
-  { href: "/explorer", label: "Explorer", icon: Search },
-  { href: "/admin/tafsir-topics", label: "Tafsir Topics", icon: Tag },
+  { href: "/game", label: "Knowledge Test", icon: Brain },
+  { href: "/learn", label: "Learn", icon: Book },
 ]
 
 export default function GamePage() {
@@ -24,6 +24,7 @@ export default function GamePage() {
   const [wordBank, setWordBank] = useState([])
   const [selectedWords, setSelectedWords] = useState([])
   const [verseLengthFilter, setVerseLengthFilter] = useState('all')
+  const [difficulty, setDifficulty] = useState('medium')
   const [submissionResults, setSubmissionResults] = useState(null)
   const [showDetailedInfo, setShowDetailedInfo] = useState(false)
   const [revealedWords, setRevealedWords] = useState(new Set())
@@ -33,6 +34,10 @@ export default function GamePage() {
   // New state for individual word banks
   const [individualWordBanks, setIndividualWordBanks] = useState([])
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
+
+  // Progressive hint system state
+  const [wordHints, setWordHints] = useState({})
+  const [activeHint, setActiveHint] = useState(null)
   
   // Surah selection and progression state
   const [gameMode, setGameMode] = useState('random') // 'random' or 'surah'
@@ -192,6 +197,8 @@ export default function GamePage() {
     setSubmissionResults(null)
     setShowDetailedInfo(false)
     setRevealedWords(new Set())
+    setWordHints({})
+    setActiveHint(null)
 
     try {
       const response = await fetch('/api/words/random-verse', {
@@ -306,13 +313,114 @@ export default function GamePage() {
     }
   }
 
+  const fetchSmartVerse = async () => {
+    setLoading(true)
+    setError(null)
+    setWordBank([])
+    setSelectedWords([])
+    setSubmissionResults(null)
+    setShowDetailedInfo(false)
+    setRevealedWords(new Set())
+    setWordHints({})
+    setActiveHint(null)
+
+    try {
+      const rootExposure = knowledgeTestStatsStore.getRootExposure()
+      const excludeVerses = knowledgeTestStatsStore.getExcludedVerses(20)
+      const response = await fetch('/api/words/smart-verse', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          difficulty,
+          rootExposure,
+          lengthFilter: verseLengthFilter,
+          excludeVerses
+        })
+      })
+      const result = await response.json()
+
+      if (result.success) {
+        setVerseData(result.data)
+        if (result.data.words && result.data.words.length > 0) {
+          const verseLength = getVerseLength(result.data.words)
+
+          if (verseLength === 'short') {
+            const verseTranslations = result.data.words.map(word => ({
+              translation: word.translation,
+              cleanTranslation: cleanWord(word.translation),
+              transliteration: word.transliteration,
+              originalWord: word
+            }))
+
+            const RandomSelectedWords = getRandomWords(result.data.words, 3)
+            const distractors = []
+            const existingTranslations = verseTranslations.map(vt => vt.cleanTranslation)
+
+            for (const selectedWord of RandomSelectedWords) {
+              const distractor = await generateDistractor(selectedWord, existingTranslations)
+              if (distractor) {
+                distractors.push({
+                  translation: distractor.translation,
+                  cleanTranslation: cleanWord(distractor.translation),
+                  transliteration: distractor.transliteration,
+                  originalWord: distractor
+                })
+              }
+            }
+
+            const verseTranslationSet = new Set(verseTranslations.map(vt => vt.cleanTranslation))
+            const uniqueDistractors = distractors.filter(d => !verseTranslationSet.has(d.cleanTranslation))
+
+            const finalWordBank = shuffleArray([...verseTranslations, ...uniqueDistractors])
+            setWordBank(finalWordBank)
+            setSelectedWords(new Array(verseTranslations.length).fill(null))
+            setUsedWords([])
+            setIndividualWordBanks([])
+            setCurrentWordIndex(0)
+          } else {
+            const individualWordBanks = []
+
+            for (let i = 0; i < result.data.words.length; i++) {
+              const word = result.data.words[i]
+              const wordBank = await generateIndividualWordBank(word, result.data.words)
+              if (wordBank) {
+                const formattedWordBank = wordBank.map(wb => ({
+                  translation: wb.translation,
+                  cleanTranslation: cleanWord(wb.translation),
+                  transliteration: wb.transliteration,
+                  originalWord: wb,
+                  isCorrect: wb.isCorrect,
+                  wordIndex: i
+                }))
+                individualWordBanks.push(formattedWordBank)
+              }
+            }
+
+            setIndividualWordBanks(individualWordBanks)
+            setCurrentWordIndex(0)
+            setWordBank(individualWordBanks[0] || [])
+            setSelectedWords(new Array(result.data.words.length).fill(null))
+            setUsedWords([])
+          }
+        }
+      } else {
+        setError(result.error || 'Failed to fetch verse')
+      }
+    } catch (err) {
+      setError('Network error occurred')
+      console.error('Network error:', err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   useEffect(() => {
-    fetchRandomVerse()
+    fetchSmartVerse()
   }, [])
 
   useEffect(() => {
     if (verseData) {
-      fetchRandomVerse()
+      fetchSmartVerse()
     }
   }, [verseLengthFilter])
 
@@ -349,6 +457,8 @@ export default function GamePage() {
     setRevealedWords(new Set())
     setUsedWords([])
     setWordBank([])
+    setWordHints({})
+    setActiveHint(null)
 
     try {
       // Find the specific verse in the surah data
@@ -487,7 +597,7 @@ export default function GamePage() {
     setSurahVerses([])
     setIndividualWordBanks([])
     setCurrentWordIndex(0)
-    fetchRandomVerse()
+    fetchSmartVerse()
   }
 
   const handleNewVerse = () => {
@@ -498,9 +608,10 @@ export default function GamePage() {
     setUsedWords([])
     setIndividualWordBanks([])
     setCurrentWordIndex(0)
-    
-    // Fetch a new random verse
-    fetchRandomVerse()
+    setWordHints({})
+    setActiveHint(null)
+
+    fetchSmartVerse()
   }
 
   const handleSlotClick = (index, word) => {
@@ -511,6 +622,7 @@ export default function GamePage() {
 
 
   const handleWordSelect = (word, clearAll = false, submit = false) => {
+    setActiveHint(null)
     if (submit) {
       // Check if all words are filled (either selected by user or revealed)
       const isComplete = selectedWords.every((word, index) => word !== null || revealedWords.has(index))
@@ -775,6 +887,40 @@ export default function GamePage() {
   }
 
 
+  const handleHintNext = () => {
+    // Find the current word index (first unfilled, unrevealed slot)
+    const currentIndex = selectedWords.findIndex(
+      (word, i) => !word && !revealedWords.has(i)
+    )
+    if (currentIndex === -1) return
+
+    const currentWord = verseData?.words?.[currentIndex]
+    if (!currentWord) return
+
+    const hints = generateHintsForWord(currentWord)
+    const hintsUsed = wordHints[currentIndex] || 0
+
+    if (hintsUsed >= hints.length - 1) {
+      // All hints exhausted — do full reveal (existing behavior)
+      setActiveHint(null)
+      setWordHints(prev => ({ ...prev, [currentIndex]: hints.length }))
+      handleRevealNext()
+    } else {
+      // Show next hint
+      const hint = hints[hintsUsed]
+      if (hint.text === null) {
+        // This hint IS the reveal
+        setActiveHint(null)
+        setWordHints(prev => ({ ...prev, [currentIndex]: hints.length }))
+        handleRevealNext()
+      } else {
+        setActiveHint({ wordIndex: currentIndex, ...hint })
+        setWordHints(prev => ({ ...prev, [currentIndex]: hintsUsed + 1 }))
+      }
+    }
+  }
+
+
   const handleClearAll = () => {
     // Only clear user-selected words, keep revealed words
     const newSelectedWords = [...selectedWords]
@@ -801,6 +947,110 @@ export default function GamePage() {
       }
     }
     // For short verses, word bank remains unchanged (original behavior)
+  }
+
+
+  const GRAMMAR_EXPLANATIONS = {
+    'حرف عطف': 'It connects two words or phrases — like "and" or "then" in English.',
+    'فعل ماض': 'A past tense verb — describes a completed action.',
+    'فعل مضارع': 'A present or future tense verb — describes ongoing or upcoming action.',
+    'فعل أمر': 'A command form — it tells someone to do something.',
+    'اسم مرفوع': 'A noun in subject position — it is the one performing the action.',
+    'اسم منصوب': 'A noun in object position — it receives the action.',
+    'اسم مجرور': 'A noun in genitive case — usually follows a preposition.',
+    'جار ومجرور': 'A prepositional phrase — a preposition paired with its noun.',
+    'اسم موصول': 'A relative pronoun — like "who", "which", or "that" in English.',
+    'اسم اشارة': 'A demonstrative pronoun — like "this" or "that" in English.',
+    'ضمير منفصل': 'An independent pronoun — like "he", "she", "they", "you".',
+    'حرف نفي': 'A negation particle — it makes the following verb or sentence negative.',
+    'حرف شرط': 'A conditional particle — introduces "if" or "when" clauses.',
+    'حرف جر': 'A preposition — governs the following noun and puts it in genitive case.',
+    'صفة مرفوعة': 'An adjective agreeing with a nominative noun.',
+    'صفة منصوبة': 'An adjective agreeing with an accusative noun.',
+    'صفة مجرورة': 'An adjective agreeing with a genitive noun.',
+  }
+
+  const GRAMMAR_TO_CONSTRUCTION = {
+    'حرف عطف': 'حرف عطف',
+    'فعل ماض': 'فعل ماض',
+    'فعل مضارع': 'فعل مضارع',
+    'فعل أمر': 'فعل أمر',
+    'اسم مرفوع': 'اسم مرفوع',
+    'اسم منصوب': 'اسم منصوب',
+    'اسم مجرور': 'اسم مجرور',
+    'جار ومجرور': 'جار ومجرور',
+    'اسم موصول': 'اسم موصول',
+    'اسم اشارة': 'اسم اشارة',
+    'ضمير منفصل': 'ضمير منفصل',
+    'حرف نفي': 'حرف نفي',
+    'حرف شرط': 'حرف شرط',
+  }
+
+  function matchGrammarKey(grammarStr, lookup) {
+    if (!grammarStr) return null
+    return Object.keys(lookup)
+      .filter(key => grammarStr.startsWith(key))
+      .sort((a, b) => b.length - a.length)[0] || null
+  }
+
+  function generateHintsForWord(word) {
+    const hints = []
+    // Normalize tags — may arrive as a JSON string, array, or null depending on route
+    let tags = word.tags || []
+    if (typeof tags === 'string') {
+      try { tags = JSON.parse(tags) } catch { tags = [] }
+    }
+    if (!Array.isArray(tags)) tags = []
+    const grammar = word.grammar || ''
+    const grammarParts = grammar.split('\n').map(g => g.trim()).filter(Boolean)
+    const posLabels = { V: 'verb (فعل)', N: 'noun (اسم)', P: 'preposition (حرف جر)',
+                        ADJ: 'adjective (صفة)', PRON: 'pronoun (ضمير)',
+                        CONJ: 'conjunction (حرف عطف)', REL: 'relative pronoun (اسم موصول)',
+                        NEG: 'negation particle (حرف نفي)', REM: 'resumption particle' }
+
+    // Hint 1 — part of speech
+    const primaryTag = tags.find(t => posLabels[t.tag])
+    const matchedGrammar = grammarParts
+      .map(g => matchGrammarKey(g, GRAMMAR_EXPLANATIONS))
+      .find(Boolean)
+    const matchedConstruction = grammarParts
+      .map(g => matchGrammarKey(g, GRAMMAR_TO_CONSTRUCTION))
+      .find(Boolean)
+    if (primaryTag) hints.push({
+      icon: '📖',
+      title: 'Part of speech',
+      text: `This word is a ${posLabels[primaryTag.tag]}.`,
+      explanation: matchedGrammar ? GRAMMAR_EXPLANATIONS[matchedGrammar] : null,
+      learnConstruction: matchedConstruction ? GRAMMAR_TO_CONSTRUCTION[matchedConstruction] : null,
+    })
+
+    // Hint 2 — morphological detail
+    const detailTag = tags.find(t => t.description && t.description.length > 10)
+    if (detailTag) hints.push({
+      icon: '🔍', title: 'Word form',
+      text: detailTag.description.charAt(0).toUpperCase() + detailTag.description.slice(1) + '.'
+    })
+
+    // Hint 3 — prefix clue
+    const prefixPart = grammarParts.find(g =>
+      g.includes('عاطفة') || g.includes('استئنافية') || g.includes('الفاء') ||
+      g.includes('الواو') || g.includes('جار') || g.includes('حرف جر')
+    )
+    if (prefixPart) hints.push({
+      icon: '🔗', title: 'Has a prefix',
+      text: `This word carries a prefix (${prefixPart}). The core word begins after it.`
+    })
+
+    // Hint 4 — root clue
+    if (word.root_arabic) hints.push({
+      icon: '🌱', title: 'Root letters',
+      text: `The root is ${word.root_arabic}${word.root_latin ? ' (' + word.root_latin + ')' : ''}. Think of words you know from this root family.`
+    })
+
+    // Final — full reveal signal
+    hints.push({ icon: '👁', title: 'Reveal word', text: null })
+
+    return hints
   }
 
 
@@ -958,6 +1208,37 @@ export default function GamePage() {
               </div>
             )}
 
+            {/* Difficulty Selector (only show in random mode) */}
+            {gameMode === 'random' && (
+              <div className="flex flex-col sm:flex-row items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-gray-500" />
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Difficulty:</span>
+                </div>
+                <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+                  {[
+                    { value: 'easy',   label: 'Easy',   color: 'bg-green-200 dark:bg-green-700',  desc: 'Familiar words' },
+                    { value: 'medium', label: 'Medium', color: 'bg-yellow-200 dark:bg-yellow-700', desc: 'Mixed' },
+                    { value: 'hard',   label: 'Hard',   color: 'bg-red-200 dark:bg-red-700',       desc: 'New vocabulary' }
+                  ].map((d) => (
+                    <button
+                      key={d.value}
+                      onClick={() => setDifficulty(d.value)}
+                      title={d.desc}
+                      className={`flex flex-col items-center px-3 py-1.5 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${
+                        difficulty === d.value
+                          ? `${d.color} text-gray-900 dark:text-gray-100 shadow-sm`
+                          : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700'
+                      }`}
+                    >
+                      <span>{d.label}</span>
+                      <span className="hidden sm:block text-xs opacity-70 font-normal">{d.desc}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* New Verse Button (only show in random mode) */}
             {gameMode === 'random' && (
               <div className="flex flex-col sm:flex-row items-center gap-3">
@@ -1051,7 +1332,7 @@ export default function GamePage() {
             </div>
             <h3 className="text-lg font-semibold text-red-900 dark:text-red-100 mb-2">Oops! Something went wrong</h3>
             <p className="text-red-700 dark:text-red-300 mb-4">{error}</p>
-            <Button onClick={fetchRandomVerse} className="bg-red-600 hover:bg-red-700 text-white" variant="outline">
+            <Button onClick={fetchSmartVerse} className="bg-red-600 hover:bg-red-700 text-white" variant="outline">
               Try Again
             </Button>
           </div>
@@ -1064,7 +1345,7 @@ export default function GamePage() {
           onRefresh={
             gameMode === 'surah'
               ? () => fetchSpecificVerse(selectedSurah?.surah_number, currentVerse, surahVerses)
-              : fetchRandomVerse
+              : fetchSmartVerse
           }
           selectedWords={selectedWords}
           onWordSelect={handleSlotClick}
@@ -1101,7 +1382,7 @@ export default function GamePage() {
                 words={wordBank}
                 usedWords={usedWords}
                 onWordSelect={handleWordSelect}
-                onRevealNext={handleRevealNext}
+                onRevealNext={handleHintNext}
                 onClearAll={handleClearAll}
                 onShowUsedWords={() => {}}
                 canRevealNext={
@@ -1113,6 +1394,13 @@ export default function GamePage() {
                 revealedWords={revealedWords}
                 verseData={verseData}
                 submissionResults={submissionResults}
+                activeHint={activeHint}
+                onDismissHint={() => setActiveHint(null)}
+                currentWordHintCount={wordHints[selectedWords.findIndex((w, i) => !w && !revealedWords.has(i))] || 0}
+                currentWordTotalHints={(() => {
+                  const i = selectedWords.findIndex((w, idx) => !w && !revealedWords.has(idx))
+                  return i === -1 ? 0 : generateHintsForWord(verseData?.words?.[i] || {}).length
+                })()}
               />
             </div>
           )}

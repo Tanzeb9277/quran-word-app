@@ -25,6 +25,19 @@ export default function ThemeToggle() {
 
   const toggleTheme = () => setTheme(isDark ? "light" : "dark")
 
+  if (!mounted) {
+    return (
+      <Button
+        variant="ghost"
+        size="icon"
+        className="relative h-10 w-10 rounded-full border border-border/60 bg-card/70"
+      >
+        <Monitor className="h-4 w-4 text-muted-foreground opacity-40" />
+        <span className="sr-only">Toggle theme</span>
+      </Button>
+    )
+  }
+
   return (
     <TooltipProvider>
       <Tooltip>
@@ -42,9 +55,6 @@ export default function ThemeToggle() {
             <Moon
               className={`absolute h-4 w-4 rotate-90 scale-0 transition-all ${isDark ? "rotate-0 scale-100" : ""}`}
             />
-            {!mounted && (
-              <Monitor className="absolute h-4 w-4 text-muted-foreground opacity-40" />
-            )}
             <span className="sr-only">Toggle theme</span>
           </Button>
         </TooltipTrigger>

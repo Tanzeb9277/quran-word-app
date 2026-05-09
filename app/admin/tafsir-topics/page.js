@@ -6,15 +6,14 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Tag, Edit, Trash2, Loader2, Search, Filter, Menu, Home, Brain } from 'lucide-react'
+import { ArrowLeft, Tag, Edit, Trash2, Loader2, Search, Filter, Menu, Home, Brain, BookOpen } from 'lucide-react'
 import ThemeToggle from '@/components/ThemeToggle'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 
 const navLinks = [
   { href: '/', label: 'Dashboard', icon: Home },
   { href: '/game', label: 'Knowledge Test', icon: Brain },
-  { href: '/explorer', label: 'Explorer', icon: Search },
-  { href: '/admin/tafsir-topics', label: 'Tafsir Topics', icon: Tag },
+  { href: '/learn', label: 'Learn', icon: BookOpen },
 ]
 
 export default function TafsirTopicsManagementPage() {
@@ -27,7 +26,6 @@ export default function TafsirTopicsManagementPage() {
   const [selectedTopicFilter, setSelectedTopicFilter] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
   const router = useRouter()
-  const filteredNavLinks = navLinks.filter((link) => link.href !== '/admin/tafsir-topics')
 
   useEffect(() => {
     fetchData()
@@ -159,7 +157,7 @@ export default function TafsirTopicsManagementPage() {
                 <SheetTitle>Navigate</SheetTitle>
               </SheetHeader>
               <div className="flex flex-1 flex-col gap-3">
-                {filteredNavLinks.map((link) => (
+                {navLinks.map((link) => (
                   <Button key={link.href} asChild variant="outline" className="justify-start">
                     <Link href={link.href}>
                       <link.icon className="mr-2 h-4 w-4" />
@@ -185,7 +183,7 @@ export default function TafsirTopicsManagementPage() {
         </div>
 
         <div className="hidden items-center gap-2 md:flex">
-          {filteredNavLinks.map((link) => (
+          {navLinks.map((link) => (
             <Button key={link.href} asChild variant="ghost" className="text-sm">
               <Link href={link.href} className="flex items-center gap-2">
                 <link.icon className="h-4 w-4" />
