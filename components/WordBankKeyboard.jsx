@@ -55,15 +55,38 @@ export default function WordBankKeyboard({
         <div className="mb-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-semibold text-gray-700">
-              Progress
+              {isSubmitted ? 'Results' : 'Progress'}
             </h3>
-            <div className="text-xs text-gray-500">
-              {selectedWords.filter(word => word).length} selected, {revealedWords.size} revealed
-            </div>
+            {!isSubmitted && (
+              <div className="text-xs text-gray-500">
+                {selectedWords.filter(word => word).length} selected, {revealedWords.size} revealed
+              </div>
+            )}
           </div>
-          
+
           <div className="bg-white rounded border border-gray-300 p-4 min-h-[80px] max-h-[150px] sm:max-h-[180px] overflow-y-auto">
-            {selectedWords.some(word => word) || revealedWords.size > 0 ? (
+            {isSubmitted && submissionResults?.wordResults ? (
+              <div className="text-sm leading-relaxed break-words">
+                {submissionResults.wordResults.map((result, idx) => {
+                  if (result.isCorrect || result.wasRevealed) {
+                    return (
+                      <span key={idx} className="text-green-700 mx-0.5">
+                        {result.correctWord}
+                      </span>
+                    )
+                  }
+                  return (
+                    <span
+                      key={idx}
+                      className="inline-flex flex-col items-start mx-1 my-0.5 rounded border border-red-200 bg-red-50 px-1.5 py-0.5 text-xs leading-tight"
+                    >
+                      <span className="text-red-600 line-through">{result.selectedWord}</span>
+                      <span className="text-green-700 font-medium">{result.correctWord}</span>
+                    </span>
+                  )
+                })}
+              </div>
+            ) : selectedWords.some(word => word) || revealedWords.size > 0 ? (
               <div className="text-sm text-gray-800 leading-relaxed">
                 {/* Selected Words */}
                 {selectedWords.some(word => word) && (

@@ -971,19 +971,24 @@ export default function GamePage() {
   }
 
   const GRAMMAR_TO_CONSTRUCTION = {
-    'حرف عطف': 'حرف عطف',
-    'فعل ماض': 'فعل ماض',
-    'فعل مضارع': 'فعل مضارع',
-    'فعل أمر': 'فعل أمر',
-    'اسم مرفوع': 'اسم مرفوع',
-    'اسم منصوب': 'اسم منصوب',
-    'اسم مجرور': 'اسم مجرور',
-    'جار ومجرور': 'جار ومجرور',
-    'اسم موصول': 'اسم موصول',
-    'اسم اشارة': 'اسم اشارة',
-    'ضمير منفصل': 'ضمير منفصل',
-    'حرف نفي': 'حرف نفي',
-    'حرف شرط': 'حرف شرط',
+    'اسم اشارة':  'demonstrative-pronoun',
+    'اسم مرفوع':  'nominative-noun',
+    'حرف عطف':    'coordinating-conjunction',
+    'جار ومجرور': 'prepositional-phrase',
+    'اسم مجرور':  'genitive-noun',
+    'ضمير منفصل': 'independent-personal-pronoun',
+    'فعل ماض':    'perfect-past-verb',
+    'بالاضافة':   'possessive-construction',
+    'صفة مرفوعة': 'nominative-adjective',
+    'صفة مجرورة': 'genitive-adjective',
+    'اسم موصول':  'relative-pronoun',
+    'حرف نفي':    'negation-particle',
+    'اسم منصوب':  'accusative-noun',
+    'صفة منصوبة': 'accusative-adjective',
+    'فعل مضارع':  'imperfect-present-future-verb',
+    'فعل أمر':    'imperative-verb',
+    'حرف شرط':    'conditional-particle',
+    'حرف جر':     'prepositional-phrase',
   }
 
   function matchGrammarKey(grammarStr, lookup) {
